@@ -1,12 +1,14 @@
-import React from 'react'
-import Link from 'next/link'
-import Head from '../components/head'
-import Nav from '../components/nav'
+import React from "react";
+import Link from "next/link";
+import Head from "../components/head";
+import Nav from "../components/nav";
+import ServiceCards from "../components/page/Home/Servicecards";
 
 const Home = () => (
   <div>
     <Head title="Home" />
     <Nav />
+    <ServiceCards />
 
     <div className="hero">
       <h1 className="title">Welcome to Next!</h1>
@@ -15,17 +17,11 @@ const Home = () => (
       </p>
 
       <div className="row">
-        <Link href="https://github.com/zeit/next.js#getting-started">
-          <a className="card">
-            <h3>Getting Started &rarr;</h3>
-            <p>Learn more about Next on Github and in their examples</p>
-          </a>
-        </Link>
         <Link href="https://open.segment.com/create-next-app">
           <a className="card">
             <h3>Examples &rarr;</h3>
             <p>
-              Find other example boilerplates on the{' '}
+              Find other example boilerplates on the{" "}
               <code>create-next-app</code> site
             </p>
           </a>
@@ -86,6 +82,6 @@ const Home = () => (
       }
     `}</style>
   </div>
-)
+);
 
-export default Home
+export default Home;
