@@ -15,6 +15,7 @@ const links = [
   return link;
 });
 const NavWrapper = styled.div`
+  font-family: "Montserrat", sans-serif;
   :global(body) {
     margin: 0;
   }
