@@ -1,59 +1,58 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
+import styled from "styled-components";
 
 const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
+  { href: "/", label: "Home" },
+  { href: "/store", label: "Store" },
+  { href: "/Service&Repairs", label: "Services & Repairs" },
+  { href: "/Rental", label: "Rental" },
+  { href: "/About", label: "About" },
+  { href: "/Blog", label: "Blog" },
+  { href: "/Contact", label: "Contact Us" }
 ].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
+const NavWrapper = styled.div`
+  :global(body) {
+    margin: 0;
+  }
+  nav {
+    text-align: center;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+  nav > ul {
+  }
+  li {
+    display: flex;
+    padding: 25px 10px;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  ul li a:hover {
+    color: #f7bb2f;
+  }
+`;
 
 const Nav = () => (
-  <nav>
+  <NavWrapper>
     <ul>
-      <li>
-        <Link prefetch href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <ul>
-        {links.map(({ key, href, label }) => (
-          <li key={key}>
-            <Link href={href}>
-              <a>{label}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {links.map(({ key, href, label }) => (
+        <li key={key}>
+          <Link href={href}>
+            <a>{label}</a>
+          </Link>
+        </li>
+      ))}
     </ul>
+  </NavWrapper>
+);
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
-
-export default Nav
+export default Nav;
