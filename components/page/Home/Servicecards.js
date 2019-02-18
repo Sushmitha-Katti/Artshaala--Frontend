@@ -1,30 +1,34 @@
 import React, { Component } from "react";
-import Card from "./styles";
-import Link from "next/link";
+import ServiceCard from "./Servicecard";
+import styled, { keyframes } from "styled-components";
+
+const CardWrapper = styled.div`
+  display: flex;
+  margin: 3rem;
+  justify-content: space-between;
+`;
 
 import musicstore from "./musicstore.png";
 
 class ServiceCards extends Component {
   render() {
-    return (
-      <Card>
-        <div className="cardhover">
-          <div className="image">
-            <img alt="IMAGE" src={musicstore} />
-          </div>
-          <div className="title">
-            <h4>Music Store</h4>
-          </div>
-          <div className="button">
-            <Link href="/">
-              <a>
-                <h3 className="alink">Explore</h3>
-              </a>
-            </Link>
-          </div>
-        </div>
-      </Card>
-    );
+    let Cards = [
+      { title: "Music Store", img: " " },
+      { title: "Service & Repairs", img: " " },
+      { title: "Rentals", img: " " },
+      { title: "Mega Sale", img: " " }
+    ].map(card => {
+      card.key = `{card.title}`;
+      return card;
+    });
+
+    let Cardslist = Cards.map(card => (
+      <div className="gridview">
+        {" "}
+        <ServiceCard Cardcontent={card} />
+      </div>
+    ));
+    return <CardWrapper>{Cardslist}</CardWrapper>;
   }
 }
 

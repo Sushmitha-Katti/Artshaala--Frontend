@@ -2,8 +2,8 @@ import styled, { keyframes } from "styled-components";
 
 const Card = styled.div`
   .cardhover {
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
     background: #ccc;
     position: relative;
     text-align: center;
@@ -12,21 +12,20 @@ const Card = styled.div`
   }
   /* Explore More*/
   .button {
-    .alink {
-      background: black;
-      height: 20px;
-      width: 7rem;
-      padding: 10px 10px;
-      text-decoration: none;
-      text-align: center;
-      position: absolute;
-      bottom: 20%;
-      left: 27%;
-      color: white;
-      visibility: hidden;
-      opacity: 1;
-    }
+    background: black;
+    height: 20px;
+    width: 7rem;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    position: absolute;
+    bottom: 20%;
+    left: 27%;
+    color: white;
+    visibility: hidden;
+    opacity: 1;
   }
+
   /* for title */
   .title {
     position: absolute;
@@ -35,15 +34,20 @@ const Card = styled.div`
     font-size: 1.5rem;
     color: white;
   }
+
+  .image img {
+    height: 18rem;
+    width: 18rem;
+  }
   /*On Hovering card Color Changes*/
   .cardhover:hover {
     opacity: 0.7;
     background: #f7bb2f;
   }
 
-  .cardhover:hover .alink {
+  .cardhover:hover .button {
     visibility: visible;
-    transition-delay: 0.1s;
+    transition: 0.1s ease-out;
   }
 `;
 

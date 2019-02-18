@@ -14,6 +14,20 @@ const links = [
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
 });
+
+const Nav = () => (
+  <NavWrapper>
+    <ul>
+      {links.map(({ key, href, label }) => (
+        <li key={key}>
+          <Link href={href}>
+            <a>{label}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </NavWrapper>
+);
 const NavWrapper = styled.div`
   font-family: "Montserrat", sans-serif;
   :global(body) {
@@ -41,19 +55,5 @@ const NavWrapper = styled.div`
     color: #f7bb2f;
   }
 `;
-
-const Nav = () => (
-  <NavWrapper>
-    <ul>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <Link href={href}>
-            <a>{label}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </NavWrapper>
-);
 
 export default Nav;
