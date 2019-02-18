@@ -8,7 +8,7 @@ class Contact extends Component {
     return (
       <div className="main">
         <div className="contain">
-          <div class="details">
+          <div className="details">
             <h2>Contact Us</h2>
             <p>
               Our experienced and dedicated staff eager to help you out with
@@ -16,12 +16,12 @@ class Contact extends Component {
               queries. Feel free to walk in next door to our store.{" "}
             </p>
           </div>
-          <div class="message-box">
-            <div class="request">
+          <div className="message-box">
+            <div className="request">
               <form>
-                <p class="msg-head">get in touch</p>
-                <div class="actual-form">
-                  <div class="first">
+                <p className="msg-head">get in touch</p>
+                <div className="actual-form">
+                  <div className="first">
                     <input
                       type="text"
                       name="name"
@@ -44,14 +44,14 @@ class Contact extends Component {
                     placeholder="Subject here"
                   />
                   <textarea
-                    class="custom-textarea"
+                    className="custom-textarea"
                     name="message"
                     placeholder="Message"
                   />
                   <input type="submit" />
                 </div>
               </form>
-              <p class="form-message" />
+              <p className="form-message" />
             </div>
           </div>
         </div>
