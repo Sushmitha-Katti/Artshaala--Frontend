@@ -20,7 +20,7 @@ const Styling = styled.div`
     opacity: 0.8;
   }
 
-  .details {
+  #main > div > div:first-child {
     float: left;
     position: relative;
     width: 40%;
@@ -30,7 +30,7 @@ const Styling = styled.div`
     background-color: rgba(255, 255, 255, 0.7);
   }
 
-  .message-box {
+  #main > div > div:nth-child(2) {
     width: 40%;
     float: right;
     height: 515px;
@@ -107,7 +107,7 @@ class Contact extends Component {
       <Styling>
         <div id="main">
           <div>
-            <div className="details">
+            <div>
               <H2>Contact Us</H2>
               <P>
                 Our experienced and dedicated staff eager to help you out with
@@ -115,12 +115,12 @@ class Contact extends Component {
                 queries. Feel free to walk in next door to our store.{" "}
               </P>
             </div>
-            <div className="message-box">
-              <div className="request">
+            <div>
+              <div>
                 <form>
                   <Head>get in touch</Head>
-                  <div className="actual-form">
-                    <div className="first">
+                  <div>
+                    <div>
                       <Input
                         type="text"
                         name="name"
@@ -142,15 +142,10 @@ class Contact extends Component {
                       name="subject"
                       placeholder="Subject here"
                     />
-                    <Input
-                      className="custom-textarea"
-                      name="message"
-                      placeholder="Message"
-                    />
+                    <Input type="text" name="message" placeholder="Message" />
                     <Submit type="submit" />
                   </div>
                 </form>
-                <p className="form-message" />
               </div>
             </div>
           </div>
