@@ -12,7 +12,7 @@ const Styling = styled.div`
   #main {
     width: 100%;
     height: 100%;
-    background-image: url("../pictures/image5.jpg");
+    background-image: url("./pictures/image5.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
