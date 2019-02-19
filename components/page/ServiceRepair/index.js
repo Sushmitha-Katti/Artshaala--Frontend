@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import Head from "../components/head";
-import Nav from "../components/nav";
+import Head from "../../head";
+import Nav from "../../nav";
 /*import "./services.css"; */
 
 // Here we have all the logic corresponding to that page
