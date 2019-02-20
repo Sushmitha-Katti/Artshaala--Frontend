@@ -1,7 +1,6 @@
 import React,{Component} from "react";
-import instrument from './instruments.png';
 import Style from './style';
-import Grid from 'react-css-grid'
+import Link from 'next/link';
 
 
 class Comman extends Component {
@@ -28,46 +27,15 @@ class Comman extends Component {
                         <h1 className="line2">From Starters to pro...</h1>
                         <p className="line3">lorem ipsum lorem ipsum lorem ipsum lorem ipsum
                             lorem ipsum lorem ipsum</p><br />
-                        <button className="line4">Explore Now</button>
+                        <Link href="/"><button className="line4">Explore Now</button></Link>
                     </div>
                 
            
             </div>
 
             </Style>
-            // {/* <div>Column</div>
-            // <div>Column</div> */}
-         
         )
       }
 }
 
 export default Comman;
-
-
-
-// class Comman extends Component {
-//     render () {
-//       return (
-//         <Grid
-//           width={320}
-//           gap={24}>
-//           <div>Column</div>
-//           <div>Column</div>
-//           <div>Column</div>
-//           <div>Column</div>
-//         </Grid>
-//       )
-//     }
-//   }
-
-
-
-//   <Style>
-//   <div className='main'>    
-//   <div className='bgimg'>
-//   <img src={instrument}/>
-//   </div>
-//   <div className='extra'></div>
-//   </div>
-//   </Style>

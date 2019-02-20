@@ -203,46 +203,6 @@ const Heading = styled.div`
 
      } 
 
-    // @media (max-width:450px){
-    //     .b1 {
-    //         top:20%;
-    //     }
-
-    // }
-    // @media (min-width:451px) and (max-width:750px) {
-    //     .b1 {
-    //         top:40%;
-    //         background:red;
-    //     }
-
-    // }
-
-
-    @media (min-width:751px) and (max-width:900px) {
-        .bgimg {
-            width:30%;
-            height:30%;
-            background:red;
-        }
-        .bg {
-            width:30%;
-            height:30%;
-            background:red;
-        }
-
-    }
-
-    // @media (min-width:850px) and (max-width:1200px) {
-    //     .b1 {
-    //         top:40%;
-    //         position:absolute;
-    //         background:green;
-    //     }
-    //     .line2{
-    //         font-size:50px;
-    //     }
-
-    // }
 
      
 `;
