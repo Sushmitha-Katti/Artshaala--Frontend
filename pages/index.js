@@ -1,9 +1,10 @@
-import React,{Component} from 'react';
-import Logo from '../components/page/common/index'
+
+import Logo from '../components/page/common/index';
+import Comman from '../components/page/common/common';
 
 const Home = () => (
   <div>
-    <Logo />
+    <Comman />
 
   </div>
 );
