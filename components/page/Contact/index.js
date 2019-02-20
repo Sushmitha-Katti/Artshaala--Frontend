@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Navigate from "../components/page/Contact/navbar";
 import { Styling } from "./styles";
 
 class Contact extends Component {
@@ -7,6 +6,12 @@ class Contact extends Component {
   render() {
     return (
       <Styling>
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css?family=Abel|Montserrat|Patua+One|Monoton"
+            rel="stylesheet"
+          />
+        </Head>
         <div id="main">
           <div>
             <div>
