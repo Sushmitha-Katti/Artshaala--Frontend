@@ -29,7 +29,7 @@ class Nav extends Component {
           <li>
             <form action="/">
               <input type="text" placeholder="Search.." name="search" />
-              <i class="fa fa-search" />
+              <i className="fa fa-search" />
             </form>
           </li>
         </ul>

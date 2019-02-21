@@ -1,5 +1,4 @@
-
-import Common from '../components/page/common/common';
+import Common from "../components/page/common/common";
 import Link from "next/link";
 import Head from "../components/head";
 import Nav from "../components/Navbar";

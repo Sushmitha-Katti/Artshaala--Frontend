@@ -18,7 +18,7 @@ import { Heading, Paragraph } from "./styles";
 const Home = () => (
   <div className="App">
     <div className="image" />
-    <div class="col-lg-10 col-md-10 text-left">
+    <div className="col-lg-10 col-md-10 text-left">
       <Heading>Service & Repair </Heading>
       <Paragraph>
         We know that you love music, that you love your instrument and how it
@@ -30,12 +30,12 @@ const Home = () => (
         we will give you a quick turn-around time to pick up your instrument.
       </Paragraph>
       <button>
-        <a class="button button-black mt-15" href="contact.php">
+        <a className="button button-black mt-15" href="contact.php">
           <span>Enquire Now</span>
         </a>
       </button>
     </div>
-    <div class="color" />
+    <div className="color" />
   </div>
 );
 

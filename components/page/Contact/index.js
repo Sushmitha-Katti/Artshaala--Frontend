@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Head from "next/head";
+
 import { Styling } from "./styles";
 
 class Contact extends Component {

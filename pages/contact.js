@@ -1,3 +1,3 @@
-import Contsct from "../components/page/Contact";
+import Contact from "../components/page/Contact";
 
 export default () => <Contact />;
