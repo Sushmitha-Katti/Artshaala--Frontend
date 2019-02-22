@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./index.js";
 import NavWrapper from "./styles.js";
 import Link from "next/link";
+import Comman from "../page/common/common";
 
 class Nav extends Component {
   render() {

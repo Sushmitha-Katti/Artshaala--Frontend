@@ -8,7 +8,7 @@ const Home = () => (
   <div>
     <Head title="Home" />
     <Nav />
-    <Common />
+   <Common /> 
     <ServiceCards />
   </div>
 );
