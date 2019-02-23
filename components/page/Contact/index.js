@@ -26,25 +26,19 @@ class Contact extends Component {
               </p>
             </div>
             <div>
-              <div>
-                <form>
-                  <p>get in touch</p>
+              <form>
+                <p>get in touch</p>
+                <div>
                   <div>
-                    <div>
-                      <input type="text" name="name" placeholder="Name" />
-                      <input type="text" name="phone" placeholder="Phone" />
-                    </div>
-                    <input type="text" name="email" placeholder="Email" />
-                    <input type="text" name="subject" placeholder="Subject" />
-                    <textarea
-                      type="text"
-                      name="message"
-                      placeholder="Message"
-                    />
-                    <input type="submit" />
+                    <input type="text" name="name" placeholder="Name" />
+                    <input type="text" name="phone" placeholder="Phone" />
                   </div>
-                </form>
-              </div>
+                  <input type="text" name="email" placeholder="Email" />
+                  <input type="text" name="subject" placeholder="Subject" />
+                  <textarea type="text" name="message" placeholder="Message" />
+                  <input type="submit" />
+                </div>
+              </form>
             </div>
           </div>
           <div>

@@ -6,7 +6,68 @@ const Styling = styled.div`
     padding: 0;
   }
 
-  @media (min-width: 990px) {
+  @media (min-width: 900px) {
+    #main > div:nth-child(2) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #main > div:nth-child(2) > div:first-child {
+      width: 45%;
+      height: 510px;
+      margin-top: 50px;
+      margin-left: 5%;
+      padding-bottom: 20px;
+    }
+
+    #main > div:nth-child(2) > div:nth-child(2) {
+      width: 38%;
+      margin-right: 5%;
+      height: 530px;
+    }
+
+    #main > div:nth-child(3) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    form > div > div:first-child {
+      display: flex;
+      justify-content: space-around;
+      margin-right: 6%;
+    }
+    form > div > div:first-child input {
+      width: 40%;
+      margin-left: 1%;
+    }
+  }
+
+  @media (min-width: 540px) and (max-width: 900px) {
+    form > div > div:first-child {
+      display: flex;
+      justify-content: space-around;
+      margin-right: 6%;
+    }
+    form > div > div:first-child input {
+      width: 40%;
+      margin-left: 1%;
+    }
+  }
+
+  @media (max-width: 900px) {
+    #main > div:nth-child(2) > div:first-child {
+      width: 88%;
+      padding-bottom: 20px;
+      margin-top: 50px;
+      margin-left: 6%;
+    }
+
+    #main > div:nth-child(2) > div:nth-child(2) {
+      width: 88%;
+      margin-left: 6%;
+    }
   }
 
   #main > div:first-child {
@@ -25,27 +86,14 @@ const Styling = styled.div`
     background-position: center center;
   }
 
-  #main > div:nth-child(2) {
-    display: flex;
-    justify-content: space-between;
-  }
-
   #main > div:nth-child(2) > div:first-child {
     position: relative;
-    width: 45%;
-    height: 480px;
-    margin-top: 50px;
-    margin-left: 6%;
-    padding-bottom: 20px;
     background-color: rgba(117, 155, 210, 0.4);
     box-shadow: -5px 5px 20px rgb(180, 180, 180);
     border: 1px dotted rgb(117, 155, 210);
   }
 
   #main > div:nth-child(2) > div:nth-child(2) {
-    width: 30%;
-    height: 500px;
-    margin-right: 6%;
     margin-top: 50px;
     background-color: rgba(106, 90, 205, 0.2);
     border: 1px solid rgba(106, 90, 205, 0.5);
@@ -73,8 +121,8 @@ const Styling = styled.div`
   }
 
   #main > div:nth-child(3) {
-    width: 88%;
-    height: 350px;
+    width: 83%;
+    padding: 3%;
     margin-top: 100px;
     margin-left: 6%;
     margin-bottom: 40px;
@@ -84,20 +132,21 @@ const Styling = styled.div`
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;*/
-    display: flex;
-    justify-content: space-between;
   }
 
   #main > div:nth-child(3) > div:first-child,
   #main > div:nth-child(3) > div:nth-child(2) {
     background-color: rgba(180, 180, 180, 0.4);
-    width: 30%;
+    width: 88%;
     margin: 3%;
-    margin-left: 6%;
     padding: 3%;
     line-height: 30px;
     font-family: "Montserrat", sans-serif;
     color: rgb(80, 40, 90);
+  }
+
+  #main > div:nth-child(3) > div:first-child {
+    margin-bottom: 30px;
   }
 
   #main > div:nth-child(3) > div:first-child h2 {
@@ -105,24 +154,9 @@ const Styling = styled.div`
     color: black;
   }
 
-  #main > div:nth-child(3) > div:nth-child(2) {
-    margin-right: 6%;
-  }
-
   #main > div:nth-child(3) > div:nth-child(2) a {
     text-decoration: none;
     color: rgb(80, 90, 0);
-  }
-
-  form > div > div:first-child {
-    display: flex;
-    justify-content: space-around;
-    margin-right: 6%;
-  }
-
-  form > div > div:first-child input {
-    width: 40%;
-    margin-left: 1%;
   }
 
   form > p {
@@ -131,7 +165,7 @@ const Styling = styled.div`
     background: none;
     border-left: 3px #eee solid;
     font-size: 35px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     margin-left: 5%;
     margin-top: 10px;
     padding-left: 10px;
@@ -153,12 +187,16 @@ const Styling = styled.div`
     color: black;
     font-family: courier;
     margin-left: 5%;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     width: 85%;
   }
 
+  textarea {
+    margin-bottom: 5px;
+  }
+
   input[type="submit"] {
-    margin-top: 20px;
+    margin-top: 15px;
     border-radius: 20px;
     border: none;
     width: 30%;
