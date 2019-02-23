@@ -11,7 +11,7 @@ class Nav extends Component {
         <div className="Header">
           <img className="image" alt="Logo" src={logo} />
           <div className="contact">
-            <i class="fa fa-phone fa-lg" aria-hidden="true" />
+            <i className="fa fa-phone fa-lg" aria-hidden="true" />
             (+91) 73380 40655
           </div>
         </div>
@@ -33,7 +33,7 @@ class Nav extends Component {
                 </Link>
               </li>
             ))}
-            <li>
+            <li key="formli">
               <form action="/">
                 <input type="text" placeholder="Search.." name="search" />
                 <i className="fa fa-search" />

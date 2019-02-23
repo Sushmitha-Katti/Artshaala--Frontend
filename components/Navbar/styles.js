@@ -40,7 +40,7 @@ const NavWrapper = styled.nav`
         width: 120px;
       }
     }
-    @media only screen and (max-width: 200px) {
+    @media only screen and (max-width: 400px) {
       flex-direction: row;
       justify-content: center;
       .contact {
