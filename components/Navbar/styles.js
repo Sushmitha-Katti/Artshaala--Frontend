@@ -40,7 +40,7 @@ const NavWrapper = styled.nav`
         width: 120px;
       }
     }
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 200px) {
       flex-direction: row;
       justify-content: center;
       .contact {
@@ -120,18 +120,19 @@ const NavWrapper = styled.nav`
       transition: all 1s;
       color: #808080;
     }
+    @media only screen and (min-width: 768px) {
+      form:hover {
+        width: 200px;
+        cursor: pointer;
+      }
 
-    form:hover {
-      width: 200px;
-      cursor: pointer;
-    }
+      form:hover input {
+        display: block;
+      }
 
-    form:hover input {
-      display: block;
-    }
-
-    form:hover .fa {
-      background: #ccc;
+      form:hover .fa {
+        background: #ccc;
+      }
     }
 
     @media only screen and (max-width: 768px) {
@@ -173,16 +174,17 @@ const NavWrapper = styled.nav`
         overflow-y: hidden;
         top: 10%;
         left: 0;
-        z-index: 2;
+        padding: 0;
       }
       .nav-links li {
         padding: 0.5rem;
         top: 10rem;
+        width: 100%;
+        margin: 0;
       }
 
       .nav-links li a {
         display: block;
-
         color: black;
       }
 
@@ -192,6 +194,9 @@ const NavWrapper = styled.nav`
       #nav-check:checked + .nav-links {
         height: auto;
         overflow-y: hidden;
+        form {
+          display: none;
+        }
       }
       form {
         position: absolute;
@@ -199,8 +204,9 @@ const NavWrapper = styled.nav`
         left: 0px;
         margin-left: 0px;
       }
-      form:hover {
-        width: 100px;
+      input {
+        display: block;
+        width: 200px;
       }
     }
   }
