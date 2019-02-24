@@ -6,7 +6,6 @@ const Body = sc.body`
  box-sizing: border-box;
  font-family: Arial, Helvetica, sans-serif;
  background: #FCFBFC;
- margin: 0px 20px;
  line-height: 1.4;
 
 header {
@@ -25,7 +24,7 @@ display: grid;
 grid-template-columns: 1fr 1fr;
 grid-auto-flow: column;
 grid-gap: 30px;
-justify-items: center;
+justify-items: end;
 grid-template-areas: 'displaycard formcard';
     }
 
@@ -41,13 +40,11 @@ box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 h1 {
 font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
 font-size: 5rem;
-padding-left: 1.8rem;
-padding-top: 1.5rem;
+padding:1rem;
 }
 
 .main-text {
-padding-left: 1.8rem;
-padding-top: 1.5rem;
+padding:1rem;
 font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
 font-size: 1.35rem;
 }
@@ -88,50 +85,46 @@ display:grid;
 grid-template-columns:1fr;
 grid-area:footer;
 }
-
-@media (max-width: 640px){
+@media (max-width: 1024px){
     .main-section {
         border-top: solid;
         border-bottom: solid;
-        padding-left: 0rem;
+        padding-left: 0.5rem;
         padding-right:0rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-auto-flow: column;
         grid-gap: 30px;
         justify-items: center;
-        grid-template-areas: 'displaycard'
-                             'formcard';
+        grid-template-areas: 'displaycard formcard';
             }
             h1 {
                 font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
-                font-size: 2rem;
-                padding-left: 1.8rem;
-                padding-top: 1.5rem;
+                font-size: 3rem;
+                padding:0.8rem;
                 }
                 
                 .main-text {
-                padding-left: 1.8rem;
-                padding-top: 1.5rem;
+                padding:0.8rem;
                 font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
-                font-size: 0.8rem;
+                font-size: 1rem;
                 }
                 
                 .main {
                 grid-area:formcard;
-                padding:100px;
                 box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
                 background: #F7BB2F;
                 }
                 
                 h3 {
                     padding-left: 3rem;
+                    
                 }
                 
                 input {
                 height:20px;
                 width:150px;
-                font-size:14pt;
+                font-size:10pt;
                 border-radius: 3px;
                 border: 2px solid  #333;
                 }
@@ -154,10 +147,72 @@ grid-area:footer;
                 grid-area:footer;
                 }
                 
-            
-
 }
 
+@media (max-width: 640px){
+    .main-section {
+        border-top: solid;
+        border-bottom: solid;
+        padding-left: 0.5rem;
+        padding-right:0rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: column;
+        grid-gap: 30px;
+        justify-items: center;
+        grid-template-areas: 'displaycard'
+                             'formcard';
+            }
+            h1 {
+                font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
+                font-size: 2rem;
+                padding:0.8rem;
+                }
+                
+                .main-text {
+                padding:0.8rem;
+                font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
+                font-size: 0.8rem;
+                }
+                
+                .main {
+                grid-area:formcard;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+                background: #F7BB2F;
+                }
+                
+                h3 {
+                    padding-left: 3rem;
+                    
+                }
+                
+                input {
+                height:20px;
+                width:150px;
+                font-size:10pt;
+                border-radius: 3px;
+                border: 2px solid  #333;
+                }
+                
+                .form-btn {
+                background: transparent 70%;
+                border-radius: 3px;
+                border: 2px solid  #333;
+                color: #333;
+                background-color: white;
+                margin: 0 1em;
+                padding: 0.25em 1em;
+                width: 100px;
+                height: 50px; 
+                align-self: stretch;
+                }    
+                .footer-grid{
+                display:grid;
+                grid-template-columns:1fr;
+                grid-area:footer;
+                }
+                
+}
 
  `;
 
