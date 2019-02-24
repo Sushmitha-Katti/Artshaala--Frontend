@@ -6,7 +6,7 @@ const Styling = styled.div`
 
 
     .main {
-        background-color: #fffcff;
+        //background-color: #fffcff;
         background-image:url(${instrument});
         background-size:100%;
         background-position: center;
@@ -15,6 +15,7 @@ const Styling = styled.div`
         padding-top:20vw;
         padding-bottom:20vw;
         text-align: center;
+
     }
 
  
@@ -24,6 +25,7 @@ const Styling = styled.div`
         margin-left:5vw;
         display:inline-block;
         position:relative;
+
     }
 
     .line1 {
@@ -33,7 +35,7 @@ const Styling = styled.div`
         font-family: myriad-pro, sans-serif;
         font-style: normal;
         font-weight: 300;
-        font-size:2vmin;       
+        font-size:2.5vmin;       
     }
   
     .line2 {
@@ -66,6 +68,7 @@ const Styling = styled.div`
         font-weight: 700;
         font-size:2vmin;
         color:white;
+        cursor: pointer;
         
     }
 
@@ -137,6 +140,95 @@ const Styling = styled.div`
         border: 1px solid #666666;  
         border-radius:200px;
         opacity: 0.7;
+    }
+
+
+    @media (max-width:600px){
+        .line1{
+            font-size:3vw;
+        }
+        .line2{
+            font-size:5vw;
+        }
+        .line3{
+            font-size:4vw;
+        }
+        .line4{
+            font-size:4vw;
+            padding:2vw 4vw 2vw 4vw; 
+        }
+
+        .l1 {
+            display:inline-block;
+            position: absolute;
+            padding:2vw;
+            margin:0.6vw
+            border: 1px solid #8c8c8c;
+            border-radius:700px;
+            opacity:0.2;
+        } 
+    
+        .l2 {
+            position:absolute;
+            display:inline-block;
+            padding:4vw;
+            margin:-1.2vw;
+            border: 1px solid #8c8c8c;
+            border-radius:60px;
+            opacity: 0.3;
+    
+        } 
+    
+        .l3 {
+            position:absolute;
+            display:inline-block;
+            margin:-3vw;
+            padding:6vw;
+            border: 1px solid #8c8c8c;
+            border-radius:65px;
+            opacity: 0.5;
+        } 
+    
+        .l4 {
+            position:absolute;
+            display:inline-block;
+            margin:-6vw;
+            padding:9vw;
+            border: 1px solid #858585;
+            border-radius:110px;
+            opacity: 0.5;
+        } 
+    
+        .l5 {     
+            position:absolute;
+            display:inline-block;
+            margin:-9vw;
+            padding:12vw;
+            border: 1px solid #808080;       
+            border-radius:150px;
+            opacity: 0.5;
+        } 
+    
+        .l6 {
+            position:absolute;
+            display:inline-block;
+            margin:-12vw;
+            padding:15vw;
+            border: 1px solid #737373;       
+            border-radius:170px;
+            opacity: 0.6;
+        } 
+    
+        .l7 {    
+            position:absolute;
+            display:inline-block;
+            margin:-17vw;
+            padding:20vw;
+            border: 1px solid #666666;  
+            border-radius:200px;
+            opacity: 0.7;
+        }
+    
     }
         
 `;
