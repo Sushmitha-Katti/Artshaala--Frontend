@@ -5,8 +5,8 @@ const Card = styled.div`
   margin-top: 2rem;
   margin-right: 1rem;
   .cardhover {
-    width: 18rem;
-    height: 18rem;
+    width: 17rem;
+    height: 17rem;
     background: #ccc;
     position: relative;
     text-align: center;
