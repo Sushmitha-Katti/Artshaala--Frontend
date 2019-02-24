@@ -10,10 +10,8 @@ const NavWrapper = styled.nav`
     background: #f8f8f8;
     text-align: center;
     padding: 1rem;
-
     position: relative;
     border-bottom: 1px solid black;
-
     .image {
       height: 50px;
       width: 200px;
@@ -25,36 +23,14 @@ const NavWrapper = styled.nav`
       top: 30%;
     }
     @media only screen and (max-width: 768px) {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row-reverse;
-      pading-left: 1rem;
-      padding-right: 1rem;
-
-      .contact {
-        position: relative;
-      }
-
-      .image {
-        height: 50px;
-        width: 120px;
-      }
-    }
-    @media only screen and (max-width: 400px) {
-      flex-direction: row;
-      justify-content: center;
-      .contact {
-        display: none;
-      }
+      display: none;
     }
   }
-
   .Navbar {
     position: relative;
     margin-top: 0px;
     * {
       box-sizing: border-box;
-
       text-align: center;
     }
     .nav-links {
@@ -63,7 +39,6 @@ const NavWrapper = styled.nav`
       background: white;
       margin-top: 0px;
     }
-
     li {
       display: flex;
       padding: 25px 10px;
@@ -86,7 +61,6 @@ const NavWrapper = styled.nav`
       transition: all 1s;
       width: 50px;
       height: 50px;
-
       box-sizing: border-box;
       top: -5px;
     }
@@ -101,10 +75,8 @@ const NavWrapper = styled.nav`
       border: 0;
       display: none;
       font-size: 1em;
-
       padding: 0 20px;
     }
-
     .fa {
       box-sizing: border-box;
       padding: 5px;
@@ -120,30 +92,29 @@ const NavWrapper = styled.nav`
       transition: all 1s;
       color: #808080;
     }
+    .mobilelogo {
+      display: none;
+    }
     @media only screen and (min-width: 768px) {
       form:hover {
         width: 200px;
         cursor: pointer;
       }
-
       form:hover input {
         display: block;
       }
-
       form:hover .fa {
         background: #ccc;
       }
     }
-
     @media only screen and (max-width: 768px) {
       padding-bottom: 5rem;
-
       .nav-btn {
         display: inline-block;
         position: absolute;
         right: 0;
         top: auto;
-        z-index: 5;
+        z-index: 7;
         padding-bottom: 4rem;
       }
       .nav-btn > label {
@@ -151,10 +122,8 @@ const NavWrapper = styled.nav`
         width: 50px;
         height: 50px;
         padding: 13px;
-
         color: #f7bb2f;
       }
-
       .nav-btn > label > span {
         display: block;
         width: 25px;
@@ -175,6 +144,7 @@ const NavWrapper = styled.nav`
         top: 10%;
         left: 0;
         padding: 0;
+        position: absolute;
       }
       .nav-links li {
         padding: 0.5rem;
@@ -182,31 +152,34 @@ const NavWrapper = styled.nav`
         width: 100%;
         margin: 0;
       }
-
       .nav-links li a {
         display: block;
         color: black;
       }
-
       #nav-check:not(:checked) + .nav-links {
         height: 0px;
       }
       #nav-check:checked + .nav-links {
         height: auto;
         overflow-y: hidden;
-        form {
-          display: none;
-        }
+        z-index: 6;
       }
       form {
+        display: none;
+      }
+
+      .mobilelogo {
+        display: block;
         position: absolute;
+
         top: 0.5rem;
         left: 0px;
         margin-left: 0px;
-      }
-      input {
-        display: block;
-        width: 200px;
+        z-index: 5;
+        img {
+          width: 200px;
+          height: 50px;
+        }
       }
     }
   }

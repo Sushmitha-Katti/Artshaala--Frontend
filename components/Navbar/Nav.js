@@ -40,6 +40,9 @@ class Nav extends Component {
               </form>
             </li>
           </ul>
+          <div className="mobilelogo">
+            <img src={logo} alt="logo" />
+          </div>
         </div>
       </NavWrapper>
     );
