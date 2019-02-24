@@ -7,13 +7,20 @@ import service from "./Servicea.jpg";
 import rental from "./rental.jpg";
 
 const CardWrapper = styled.div`
-  display: flex;
+  display: grid;
   margin: 3rem;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media only screen and (max-width: 768px) {
     margin: 0.5rem;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media only screen and (max-width: 400px) {
+    margin: 0.5rem;
+    justify-items: center;
+    grid-template-columns: 1fr;
   }
 `;
 
