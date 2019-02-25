@@ -10,7 +10,7 @@ class Comman extends Component {
       <Style>
           
            <div className="main">
-          <div className="entire">
+          
          <div className="l">
             <div className="l1" />
             <div className="l2" />
@@ -33,7 +33,7 @@ class Comman extends Component {
             </Link>
           </div>
         </div>
-        </div>
+        
         
         
       </Style>
