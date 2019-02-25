@@ -6,7 +6,7 @@ const Styling = styled.div`
 
 
     .main {
-        //background-color: #fffcff;
+        background: #ffffffcc;
         background-image:url(${instrument});
         background-size:100%;
         background-position: center;
@@ -18,14 +18,13 @@ const Styling = styled.div`
 
     }
 
- 
-
     .words {
+        
         margin-top:-2vh;
         margin-left:5vw;
         display:inline-block;
         position:relative;
-
+       
     }
 
     .line1 {
@@ -35,7 +34,8 @@ const Styling = styled.div`
         font-family: myriad-pro, sans-serif;
         font-style: normal;
         font-weight: 300;
-        font-size:2.5vmin;       
+        font-size:2.5vmin;
+        width: fit-content;       
     }
   
     .line2 {
@@ -44,7 +44,8 @@ const Styling = styled.div`
         font-size:5vmin;
         font-family:courier-prime, monospace;
         font-style: normal;
-        font-weight: 400;   
+        font-weight: 400; 
+        width: fit-content;  
     }
 
     .line3 {
@@ -55,6 +56,7 @@ const Styling = styled.div`
         font-style: normal;
         font-weight: 400;
         font-size:3vmin;
+        width: fit-content;
         
     }
     .line4 {
@@ -69,6 +71,7 @@ const Styling = styled.div`
         font-size:2vmin;
         color:white;
         cursor: pointer;
+        width: fit-content;
         
     }
 
