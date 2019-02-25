@@ -13,6 +13,10 @@ class Contact extends Component {
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
             rel="stylesheet"
           />
+          <meta charset="utf-8" />
+          <meta http-equiv="x-ua-compatible" content="ie=edge" />
+          <meta name="description" content="" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
         <div id="main">
@@ -30,25 +34,13 @@ class Contact extends Component {
               <form>
                 <p>Get in Touch</p>
                 <div>
-                  <input type="text" name="name" placeholder="Your name here" />
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Your phone here"
-                  />
-                  <input
-                    type="text"
-                    name="email"
-                    placeholder="Your email here"
-                  />
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject here"
-                  />
+                  <input type="text" name="name" placeholder="Name" />
+                  <input type="text" name="phone" placeholder="Phone" />
+                  <input type="text" name="email" placeholder="Email" />
+                  <input type="text" name="subject" placeholder="Subject" />
                   <textarea type="text" name="message" placeholder="Message" />
                   <button type="input" className="btn btn-default btn-lg">
-                    SUBMIT MESSAGE
+                    SUBMIT
                     <span className="glyphicon glyphicon-circle-arrow-right" />
                   </button>
                 </div>
@@ -56,7 +48,7 @@ class Contact extends Component {
             </div>
             <div className="address">
               <h1>Artshaala Music Store,</h1>
-              <br />
+
               <br />
               <h2>Address</h2>
               <h4>
@@ -75,7 +67,7 @@ class Contact extends Component {
                 Karnataka
               </h4>
               <br />
-              <br />
+
               <h2>Phone</h2>
               <h4>
                 <span className="glyphicon glyphicon-earphone" />
@@ -83,10 +75,10 @@ class Contact extends Component {
                 <a href="tel:7338040655">(+91) 73380 40655</a>
               </h4>
               <br />
-              <br />
+
               <h2>Email</h2>
               <h4>
-                <a href="mailto:artshaalamusicstore@gmail.com">
+                <a href="mail-to:artshaalamusicstore@gmail.com">
                   artshaalamusicstore@gmail.com
                 </a>
               </h4>

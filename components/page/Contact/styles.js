@@ -11,6 +11,76 @@ const Styling = styled.div`
     height: 100%;
   }
 
+  @media (min-width: 768px) {
+    #main > div:nth-child(3) {
+      display: flex;
+      justify-content: space-between;
+    }
+    #main > div:nth-child(3) > div:first-child {
+      order: 2;
+      width: 35%;
+      margin-right: 7%;
+    }
+    .address {
+      order: 1;
+      margin-left: 5%;
+      width: 40%;
+    }
+    #main > div:nth-child(2) h1 {
+      font-size: 4vmax;
+    }
+    #main > div:nth-child(2) h1:before,
+    #main > div:nth-child(2) h1:after {
+      width: 36%;
+    }
+    #main > div:nth-child(2) p {
+      font-size: 20px;
+    }
+    form p {
+      font-size: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #main > div:nth-child(3) > div:first-child {
+      width: 80%;
+      margin-left: 10%;
+    }
+    .address {
+      margin-left: 10%;
+      width: 80%;
+    }
+    #main > div:nth-child(2) h1 {
+      font-size: 35px;
+    }
+    #main > div:nth-child(2) h1:before,
+    #main > div:nth-child(2) h1:after {
+      width: 27%;
+    }
+    #main > div:nth-child(2) p {
+      font-size: 2.5vmax;
+    }
+    form p {
+      font-size: 30px;
+    }
+    .address h1 {
+      font-size: 30px;
+    }
+    .address h2 {
+      font-size: 25px;
+    }
+    .address h4 {
+      font-size: 17px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #main > div:nth-child(2) h1:before,
+    #main > div:nth-child(2) h1:after {
+      width: 15%;
+    }
+  }
+
   #main > div:first-child {
     width: 100%;
     height: 400px;
@@ -27,7 +97,6 @@ const Styling = styled.div`
     overflow: hidden;
     text-align: center;
     color: #f7bb2f;
-    font-size: 50px;
     padding-left: 7%;
     padding-right: 7%;
     font-family: "Patua One", cursive;
@@ -41,46 +110,33 @@ const Styling = styled.div`
     height: 1px;
     position: relative;
     vertical-align: middle;
-    width: 36%;
   }
 
   #main > div:nth-child(2) h1:before {
     right: 0.5em;
-    /*marign-left: -50%;*/
   }
 
   #main > div:nth-child(2) h1:after {
     left: 0.5em;
-    /*margin-right: -0%;
-    margin-right: -50%;*/
   }
 
   #main > div:nth-child(2) p {
     text-align: center;
     padding-top: 20px;
-    padding-left: 150px;
-    padding-right: 150px;
-    font-size: 20px;
+    padding-left: 9%;
+    padding-right: 9%;
+
     color: rgb(60, 60, 60);
     font-family: "Abel", sans-serif;
   }
 
-  #main > div:nth-child(3) {
-    display: flex;
-    justify-content: space-between;
-  }
-
   #main > div:nth-child(3) > div:first-child {
-    width: 35%;
-    margin-right: 7%;
     margin-top: 60px;
-    /*background-color: #f7bb2f;*/
-    order: 2;
   }
 
   form > p {
     color: rgb(60, 60, 60);
-    font-size: 40px;
+
     margin-bottom: 30px;
     font-family: "Montserrat", sans-serif;
   }
@@ -89,7 +145,7 @@ const Styling = styled.div`
   textarea {
     background-color: rgb(60, 60, 60);
     font-size: 20px;
-    padding: 10px;
+    padding: 2%;
     color: white;
     font-family: courier;
     margin-bottom: 30px;
@@ -120,12 +176,12 @@ const Styling = styled.div`
   }
 
   .address {
-    order: 1;
-    margin-left: 7%;
-    margin-top: 60px;
-    width: 40%;
-    /*background-color: rgba(180, 180, 180, 0.4);*/
+    margin-top: 40px;
+    padding: 2%;
+    padding-top: 0.4%;
+    background-color: rgba(180, 180, 180, 0.1);
     color: rgb(60, 60, 60);
+    margin-bottom: 30%;
   }
 
   a {
