@@ -23,6 +23,13 @@ const NavWrapper = styled.nav`
       top: 30%;
     }
     @media only screen and (max-width: 768px) {
+      .contact {
+        position: relative;
+      }
+      display: flex;
+      justify-content: center;
+    }
+    @media only screen and (max-width: 480px) {
       display: none;
     }
   }
@@ -41,18 +48,22 @@ const NavWrapper = styled.nav`
     }
     li {
       display: flex;
-      padding: 25px 10px;
+      padding: 0.5rem;
+      height: 30px;
       justify-content: center;
       z-index: 10;
+      margin: 25px 10px;
     }
     a {
       color: black;
       text-decoration: none;
       font-size: 14px;
+      height: 20px;
     }
-    ul li a:hover {
-      color: #f7bb2f;
+    #alink:hover {
+      background: #f7bb2f;
     }
+
     #nav-check {
       display: none;
     }
@@ -95,7 +106,7 @@ const NavWrapper = styled.nav`
     .mobilelogo {
       display: none;
     }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 480px) {
       form:hover {
         width: 200px;
         cursor: pointer;
@@ -107,7 +118,7 @@ const NavWrapper = styled.nav`
         background: #ccc;
       }
     }
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 480px) {
       padding-bottom: 5rem;
       .nav-btn {
         display: inline-block;
@@ -115,7 +126,8 @@ const NavWrapper = styled.nav`
         right: 0;
         top: auto;
         z-index: 7;
-        padding-bottom: 4rem;
+        margin-bottom: 4rem;
+        background: #f8f8f8;
       }
       .nav-btn > label {
         display: inline-block;
@@ -136,7 +148,6 @@ const NavWrapper = styled.nav`
       .nav-links {
         display: block;
         width: 100%;
-        background-color: white;
         justify-content: center;
         height: 0px;
         transition: all 0.3s ease-in;
@@ -145,6 +156,9 @@ const NavWrapper = styled.nav`
         left: 0;
         padding: 0;
         position: absolute;
+        margin-top: 2.9rem;
+        background: #f8f8f8;
+        transition: height 4s ease-in;
       }
       .nav-links li {
         padding: 0.5rem;
@@ -154,8 +168,10 @@ const NavWrapper = styled.nav`
       }
       .nav-links li a {
         display: block;
+
         color: black;
       }
+
       #nav-check:not(:checked) + .nav-links {
         height: 0px;
       }
@@ -177,8 +193,8 @@ const NavWrapper = styled.nav`
         margin-left: 0px;
         z-index: 5;
         img {
-          width: 200px;
-          height: 50px;
+          width: 100px;
+          height: 30px;
         }
       }
     }

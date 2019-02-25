@@ -23,11 +23,12 @@ class Nav extends Component {
               <span />
             </label>
           </div>
+
           <input type="checkbox" id="nav-check" />
 
           <ul className="nav-links">
             {this.props.links.map(({ key, href, label }) => (
-              <li key={key}>
+              <li id="alink" key={key}>
                 <Link href={href}>
                   <a>{label}</a>
                 </Link>
