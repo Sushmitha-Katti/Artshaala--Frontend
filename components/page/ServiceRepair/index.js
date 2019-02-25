@@ -8,8 +8,20 @@ import Nav from "../../nav";
 // Which makes things distinct
 // for example here
 
-import { Heading, Paragraph, Button, Wrapper } from "./styles";
-import { Container, Row, Col } from "react-awesome-styled-grid";
+import {
+  Heading,
+  Paragraph,
+  Button,
+  Wrapper,
+  Container,
+  One,
+  Two,
+  Three,
+  Four,
+  Five,
+  Six,
+  Seven
+} from "./styles";
 
 // Now you got the whole structure right.
 //yes i understand now
@@ -18,228 +30,221 @@ import { Container, Row, Col } from "react-awesome-styled-grid";
 // Save the files
 const Home = () => (
   <div className="App">
-    <div className="image" />
-    <div className="col-lg-10 col-md-10 text-left">
-      <Wrapper>
-        <Heading>Service & Repair </Heading>
-        <Paragraph>
-          We know that you love music, that you love your instrument and how it
-          can allow you to express yourself. Artshaala Music Store offer all
-          kind of musical instruments service & repairing like Guitar, Keyboard,
-          Drums, Violin, Harmonium, Tabla, Veena etc., We always try to repair
-          your instrument while you wait, depending on the nature of the repair
-          and high volume time period. If we cannot repair the instrument on the
-          spot, we will give you a quick turn-around time to pick up your
-          instrument.
-        </Paragraph>
-        <Button>
-          <a className="button button-black mt-15" href="contact.php">
-            <div>Enquire Now</div>
-          </a>
-        </Button>
-      </Wrapper>
-    </div>
-    <div className="color" />
+    <Wrapper>
+      <Heading>Service & Repair </Heading>
+      <Paragraph>
+        We know that you love music, that you love your instrument and how it
+        can allow you to express yourself. Artshaala Music Store offer all kind
+        of musical instruments service & repairing like Guitar, Keyboard, Drums,
+        Violin, Harmonium, Tabla, Veena etc., We always try to repair your
+        instrument while you wait, depending on the nature of the repair and
+        high volume time period. If we cannot repair the instrument on the spot,
+        we will give you a quick turn-around time to pick up your instrument.
+      </Paragraph>
+      <Button>
+        <a className="button button-black mt-15" href="contact.php">
+          <div>Enquire Now</div>
+        </a>
+      </Button>
+    </Wrapper>
     <Container>
-      <Row>
-        <Col>
-          <h5 className="blog-title-2">Guitar Servicing</h5>
-          <ul className="banner-featured-list">
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar restringing/Guitar strings changing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar tuninig keys fixing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar frett board straightening</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar bridge , nut & saddle fixing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar frett fixing & cleaning</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar broken necks fixing </span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar customization</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar pickup fixing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Guitar action adjustments</span>
-            </li>
-          </ul>
-        </Col>
-        <Col>
-          <h5 className="blog-title-2">Keyboard Servicing</h5>
-          <ul className="banner-featured-list">
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Replacing keyboard keys</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Missing/damaged components replacement</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Power issues</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Motherboard issues</span>
-            </li>
-          </ul>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <h5 className="blog-title-2">Drum Servicing</h5>
-          <ul className="banner-featured-list">
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Drums tuning</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Replacing the drum heads/skin</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Repairing/fixing the broken drum hardware</span>
-            </li>
-          </ul>
-        </Col>
-        <Col>
-          <h5 className="blog-title-2">Violin Servicing</h5>
-          <ul className="banner-featured-list">
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Violin restringing/Violin Strings Changing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Violin bridge fixing/adjustment</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Violin pegs/keys fixing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Violin tuning</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Based in Bangalore.</span>
-            </li>
-          </ul>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <h5 className="blog-title-2">Veena Servicing</h5>
-          <ul className="banner-featured-list">
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Veena restringing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Veena tuning</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Veena bride fixing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Veena breakage restoration</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Veena polishing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Veena repair</span>
-            </li>
-          </ul>
-        </Col>
-        <Col>
-          <h5 className="blog-title-2">Harmonium Servicing</h5>
-          <ul className="banner-featured-list">
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Harmonium repair</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Harmonium breakage restoration</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Harmonium tuning</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Harmonium bellows rebuild</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Harmonium air fixing and keys fixing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Harmonium coupler repair</span>
-            </li>
-          </ul>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <h5 className="blog-title-2">Tabla Servicing</h5>
-          <ul className="banner-featured-list">
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Tabla tuning</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Tabla karane fixing</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Tabla puri/cap fitting</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Dagga repair</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Tabla repair</span>
-            </li>
-            <li>
-              <i className="zmdi zmdi-check" />
-              <span>Bar replacement/fitting</span>
-            </li>
-          </ul>
-        </Col>
-      </Row>
+      <One>
+        <h5>Guitar Servicing</h5>
+        <ul>
+          <li>
+            <i />
+            <span>Guitar restringing/Guitar strings changing</span>
+          </li>
+          <li>
+            <i />
+            <span>Guitar tuninig keys fixing</span>
+          </li>
+          <li>
+            <i />
+            <span>Guitar frett board straightening</span>
+          </li>
+          <li>
+            <i />
+            <span>Guitar bridge , nut & saddle fixing</span>
+          </li>
+          <li>
+            <i />
+            <span>Guitar frett fixing & cleaning</span>
+          </li>
+          <li>
+            <i />
+            <span>Guitar broken necks fixing </span>
+          </li>
+          <li>
+            <i />
+            <span>Guitar customization</span>
+          </li>
+          <li>
+            <i />
+            <span>Guitar pickup fixing</span>
+          </li>
+          <li>
+            <i />
+            <span>Guitar action adjustments</span>
+          </li>
+        </ul>
+      </One>
+
+      <Two>
+        <h3>Keyboard Servicing</h3>
+        <ul>
+          <li>
+            <i />
+            <span>Replacing keyboard keys</span>
+          </li>
+          <li>
+            <i />
+            <span>Missing/damaged components replacement</span>
+          </li>
+          <li>
+            <i />
+            <span>Power issues</span>
+          </li>
+          <li>
+            <i />
+            <span>Motherboard issues</span>
+          </li>
+        </ul>
+      </Two>
+
+      <Three>
+        <h3>Drum Servicing</h3>
+        <ul>
+          <li>
+            <i />
+            <span>Drums tuning</span>
+          </li>
+          <li>
+            <i />
+            <span>Replacing the drum heads/skin</span>
+          </li>
+          <li>
+            <i />
+            <span>Repairing/fixing the broken drum hardware</span>
+          </li>
+        </ul>
+      </Three>
+
+      <Four>
+        <h3>Violin Servicing</h3>
+        <ul>
+          <li>
+            <i />
+            <span>Violin restringing/Violin Strings Changing</span>
+          </li>
+          <li>
+            <i />
+            <span>Violin bridge fixing/adjustment</span>
+          </li>
+          <li>
+            <i />
+            <span>Violin pegs/keys fixing</span>
+          </li>
+          <li>
+            <i />
+            <span>Violin tuning</span>
+          </li>
+          <li>
+            <i />
+            <span>Based in Bangalore.</span>
+          </li>
+        </ul>
+      </Four>
+
+      <Five>
+        <h3>Veena Servicing</h3>
+        <ul>
+          <li>
+            <i />
+            <span>Veena restringing</span>
+          </li>
+          <li>
+            <i />
+            <span>Veena tuning</span>
+          </li>
+          <li>
+            <i />
+            <span>Veena bride fixing</span>
+          </li>
+          <li>
+            <i />
+            <span>Veena breakage restoration</span>
+          </li>
+          <li>
+            <i />
+            <span>Veena polishing</span>
+          </li>
+          <li>
+            <i />
+            <span>Veena repair</span>
+          </li>
+        </ul>
+      </Five>
+
+      <Six>
+        <h3>Harmonium Servicing</h3>
+        <ul>
+          <li>
+            <i />
+            <span>Harmonium repair</span>
+          </li>
+          <li>
+            <i />
+            <span>Harmonium breakage restoration</span>
+          </li>
+          <li>
+            <i />
+            <span>Harmonium tuning</span>
+          </li>
+          <li>
+            <i />
+            <span>Harmonium bellows rebuild</span>
+          </li>
+          <li>
+            <i />
+            <span>Harmonium air fixing and keys fixing</span>
+          </li>
+          <li>
+            <i />
+            <span>Harmonium coupler repair</span>
+          </li>
+        </ul>
+      </Six>
+
+      <Seven>
+        <h3>Tabla Servicing</h3>
+        <ul>
+          <li>
+            <i />
+            <span>Tabla tuning</span>
+          </li>
+          <li>
+            <i />
+            <span>Tabla karane fixing</span>
+          </li>
+          <li>
+            <i />
+            <span>Tabla puri/cap fitting</span>
+          </li>
+          <li>
+            <i />
+            <span>Dagga repair</span>
+          </li>
+          <li>
+            <i />
+            <span>Tabla repair</span>
+          </li>
+          <li>
+            <i />
+            <span>Bar replacement/fitting</span>
+          </li>
+        </ul>
+      </Seven>
     </Container>
   </div>
 );
