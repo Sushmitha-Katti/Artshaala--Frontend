@@ -13,7 +13,7 @@ const Styling = styled.div`
 
   #main > div:first-child {
     width: 100%;
-    height: 300px;
+    height: 400px;
     background-color: #f7bb2f;
   }
 
@@ -27,7 +27,7 @@ const Styling = styled.div`
     overflow: hidden;
     text-align: center;
     color: #f7bb2f;
-    font-size: 40px;
+    font-size: 50px;
     padding-left: 7%;
     padding-right: 7%;
     font-family: "Patua One", cursive;
@@ -41,7 +41,7 @@ const Styling = styled.div`
     height: 1px;
     position: relative;
     vertical-align: middle;
-    width: 40%;
+    width: 36%;
   }
 
   #main > div:nth-child(2) h1:before {
