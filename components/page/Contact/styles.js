@@ -1,97 +1,142 @@
 import styled from "styled-components";
 
+/*font-family: 'Abel', sans-serif;
+		font-family: 'Montserrat', sans-serif;
+		font-family: 'Patua One', cursive;
+		font-family: 'Monoton', cursive;*/
+
 const Styling = styled.div`
-  * {
-    margin: 0;
-    padding: 0;
-  }
   #main {
     width: 100%;
     height: 100%;
-    background-image: url("./pictures/image5.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-    opacity: 0.8;
   }
-  #main > div > div:first-child {
-    float: left;
+
+  #main > div:first-child {
+    width: 100%;
+    height: 300px;
+    background-color: #f7bb2f;
+  }
+
+  #main > div:nth-child(2) {
+    padding-top: 30px;
+    background-color: rgba(180, 180, 180, 0.2);
+    padding-bottom: 30px;
+  }
+
+  #main > div:nth-child(2) h1 {
+    overflow: hidden;
+    text-align: center;
+    color: #f7bb2f;
+    font-size: 40px;
+    padding-left: 7%;
+    padding-right: 7%;
+    font-family: "Patua One", cursive;
+  }
+
+  #main > div:nth-child(2) h1:before,
+  #main > div:nth-child(2) h1:after {
+    background-color: rgb(180, 180, 180);
+    content: "";
+    display: inline-block;
+    height: 1px;
     position: relative;
+    vertical-align: middle;
     width: 40%;
-    height: 500px;
-    margin-top: 50px;
-    margin-left: 3%;
-    background-color: rgba(255, 255, 255, 0.7);
   }
-  #main > div > div:nth-child(2) {
+
+  #main > div:nth-child(2) h1:before {
+    right: 0.5em;
+    /*marign-left: -50%;*/
+  }
+
+  #main > div:nth-child(2) h1:after {
+    left: 0.5em;
+    /*margin-right: -0%;
+    margin-right: -50%;*/
+  }
+
+  #main > div:nth-child(2) p {
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 150px;
+    padding-right: 150px;
+    font-size: 20px;
+    color: rgb(60, 60, 60);
+    font-family: "Abel", sans-serif;
+  }
+
+  #main > div:nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #main > div:nth-child(3) > div:first-child {
+    width: 35%;
+    margin-right: 7%;
+    margin-top: 60px;
+    /*background-color: #f7bb2f;*/
+    order: 2;
+  }
+
+  form > p {
+    color: rgb(60, 60, 60);
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  input[type="text"],
+  textarea {
+    background-color: rgb(60, 60, 60);
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    font-family: courier;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  textarea {
+    height: 100px;
+    background-color: #f7bb2f;
+    color: #000000;
+  }
+
+  button {
+    border: none;
+    width: 45%;
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: rgb(60, 60, 60);
+    font-size: 15px;
+    color: white;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  span {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .address {
+    order: 1;
+    margin-left: 7%;
+    margin-top: 60px;
     width: 40%;
-    float: right;
-    height: 515px;
-    margin-right: 6%;
-    margin-top: 50px;
-    background-color: rgba(106, 90, 205, 0.2);
-    border-left: 2px solid rgb(106, 90, 205);
-    border-radius: 16px;
+    /*background-color: rgba(180, 180, 180, 0.4);*/
+    color: rgb(60, 60, 60);
   }
-`;
 
-const H2 = styled.h2`
-  font-family: "Patua One", cursive;
-  font-size: 50px;
-  margin-bottom: 30px;
-  color: Tomato;
-  padding-top: 10px;
-  margin-left: 5%;
-`;
+  a {
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+  }
 
-const P = styled.p`
-  font-family: courier;
-  font-size: 25px;
-  margin-left: 6%;
-  margin-right: 2%;
-  color: black;
-  margin-bottom: 20px;
-`;
-
-const Head = styled.p`
-  font-family: "Monoton", cursive;
-  color: rgb(106, 90, 205);
-  background: none;
-  border-left: 3px #eee solid;
-  font-size: 35px;
-  margin-bottom: 30px;
-  margin-left: 5%;
-  margin-top: 10px;
-  padding-left: 10px;
-`;
-
-const Submit = styled.input`
-  margin-top: 25px;
-  border-radius: 20px;
-  border: none;
-  width: 30%;
-  height: 40px;
-  margin-left: 5%;
-  margin-bottom: 20px;
-  background-color: DodgerBlue;
-  font-size: 25px;
-  color: white;
-`;
-
-const Input = styled.input`
-  border: 1px black dotted;
-  outline: none;
-  border-radius: 15px;
-  background-color: rgba(180, 180, 180, 0.4);
-  box-sizing: border-box;
-  font-size: 20px;
-  padding: 13px;
-  color: #fff;
-  font-family: "Montserrat", sans-serif;
-  margin-left: 4%;
-  margin-bottom: 10px;
-  width: 85%;
+  .address h1,
+  .address h2 {
+    font-family: "Montserrat", sans-serif;
+  }
 `;
 
 export { Styling };
