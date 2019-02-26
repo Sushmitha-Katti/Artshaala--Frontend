@@ -127,7 +127,7 @@ const NavWrapper = styled.nav`
         top: auto;
         z-index: 7;
         margin-bottom: 4rem;
-        background: #f8f8f8;
+        background: #e8e8e8;
       }
       .nav-btn > label {
         display: inline-block;
@@ -156,9 +156,8 @@ const NavWrapper = styled.nav`
         left: 0;
         padding: 0;
         position: absolute;
-        margin-top: 2.9rem;
-        background: #f8f8f8;
-        transition: height 4s ease-in;
+        margin-top: 2.8rem;
+        background: #e8e8e8;
       }
       .nav-links li {
         padding: 0.5rem;
@@ -168,7 +167,6 @@ const NavWrapper = styled.nav`
       }
       .nav-links li a {
         display: block;
-
         color: black;
       }
 
@@ -176,9 +174,10 @@ const NavWrapper = styled.nav`
         height: 0px;
       }
       #nav-check:checked + .nav-links {
+        position: absolute;
         height: auto;
         overflow-y: hidden;
-        z-index: 6;
+        z-index: 8;
       }
       form {
         display: none;
