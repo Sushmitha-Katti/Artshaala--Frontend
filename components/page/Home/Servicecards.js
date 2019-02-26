@@ -17,7 +17,7 @@ const CardWrapper = styled.div`
     justify-items: center;
     grid-template-columns: 1fr 1fr;
   }
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 480px) {
     margin: 0.5rem;
     justify-items: center;
     grid-template-columns: 1fr;
