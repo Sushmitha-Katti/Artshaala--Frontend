@@ -51,7 +51,7 @@ font-size: 1.35rem;
 
 .main {
 grid-area:formcard;
-padding:100px;
+padding:150px;
 box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 background: #F7BB2F;
 }
@@ -177,18 +177,23 @@ grid-area:footer;
                 
                 .main {
                 grid-area:formcard;
+                padding-top:50px;
+                padding-bottom:50px;
+                padding-left:120px;
+                padding-right:120px;
                 box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
                 background: #F7BB2F;
                 }
                 
                 h3 {
-                    padding-left: 3rem;
+                    padding-left: 1.8rem;
+                    font-size:18px;
                     
                 }
                 
                 input {
-                height:20px;
-                width:150px;
+                height:30px;
+                width:180px;
                 font-size:10pt;
                 border-radius: 3px;
                 border: 2px solid  #333;
