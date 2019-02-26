@@ -217,6 +217,147 @@ grid-area:footer;
                 grid-area:footer;
                 }
                 
+}           
+
+@media (max-width: 480px){
+    .main-section {
+        border-top: solid;
+        border-bottom: solid;
+        padding-left: 0.5rem;
+        padding-right:0rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: column;
+        grid-gap: 30px;
+        justify-items: center;
+        grid-template-areas: 'displaycard'
+                             'formcard';
+            }
+            h1 {
+                font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
+                font-size: 2rem;
+                padding:0.8rem;
+                }
+                
+                .main-text {
+                padding:0.8rem;
+                font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
+                font-size: 0.8rem;
+                }
+                
+                .main {
+                grid-area:formcard;
+                padding-top:75px;
+                padding-bottom:75px;
+                padding-left:75px;
+                padding-right:75px;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+                background: #F7BB2F;
+                }
+                
+                h3 {
+                    padding-left: 1.8rem;
+                    font-size:18px;
+                    
+                }
+                
+                input {
+                height:30px;
+                width:180px;
+                font-size:10pt;
+                border-radius: 3px;
+                border: 2px solid  #333;
+                }
+                
+                .form-btn {
+                background: transparent 70%;
+                border-radius: 3px;
+                border: 2px solid  #333;
+                color: #333;
+                background-color: white;
+                margin: 0 1em;
+                padding: 0.25em 1em;
+                width: 100px;
+                height: 50px; 
+                align-self: stretch;
+                }    
+                .footer-grid{
+                display:grid;
+                grid-template-columns:1fr;
+                grid-area:footer;
+                }
+                
+}
+
+ 
+@media (max-width: 320px){
+    .main-section {
+        border-top: solid;
+        border-bottom: solid;
+        padding-left: 0.5rem;
+        padding-right:0rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: column;
+        grid-gap: 30px;
+        justify-items: center;
+        grid-template-areas: 'displaycard'
+                             'formcard';
+            }
+            h1 {
+                font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
+                font-size: 2rem;
+                padding:0.8rem;
+                }
+                
+                .main-text {
+                padding:0.8rem;
+                font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
+                font-size: 0.8rem;
+                }
+                
+                .main {
+                grid-area:formcard;
+                padding-top:50px;
+                padding-bottom:50px;
+                padding-left:50px;
+                padding-right:50px;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+                background: #F7BB2F;
+                }
+                
+                h3 {
+                    padding-left: 1.8rem;
+                    font-size:18px;
+                    
+                }
+                
+                input {
+                height:25px;
+                width:180px;
+                font-size:10pt;
+                border-radius: 3px;
+                border: 2px solid  #333;
+                }
+                
+                .form-btn {
+                background: transparent 70%;
+                border-radius: 3px;
+                border: 2px solid  #333;
+                color: #333;
+                background-color: white;
+                margin: 0 1em;
+                padding: 0.25em 1em;
+                width: 100px;
+                height: 50px; 
+                align-self: stretch;
+                }    
+                .footer-grid{
+                display:grid;
+                grid-template-columns:1fr;
+                grid-area:footer;
+                }
+                
 }
 
  `;
