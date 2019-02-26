@@ -17,7 +17,7 @@ class Navbar extends Component {
       link.key = `nav-link-${link.href}-${link.label}`;
       return link;
     });
-    console.log(links);
+
     return <Nav links={links} />;
   }
 }
