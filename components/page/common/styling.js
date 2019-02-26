@@ -6,7 +6,6 @@ const Styling = styled.div`
 
 
     .main {
-        // background: #ffffffcc;
         background-image:url(${instrument});
         background-size:100%;
         background-position: center;
@@ -18,8 +17,7 @@ const Styling = styled.div`
 
     }
 
-    .words {
-       
+    .words {    
         margin-top:-2vh;
         margin-left:5vw;
         display:inline-block;
