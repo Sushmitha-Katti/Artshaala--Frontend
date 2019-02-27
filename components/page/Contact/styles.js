@@ -192,6 +192,14 @@ const Styling = styled.div`
   .address h2 {
     font-family: "Montserrat", sans-serif;
   }
+
+  .mapboxgl-marker {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background-color: DodgerBlue;
+  }
 `;
 
 export { Styling };

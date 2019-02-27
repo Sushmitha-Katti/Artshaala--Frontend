@@ -1,28 +1,32 @@
 import React, { Component } from "react";
-import ReactMapGL from "react-map-gl";
+import ReactMapGL, { Marker } from "react-map-gl";
+
+const token =
+  "pk.eyJ1Ijoic2hhcnVzYjEiLCJhIjoiY2pzbjA1bHl4MDZldjQzanZoczR0OGllbSJ9.E_L3n24688s7y9ksjTAoPw";
 
 class Map extends Component {
   state = {
     viewport: {
       width: 100 + "%",
       height: 100 + "%",
-      latitude: 13.027427,
-      longitude: 77.576616,
+      latitude: 13.027876,
+      longitude: 77.576572,
       zoom: 16,
-      mapStyle: "mapbox://styles/mapbox/satellite-v9"
+      bearing: 0,
+      pitch: 0
     }
   };
 
   render() {
-    let token =
-      "pk.eyJ1Ijoic2hhcnVzYjEiLCJhIjoiY2pzbjA1bHl4MDZldjQzanZoczR0OGllbSJ9.E_L3n24688s7y9ksjTAoPw";
-
     return (
       <ReactMapGL
-        mapboxApiAccessToken={token}
         {...this.state.viewport}
+        mapStyle="mapbox://styles/sharusb1/cjsn2e5t901f21fmg2g6uktth"
+        mapboxApiAccessToken={token}
         onViewportChange={viewport => this.setState({ viewport })}
-      />
+      >
+        <Marker latitude={13.027427} longitude={77.576616} />
+      </ReactMapGL>
     );
   }
 }
