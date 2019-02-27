@@ -36,7 +36,8 @@ import {
   Six,
   TextSix,
   Seven,
-  TextSeven
+  TextSeven,
+  Div
 } from "./styles";
 
 // Now you got the whole structure right.
@@ -58,8 +59,8 @@ const Home = () => (
         we will give you a quick turn-around time to pick up your instrument.
       </Paragraph>
       <Button>
-        <a className="button button-black mt-15" href="contact.php">
-          <div>Enquire Now</div>
+        <a href="contact.php">
+          <Div>Enquire Now</Div>
         </a>
       </Button>
     </Wrapper>

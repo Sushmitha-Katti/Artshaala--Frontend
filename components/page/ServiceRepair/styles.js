@@ -20,17 +20,13 @@ const Paragraph = styled.p`
   font-size: 18px;
 `;
 const Button = styled.button`
-  background-color: lightgray;
-  border-radius: 3px;
-  border: 8px solid gray;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
+  background-color: black;
+  padding: 1em 1em;
 `;
 
 const Wrapper = styled.section`
   padding: 4em;
-
+  background-color: gray;
   text-align: center;
 `;
 
@@ -122,14 +118,19 @@ const TextSix = styled.section`
   float: right;
   position: relative;
   top: -250px;
-  right: 40px;
+  right: 30px;
 `;
 
 const TextSeven = styled.section`
   float: right;
   position: relative;
   top: -250px;
-  right: 150px;
+  right: 120px;
+`;
+
+const Div = styled.section`
+  color: white;
+  font-weight: bold;
 `;
 
 export {
@@ -152,7 +153,8 @@ export {
   Six,
   TextSix,
   Seven,
-  TextSeven
+  TextSeven,
+  Div
 };
 
 /* by exporting them we can import them from any file */
