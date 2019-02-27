@@ -6,12 +6,12 @@
 import styled from "styled-components";
 import repair from "./imagerepair/repair1.jpg";
 import one from "./imagerepair/one.jpg";
-import two from "./imagerepair/two.jpg";
+import two from "./imagerepair/two2.png";
 import three from "./imagerepair/three.png";
 import four from "./imagerepair/four.jpg";
 import five from "./imagerepair/five.jpg";
 import six from "./imagerepair/six.jpg";
-import seven from "./imagerepair/seven.jpg";
+import seven from "./imagerepair/seven7.jpg";
 
 const Heading = styled.h2`
   color: black;
@@ -42,63 +42,84 @@ const Wrapper = styled.section`
 
 const Container = styled.div`
   text-align: left;
+  background-color: gray;
 `;
 
 const One = styled.section`
-  width: 500px;
+  width: 350px;
   height: 400px;
   padding: 50px;
-  border: 1px solid black;
+  border: 8px solid gray;
   background-image: url(${one});
   font-weight: bold;
 `;
 const Two = styled.div`
-  width: 500px;
-  height: 170px;
-  padding: 50px;
-  border: 1px solid black;
+  width: 350px;
   background-image: url(${two});
-  font-weight: bold;
-`;
-const Three = styled.section`
-  width: 500px;
   height: 400px;
   padding: 50px;
-  border: 1px solid black;
+  border: 8px solid gray;
+
+  font-weight: bold;
+  float: right;
+  position: relative;
+  bottom: 517px;
+`;
+const Three = styled.section`
+  width: 350px;
+  height: 400px;
+  padding: 50px;
+  border: 8px solid gray;
   background-image: url(${three});
   font-weight: bold;
 `;
 const Four = styled.section`
-  width: 500px;
+  width: 350px;
   height: 400px;
   padding: 50px;
-  border: 1px solid black;
+  border: 8px solid gray;
   background-image: url(${four});
   font-weight: bold;
+  float: right;
+  position: relative;
+  bottom: 517px;
 `;
 const Five = styled.section`
-  width: 500px;
+  width: 350px;
   height: 400px;
   padding: 50px;
-  border: 1px solid black;
+  border: 8px solid gray;
   background-image: url(${five});
   font-weight: bold;
 `;
 const Six = styled.section`
-  width: 500px;
+  width: 350px;
   height: 400px;
   padding: 50px;
-  border: 1px solid black;
+  border: 8px solid gray;
   background-image: url(${six});
   font-weight: bold;
+  float: right;
+  position: relative;
+  bottom: 517px;
 `;
 const Seven = styled.section`
-  width: 500px;
-  height: 300px;
+  width: 350px;
+  height: 400px;
   padding: 50px;
-  border: 1px solid black;
+  border: 8px solid gray;
   background-image: url(${seven});
   font-weight: bold;
+`;
+
+const Text = styled.div`
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  z-index: 2;
+  width: 80%;
+  padding: 5px;
+  text-align: left;
 `;
 
 export {
@@ -113,7 +134,8 @@ export {
   Four,
   Five,
   Six,
-  Seven
+  Seven,
+  Text
 };
 
 // by exporting them we can import them from any file

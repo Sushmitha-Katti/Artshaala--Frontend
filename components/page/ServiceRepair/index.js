@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Head from "../../head";
 import Nav from "../../nav";
+
 /*import "./services.css"; */
 
 // Here we have all the logic corresponding to that page
@@ -20,7 +21,8 @@ import {
   Four,
   Five,
   Six,
-  Seven
+  Seven,
+  Text
 } from "./styles";
 
 // Now you got the whole structure right.
@@ -49,201 +51,215 @@ const Home = () => (
     </Wrapper>
     <Container>
       <One>
-        <h5>Guitar Servicing</h5>
-        <ul>
-          <li>
-            <i />
-            <span>Guitar restringing/Guitar strings changing</span>
-          </li>
-          <li>
-            <i />
-            <span>Guitar tuninig keys fixing</span>
-          </li>
-          <li>
-            <i />
-            <span>Guitar frett board straightening</span>
-          </li>
-          <li>
-            <i />
-            <span>Guitar bridge , nut & saddle fixing</span>
-          </li>
-          <li>
-            <i />
-            <span>Guitar frett fixing & cleaning</span>
-          </li>
-          <li>
-            <i />
-            <span>Guitar broken necks fixing </span>
-          </li>
-          <li>
-            <i />
-            <span>Guitar customization</span>
-          </li>
-          <li>
-            <i />
-            <span>Guitar pickup fixing</span>
-          </li>
-          <li>
-            <i />
-            <span>Guitar action adjustments</span>
-          </li>
-        </ul>
+        <Text>
+          <h3>Guitar Servicing</h3>
+          <ul>
+            <li>
+              <i />
+              <span>Guitar restringing/Guitar strings changing</span>
+            </li>
+            <li>
+              <i />
+              <span>Guitar tuninig keys fixing</span>
+            </li>
+            <li>
+              <i />
+              <span>Guitar frett board straightening</span>
+            </li>
+            <li>
+              <i />
+              <span>Guitar bridge , nut & saddle fixing</span>
+            </li>
+            <li>
+              <i />
+              <span>Guitar frett fixing & cleaning</span>
+            </li>
+            <li>
+              <i />
+              <span>Guitar broken necks fixing </span>
+            </li>
+            <li>
+              <i />
+              <span>Guitar customization</span>
+            </li>
+            <li>
+              <i />
+              <span>Guitar pickup fixing</span>
+            </li>
+            <li>
+              <i />
+              <span>Guitar action adjustments</span>
+            </li>
+          </ul>
+        </Text>
       </One>
 
       <Two>
-        <h3>Keyboard Servicing</h3>
-        <ul>
-          <li>
-            <i />
-            <span>Replacing keyboard keys</span>
-          </li>
-          <li>
-            <i />
-            <span>Missing/damaged components replacement</span>
-          </li>
-          <li>
-            <i />
-            <span>Power issues</span>
-          </li>
-          <li>
-            <i />
-            <span>Motherboard issues</span>
-          </li>
-        </ul>
+        <Text>
+          <h3>Keyboard Servicing</h3>
+          <ul>
+            <li>
+              <i />
+              <span>Replacing keyboard keys</span>
+            </li>
+            <li>
+              <i />
+              <span>Missing/damaged components replacement</span>
+            </li>
+            <li>
+              <i />
+              <span>Power issues</span>
+            </li>
+            <li>
+              <i />
+              <span>Motherboard issues</span>
+            </li>
+          </ul>
+        </Text>
       </Two>
 
       <Three>
-        <h3>Drum Servicing</h3>
-        <ul>
-          <li>
-            <i />
-            <span>Drums tuning</span>
-          </li>
-          <li>
-            <i />
-            <span>Replacing the drum heads/skin</span>
-          </li>
-          <li>
-            <i />
-            <span>Repairing/fixing the broken drum hardware</span>
-          </li>
-        </ul>
+        <Text>
+          <h3>Drum Servicing</h3>
+          <ul>
+            <li>
+              <i />
+              <span>Drums tuning</span>
+            </li>
+            <li>
+              <i />
+              <span>Replacing the drum heads/skin</span>
+            </li>
+            <li>
+              <i />
+              <span>Repairing/fixing the broken drum hardware</span>
+            </li>
+          </ul>
+        </Text>
       </Three>
 
       <Four>
-        <h3>Violin Servicing</h3>
-        <ul>
-          <li>
-            <i />
-            <span>Violin restringing/Violin Strings Changing</span>
-          </li>
-          <li>
-            <i />
-            <span>Violin bridge fixing/adjustment</span>
-          </li>
-          <li>
-            <i />
-            <span>Violin pegs/keys fixing</span>
-          </li>
-          <li>
-            <i />
-            <span>Violin tuning</span>
-          </li>
-          <li>
-            <i />
-            <span>Based in Bangalore.</span>
-          </li>
-        </ul>
+        <Text>
+          <h3>Violin Servicing</h3>
+          <ul>
+            <li>
+              <i />
+              <span>Violin restringing/Violin Strings Changing</span>
+            </li>
+            <li>
+              <i />
+              <span>Violin bridge fixing/adjustment</span>
+            </li>
+            <li>
+              <i />
+              <span>Violin pegs/keys fixing</span>
+            </li>
+            <li>
+              <i />
+              <span>Violin tuning</span>
+            </li>
+            <li>
+              <i />
+              <span>Based in Bangalore.</span>
+            </li>
+          </ul>
+        </Text>
       </Four>
 
       <Five>
-        <h3>Veena Servicing</h3>
-        <ul>
-          <li>
-            <i />
-            <span>Veena restringing</span>
-          </li>
-          <li>
-            <i />
-            <span>Veena tuning</span>
-          </li>
-          <li>
-            <i />
-            <span>Veena bride fixing</span>
-          </li>
-          <li>
-            <i />
-            <span>Veena breakage restoration</span>
-          </li>
-          <li>
-            <i />
-            <span>Veena polishing</span>
-          </li>
-          <li>
-            <i />
-            <span>Veena repair</span>
-          </li>
-        </ul>
+        <Text>
+          <h3>Veena Servicing</h3>
+          <ul>
+            <li>
+              <i />
+              <span>Veena restringing</span>
+            </li>
+            <li>
+              <i />
+              <span>Veena tuning</span>
+            </li>
+            <li>
+              <i />
+              <span>Veena bride fixing</span>
+            </li>
+            <li>
+              <i />
+              <span>Veena breakage restoration</span>
+            </li>
+            <li>
+              <i />
+              <span>Veena polishing</span>
+            </li>
+            <li>
+              <i />
+              <span>Veena repair</span>
+            </li>
+          </ul>
+        </Text>
       </Five>
 
       <Six>
-        <h3>Harmonium Servicing</h3>
-        <ul>
-          <li>
-            <i />
-            <span>Harmonium repair</span>
-          </li>
-          <li>
-            <i />
-            <span>Harmonium breakage restoration</span>
-          </li>
-          <li>
-            <i />
-            <span>Harmonium tuning</span>
-          </li>
-          <li>
-            <i />
-            <span>Harmonium bellows rebuild</span>
-          </li>
-          <li>
-            <i />
-            <span>Harmonium air fixing and keys fixing</span>
-          </li>
-          <li>
-            <i />
-            <span>Harmonium coupler repair</span>
-          </li>
-        </ul>
+        <Text>
+          <h3>Harmonium Servicing</h3>
+          <ul>
+            <li>
+              <i />
+              <span>Harmonium repair</span>
+            </li>
+            <li>
+              <i />
+              <span>Harmonium breakage restoration</span>
+            </li>
+            <li>
+              <i />
+              <span>Harmonium tuning</span>
+            </li>
+            <li>
+              <i />
+              <span>Harmonium bellows rebuild</span>
+            </li>
+            <li>
+              <i />
+              <span>Harmonium air fixing and keys fixing</span>
+            </li>
+            <li>
+              <i />
+              <span>Harmonium coupler repair</span>
+            </li>
+          </ul>
+        </Text>
       </Six>
 
       <Seven>
-        <h3>Tabla Servicing</h3>
-        <ul>
-          <li>
-            <i />
-            <span>Tabla tuning</span>
-          </li>
-          <li>
-            <i />
-            <span>Tabla karane fixing</span>
-          </li>
-          <li>
-            <i />
-            <span>Tabla puri/cap fitting</span>
-          </li>
-          <li>
-            <i />
-            <span>Dagga repair</span>
-          </li>
-          <li>
-            <i />
-            <span>Tabla repair</span>
-          </li>
-          <li>
-            <i />
-            <span>Bar replacement/fitting</span>
-          </li>
-        </ul>
+        <Text>
+          <h3>Tabla Servicing</h3>
+          <ul>
+            <li>
+              <i />
+              <span>Tabla tuning</span>
+            </li>
+            <li>
+              <i />
+              <span>Tabla karane fixing</span>
+            </li>
+            <li>
+              <i />
+              <span>Tabla puri/cap fitting</span>
+            </li>
+            <li>
+              <i />
+              <span>Dagga repair</span>
+            </li>
+            <li>
+              <i />
+              <span>Tabla repair</span>
+            </li>
+            <li>
+              <i />
+              <span>Bar replacement/fitting</span>
+            </li>
+          </ul>
+        </Text>
       </Seven>
     </Container>
   </div>
