@@ -14,6 +14,7 @@ class Contact extends Component {
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
             rel="stylesheet"
           />
+          <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js" />
           <meta charSet="utf-8" />
           <meta http-equiv="x-ua-compatible" content="ie=edge" />
           <meta name="description" content="" />
@@ -22,7 +23,7 @@ class Contact extends Component {
 
         <div id="main">
           <div>
-            <Map width="100%" height="100%" />
+            <Map />
           </div>
           <div>
             <h1>Contact Us</h1>

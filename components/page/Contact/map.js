@@ -1,15 +1,27 @@
 import React, { Component } from "react";
-//import ReactMapGL from "react-map-gl";
+import ReactMapGL from "react-map-gl";
 
 class Map extends Component {
-  state = {};
+  state = {
+    viewport: {
+      width: 100 + "%",
+      height: 100 + "%",
+      latitude: 13.027427,
+      longitude: 77.576616,
+      zoom: 16,
+      mapStyle: "mapbox://styles/mapbox/satellite-v9"
+    }
+  };
+
   render() {
+    let token =
+      "pk.eyJ1Ijoic2hhcnVzYjEiLCJhIjoiY2pzbjA1bHl4MDZldjQzanZoczR0OGllbSJ9.E_L3n24688s7y9ksjTAoPw";
+
     return (
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1264251302223!2d77.57439451437597!3d13.027620190819155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17c46476f62d%3A0xae6a4d298381b6ba!2sArtshaala+Music+Store!5e0!3m2!1sen!2sin!4v1536821993292"
-        width={this.props.width}
-        height={this.props.width}
-        frameborder="0"
+      <ReactMapGL
+        mapboxApiAccessToken={token}
+        {...this.state.viewport}
+        onViewportChange={viewport => this.setState({ viewport })}
       />
     );
   }
