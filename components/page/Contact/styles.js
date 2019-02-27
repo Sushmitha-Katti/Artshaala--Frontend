@@ -1,218 +1,196 @@
 import styled from "styled-components";
 
+/*font-family: 'Abel', sans-serif;
+		font-family: 'Montserrat', sans-serif;
+		font-family: 'Patua One', cursive;
+		font-family: 'Monoton', cursive;*/
+
 const Styling = styled.div`
-  * {
-    margin: 0;
-    padding: 0;
+  #main {
+    width: 100%;
+    height: 100%;
   }
 
-  @media (min-width: 900px) {
-    #main > div:nth-child(2) {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    #main > div:nth-child(2) > div:first-child {
-      width: 45%;
-      height: 510px;
-      margin-top: 50px;
-      margin-left: 5%;
-      padding-bottom: 20px;
-    }
-
-    #main > div:nth-child(2) > div:nth-child(2) {
-      width: 38%;
-      margin-right: 5%;
-      height: 530px;
-    }
-
+  @media (min-width: 768px) {
     #main > div:nth-child(3) {
       display: flex;
       justify-content: space-between;
     }
-  }
-
-  @media (min-width: 1024px) {
-    form > div > div:first-child {
-      display: flex;
-      justify-content: space-around;
-      margin-right: 6%;
+    #main > div:nth-child(3) > div:first-child {
+      order: 2;
+      width: 35%;
+      margin-right: 7%;
     }
-    form > div > div:first-child input {
+    .address {
+      order: 1;
+      margin-left: 5%;
       width: 40%;
-      margin-left: 1%;
+    }
+    #main > div:nth-child(2) h1 {
+      font-size: 4vmax;
+    }
+    #main > div:nth-child(2) h1:before,
+    #main > div:nth-child(2) h1:after {
+      width: 36%;
+    }
+    #main > div:nth-child(2) p {
+      font-size: 20px;
+    }
+    form p {
+      font-size: 40px;
     }
   }
 
-  @media (min-width: 540px) and (max-width: 900px) {
-    form > div > div:first-child {
-      display: flex;
-      justify-content: space-around;
-      margin-right: 6%;
+  @media (max-width: 768px) {
+    #main > div:nth-child(3) > div:first-child {
+      width: 80%;
+      margin-left: 10%;
     }
-    form > div > div:first-child input {
-      width: 40%;
-      margin-left: 1%;
+    .address {
+      margin-left: 10%;
+      width: 80%;
+    }
+    #main > div:nth-child(2) h1 {
+      font-size: 35px;
+    }
+    #main > div:nth-child(2) h1:before,
+    #main > div:nth-child(2) h1:after {
+      width: 27%;
+    }
+    #main > div:nth-child(2) p {
+      font-size: 2.5vmax;
+    }
+    form p {
+      font-size: 30px;
+    }
+    .address h1 {
+      font-size: 30px;
+    }
+    .address h2 {
+      font-size: 25px;
+    }
+    .address h4 {
+      font-size: 17px;
     }
   }
 
-  @media (max-width: 900px) {
-    #main > div:nth-child(2) > div:first-child {
-      width: 88%;
-      padding-bottom: 20px;
-      margin-top: 50px;
-      margin-left: 6%;
-    }
-
-    #main > div:nth-child(2) > div:nth-child(2) {
-      width: 88%;
-      margin-left: 6%;
+  @media (max-width: 480px) {
+    #main > div:nth-child(2) h1:before,
+    #main > div:nth-child(2) h1:after {
+      width: 15%;
     }
   }
 
   #main > div:first-child {
     width: 100%;
-    height: 100px;
-    border-bottom: 2px solid rgb(63, 118, 166);
+    height: 400px;
   }
 
-  #main {
-    width: 100%;
-    height: 100%;
-    background-image: url("../pictures/image5.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-  }
-
-  #main > div:nth-child(2) > div:first-child {
-    position: relative;
-    background-color: rgba(117, 155, 210, 0.4);
-    box-shadow: -5px 5px 20px rgb(180, 180, 180);
-    border: 1px dotted rgb(117, 155, 210);
-  }
-
-  #main > div:nth-child(2) > div:nth-child(2) {
-    margin-top: 50px;
-    background-color: rgba(106, 90, 205, 0.2);
-    border: 1px solid rgba(106, 90, 205, 0.5);
-    box-shadow: -4px 4px 20px rgba(106, 90, 205, 0.7);
-  }
-
-  #main > div:nth-child(2) > div:first-child > h2 {
-    font-family: "Patua One", cursive;
-    font-size: 50px;
-    margin-bottom: 30px;
-    color: rgb(108, 120, 158);
-    text-shadow: 4px 4px 30px white;
-    padding-top: 10px;
-    margin-left: 2%;
-  }
-
-  #main > div:nth-child(2) > div:first-child > p {
-    font-family: courier;
-    font-size: 25px;
-    margin-left: 3%;
-    margin-right: 6%;
-    color: white;
-    text-shadow: 2px 2px 4px #000000;
-    margin-bottom: 20px;
-  }
-
-  #main > div:nth-child(3) {
-    width: 83%;
-    padding: 3%;
-    margin-top: 100px;
-    margin-left: 6%;
-    margin-bottom: 40px;
+  #main > div:nth-child(2) {
+    padding-top: 30px;
     background-color: rgba(180, 180, 180, 0.2);
-    /*background-image: url("../pictures/image11.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;*/
+    padding-bottom: 30px;
   }
 
-  #main > div:nth-child(3) > div:first-child,
-  #main > div:nth-child(3) > div:nth-child(2) {
-    background-color: rgba(180, 180, 180, 0.4);
-    width: 88%;
-    margin: 3%;
-    padding: 3%;
-    line-height: 30px;
-    font-family: "Montserrat", sans-serif;
-    color: rgb(80, 40, 90);
+  #main > div:nth-child(2) h1 {
+    overflow: hidden;
+    text-align: center;
+    color: #f7bb2f;
+    padding-left: 7%;
+    padding-right: 7%;
+    font-family: "Patua One", cursive;
+  }
+
+  #main > div:nth-child(2) h1:before,
+  #main > div:nth-child(2) h1:after {
+    background-color: rgb(180, 180, 180);
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+  }
+
+  #main > div:nth-child(2) h1:before {
+    right: 0.5em;
+  }
+
+  #main > div:nth-child(2) h1:after {
+    left: 0.5em;
+  }
+
+  #main > div:nth-child(2) p {
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 9%;
+    padding-right: 9%;
+
+    color: rgb(60, 60, 60);
+    font-family: "Abel", sans-serif;
   }
 
   #main > div:nth-child(3) > div:first-child {
-    margin-bottom: 30px;
-  }
-
-  #main > div:nth-child(3) > div:first-child h2 {
-    margin-bottom: 15px;
-    color: black;
-  }
-
-  #main > div:nth-child(3) > div:nth-child(2) a {
-    text-decoration: none;
-    color: rgb(80, 90, 0);
+    margin-top: 60px;
   }
 
   form > p {
-    font-family: "Monoton", cursive;
-    color: rgb(106, 90, 205);
-    background: none;
-    border-left: 3px #eee solid;
-    font-size: 35px;
-    margin-bottom: 30px;
-    margin-left: 5%;
-    margin-top: 10px;
-    padding-left: 10px;
-  }
+    color: rgb(60, 60, 60);
 
-  input[type="text"] {
-    height: 45px;
+    margin-bottom: 30px;
+    font-family: "Montserrat", sans-serif;
   }
 
   input[type="text"],
   textarea {
-    border: 1px black dotted;
-    outline: none;
-    border-radius: 15px;
-    background-color: rgba(180, 180, 180, 0.2);
-    box-sizing: border-box;
+    background-color: rgb(60, 60, 60);
     font-size: 20px;
-    padding: 13px;
-    color: black;
+    padding: 2%;
+    color: white;
     font-family: courier;
-    margin-left: 5%;
-    margin-bottom: 25px;
-    width: 85%;
+    margin-bottom: 30px;
+    width: 100%;
   }
 
   textarea {
-    margin-bottom: 5px;
+    height: 100px;
+    background-color: #f7bb2f;
+    color: #000000;
   }
 
-  input[type="submit"] {
-    margin-top: 15px;
-    border-radius: 20px;
+  button {
     border: none;
-    width: 30%;
-    height: 40px;
-    margin-left: 5%;
+    width: 45%;
+    height: 50px;
     margin-bottom: 20px;
-    background-color: DodgerBlue;
-    font-size: 25px;
+    background-color: rgb(60, 60, 60);
+    font-size: 18px;
     color: white;
   }
+  button:hover {
+    cursor: pointer;
+  }
+  span {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
-  #main > div:nth-child(4) {
-    width: 100%;
-    height: 100px;
-    background-color: rgba(63, 118, 166, 0.7);
-    border-top: 2px solid rgb(63, 118, 166);
+  .address {
+    margin-top: 40px;
+    padding: 2%;
+    padding-top: 0.8%;
+    /*background-color: rgba(180, 180, 180, 0.1);*/
+    color: rgb(60, 60, 60);
+    margin-bottom: 30%;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+  }
+
+  .address h1,
+  .address h2 {
+    font-family: "Montserrat", sans-serif;
   }
 `;
 
