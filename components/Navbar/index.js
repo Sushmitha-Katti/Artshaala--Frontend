@@ -3,6 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import Nav from "./Nav.js";
 
+
 class Navbar extends Component {
   render() {
     let links = [
@@ -17,7 +18,7 @@ class Navbar extends Component {
       link.key = `nav-link-${link.href}-${link.label}`;
       return link;
     });
-    console.log(links);
+
     return <Nav links={links} />;
   }
 }

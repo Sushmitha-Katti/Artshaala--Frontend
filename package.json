@@ -32,8 +32,6 @@
   "main": "index.js",
   "devDependencies": {
     "next-images": "^1.0.4"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
+
 }

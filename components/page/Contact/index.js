@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Styling } from "./styles";
 import Head from "next/head";
+
 import Map from "./map";
+
 
 class Contact extends Component {
   state = {};
@@ -23,6 +25,7 @@ class Contact extends Component {
         </Head>
 
         <div id="main">
+          <div />
           <div>
             <Map />
           </div>
@@ -51,6 +54,7 @@ class Contact extends Component {
                 </div>
               </form>
             </div>
+
             <div className="address">
               <h1>Artshaala Music Store,</h1>
 
@@ -89,6 +93,7 @@ class Contact extends Component {
               </h4>
             </div>
           </div>
+          <div />
         </div>
       </Styling>
     );
