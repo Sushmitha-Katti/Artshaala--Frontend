@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Styling } from "./styles";
 import Head from "next/head";
-import Map from "./mapbox";
+import Map from "./map";
 
 class Contact extends Component {
   state = {};
@@ -12,17 +12,13 @@ class Contact extends Component {
           <link
             href="https://fonts.googleapis.com/css?family=Abel|Montserrat|Patua+One|Monoton"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
-            //href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css"
             rel="stylesheet"
           />
 
-          <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js" />
           <meta charSet="utf-8" />
-          <meta http-equiv="x-ua-compatible" content="ie=edge" />
-          <meta name="description" content="" />
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"
+            content="width=device-width, initial-scale=1,"
           />
         </Head>
 

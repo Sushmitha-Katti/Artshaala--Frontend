@@ -25,7 +25,14 @@ class Map extends Component {
         mapboxApiAccessToken={token}
         onViewportChange={viewport => this.setState({ viewport })}
       >
-        <Marker latitude={13.027427} longitude={77.576616} />
+        <Marker latitude={13.027427} longitude={77.576616}>
+          <a href="https://goo.gl/maps/Bn3YoqwCudw" target="__blank">
+            <img
+              src="https://www.mycareershapers.in/_next/static/images/mappointer-f265b1bfdcf77d2cd550882c15bf7977.png"
+              width="30"
+            />
+          </a>
+        </Marker>
       </ReactMapGL>
     );
   }
