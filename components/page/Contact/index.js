@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Styling } from "./styles";
 import Head from "next/head";
+import Map from "./map";
 
 class Contact extends Component {
   state = {};
@@ -21,12 +22,7 @@ class Contact extends Component {
 
         <div id="main">
           <div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1264251302223!2d77.57439451437597!3d13.027620190819155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17c46476f62d%3A0xae6a4d298381b6ba!2sArtshaala+Music+Store!5e0!3m2!1sen!2sin!4v1536821993292"
-              width="100%"
-              height="100%"
-              frameborder="0"
-            />
+            <Map width="100%" height="100%" />
           </div>
           <div>
             <h1>Contact Us</h1>
