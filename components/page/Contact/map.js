@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
+import marker from "./images/marker.png";
 
 const token =
   "pk.eyJ1Ijoic2hhcnVzYjEiLCJhIjoiY2pzbjA1bHl4MDZldjQzanZoczR0OGllbSJ9.E_L3n24688s7y9ksjTAoPw";
@@ -27,10 +28,7 @@ class Map extends Component {
       >
         <Marker latitude={13.027427} longitude={77.576616}>
           <a href="https://goo.gl/maps/Bn3YoqwCudw" target="__blank">
-            <img
-              src="https://www.mycareershapers.in/_next/static/images/mappointer-f265b1bfdcf77d2cd550882c15bf7977.png"
-              width="30"
-            />
+            <img src={marker} width="30" />
           </a>
         </Marker>
       </ReactMapGL>
