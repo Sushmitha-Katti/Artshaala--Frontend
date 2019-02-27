@@ -2,6 +2,13 @@ import React from "react";
 import Link from "next/link";
 import Head from "../../head";
 import Nav from "../../nav";
+import one from "./imagerepair/one.jpg";
+import two from "./imagerepair/two.jpg";
+import three from "./imagerepair/three.jpg";
+import four from "./imagerepair/four.jpg";
+import five from "./imagerepair/five.jpg";
+import six from "./imagerepair/six.jpg";
+import seven from "./imagerepair/seven.jpg";
 
 /*import "./services.css"; */
 
@@ -17,12 +24,19 @@ import {
   Container,
   One,
   Two,
+  Imagestyle,
+  Text,
+  TextTwo,
+  TextThree,
   Three,
   Four,
+  TextFour,
   Five,
+  TextFive,
   Six,
+  TextSix,
   Seven,
-  Text
+  TextSeven
 } from "./styles";
 
 // Now you got the whole structure right.
@@ -51,6 +65,9 @@ const Home = () => (
     </Wrapper>
     <Container>
       <One>
+        <Imagestyle>
+          <img src={one} />
+        </Imagestyle>
         <Text>
           <h3>Guitar Servicing</h3>
           <ul>
@@ -95,7 +112,10 @@ const Home = () => (
       </One>
 
       <Two>
-        <Text>
+        <Imagestyle>
+          <img src={two} />
+        </Imagestyle>
+        <TextTwo>
           <h3>Keyboard Servicing</h3>
           <ul>
             <li>
@@ -115,11 +135,14 @@ const Home = () => (
               <span>Motherboard issues</span>
             </li>
           </ul>
-        </Text>
+        </TextTwo>
       </Two>
 
       <Three>
-        <Text>
+        <Imagestyle>
+          <img src={three} />
+        </Imagestyle>
+        <TextThree>
           <h3>Drum Servicing</h3>
           <ul>
             <li>
@@ -135,11 +158,14 @@ const Home = () => (
               <span>Repairing/fixing the broken drum hardware</span>
             </li>
           </ul>
-        </Text>
+        </TextThree>
       </Three>
 
       <Four>
-        <Text>
+        <Imagestyle>
+          <img src={four} />
+        </Imagestyle>
+        <TextFour>
           <h3>Violin Servicing</h3>
           <ul>
             <li>
@@ -163,11 +189,14 @@ const Home = () => (
               <span>Based in Bangalore.</span>
             </li>
           </ul>
-        </Text>
+        </TextFour>
       </Four>
 
       <Five>
-        <Text>
+        <Imagestyle>
+          <img src={five} />
+        </Imagestyle>
+        <TextFive>
           <h3>Veena Servicing</h3>
           <ul>
             <li>
@@ -195,11 +224,14 @@ const Home = () => (
               <span>Veena repair</span>
             </li>
           </ul>
-        </Text>
+        </TextFive>
       </Five>
 
       <Six>
-        <Text>
+        <Imagestyle>
+          <img src={six} />
+        </Imagestyle>
+        <TextSix>
           <h3>Harmonium Servicing</h3>
           <ul>
             <li>
@@ -227,11 +259,14 @@ const Home = () => (
               <span>Harmonium coupler repair</span>
             </li>
           </ul>
-        </Text>
+        </TextSix>
       </Six>
 
       <Seven>
-        <Text>
+        <Imagestyle>
+          <img src={seven} />
+        </Imagestyle>
+        <TextSeven>
           <h3>Tabla Servicing</h3>
           <ul>
             <li>
@@ -259,7 +294,7 @@ const Home = () => (
               <span>Bar replacement/fitting</span>
             </li>
           </ul>
-        </Text>
+        </TextSeven>
       </Seven>
     </Container>
   </div>

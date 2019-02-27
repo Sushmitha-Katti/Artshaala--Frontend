@@ -5,25 +5,19 @@
 
 import styled from "styled-components";
 import repair from "./imagerepair/repair1.jpg";
-import one from "./imagerepair/one.jpg";
-import two from "./imagerepair/two2.png";
-import three from "./imagerepair/three.png";
-import four from "./imagerepair/four.jpg";
-import five from "./imagerepair/five.jpg";
-import six from "./imagerepair/six.jpg";
-import seven from "./imagerepair/seven7.jpg";
 
 const Heading = styled.h2`
-  color: black;
+  color: rgb(204, 204, 0);
   text-align: center;
   height: 30px;
-  font-size: 40px;
+  font-size: 50px;
 `;
 
 const Paragraph = styled.p`
   color: black;
   text-align: center;
-  text-align: justify;
+
+  font-size: 18px;
 `;
 const Button = styled.button`
   background-color: lightgray;
@@ -36,90 +30,106 @@ const Button = styled.button`
 
 const Wrapper = styled.section`
   padding: 4em;
-  background-image: url(${repair});
+
   text-align: center;
 `;
 
 const Container = styled.div`
   text-align: left;
-  background-color: gray;
 `;
 
 const One = styled.section`
-  width: 350px;
   height: 400px;
-  padding: 50px;
-  border: 8px solid gray;
-  background-image: url(${one});
-  font-weight: bold;
+  padding: 4em;
+  border: 2px solid gray;
 `;
-const Two = styled.div`
-  width: 350px;
-  background-image: url(${two});
-  height: 400px;
-  padding: 50px;
-  border: 8px solid gray;
 
-  font-weight: bold;
-  float: right;
-  position: relative;
-  bottom: 517px;
+const Two = styled.section`
+  height: 200px;
+  padding: 4em;
+  border: 2px solid gray;
 `;
+
 const Three = styled.section`
-  width: 350px;
-  height: 400px;
-  padding: 50px;
-  border: 8px solid gray;
-  background-image: url(${three});
-  font-weight: bold;
-`;
-const Four = styled.section`
-  width: 350px;
-  height: 400px;
-  padding: 50px;
-  border: 8px solid gray;
-  background-image: url(${four});
-  font-weight: bold;
-  float: right;
-  position: relative;
-  bottom: 517px;
-`;
-const Five = styled.section`
-  width: 350px;
-  height: 400px;
-  padding: 50px;
-  border: 8px solid gray;
-  background-image: url(${five});
-  font-weight: bold;
-`;
-const Six = styled.section`
-  width: 350px;
-  height: 400px;
-  padding: 50px;
-  border: 8px solid gray;
-  background-image: url(${six});
-  font-weight: bold;
-  float: right;
-  position: relative;
-  bottom: 517px;
-`;
-const Seven = styled.section`
-  width: 350px;
-  height: 400px;
-  padding: 50px;
-  border: 8px solid gray;
-  background-image: url(${seven});
-  font-weight: bold;
+  height: 300px;
+  padding: 4em;
+  border: 2px solid gray;
 `;
 
-const Text = styled.div`
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  z-index: 2;
-  width: 80%;
-  padding: 5px;
-  text-align: left;
+const Four = styled.section`
+  height: 300px;
+  padding: 4em;
+  border: 2px solid gray;
+`;
+
+const Five = styled.section`
+  height: 300px;
+  padding: 4em;
+  border: 2px solid gray;
+`;
+
+const Six = styled.section`
+  height: 300px;
+  padding: 4em;
+  border: 2px solid gray;
+`;
+
+const Seven = styled.section`
+  height: 300px;
+  padding: 4em;
+  border: 2px solid gray;
+`;
+
+const Imagestyle = styled.div`
+  display: block;
+  margin-left: 0%;
+  margin-right: 100%;
+  width: 50%;
+`;
+
+const Text = styled.section`
+  float: right;
+  position: relative;
+  top: -300px;
+`;
+
+const TextTwo = styled.section`
+  float: right;
+  position: relative;
+  top: -150px;
+`;
+
+const TextThree = styled.section`
+  float: right;
+  position: relative;
+  top: -300px;
+`;
+
+const TextFour = styled.section`
+  float: right;
+  position: relative;
+  top: -250px;
+`;
+
+const TextFive = styled.section`
+  float: right;
+  position: relative;
+  top: -250px;
+  right: 100px;
+`;
+
+const TextSix = styled.section`
+  float: right;
+  position: relative;
+  top: -250px;
+  right: 40px;
+`;
+
+const TextSeven = styled.section`
+  float: right;
+  position: relative;
+  top: -250px;
+  right: 150px;
 `;
 
 export {
@@ -129,13 +139,20 @@ export {
   Wrapper,
   Container,
   One,
+  Imagestyle,
+  Text,
   Two,
+  TextTwo,
   Three,
+  TextThree,
   Four,
+  TextFour,
   Five,
+  TextFive,
   Six,
+  TextSix,
   Seven,
-  Text
+  TextSeven
 };
 
-// by exporting them we can import them from any file
+/* by exporting them we can import them from any file */
