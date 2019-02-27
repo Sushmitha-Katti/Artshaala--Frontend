@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import Navbar from "./index.js";
 import NavWrapper from "./styles.js";
 import Link from "next/link";
+
 import logo from "./logo.png";
+
+
 
 class Nav extends Component {
   render() {
