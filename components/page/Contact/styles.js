@@ -84,7 +84,6 @@ const Styling = styled.div`
   #main > div:first-child {
     width: 100%;
     height: 400px;
-    background-color: #f7bb2f;
   }
 
   #main > div:nth-child(2) {
@@ -164,7 +163,7 @@ const Styling = styled.div`
     height: 50px;
     margin-bottom: 20px;
     background-color: rgb(60, 60, 60);
-    font-size: 15px;
+    font-size: 18px;
     color: white;
   }
   button:hover {
@@ -178,8 +177,8 @@ const Styling = styled.div`
   .address {
     margin-top: 40px;
     padding: 2%;
-    padding-top: 0.4%;
-    background-color: rgba(180, 180, 180, 0.1);
+    padding-top: 0.8%;
+    /*background-color: rgba(180, 180, 180, 0.1);*/
     color: rgb(60, 60, 60);
     margin-bottom: 30%;
   }
