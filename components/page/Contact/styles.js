@@ -6,7 +6,6 @@ import styled from "styled-components";
 		font-family: 'Monoton', cursive;*/
 
 const Styling = styled.div`
-
   #main {
     width: 100%;
     height: 100%;
