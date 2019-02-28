@@ -70,6 +70,8 @@ const ItemContainer = styled.div`
   }
   > div {
     text-align: left;
+
+    padding: 30px;
   }
 `;
 
