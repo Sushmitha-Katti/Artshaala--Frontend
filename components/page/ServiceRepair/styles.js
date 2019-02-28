@@ -3,14 +3,11 @@
 
 // here we will define styles
 
+//you are telling me to reduce the number of components ?
+// Let me show you
+
 import styled from "styled-components";
-import one from "./imagerepair/one.jpg";
-import two from "./imagerepair/two.jpg";
-import three from "./imagerepair/three.jpg";
-import four from "./imagerepair/four.jpg";
-import five from "./imagerepair/five.jpg";
-import six from "./imagerepair/six.jpg";
-import seven from "./imagerepair/seven.jpg";
+import { puts } from "util";
 
 const Heading = styled.h2`
   color: rgb(204, 204, 0);
@@ -27,7 +24,15 @@ const Paragraph = styled.p`
 `;
 const Button = styled.button`
   background-color: black;
-  padding: 1em 1em;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 1px 1px;
+  cursor: pointer;
+  padding: 1em 3em;
 `;
 
 const Wrapper = styled.section`
@@ -36,194 +41,36 @@ const Wrapper = styled.section`
   text-align: center;
 `;
 
-const Container = styled.div`
-  /* text-align: left; */
-`;
-
-const One = styled.section`
-  height: 400px;
-  margin: 50px;
-  padding: 4em;
-  border: 2px solid gray;
+// now you got the point right, using one styled components for common components
+// and try incapsulating all the child styles inside the component
+// explain it to me what i did
+//made the image responsive too, by specifying width 100% and enclosing the
+// image in a separate div.
+// nope from the starting
+// Used a single component for entire design, and specifying img and div
+//as it's child (so that we can style them too)
+//Then made the image responsive
+//The mistake from my side was using too many components that cluttered things
+// Cool there are margin and padding issues now, fix them
+// Style the button better
+// remove the white margin
+// give it more padding on left and right.ok
+const ItemContainer = styled.div`
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 4rem;
+  /* border: 2px solid gray; */
   display: flex;
-  flex-direction: row;
-`;
-const Two = styled.section`
-  height: 400px;
-  margin: 50px;
-  padding: 4em;
-  border: 2px solid gray;
-  display: flex;
-  flex-direction: row;
-`;
-const Three = styled.section`
-  height: 400px;
-  margin: 50px;
-  padding: 4em;
-  border: 2px solid gray;
-  display: flex;
-  flex-direction: row;
-`;
-const Four = styled.section`
-  height: 400px;
-  margin: 50px;
-  padding: 4em;
-  border: 2px solid gray;
-  display: flex;
-  flex-direction: row;
-`;
-const Five = styled.section`
-  height: 400px;
-  margin: 50px;
-  padding: 4em;
-  border: 2px solid gray;
-  display: flex;
-  flex-direction: row;
-`;
-const Six = styled.section`
-  height: 400px;
-  margin: 50px;
-  padding: 4em;
-  border: 2px solid gray;
-  display: flex;
-  flex-direction: row;
-`;
-const Seven = styled.section`
-  height: 400px;
-  margin: 50px;
-  padding: 4em;
-  border: 2px solid gray;
-  display: flex;
-  flex-direction: row;
-`;
-
-const Imagestyle = styled.div`
-  display: block;
-  margin-left: 0%;
-  margin-right: 20px;
-  flex: 2;
-
-  @media (min-width: 700px) {
-    Imagestyle {
-      flex-direction: column;
-    }
+  @media (max-width: 700px) {
+    flex-direction: column;
   }
-`;
-
-const ImageTwo = styled.section`
-  display: block;
-  margin-left: 0%;
-  margin-right: 20px;
-  flex: 2;
-  background-image: url({two});
-  @media (min-width: 700px) {
-    ImageTwo {
-      flex-direction: column;
-    }
+  img {
+    max-width: 300px;
+    width: 100%;
   }
-`;
-const ImageThree = styled.div`
-  display: block;
-  margin-left: 0%;
-  margin-right: 20px;
-  flex: 2;
-  background-image: url({two});
-  @media (min-width: 700px) {
-    ImageThree {
-      flex-direction: column;
-    }
+  > div {
+    text-align: left;
   }
-`;
-const ImageFour = styled.div`
-  display: block;
-  margin-left: 0%;
-  margin-right: 20px;
-  flex: 2;
-  background-image: url({two});
-  @media (min-width: 700px) {
-    ImageFour {
-      flex-direction: column;
-    }
-  }
-`;
-const ImageFive = styled.div`
-  display: block;
-  margin-left: 0%;
-  margin-right: 20px;
-  flex: 2;
-  background-image: url({two});
-  @media (min-width: 700px) {
-    ImageFive {
-      flex-direction: column;
-    }
-  }
-`;
-const ImageSix = styled.div`
-  display: block;
-  margin-left: 0%;
-  margin-right: 20px;
-  flex: 2;
-  background-image: url({two});
-  @media (min-width: 700px) {
-    ImageSix {
-      flex-direction: column;
-    }
-  }
-`;
-const ImageSeven = styled.div`
-  display: block;
-  margin-left: 0%;
-  margin-right: 20px;
-  flex: 2;
-  background-image: url({two});
-  @media (min-width: 700px) {
-    ImageSeven {
-      flex-direction: column;
-    }
-  }
-`;
-
-const Text = styled.section`
-  position: relative;
-
-  float: left;
-  flex: 2;
-`;
-const TextTwo = styled.section`
-  position: relative;
-
-  float: left;
-  flex: 2;
-`;
-const TextThree = styled.section`
-  position: relative;
-
-  float: left;
-  flex: 2;
-`;
-const TextFour = styled.section`
-  position: relative;
-
-  float: left;
-  flex: 2;
-`;
-const TextFive = styled.section`
-  position: relative;
-
-  float: left;
-  flex: 2;
-`;
-const TextSix = styled.section`
-  position: relative;
-
-  float: left;
-  flex: 2;
-`;
-const TextSeven = styled.section`
-  position: relative;
-
-  float: left;
-  flex: 2;
 `;
 
 const Div = styled.section`
@@ -231,35 +78,7 @@ const Div = styled.section`
   font-weight: bold;
 `;
 
-export {
-  Heading,
-  Paragraph,
-  Button,
-  Wrapper,
-  Container,
-  One,
-  Imagestyle,
-  Text,
-  Div,
-  Two,
-  ImageTwo,
-  TextTwo,
-  Three,
-  ImageThree,
-  TextThree,
-  Four,
-  ImageFour,
-  TextFour,
-  Five,
-  ImageFive,
-  TextFive,
-  Six,
-  ImageSix,
-  TextSix,
-  Seven,
-  ImageSeven,
-  TextSeven
-};
+export { Heading, ItemContainer, Paragraph, Button, Div, Wrapper };
 
 /* by exporting them we can import them from any file */
 // hey so you have used flex box

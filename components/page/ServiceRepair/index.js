@@ -21,29 +21,8 @@ import {
   Paragraph,
   Button,
   Wrapper,
-  Container,
-  One,
-  Imagestyle,
-  Text,
   Div,
-  Two,
-  ImageTwo,
-  TextTwo,
-  Three,
-  ImageThree,
-  TextThree,
-  Four,
-  ImageFour,
-  TextFour,
-  Five,
-  ImageFive,
-  TextFive,
-  Six,
-  ImageSix,
-  TextSix,
-  Seven,
-  ImageSeven,
-  TextSeven
+  ItemContainer
 } from "./styles";
 
 // Now you got the whole structure right.
@@ -64,20 +43,17 @@ const Home = () => (
         high volume time period. If we cannot repair the instrument on the spot,
         we will give you a quick turn-around time to pick up your instrument.
       </Paragraph>
-      <Button>
-        <a href="contact.php">
-          <Div>Enquire Now</Div>
-        </a>
+      <Button onclick="contact.php">
+        <Div>Enquire Now</Div>
       </Button>
     </Wrapper>
-    <Container>
-      <One>
-        <Imagestyle>
-          {" "}
+    <div>
+      <ItemContainer>
+        <div>
           <img src={one} />
-        </Imagestyle>
+        </div>
 
-        <Text>
+        <div>
           <h3>Guitar Servicing</h3>
           <ul>
             <li>
@@ -117,14 +93,13 @@ const Home = () => (
               <span>Guitar action adjustments</span>
             </li>
           </ul>
-        </Text>
-      </One>
+        </div>
+      </ItemContainer>
 
-      <Two>
-        <ImageTwo>
-          <img src={two} />
-        </ImageTwo>
-        <TextTwo>
+      <ItemContainer>
+        <img src={two} />
+
+        <div>
           <h3>Keyboard Servicing</h3>
           <ul>
             <li>
@@ -144,14 +119,13 @@ const Home = () => (
               <span>Motherboard issues</span>
             </li>
           </ul>
-        </TextTwo>
-      </Two>
+        </div>
+      </ItemContainer>
 
-      <Three>
-        <ImageThree>
-          <img src={three} />
-        </ImageThree>
-        <TextThree>
+      <ItemContainer>
+        <img src={three} />
+
+        <div>
           <h3>Drum Servicing</h3>
           <ul>
             <li>
@@ -167,13 +141,12 @@ const Home = () => (
               <span>Repairing/fixing the broken drum hardware</span>
             </li>
           </ul>
-        </TextThree>
-      </Three>
-      <Four>
-        <ImageFour>
-          <img src={four} />
-        </ImageFour>
-        <TextFour>
+        </div>
+      </ItemContainer>
+      <ItemContainer>
+        <img src={four} />
+
+        <div>
           <h3>Violin Servicing</h3>
           <ul>
             <li>
@@ -197,13 +170,12 @@ const Home = () => (
               <span>Based in Bangalore.</span>
             </li>
           </ul>
-        </TextFour>
-      </Four>
-      <Five>
-        <ImageFive>
-          <img src={five} />
-        </ImageFive>
-        <TextFive>
+        </div>
+      </ItemContainer>
+      <ItemContainer>
+        <img src={five} />
+
+        <div>
           <h3>Veena Servicing</h3>
           <ul>
             <li>
@@ -231,13 +203,12 @@ const Home = () => (
               <span>Veena repair</span>
             </li>
           </ul>
-        </TextFive>
-      </Five>
-      <Six>
-        <ImageSix>
-          <img src={six} />
-        </ImageSix>
-        <TextSix>
+        </div>
+      </ItemContainer>
+      <ItemContainer>
+        <img src={six} />
+
+        <div>
           <h3>Harmonium Servicing</h3>
           <ul>
             <li>
@@ -265,13 +236,11 @@ const Home = () => (
               <span>Harmonium coupler repair</span>
             </li>
           </ul>
-        </TextSix>
-      </Six>
-      <Seven>
-        <ImageSeven>
-          <img src={seven} />
-        </ImageSeven>
-        <TextSeven>
+        </div>
+      </ItemContainer>
+      <ItemContainer>
+        <img src={seven} />
+        <div>
           <h3>Tabla Servicing</h3>
           <ul>
             <li>
@@ -299,21 +268,10 @@ const Home = () => (
               <span>Bar replacement/fitting</span>
             </li>
           </ul>
-        </TextSeven>
-      </Seven>
-    </Container>
+        </div>
+      </ItemContainer>
+    </div>
   </div>
 );
 
 export default Home;
-
-// hey why arent the styles working?
-// actually the local host port was active
-//let me fix this just a second
-// is it working ?
-//checking
-//wanted to use it with the text..trying now
-//No errors now
-// like is the media quary is working ?
-//actually im trying to solve this overlapping
-//problem.
