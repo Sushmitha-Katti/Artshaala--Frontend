@@ -23,21 +23,27 @@ import {
   Wrapper,
   Container,
   One,
-  Two,
   Imagestyle,
   Text,
+  Div,
+  Two,
+  ImageTwo,
   TextTwo,
-  TextThree,
   Three,
+  ImageThree,
+  TextThree,
   Four,
+  ImageFour,
   TextFour,
   Five,
+  ImageFive,
   TextFive,
   Six,
+  ImageSix,
   TextSix,
   Seven,
-  TextSeven,
-  Div
+  ImageSeven,
+  TextSeven
 } from "./styles";
 
 // Now you got the whole structure right.
@@ -67,8 +73,10 @@ const Home = () => (
     <Container>
       <One>
         <Imagestyle>
+          {" "}
           <img src={one} />
         </Imagestyle>
+
         <Text>
           <h3>Guitar Servicing</h3>
           <ul>
@@ -94,7 +102,7 @@ const Home = () => (
             </li>
             <li>
               <i />
-              <span>Guitar broken necks fixing </span>
+              <span>Guitar broken necks fixing</span>
             </li>
             <li>
               <i />
@@ -113,9 +121,9 @@ const Home = () => (
       </One>
 
       <Two>
-        <Imagestyle>
+        <ImageTwo>
           <img src={two} />
-        </Imagestyle>
+        </ImageTwo>
         <TextTwo>
           <h3>Keyboard Servicing</h3>
           <ul>
@@ -140,9 +148,9 @@ const Home = () => (
       </Two>
 
       <Three>
-        <Imagestyle>
+        <ImageThree>
           <img src={three} />
-        </Imagestyle>
+        </ImageThree>
         <TextThree>
           <h3>Drum Servicing</h3>
           <ul>
@@ -161,11 +169,10 @@ const Home = () => (
           </ul>
         </TextThree>
       </Three>
-
       <Four>
-        <Imagestyle>
+        <ImageFour>
           <img src={four} />
-        </Imagestyle>
+        </ImageFour>
         <TextFour>
           <h3>Violin Servicing</h3>
           <ul>
@@ -192,11 +199,10 @@ const Home = () => (
           </ul>
         </TextFour>
       </Four>
-
       <Five>
-        <Imagestyle>
+        <ImageFive>
           <img src={five} />
-        </Imagestyle>
+        </ImageFive>
         <TextFive>
           <h3>Veena Servicing</h3>
           <ul>
@@ -227,11 +233,10 @@ const Home = () => (
           </ul>
         </TextFive>
       </Five>
-
       <Six>
-        <Imagestyle>
+        <ImageSix>
           <img src={six} />
-        </Imagestyle>
+        </ImageSix>
         <TextSix>
           <h3>Harmonium Servicing</h3>
           <ul>
@@ -262,11 +267,10 @@ const Home = () => (
           </ul>
         </TextSix>
       </Six>
-
       <Seven>
-        <Imagestyle>
+        <ImageSeven>
           <img src={seven} />
-        </Imagestyle>
+        </ImageSeven>
         <TextSeven>
           <h3>Tabla Servicing</h3>
           <ul>
@@ -302,3 +306,14 @@ const Home = () => (
 );
 
 export default Home;
+
+// hey why arent the styles working?
+// actually the local host port was active
+//let me fix this just a second
+// is it working ?
+//checking
+//wanted to use it with the text..trying now
+//No errors now
+// like is the media quary is working ?
+//actually im trying to solve this overlapping
+//problem.
