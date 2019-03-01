@@ -9,13 +9,6 @@ import four from "./imagerepair/four.jpg";
 import five from "./imagerepair/five.jpg";
 import six from "./imagerepair/six.jpg";
 import seven from "./imagerepair/seven.jpg";
-
-/*import "./services.css"; */
-
-// Here we have all the logic corresponding to that page
-// Which makes things distinct
-// for example here
-
 import {
   Heading,
   Paragraph,
@@ -25,11 +18,6 @@ import {
   ItemContainer
 } from "./styles";
 
-// Now you got the whole structure right.
-//yes i understand now
-// Cool, Just let the comments be there for future references.
-//// Now commit and push to your branch and I will merge it.ok
-// Save the files
 const Home = () => (
   <div className="App">
     <Wrapper>
