@@ -36,6 +36,7 @@ const Home = () => (
       <Button onclick="contact.php">
         <Div>Enquire Now</Div>
       </Button>
+      </div>
     </Wrapper>
     <div>
       <ItemContainer>
@@ -260,14 +261,7 @@ const Home = () => (
         </div>
       </ItemContainer>
     </div>
-      <button>
-        <a className="button button-black mt-15" href="contact.php">
-          <span>Enquire Now</span>
-        </a>
-      </button>
     </div>
-    <div className="color" />
-  </div>
 );
 
 export default Home;
