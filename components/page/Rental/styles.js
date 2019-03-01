@@ -1,5 +1,8 @@
+
 import sc from "styled-components";
 import img from "./images/gutar.png";
+import sc from "styled-components";
+import img from './images/gutar.png';
 
 const Body = sc.body`
  box-sizing: border-box;
@@ -48,6 +51,9 @@ grid-area:formcard;
 padding:150px;
 box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 background: #F7BB2F;
+}
+h3 {
+    padding-left: 5rem;
 }
 h3 {
     padding-left: 5rem;
@@ -277,7 +283,6 @@ grid-area:footer;
                 }
                 
 }
- 
 @media (max-width: 320px){
     .main-section {
         border-top: solid;
@@ -347,6 +352,10 @@ grid-area:footer;
                 }
                 
 }
+
+ `;
+
+export default Body;
  `;
 
 export default Body;

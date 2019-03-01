@@ -21,6 +21,8 @@ import {
 const Home = () => (
   <div className="App">
     <Wrapper>
+    <div className="image" />
+    <div className="col-lg-10 col-md-10 text-left">
       <Heading>Service & Repair </Heading>
       <Paragraph>
         We know that you love music, that you love your instrument and how it
@@ -195,7 +197,6 @@ const Home = () => (
       </ItemContainer>
       <ItemContainer>
         <img src={six} />
-
         <div>
           <h3>Harmonium Servicing</h3>
           <ul>
@@ -259,6 +260,13 @@ const Home = () => (
         </div>
       </ItemContainer>
     </div>
+      <button>
+        <a className="button button-black mt-15" href="contact.php">
+          <span>Enquire Now</span>
+        </a>
+      </button>
+    </div>
+    <div className="color" />
   </div>
 );
 
