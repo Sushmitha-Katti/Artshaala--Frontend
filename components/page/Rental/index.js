@@ -69,6 +69,5 @@ class Rental extends React.Component {
         );
     }
   }
- export default Rental;
-
- 
+}
+export default Rental;

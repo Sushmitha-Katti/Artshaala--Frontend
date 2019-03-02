@@ -196,6 +196,6 @@ const NavWrapper = styled.nav`
       left: 10px;
     }
   }
-`;
+`; 
 
 export default Nav;

@@ -1,5 +1,7 @@
 
 import sc from "styled-components";
+import img from "./images/gutar.png";
+import sc from "styled-components";
 import img from './images/gutar.png';
 
 const Body = sc.body`
@@ -7,7 +9,6 @@ const Body = sc.body`
  font-family: Arial, Helvetica, sans-serif;
  background: #FCFBFC;
  line-height: 1.4;
-
 header {
 display: grid;
 grid-template-columns: 1fr;
@@ -27,7 +28,6 @@ grid-gap: 30px;
 justify-items: end;
 grid-template-areas: 'displaycard formcard';
     }
-
 .SectionA{
 grid-area: displaycard;
 background: url(${img});
@@ -36,30 +36,28 @@ background-position: center;
 color: white;
 box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
-
 h1 {
 font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
 font-size: 5rem;
 padding:1rem;
 }
-
 .main-text {
 padding:1rem;
 font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
 font-size: 1.35rem;
 }
-
 .main {
 grid-area:formcard;
 padding:150px;
 box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 background: #F7BB2F;
 }
-
 h3 {
     padding-left: 5rem;
 }
-
+h3 {
+    padding-left: 5rem;
+}
 input {
 height:40px;
 width:300px;
@@ -67,7 +65,6 @@ font-size:14pt;
 border-radius: 3px;
 border: 2px solid  #333;
 }
-
 .form-btn {
 background: transparent 70%;
 border-radius: 3px;
@@ -148,7 +145,6 @@ grid-area:footer;
                 }
                 
 }
-
 @media (max-width: 640px){
     .main-section {
         border-top: solid;
@@ -218,7 +214,6 @@ grid-area:footer;
                 }
                 
 }           
-
 @media (max-width: 480px){
     .main-section {
         border-top: solid;
@@ -288,8 +283,6 @@ grid-area:footer;
                 }
                 
 }
-
- 
 @media (max-width: 320px){
     .main-section {
         border-top: solid;
@@ -360,6 +353,9 @@ grid-area:footer;
                 
 }
 
+ `;
+
+export default Body;
  `;
 
 export default Body;
