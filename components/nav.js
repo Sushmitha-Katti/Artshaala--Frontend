@@ -1,4 +1,4 @@
-/* import React from "react";
+import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import NavWrapper from "./styles.js";
@@ -198,4 +198,4 @@ const NavWrapper = styled.nav`
   }
 `; 
 
-export default Nav; */
+export default Nav;
