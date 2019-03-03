@@ -1,16 +1,18 @@
-import Common from "../components/page/common/common";
-import Link from "next/link";
-import Head from "../components/head";
-import Nav from "../components/Navbar";
-import ServiceCards from "../components/page/Home/Servicecards";
+import Navbar from "../components/page/Search-Page/navbar";
+import Sort from "../components/page/Search-Page/sort";
+import Cards from "../components/page/Search-Page/cards";
+
 
 const Home = () => (
+
   <div>
-    <Head title="Home" />
-    <Nav />
-   <Common /> 
-    <ServiceCards />
+    <Navbar />
+    <Sort />
+    <Cards />
   </div>
+
+  
+
 );
 
 export default Home;
