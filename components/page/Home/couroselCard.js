@@ -12,7 +12,10 @@ class CouroselCard extends Component {
           <Link href="/">
             <div className="cardimg">
               <img className="cardimg" alt="IMAGE" src={guitar} />
-              <div className="name">Guitar NameGuitar Name{this.props.a}</div>
+              <div className="name">
+                {this.props.property.name}
+                {this.props.property.id}
+              </div>
               <div className="rating">
                 <span>
                   <i class="fa fa-star" aria-hidden="true" />
@@ -21,7 +24,9 @@ class CouroselCard extends Component {
                   <i class="fa fa-star" aria-hidden="true" />
                   <i class="fa fa-star" aria-hidden="true" />
                 </span>
-                <span className="amount">INR 2000/-</span>
+                <span className="amount">
+                  INR {this.props.property.amount}/-
+                </span>
               </div>
             </div>
           </Link>

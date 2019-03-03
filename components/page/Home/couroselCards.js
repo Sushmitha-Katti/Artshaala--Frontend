@@ -1,107 +1,149 @@
 import React, { Component } from "react";
 import CouroselCard from "./couroselCard";
-import styled, { keyframes } from "styled-components";
+
 import { Cards } from "./styles";
+import Slider from "react-slick";
+
+let properties = [
+  {
+    id: 1,
+    name: "GuitarNameGuitarName",
+    stars: 4,
+    amount: 2000
+  },
+  {
+    name: "GuitarNameGuitarName",
+    id: 2,
+    stars: 4,
+    amount: 2000
+  },
+  {
+    name: "GuitarNameGuitarName",
+    id: 3,
+    stars: 4,
+    amount: 2000
+  },
+  {
+    name: "GuitarNameGuitarName",
+    id: 4,
+    stars: 4,
+    amount: 2000
+  },
+  {
+    name: "GuitarNameGuitarName",
+    id: 5,
+    stars: 4,
+    amount: 2000
+  },
+  {
+    name: "GuitarNameGuitarName",
+    id: 6,
+    stars: 4,
+    amount: 2000
+  },
+  {
+    name: "GuitarNameGuitarName",
+    id: 7,
+    stars: 4,
+    amount: 2000
+  }
+];
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "#f7bb2f",
+
+        borderRadius: "50%",
+        padding: "0px"
+      }}
+      onClick={onClick}
+    />
+  );
+}
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "#f7bb2f",
+        borderRadius: "50%",
+        padding: "0",
+        color: "blue"
+      }}
+      onClick={onClick}
+    />
+  );
+}
 
 class CouroselCards extends Component {
-  constructor() {
-    super();
-    this.state = { slideIndex: 2 };
-  }
-  showDivs = () => {
-    let n = this.state.slideIndex;
-    let i;
-    let x = this.myInput;
-    let k = x.getElementsByClassName("c");
-    //console.log(n, k.length);
-
-    for (i = 0; i < k.length; i++) {
-      k[i].style.display = "none";
-    }
-    //console.log(this.state.slideIndex - 1);
-    k[this.state.slideIndex - 1].style.display = "inline-block";
-    k[this.state.slideIndex - 1].style.delay = 5;
-
-    k[this.state.slideIndex].style.display = "inline-block";
-
-    k[this.state.slideIndex + 1].style.display = "inline-block";
-
-    k[this.state.slideIndex + 2].style.display = "inline-block";
-  };
-
-  plusDivs = () => {
-    console.log(this.state.slideIndex);
-    if (this.state.slideIndex < 5)
-      this.setState(state => ({ slideIndex: state.slideIndex + 1 }));
-    console.log(this.state.slideIndex);
-
-    this.showDivs();
-  };
-  minusDivs = () => {
-    if (this.state.slideIndex > 1)
-      this.setState(state => ({ slideIndex: state.slideIndex - 1 }));
-
-    this.showDivs();
-    console.log(this.state.slideIndex);
-  };
-
   render() {
+    const settings = {
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            infinite: true,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 468,
+          settings: {
+            slidesToShow: 1,
+            infinite: true,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
     return (
       <Cards>
-        <div className="title">
-          <span className="line"> </span>
-          <span className="titleName">
-            <h3>Best Sellers</h3>
-          </span>
-          <span className="line"> </span>
-        </div>
-        <div className="cardandbuttons">
-          <div className="buttons">
-            <i
-              className="fa fa-angle-left fa-lg"
-              onClick={() => this.minusDivs()}
-            />
-          </div>
-          <div>
-            <div
-              className="cardsdisplay"
-              ref={input => {
-                this.myInput = input;
-              }}
-            >
-              <div className="c a">
-                <CouroselCard a="1" />
-              </div>
-              <div className="c a">
-                <CouroselCard a="2" />
-              </div>
-              <div className="c a">
-                <CouroselCard a="3" />
-              </div>
-              <div className="c a">
-                <CouroselCard a="4" />
-              </div>
-
-              <div className="c">
-                <CouroselCard a="5" />
-              </div>
-              <div className="c">
-                <CouroselCard a="6" />
-              </div>
-              <div className="c">
-                <CouroselCard a="7" />
-              </div>
-              <div className="c">
-                <CouroselCard a="8" />
-              </div>
+        <div className="a">
+          <Slider {...settings}>
+            <div>
+              <CouroselCard property={properties[0]} />
             </div>
-          </div>
-          <div className="buttons">
-            <i
-              className="fa fa-angle-right fa-lg"
-              onClick={() => this.plusDivs()}
-            />
-          </div>
+            <div>
+              <CouroselCard property={properties[1]} />
+            </div>
+            <div>
+              <CouroselCard property={properties[2]} />
+            </div>
+            <div>
+              <CouroselCard property={properties[3]} />
+            </div>
+            <div>
+              <CouroselCard property={properties[4]} />
+            </div>
+            <div>
+              <CouroselCard property={properties[5]} />
+            </div>
+          </Slider>
         </div>
       </Cards>
     );

@@ -28,11 +28,9 @@ const Card = styled.div`
     color: white;
     visibility: hidden;
   }
-
   /* for title */
   .title {
     position: absolute;
-
     top: 20%;
     left: 50%;
     padding: 0px;
@@ -41,13 +39,11 @@ const Card = styled.div`
     font-size: 1.5rem;
     color: white;
   }
-
   .image {
     height: 100%;
     width: 100%;
   }
   /*On Hovering card Color Changes*/
-
   .cardhover:hover .button {
     visibility: visible;
     transition: 0.1s ease-out;
@@ -101,33 +97,33 @@ const Card = styled.div`
 const Cards = styled.div`
   font-family: "Montserrat", sans-serif;
 
-  .cardsdisplay {
+  margin: 3rem 3rem;
+
+  .cards-slider-wrapper {
     display: flex;
-    margin: 0rem 1.5rem;
-    justify-content: space-evenly;
-    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
-  }
+    max-width: 100%;
+    position: absolute;
+    overflow: hidden;
 
-  .c {
-    display: none;
-    transition: all 2s ease-out;
+    .card {
+      flex: 1;
+    }
   }
-  .a {
-    display: inline-block;
-  }
-
-  .cardandbuttons {
-    display: grid;
-    margin: 1rem 2rem;
-    justify-content: space-evenly;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .buttons {
+  .card-slider {
     position: relative;
+  }
+
+  /*.cardandbuttons {
+    display: flex;
+    margin: 3rem 2rem;
+    justify-content: space-evenly;
+   /* grid-template-columns: 1fr 1fr 1fr;*/
+  /*}*/
+  .buttons {
     .fa {
-      position: absolute;
-      top: 50%;
+      /*top: 50%;*/
+
+      /*top: 50%;*/
       background: #e8e8e8;
       padding: 0.3rem 0.6rem;
       border-radius: 50%;
@@ -155,6 +151,10 @@ const Cards = styled.div`
       color: white;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    margin: 2rem 2rem;
+  }
 `;
 
 const CouroselWrapper = styled.div`
@@ -162,14 +162,12 @@ const CouroselWrapper = styled.div`
     height: 340px;
     width: 240px;
     border: 1px solid white;
-
     box-shadow: 5px 10px 8px #888888;
     margin: 0.7rem;
   }
-
   .cardimg {
-    height: 340px;
-    width: 240px;
+    height: inherit;
+    width: inherit;
     padding-bottom: 10px;
   }
   .rating {
@@ -183,6 +181,20 @@ const CouroselWrapper = styled.div`
     }
     .amount {
       color: #f7bb2f;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .card {
+      height: 250px;
+      width: 250px;
+      border: 1px solid white;
+      box-shadow: 5px 10px 8px #888888;
+      margin: 0.7rem;
+    }
+    .cardimg {
+      max-height: 250;
+      max-width: 250;
+      padding-bottom: 10px;
     }
   }
 `;
