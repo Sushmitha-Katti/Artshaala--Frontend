@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Styles } from "./style";
 import Head from "next/head";
 import guitar1 from "./images/guitar1.png";
-import styled from "styled-components";
 
 class Cart extends Component {
   state = {};
@@ -37,31 +36,26 @@ class Cart extends Component {
                   <span className="fa fa-star checked" />
                   <span className="reviews">100 reviews</span>
                   <br />
-                  <span style={{ fontSize: 18 + "px" }}>Price:</span>
-                  <span className="price">INR 6499.00/-</span>
-                  <span style={{ fontSize: 18 + "px", marginLeft: 10 + "%" }}>
-                    Quantity:
-                  </span>
-                  <span>
-                    <button
-                      className="input"
-                      style={{ borderRadius: 20 + "px" }}
-                    >
-                      -
-                    </button>
-                    <button
-                      className="input"
-                      style={{ width: 100 + "px", fontSize: 20 + "px" }}
-                    >
-                      1
-                    </button>
-                    <button
-                      className="input"
-                      style={{ borderRadius: 20 + "px" }}
-                    >
-                      +
-                    </button>
-                  </span>
+
+                  <div className="values">
+                    <div>
+                      <span style={{ fontSize: 18 + "px" }}>Price:</span>
+                      <span className="price">INR 6499.00/-</span>
+                    </div>
+                    <div>
+                      <span style={{ fontSize: 18 + "px" }}>Quantity:</span>
+                      <span>
+                        <button className="input">-</button>
+                        <div className="count">
+                          <center>
+                            <p>1</p>
+                          </center>
+                        </div>
+                        <button className="input">+</button>
+                      </span>
+                    </div>
+                  </div>
+
                   <p
                     style={{
                       fontSize: 18 + "px",
@@ -81,27 +75,32 @@ class Cart extends Component {
             <div>
               <center>
                 <p>PRICE DETAILS</p>
+
+                <span style={{ fontSize: 16 + "px" }}>Price(1 item)</span>
+                <span className="price" style={{ fontSize: 15 + "px" }}>
+                  INR 6499.00/-
+                </span>
               </center>
-              <span style={{ fontSize: 16 + "px" }}>Price(1 item)</span>
-              <span className="price" style={{ fontSize: 15 + "px" }}>
-                INR 6499.00/-
-              </span>
               <br />
               <br />
               <br />
               <hr />
               <br />
-              <span style={{ fontSize: 17 + "px", marginRight: 23 + "%" }}>
-                Total:
-              </span>
-              <span className="subtotal" style={{ fontSize: 17 + "px" }}>
-                INR 6499.00/-
-              </span>
+              <center>
+                <span style={{ fontSize: 19 + "px", marginRight: 5 + "%" }}>
+                  Total:
+                </span>
+                <span className="subtotal" style={{ fontSize: 19 + "px" }}>
+                  INR 6499.00/-
+                </span>
+              </center>
               <br />
               <br />
-              <button type="input" className="btn btn-default btn-lg">
-                Proceed to Buy
-              </button>
+              <center>
+                <button type="input" className="btn btn-default btn-lg">
+                  Proceed to Buy
+                </button>
+              </center>
             </div>
           </div>
         </div>

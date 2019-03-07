@@ -1,7 +1,7 @@
 import styled from "styled-components";
 /*font-family: 'Abel', sans-serif;
-		font-family: 'Montserrat', sans-serif;
-		font-family: 'Patua One', cursive;
+		    font-family: 'Montserrat', sans-serif;
+		    font-family: 'Patua One', cursive;
         font-family: 'Monoton', cursive;
         font-family: 'Roboto Condensed', sans-serif;
         */
@@ -16,36 +16,73 @@ const Styles = styled.div`
     height: 100%;
   }
 
+  @media (min-width: 1025px){
+    .cart {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .cart > div:first-child {
+        width: 61%;
+        margin-left: 10%;
+        margin-right: 0.5%;
+        padding: 1%;
+      }
+
+      .cart > div:nth-child(2) {
+        width: 16%;
+        height: 405px;
+        margin-right: 10%;
+        padding: 1%;
+      }
+      .cart > div:nth-child(2) button{
+        width: 94%;
+      }
+  }
+
+  @media (max-width: 1024px){
+    .cart > div:first-child {
+        margin-left: 7%;
+        margin-right: 6%; 
+        padding: 1%;
+    }
+    .cart > div:nth-child(2){
+        margin-left: 7%;
+        margin-right: 6%;
+        padding: 3%; 
+    }
+    .cart > div:nth-child(2) button{
+        width: 55%;
+      }
+  }
+
+  @media (min-width: 320px) and (max-width: 450px){
+
+  }
+
   .cart {
-    display: flex;
-    justify-content: space-around;
     font-family: "Roboto Condensed", sans-serif;
+    margin-bottom: 60px;
   }
 
   .cart > div:first-child {
-    width: 61%;
-    /*background-color: rgb(180, 180, 180);*/
     border: 1px solid rgba(180, 180, 180, 0.7);
     border-radius: 15px;
-    margin-left: 10%;
     margin-top: 50px;
-    padding: 1%;
-    margin-right: 0.5%;
+    padding-bottom: 30px;
+  }
+
+  .cart > div:nth-child(2) {
+    border: 1px solid rgba(180, 180, 180, 0.7);
+    border-radius: 15px;
+    margin-top: 50px;
   }
 
   .cart > div:first-child > p {
     font-size: 30px;
     color: rgba(60, 60, 60, 0.9);
-  }
-
-  .cart > div:nth-child(2) {
-    width: 16%;
-    height: 370px;
-    border: 1px solid rgba(180, 180, 180, 0.7);
-    border-radius: 15px;
-    margin-right: 10%;
-    margin-top: 50px;
-    padding: 1%;
+    margin-top: 3px;
+    margin-left: 2%;
   }
 
   .cart > div:nth-child(2) p {
@@ -59,7 +96,7 @@ const Styles = styled.div`
     border-radius: 12px;
     margin: 3%
     margin-top: 10px;
-    width: 94%;
+    
     height: 50px;
     margin-bottom: 20px;
     background-color: rgb(247,179,47);
@@ -73,7 +110,6 @@ const Styles = styled.div`
 
   .cart-products {
     width: 98%;
-    height: 300px;
     /*background-color: rgb(180, 180, 180);*/
     display: flex;
     justify-content: space-between;
@@ -99,18 +135,6 @@ const Styles = styled.div`
     font-size: 23px;
   }
 
-  .input{
-    width: 30px;
-    height: 30px;
-    margin-left: 2%;
-    border: 1px solid rgba(180, 180, 180, 0.7);
-    background-color: white;
-    color: black;
-    font-size: 25px;
-    text-decoration: none;
-    padding: 0;
-  }
-
   .checked {
     color: white;
     background-color: orange;
@@ -127,6 +151,54 @@ const Styles = styled.div`
     font-size: 18px;
   }
 
+  @media (min-width: 1205px){
+    .values{
+        display:flex;
+        justify-content: space-around;
+    }
+    .values>div:first-child{
+        width: 40%;
+    }
+    .values>div:nth-child(2){
+        width: 55%;
+    }
+}
+
+.values>div:first-child{ 
+      margin-top: 8px;
+      margin-bottom: 20px;
+}
+
+.input{
+  width: 30px;
+  height: 30px;
+  margin-left: 5%;
+  border: 1px solid rgba(180, 180, 180, 0.7);
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  text-decoration: none;
+  padding: 0;
+  border-radius: 20px;
+}
+
+.input:hover{
+  cursor: pointer;
+  background-color: rgba(180, 180, 180, 0.2);
+}
+
+.count{
+  display: inline-block;
+  width: 80px;
+  padding: 1%;
+  margin-left: 5%;
+  border: 1px solid rgba(180, 180, 180, 0.7);
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
   .price {
     font-size: 18px;
     margin-left: 5%;
@@ -134,7 +206,7 @@ const Styles = styled.div`
   }
 
   .subtotal {
-    font-size: 18px;
+    font-size: 23px;
     margin-left: 3%;
     color: rgb(200, 0, 0);
   }
