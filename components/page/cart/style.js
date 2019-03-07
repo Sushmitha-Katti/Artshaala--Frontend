@@ -30,6 +30,7 @@ const Styles = styled.div`
     margin-left: 10%;
     margin-top: 50px;
     padding: 1%;
+    margin-right: 0.5%;
   }
 
   .cart > div:first-child > p {
@@ -38,7 +39,7 @@ const Styles = styled.div`
   }
 
   .cart > div:nth-child(2) {
-    width: 18%;
+    width: 16%;
     height: 370px;
     border: 1px solid rgba(180, 180, 180, 0.7);
     border-radius: 15px;
@@ -46,15 +47,18 @@ const Styles = styled.div`
     margin-top: 50px;
     padding: 1%;
   }
+
   .cart > div:nth-child(2) p {
     font-size: 20px;
     color: rgba(60, 60, 60, 0.9);
+    margin-bottom: 40px;
   }
+
   .cart > div:nth-child(2) button {
     border: none;
     border-radius: 12px;
     margin: 3%
-    margin-top: 200px;
+    margin-top: 10px;
     width: 94%;
     height: 50px;
     margin-bottom: 20px;
@@ -91,7 +95,48 @@ const Styles = styled.div`
     height: 100%;
   }
 
-  .cart-products > div:nth-child(2) > h1 {
+  .cart-products > div:nth-child(2) > p {
+    font-size: 23px;
+  }
+
+  .input{
+    width: 30px;
+    height: 30px;
+    margin-left: 2%;
+    border: 1px solid rgba(180, 180, 180, 0.7);
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+    padding: 0;
+  }
+
+  .checked {
+    color: white;
+    background-color: orange;
+    border-radius: 20px;
+    padding: 4px;
+    margin: 1%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .reviews {
+    color: rgb(0, 161, 255);
+    margin-left: 5%;
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 18px;
+    margin-left: 5%;
+    color: rgb(0, 161, 255);
+  }
+
+  .subtotal {
+    font-size: 18px;
+    margin-left: 3%;
+    color: rgb(200, 0, 0);
   }
 `;
 
