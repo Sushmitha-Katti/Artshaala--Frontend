@@ -58,12 +58,13 @@ const Styles = styled.div`
     width: 94%;
     height: 50px;
     margin-bottom: 20px;
-    background-color: #f7bb2f;
+    background-color: rgb(247,179,47);
     font-size: 18px;
     color: black;
   }
   .cart > div:nth-child(2) button:hover {
     cursor: pointer;
+    background-color: rgba(247,179,47,0.7);
   }
 
   .cart-products {
