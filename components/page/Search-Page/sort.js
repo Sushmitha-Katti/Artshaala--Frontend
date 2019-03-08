@@ -14,7 +14,7 @@ class Sort extends Component{
                         <div className="item">
                             <input type="checkbox" id="A"/>
                             <span class="headings">CATEGORY</span>
-                            <label htmlFor="A">+</label>
+                            <label htmlFor="A"><i class="fa fa-chevron-down"></i></label>
                                 <hr />
                             <ul>
                                 <li><a href="#"><span className="categories">Electro Acoustic Guitars</span></a></li>
@@ -26,7 +26,7 @@ class Sort extends Component{
                         <div className="item">
                             <input type="checkbox" id="B"/>
                             <span class="headings">BRAND</span>
-                            <label htmlFor="B">+</label>
+                            <label htmlFor="B"><i class="fa fa-chevron-up"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" className="regular-checkbox" name="vault"/></li>
@@ -42,7 +42,7 @@ class Sort extends Component{
                         <div className="item">
                             <input type="checkbox" id="C"/>
                             <span class="headings">PRICE</span>
-                            <label htmlFor="C">+</label>
+                            <label htmlFor="C"><i class="fa fa-chevron-up"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" name="rs1"/></li>
@@ -58,7 +58,7 @@ class Sort extends Component{
                         <div className="item">
                             <input type="checkbox" id="D"/>
                             <span class="headings">RATINGS</span>
-                            <label htmlFor="D">+</label>
+                            <label htmlFor="D"><i class="fa fa-chevron-up"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" name="stars5"/></li>

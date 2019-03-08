@@ -15,8 +15,8 @@ class Navbar extends Component{
                 <img className="logo" src={logo}/>
                 <span className="main">
                     <input type="text" placeholder="Search.." name="search" className="user-input"/>
-                    <button type="submit" className="search">Search</button>
-                    {/* <button type="submit"><i className="fa fa-search"></i></button> */}
+                    <button type="submit" className="search"><i className="fa fa-search"></i></button>
+                    
                 </span>
                </div> 
                <div className="nav">

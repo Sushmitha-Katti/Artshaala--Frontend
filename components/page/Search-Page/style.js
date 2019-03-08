@@ -73,26 +73,31 @@ const NavStyle = styled.nav`
         display:none;
     }
 
-    @media (max-width:600px){
+    @media (max-width:700px){
         label{
             display:block;
             cursor:pointer;
-            width:26px;
+            
             float:right;
         }
-        .menu {
-            text-align:center;
-            width:100%;
+        .menu { 
             display:none;
-            background-color:blue;
+            
+            
         }
         .menu a{
             display:block;
             border-bottom:1px solid #EAEAEB; 
             margin:0;
+            text-align:right;
         }
         #toggle:checked + .menu{
             display:block;
+            height:20px;
+            width:20px;
+            position:absolute;
+            z-index=8;
+            
         }
     }
 `;
