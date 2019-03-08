@@ -93,70 +93,20 @@ const Card = styled.div`
     }
   }
 `;
-
+/*****************************************************************************************
+ * For Courosel Cards
+ */
 const Cards = styled.div`
   font-family: "Montserrat", sans-serif;
-
   margin: 3rem 3rem;
-
-  .cards-slider-wrapper {
-    display: flex;
-    max-width: 100%;
-    position: absolute;
-    overflow: hidden;
-
-    .card {
-      flex: 1;
-    }
-  }
-  .card-slider {
-    position: relative;
-  }
-
-  /*.cardandbuttons {
-    display: flex;
-    margin: 3rem 2rem;
-    justify-content: space-evenly;
-   /* grid-template-columns: 1fr 1fr 1fr;*/
-  /*}*/
-  .buttons {
-    .fa {
-      /*top: 50%;*/
-
-      /*top: 50%;*/
-      background: #e8e8e8;
-      padding: 0.3rem 0.6rem;
-      border-radius: 50%;
-    }
-  }
-  .title {
-    display: grid;
-    justify-items: center;
-    padding: 0;
-    margin: 1rem 3rem;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .line {
-    width: 480px;
-    height: 2rem;
-    border-bottom: 1px solid black;
-  }
-  .titleName {
-    margin: 0.3rem;
-    padding: 0 0.3rem 0 0.3rem;
-  }
-  .buttons:hover {
-    .fa {
-      background: #f7bb2f;
-      color: white;
-    }
-  }
 
   @media only screen and (max-width: 768px) {
     margin: 2rem 2rem;
   }
 `;
-
+/*****************************************************************************************
+ * For Courososel Card
+ */
 const CouroselWrapper = styled.div`
   .card {
     height: 340px;
