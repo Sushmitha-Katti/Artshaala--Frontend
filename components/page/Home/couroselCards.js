@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CouroselCard from "./couroselCard";
+import guitar from "./guitar.jpg";
 
 import { Cards } from "./styles";
 import Slider from "react-slick";
@@ -9,43 +10,57 @@ let properties = [
     id: 1,
     name: "GuitarNameGuitarName",
     stars: 4,
-    amount: 2000
+    amount: 2000,
+    img: { guitar },
+    rating: 3
   },
   {
     name: "GuitarNameGuitarName",
     id: 2,
     stars: 4,
-    amount: 2000
+    amount: 2000,
+    img: { guitar },
+    rating: 4
   },
   {
     name: "GuitarNameGuitarName",
     id: 3,
     stars: 4,
-    amount: 2000
+    amount: 2000,
+    img: { guitar },
+    rating: 4
   },
   {
     name: "GuitarNameGuitarName",
     id: 4,
     stars: 4,
-    amount: 2000
+    amount: 2000,
+    img: { guitar },
+    rating: 4
   },
   {
     name: "GuitarNameGuitarName",
     id: 5,
     stars: 4,
-    amount: 2000
+    amount: 2000,
+    img: { guitar },
+    rating: 4
   },
   {
     name: "GuitarNameGuitarName",
     id: 6,
     stars: 4,
-    amount: 2000
+    amount: 2000,
+    img: { guitar },
+    rating: 4
   },
   {
     name: "GuitarNameGuitarName",
     id: 7,
     stars: 4,
-    amount: 2000
+    amount: 2000,
+    img: { guitar },
+    rating: 4
   }
 ];
 
@@ -53,7 +68,7 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
+      className={className + " style"}
       style={{
         ...style,
         display: "block",
@@ -68,6 +83,7 @@ function SampleNextArrow(props) {
 }
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
+
   return (
     <div
       className={className}
@@ -77,7 +93,8 @@ function SamplePrevArrow(props) {
         background: "#f7bb2f",
         borderRadius: "50%",
         padding: "0",
-        color: "blue"
+        color: "blue",
+        opacity: "0.7"
       }}
       onClick={onClick}
     />
@@ -121,30 +138,16 @@ class CouroselCards extends Component {
         }
       ]
     };
+
+    let Courosels = properties.map(property => (
+      <div>
+        {" "}
+        <CouroselCard property={property} />
+      </div>
+    ));
     return (
       <Cards>
-        <div className="a">
-          <Slider {...settings}>
-            <div>
-              <CouroselCard property={properties[0]} />
-            </div>
-            <div>
-              <CouroselCard property={properties[1]} />
-            </div>
-            <div>
-              <CouroselCard property={properties[2]} />
-            </div>
-            <div>
-              <CouroselCard property={properties[3]} />
-            </div>
-            <div>
-              <CouroselCard property={properties[4]} />
-            </div>
-            <div>
-              <CouroselCard property={properties[5]} />
-            </div>
-          </Slider>
-        </div>
+        <Slider {...settings}>{Courosels}</Slider>
       </Cards>
     );
   }
