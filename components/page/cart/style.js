@@ -179,16 +179,26 @@ const Styles = styled.div`
     }
 }
 
-@media (max-width: 483px){
+@media (min-width: 375px) and (max-width: 483px){
     .input{
       width: 25px;
-      
       border-radius: 25px;
     }
     .count{
         width: 40px;
         height: 22px;
     }
+}
+
+@media (max-width: 374px){
+  .input{
+    width: 20px;
+    border-radius: 25px;
+  }
+  .count{
+    width: 25px;
+    height: 22px;
+  }
 }
 
 .input{
