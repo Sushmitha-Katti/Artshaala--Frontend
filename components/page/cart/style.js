@@ -1,7 +1,7 @@
 import styled from "styled-components";
 /*font-family: 'Abel', sans-serif;
-		    font-family: 'Montserrat', sans-serif;
-		    font-family: 'Patua One', cursive;
+		font-family: 'Montserrat', sans-serif;
+		font-family: 'Patua One', cursive;
         font-family: 'Monoton', cursive;
         font-family: 'Roboto Condensed', sans-serif;
         */
@@ -31,7 +31,7 @@ const Styles = styled.div`
 
       .cart > div:nth-child(2) {
         width: 16%;
-        height: 405px;
+        
         margin-right: 10%;
         padding: 1%;
       }
@@ -56,9 +56,7 @@ const Styles = styled.div`
       }
   }
 
-  @media (min-width: 320px) and (max-width: 450px){
-
-  }
+  
 
   .cart {
     font-family: "Roboto Condensed", sans-serif;
@@ -76,6 +74,7 @@ const Styles = styled.div`
     border: 1px solid rgba(180, 180, 180, 0.7);
     border-radius: 15px;
     margin-top: 50px;
+    height: 410px;
   }
 
   .cart > div:first-child > p {
@@ -169,9 +168,30 @@ const Styles = styled.div`
       margin-bottom: 20px;
 }
 
+@media (min-width: 482px){
+    .input{
+      width: 30px;
+      height: 30px;
+      border-radius: 20px;
+    }
+    .count{
+      width: 80px;
+    }
+}
+
+@media (max-width: 483px){
+    .input{
+      width: 25px;
+      
+      border-radius: 25px;
+    }
+    .count{
+        width: 40px;
+        height: 22px;
+    }
+}
+
 .input{
-  width: 30px;
-  height: 30px;
   margin-left: 5%;
   border: 1px solid rgba(180, 180, 180, 0.7);
   background-color: white;
@@ -179,7 +199,6 @@ const Styles = styled.div`
   font-size: 25px;
   text-decoration: none;
   padding: 0;
-  border-radius: 20px;
 }
 
 .input:hover{
@@ -189,7 +208,6 @@ const Styles = styled.div`
 
 .count{
   display: inline-block;
-  width: 80px;
   padding: 1%;
   margin-left: 5%;
   border: 1px solid rgba(180, 180, 180, 0.7);
