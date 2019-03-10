@@ -16,11 +16,11 @@ const Style = styled.div`
     position: relative;
   }
 
-  .image {
+  #main > img {
     width: 100%;
   }
 
-  .title {
+  #main p {
     font-family: "Abel", sans-serif;
     color: rgb(0, 0, 0, 0.8);
     margin-bottom: 5px;
@@ -31,7 +31,7 @@ const Style = styled.div`
     padding: 2px;
   }
 
-  .cost {
+  #main > div > span:nth-child(6) {
     float: right;
     font-family: "Roboto Condensed", sans-serif;
     color: orange;

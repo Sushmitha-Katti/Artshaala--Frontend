@@ -7,17 +7,14 @@ class Cards extends Component {
     return (
       <Style>
         <div id="main">
-          <img
-            src={Object.values(this.props.Contents.img).toString()}
-            className="image"
-          />
+          <img src={Object.values(this.props.Contents.img).toString()} />
           <div>
-            <p className="title">{this.props.Contents.title}</p>
+            <p>{this.props.Contents.title}</p>
             <span className="fa fa-star check" />
             <span className="fa fa-star check" />
             <span className="fa fa-star check" />
             <span className="fa fa-star check" />
-            <span className="cost">{this.props.Contents.cost}/-</span>
+            <span>{this.props.Contents.cost}/-</span>
           </div>
         </div>
       </Style>
