@@ -7,9 +7,13 @@ import styled from "styled-components";
         */
 
 const Style = styled.div`
+  margin-top: 2rem;
+  margin-right: 2rem;
+
   #main {
     padding: 2%;
     border: 1px solid rgba(180, 180, 180, 0.9);
+    position: relative;
   }
 
   .image {

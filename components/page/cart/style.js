@@ -60,7 +60,7 @@ const Styles = styled.div`
 
   .cart {
     font-family: "Roboto Condensed", sans-serif;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
   }
 
   .cart > div:first-child {
@@ -237,6 +237,14 @@ const Styles = styled.div`
     font-size: 23px;
     margin-left: 3%;
     color: rgb(200, 0, 0);
+  }
+
+  .products > p:first-child{
+    color: rgb(60, 60, 60);
+    font-size: 25px;
+    font-family: 'Abel', sans-serif;
+    margin-bottom: 100px;
+    text-align: center;
   }
 `;
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Styles } from "./style";
 import Head from "next/head";
 import guitar1 from "./images/guitar1.png";
+import Carditems from "./carditems";
 
 class Cart extends Component {
   state = {};
@@ -48,7 +49,7 @@ class Cart extends Component {
                         <button className="input">-</button>
                         <div className="count">
                           <center>
-                            <p>1</p>
+                            <p>10</p>
                           </center>
                         </div>
                         <button className="input">+</button>
@@ -102,6 +103,11 @@ class Cart extends Component {
                 </button>
               </center>
             </div>
+          </div>
+
+          <div className="products">
+            <p>RELATED PRODUCTS</p>
+            <Carditems />
           </div>
         </div>
       </Styles>
