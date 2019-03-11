@@ -3,6 +3,7 @@ import { Styles } from "./style";
 import Head from "next/head";
 import guitar1 from "./images/guitar1.png";
 import Carditems from "./carditems";
+import Cartitems from "./cartitems";
 
 class Cart extends Component {
   state = {};
@@ -24,53 +25,7 @@ class Cart extends Component {
           <div className="cart">
             <div>
               <p>Cart</p>
-
-              <div className="cart-products">
-                <div>
-                  <img src={guitar1} />
-                </div>
-                <div>
-                  <p>Juarez JRZ38CBK Linden Wood Acoustic Guitar</p>
-                  <span className="fa fa-star checked" />
-                  <span className="fa fa-star checked" />
-                  <span className="fa fa-star checked" />
-                  <span className="fa fa-star checked" />
-                  <span className="reviews">100 reviews</span>
-                  <br />
-
-                  <div className="values">
-                    <div>
-                      <span style={{ fontSize: 18 + "px" }}>Price:</span>
-                      <span className="price">INR 6499.00/-</span>
-                    </div>
-                    <div>
-                      <span style={{ fontSize: 18 + "px" }}>Quantity:</span>
-                      <span>
-                        <button className="input">-</button>
-                        <div className="count">
-                          <center>
-                            <p>10</p>
-                          </center>
-                        </div>
-                        <button className="input">+</button>
-                      </span>
-                    </div>
-                  </div>
-
-                  <p
-                    style={{
-                      fontSize: 18 + "px",
-                      marginTop: 20 + "px",
-                      marginBottom: 30 + "px"
-                    }}
-                  >
-                    Inclusive of all taxes
-                  </p>
-                  <br />
-                  <span style={{ fontSize: 23 + "px" }}>Subtotal:</span>
-                  <span className="subtotal">INR 6499.00/-</span>
-                </div>
-              </div>
+              <Cartitems />
             </div>
 
             <div>
