@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { puts } from "util";
 
 const Heading = styled.h2`
-  color: rgb(204, 204, 0);
+  color: #ffd63f;
   text-align: center;
   height: 30px;
   font-size: 50px;
@@ -31,7 +31,47 @@ const Wrapper = styled.section`
   padding: 4em;
   background-color: gray;
   text-align: center;
+  > div {
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      background-color: black;
+      position: fixed;
+    }
+
+    li {
+      float: left;
+      margin-left: 2px;
+    }
+
+    li a {
+      display: block;
+      color: #ffd63f;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+  }
+  img {
+    display: inline-block;
+    vertical-align: top;
+    width: 150px;
+    height: 50px;
+    margin-right: 50px;
+  }
+  button:first-child {
+    padding: 10px;
+    background-color: #ffd63f;
+    font-weight: bold;
+    margin-left: 100px;
+  }
 `;
+
 const ItemContainer = styled.div`
   max-width: 800px;
   margin: 50px auto;
@@ -57,5 +97,3 @@ const Div = styled.section`
 `;
 
 export { Heading, ItemContainer, Paragraph, Button, Div, Wrapper };
-
-
