@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Cardstyle from "./cardStyle";
-import Guitar from "./guitar.png"
+import Link from "next/link";
 
 class Cards extends Component{
     render(){
@@ -16,9 +16,11 @@ class Cards extends Component{
                 return <p className="off">{this.props.Cardcontent.off}</p>
              }
              })()}
-                    <img src={Object.values(this.props.Cardcontent.img).toString()} className="pic"/>
+                    <Link href={this.props.Cardcontent.url}>
+                        <img src={Object.values(this.props.Cardcontent.img).toString()} className="pic"/>
+                    </Link>
                     <div className="sub"><p className="cost">{this.props.Cardcontent.cost}</p>
-                        <p className="descrip">{this.props.Cardcontent.descrip}</p>
+                    <Link href={this.props.Cardcontent.url}><p className="descrip">{this.props.Cardcontent.descrip}</p></Link>
                         <p className="review">
                             {this.props.Cardcontent.reviews}
 

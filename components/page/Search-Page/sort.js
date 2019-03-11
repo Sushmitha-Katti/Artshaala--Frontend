@@ -2,19 +2,29 @@ import React, { Component } from 'react';
 
 import Link from 'next/link';
 import SortStyle from './SortStyle';
+import FilterMobile from "./filterMobile";
 
 class Sort extends Component{
+
+    filterpages = e =>{
+        e.preventDefault();
+        this.props.filterpage();
+    }
+
     render(){
         return(
             <SortStyle>
-               
-                    {/* <input type="checkbox" id="menu"/>
-                    <label for="menu">&#9776;</label> */}
+                <div className="center">
+                    <button onClick={this.filterpages} className="filterbutton"><i class="fa fa-filter"></i> Filter</button>
+                </div>
+               <div className="main">
+                    <input type="checkbox" id="menu"/>
+                    <div className="divlabel"><label for="menu" className="menuLabel"><span /><span /><span /></label></div>
                     <div className="multi-level">
                         <div className="item">
                             <input type="checkbox" id="A"/>
                             <span class="headings">CATEGORY</span>
-                            <label htmlFor="A"><i class="fa fa-chevron-down"></i></label>
+                            <label htmlFor="A"><i className="fa fa-chevron-down"></i></label>
                                 <hr />
                             <ul>
                                 <li><a href="#"><span className="categories">Electro Acoustic Guitars</span></a></li>
@@ -26,7 +36,7 @@ class Sort extends Component{
                         <div className="item">
                             <input type="checkbox" id="B"/>
                             <span class="headings">BRAND</span>
-                            <label htmlFor="B"><i class="fa fa-chevron-up"></i></label>
+                            <label htmlFor="B"><i class="fa fa-chevron-down"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" className="regular-checkbox" name="vault"/></li>
@@ -42,7 +52,7 @@ class Sort extends Component{
                         <div className="item">
                             <input type="checkbox" id="C"/>
                             <span class="headings">PRICE</span>
-                            <label htmlFor="C"><i class="fa fa-chevron-up"></i></label>
+                            <label htmlFor="C"><i class="fa fa-chevron-down"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" name="rs1"/></li>
@@ -58,7 +68,7 @@ class Sort extends Component{
                         <div className="item">
                             <input type="checkbox" id="D"/>
                             <span class="headings">RATINGS</span>
-                            <label htmlFor="D"><i class="fa fa-chevron-up"></i></label>
+                            <label htmlFor="D"><i class="fa fa-chevron-down"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" name="stars5"/></li>
@@ -74,8 +84,8 @@ class Sort extends Component{
                             </ul>
                         </div>
                     </div>
+                </div>
                 
-
 
             </SortStyle>
         );
@@ -85,14 +95,3 @@ class Sort extends Component{
 export default Sort;
 
 
-
-
-
-
-
-{/* <section id="item1">
-                    <h1>Category <a href="#item1">+</a></h1>
-                        <a href="#" classNameName="items">Guitar</a>
-                        <a href="#" classNameName="items">Guitar</a>
-                    </section>
-                    */}

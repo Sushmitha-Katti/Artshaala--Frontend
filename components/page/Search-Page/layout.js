@@ -9,6 +9,10 @@ display: grid;
 margin: 20px;
 justify-items: center;
 grid-template-columns: 20% 80%;
+
+@media (max-width:750px){
+    display:block;
+}
 `;
 
 
@@ -16,7 +20,9 @@ class Layout extends Component{
     render(){
         return(
             <Wrapper>
-                <Sort/>
+                <Sort 
+                filterpage = {this.props.filterpage}
+                />
                 <CardTemp/>
             </Wrapper>
         );

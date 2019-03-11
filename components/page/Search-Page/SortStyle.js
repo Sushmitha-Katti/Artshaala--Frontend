@@ -2,23 +2,25 @@ import styled from "styled-components";
 
 const SortStyle = styled.nav`
 
-:global(body){
-        margin:0;
-        padding:0;
-    }
     .multi-level{
-        margin-left:4vw;
-        width:15vw;
-        border-right:2px solid blue;
+        margin-top:20px;
+
+        width:180px;
     }
 
     .item{
         padding:1vw;
         margin:0;
-        
-
     }
-
+    #menu{
+        display:none;
+    }
+    .menuLabel{
+        display:none;
+    }
+    .menuLabel span{
+        
+    }
 
     .item ul,.multi-level input[type="checkbox"]{
         display:none;
@@ -48,12 +50,12 @@ const SortStyle = styled.nav`
 
     span{
         color:black;
-        font-size:1vw;
+        font-size:14px;
         margin-left:20px;
     }
 
     .headings{
-        font-size:1.2vw;
+        font-size:16px;
         margin:0;
     }
 
@@ -74,22 +76,37 @@ const SortStyle = styled.nav`
     }
 
     hr{
-        width:12vw;
+        width:160px;
         margin:0;
     }
+    .center{
+        display:none;
+    }
+
+    @media (max-width:750px){
+
+        .main{
+            display:none;
+        }
+        .center{
+            display:block;
+            text-align:center;
+            border-bottom: 0.6px solid #d9d9d9;
+            padding-bottom:10px;
+        }
+
+        .filterbutton{
+            font-size:20px;
+            background-color:white;
+            border:0;
+            padding:0;
+        }
+    }
+
+
+
+
+
 `;
 
 export default SortStyle;
-
-
-
-
-// #accordian section .items{
-//     display:none;
-    
-// }
-
-// #accordian section:target .items{
-//     display:block;
-    
-// }

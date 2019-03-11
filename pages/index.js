@@ -1,19 +1,12 @@
-import Navbar from "../components/page/Search-Page/navbar";
-import Sort from "../components/page/Search-Page/sort";
-import Cardtemp from "../components/page/Search-Page/cardtemp";
 import Head from "../components/head";
-import Layout from "../components/page/Search-Page/layout";
-
+import Main from "../components/page/Search-Page/main";
 
 const Home = () => (
 
-  <div>
+<div>
     <Head />
-    <Navbar />
-    <Layout />
+    <Main />
   </div>
-
-  
 
 );
 
