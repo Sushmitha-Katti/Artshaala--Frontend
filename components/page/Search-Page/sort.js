@@ -15,15 +15,15 @@ class Sort extends Component{
         return(
             <SortStyle>
                 <div className="center">
-                    <button onClick={this.filterpages} className="filterbutton"><i class="fa fa-filter"></i> Filter</button>
+                    <button onClick={this.filterpages} className="filterbutton"><i className="fa fa-filter"></i> Filter</button>
                 </div>
                <div className="main">
                     <input type="checkbox" id="menu"/>
-                    <div className="divlabel"><label for="menu" className="menuLabel"><span /><span /><span /></label></div>
+                    <div className="divlabel"><label htmlFor="menu" className="menuLabel"><span /><span /><span /></label></div>
                     <div className="multi-level">
                         <div className="item">
                             <input type="checkbox" id="A"/>
-                            <span class="headings">CATEGORY</span>
+                            <span className="headings">CATEGORY</span>
                             <label htmlFor="A"><i className="fa fa-chevron-down"></i></label>
                                 <hr />
                             <ul>
@@ -35,8 +35,8 @@ class Sort extends Component{
 
                         <div className="item">
                             <input type="checkbox" id="B"/>
-                            <span class="headings">BRAND</span>
-                            <label htmlFor="B"><i class="fa fa-chevron-down"></i></label>
+                            <span className="headings">BRAND</span>
+                            <label htmlFor="B"><i className="fa fa-chevron-down"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" className="regular-checkbox" name="vault"/></li>
@@ -51,8 +51,8 @@ class Sort extends Component{
                         </div>
                         <div className="item">
                             <input type="checkbox" id="C"/>
-                            <span class="headings">PRICE</span>
-                            <label htmlFor="C"><i class="fa fa-chevron-down"></i></label>
+                            <span className="headings">PRICE</span>
+                            <label htmlFor="C"><i className="fa fa-chevron-down"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" name="rs1"/></li>
@@ -67,8 +67,8 @@ class Sort extends Component{
                         </div>
                         <div className="item">
                             <input type="checkbox" id="D"/>
-                            <span class="headings">RATINGS</span>
-                            <label htmlFor="D"><i class="fa fa-chevron-down"></i></label>
+                            <span className="headings">RATINGS</span>
+                            <label htmlFor="D"><i className="fa fa-chevron-down"></i></label>
                             <hr />
                             <ul>
                                 <li><input type="checkbox" id="checkboxes" name="stars5"/></li>

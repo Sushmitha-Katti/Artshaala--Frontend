@@ -3,10 +3,10 @@ import Main from "../components/page/Search-Page/main";
 
 const Home = () => (
 
-<div>
+<body style={{margin:0}}>
     <Head />
     <Main />
-  </div>
+  </body>
 
 );
 
