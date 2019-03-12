@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Styles } from "./cartStyle";
+import { Styles, Price, Subtotal } from "./cartStyle";
 
 class Carts extends Component {
   state = {};
@@ -22,7 +22,7 @@ class Carts extends Component {
             <div className="values">
               <div>
                 <span style={{ fontSize: 18 + "px" }}>Price:</span>
-                <span className="price">{this.props.Contents.price}/-</span>
+                <Price big>{this.props.Contents.price}/-</Price>
               </div>
               <div>
                 <span style={{ fontSize: 18 + "px" }}>Quantity:</span>
@@ -49,7 +49,7 @@ class Carts extends Component {
             </p>
             <br />
             <span style={{ fontSize: 23 + "px" }}>Subtotal:</span>
-            <span className="subtotal">INR 6499.00/-</span>
+            <Subtotal big>INR 6499.00/-</Subtotal>
           </div>
         </div>
       </Styles>

@@ -119,4 +119,16 @@ const Styles = styled.div`
   }
 `;
 
-export { Styles };
+const Price = styled.span`
+  font-size: ${props => (props.big ? "18px" : "15px")};
+  margin-left: 5%;
+  color: rgb(0, 161, 255);
+`;
+
+const Subtotal = styled.span`
+  font-size: ${props => (props.big ? "23px" : "19px")};
+  margin-left: 3%;
+  color: rgb(200, 0, 0);
+`;
+
+export { Styles, Price, Subtotal };
