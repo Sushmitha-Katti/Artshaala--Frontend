@@ -23,8 +23,9 @@ const CardWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
   }
   @media only screen and (max-width: 480px) {
-    display:block;
+    margin: 0.5rem;
     justify-items: center;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -48,7 +49,7 @@ class Cardtemp extends Component{
               <Cards Cardcontent={card} />
             </div>
           ));
-        return ( <div style={{marginTop:-5}}>
+        return ( <div style={{marginTop:-5,}}>
                  <h2>Acoustic Guitar</h2>
                 <CardWrapper>{Cardslist}</CardWrapper>
                 </div>

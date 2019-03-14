@@ -33,8 +33,6 @@ class Pricing extends Component {
                             <li><input type="checkbox" id="checkboxes" name="rs4"/></li>
                         </div>              
                             </ul>
-                       
-                <div className="buttons"><button onClick={this.filterpage} className="done" > Done </button></div>
             </FilterMobileStyle>
     )
   }

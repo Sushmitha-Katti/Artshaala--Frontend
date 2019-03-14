@@ -88,6 +88,7 @@ const FilterMobileStyle = styled.nav`
     padding-top:30px;
     padding-bottom:40px;
     margin-left:20px;
+    margin-right:20px;
     border-bottom: 0.6px solid #d9d9d9; 
 }
 .texts{
@@ -100,16 +101,6 @@ const FilterMobileStyle = styled.nav`
     float:right;
     width:20px;
     height:20px;
-}
-.buttons{
-   text-align:center;
-}
-.done{
-    font-size:30px;
-    background-color:#FBBD1D;
-    border: 0.6px solid #FBBD1D;
-    border-radius:10px;
-    padding:10px;
 }
 
 

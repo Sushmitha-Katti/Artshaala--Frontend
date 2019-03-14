@@ -12,6 +12,7 @@ grid-template-columns: 20% 80%;
 
 @media (max-width:750px){
     display:block;
+    align-items: center;
 }
 `;
 

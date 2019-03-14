@@ -1,13 +1,16 @@
+import Common from "../components/page/common/common";
+import Link from "next/link";
 import Head from "../components/head";
-import Main from "../components/page/Search-Page/main";
+import Nav from "../components/Navbar";
+import ServiceCards from "../components/page/Home/Servicecards";
 
 const Home = () => (
-
-<body style={{margin:0}}>
-    <Head />
-    <Main />
-  </body>
-
+  <div>
+    <Head title="Home" />
+    <Nav />
+   <Common /> 
+    <ServiceCards />
+  </div>
 );
 
 export default Home;

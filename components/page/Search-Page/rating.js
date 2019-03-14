@@ -38,7 +38,7 @@ class Rating extends Component {
                         </div>              
                             </ul>
                        
-                <div className="buttons"><button onClick={this.filterpage} className="done" > Done </button></div>
+                
             </FilterMobileStyle>
     )
   }
