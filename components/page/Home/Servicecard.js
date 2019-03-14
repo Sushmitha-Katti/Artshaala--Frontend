@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "./styles";
+import { Card } from "./styles";
 import Link from "next/link";
 
 class ServiceCard extends Component {
