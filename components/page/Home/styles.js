@@ -97,29 +97,60 @@ const Card = styled.div`
  * For Courosel Cards
  */
 const Cards = styled.div`
+  .title {
+    display: grid;
+    justify-content: space-around;
+    padding: 0;
+    margin: 1rem 3rem;
+    grid-template-columns: 1fr 0.3fr 1fr;
+    grid-gap: 0rem;
+    justify-items: center;
+  }
+  .line {
+    width: 100%;
+    height: 2rem;
+    border-bottom: 1px solid black;
+    margin: 0;
+    padding: 0;
+  }
+  .titleName {
+    margin: 0;
+    padding: 0;
+  }
   font-family: "Montserrat", sans-serif;
   margin: 3rem 3rem;
 
   @media only screen and (max-width: 768px) {
-    margin: 2rem 2rem;
+    margin: 3rem 3rem;
+
+    .line {
+      width: 100%;
+      height: 2rem;
+      border-bottom: 1px solid black;
+    }
   }
 `;
 /*****************************************************************************************
  * For Courososel Card
  */
 const CouroselWrapper = styled.div`
+
   .card {
-    height: 340px;
-    width: 240px;
-    border: 1px solid white;
-    box-shadow: 5px 10px 8px #888888;
-    margin: 0.7rem;
+    max-height: 420px;
+    max-width: 270px;
+    margin: 2rem;
   }
-  .cardimg {
-    height: inherit;
-    width: inherit;
-    padding-bottom: 10px;
+  
+   
+    img {
+      max-height: 370px;
+      max-width: 270px;
+      margin-bottom: 10px;
+      border: 1px ridge #8888;
+      z-index: 10;
+    }
   }
+
   .rating {
     display: flex;
     justify-content: space-between;
@@ -135,15 +166,30 @@ const CouroselWrapper = styled.div`
   }
   @media only screen and (max-width: 768px) {
     .card {
-      height: 250px;
-      width: 250px;
-      border: 1px solid white;
-      box-shadow: 5px 10px 8px #888888;
-      margin: 0.7rem;
+      height: 300px;
+      width: 240px;
+      padding: 0;
+      margin: auto;
     }
     .cardimg {
-      max-height: 250;
-      max-width: 250;
+      height: inherit;
+      width: inherit;
+      padding: 0;
+      padding-bottom: 10px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    
+    .card {
+      height: 360px;
+      width: 240px;
+      padding: 0;
+      margin: auto;
+    }
+    .cardimg {
+      height: 300px;
+      width: inherit;
+      padding: 0;
       padding-bottom: 10px;
     }
   }
