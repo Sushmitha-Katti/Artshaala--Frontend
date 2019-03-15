@@ -68,12 +68,11 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className + " style"}
+      className={className}
       style={{
         ...style,
         display: "block",
         background: "#f7bb2f",
-
         borderRadius: "50%",
         padding: "0px"
       }}
@@ -116,12 +115,11 @@ class CouroselCards extends Component {
           settings: {
             slidesToShow: 4,
             slidesToScroll: 4,
-            infinite: true,
-            dots: true
+            infinite: true
           }
         },
         {
-          breakpoint: 768,
+          breakpoint: 769,
           settings: {
             slidesToShow: 2,
             infinite: true,
@@ -129,7 +127,7 @@ class CouroselCards extends Component {
           }
         },
         {
-          breakpoint: 468,
+          breakpoint: 480,
           settings: {
             slidesToShow: 1,
             infinite: true,
@@ -140,13 +138,17 @@ class CouroselCards extends Component {
     };
 
     let Courosels = properties.map(property => (
-      <div>
-        {" "}
-        <CouroselCard property={property} />
-      </div>
+      <CouroselCard property={property} />
     ));
     return (
       <Cards>
+        <div className="title">
+          <span className="line"> </span>
+          <span>
+            <h3>Best Sellers</h3>
+          </span>
+          <span className="line"> </span>
+        </div>
         <Slider {...settings}>{Courosels}</Slider>
       </Cards>
     );
