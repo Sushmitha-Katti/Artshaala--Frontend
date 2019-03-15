@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import NavWrapper from "./styles.js";
+//import NavWrapper from "./styles.js";
 
 const Nav = () => (
   <NavWrapper>
