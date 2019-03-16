@@ -121,7 +121,8 @@ const Cards = styled.div`
   margin: 3rem 3rem;
 
   @media only screen and (max-width: 768px) {
-    margin: 3rem 3rem;
+    align-items: center;
+    justify-content: center;
 
     .line {
       width: 100%;
@@ -134,6 +135,7 @@ const Cards = styled.div`
  * For Courososel Card
  */
 const CouroselWrapper = styled.div`
+   
 
   .card {
     max-height: 420px;
