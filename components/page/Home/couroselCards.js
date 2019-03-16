@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import CouroselCard from "./couroselCard";
 import guitar from "./guitar.jpg";
-
+import styled, { keyframes } from "styled-components";
 import { Cards } from "./styles";
 import Slider from "react-slick";
+
+const Flexcards = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 let properties = [
   {
@@ -111,10 +117,10 @@ class CouroselCards extends Component {
       prevArrow: <SamplePrevArrow />,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 800,
           settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: 2,
+            slidesToScroll: 1,
             infinite: true
           }
         },
@@ -123,7 +129,7 @@ class CouroselCards extends Component {
           settings: {
             slidesToShow: 2,
             infinite: true,
-            slidesToScroll: 2
+            slidesToScroll: 1
           }
         },
         {
@@ -138,7 +144,11 @@ class CouroselCards extends Component {
     };
 
     let Courosels = properties.map(property => (
-      <CouroselCard property={property} />
+      <div>
+        <Flexcards>
+          <CouroselCard property={property} />
+        </Flexcards>
+      </div>
     ));
     return (
       <Cards>
