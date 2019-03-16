@@ -3,7 +3,18 @@ import Slider from "react-slick";
 import styled, { keyframes } from "styled-components";
 import profile from "./profile.png";
 
+/**************************     Styled Components         *************************************** */
+const T = styled.div`
+  position: absolute;
+  z-index: 10;
+  top: 30%;
+  width: 100%;
+  height: 50%;
+`;
+
 const S = styled.div`
+  width: 20px;
+  height: 20px;
   .profile {
     display: flex;
     justify-content: center;
@@ -19,7 +30,7 @@ const S = styled.div`
     margin: 1rem;
   }
 `;
-
+/*********************************************************************************/
 class AutoCards extends Component {
   render() {
     const settings = {
@@ -35,7 +46,7 @@ class AutoCards extends Component {
       arrows: false
     };
     return (
-      <div>
+      <T>
         <Slider {...settings}>
           <S>
             <p className="something">
@@ -57,7 +68,7 @@ class AutoCards extends Component {
             </p>
             <div className="profile">
               <img src={profile} alt="profile photo" />
-              <div>
+              <div id="title">
                 <h3>Name name</h3>
                 <p>Singer</p>
               </div>
@@ -70,14 +81,14 @@ class AutoCards extends Component {
             </p>
             <div className="profile">
               <img src={profile} alt="profile photo" />
-              <div>
+              <div id="title">
                 <h3>Name name</h3>
                 <p>Singer</p>
               </div>
             </div>
           </S>
         </Slider>
-      </div>
+      </T>
     );
   }
 }
