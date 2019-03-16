@@ -11,7 +11,8 @@ import ReactSlick from './index';
                         rimProps: {
                             isHintEnabled: true,
                             shouldHideHintAfterFirstActivation: false,
-                            enlargedImagePosition: "over"
+                            enlargedImagePosition: "over",
+                            isActivatedOnTouch:true
                         }
                     }} />
                 </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactImageMagnify from 'react-image-magnify';
 import ReactSlick from 'react-slick';
-              
 import front_500 from './front-500.jpg'
 import front_1426 from './front-1426.jpg';
 
@@ -45,15 +44,43 @@ export default class ReactSlick1 extends Component {
         return (
             
             <body>
-                
             <ReactSlick
-                {...{ 
+                {...{
+                    arrows: true, 
                     dots: true,
                     infinite: true,
                     speed: 500,
                     slidesToShow: 1,
-                    slidesToScroll: 1
-                  
+                    slidesToScroll: 1,
+                    nextArrow: <SampleNextArrow />,
+                    prevArrow: <SamplePrevArrow />,
+                    responsive: [
+                        {
+                          breakpoint: 1024,
+                          settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                          }
+                        },
+                        {
+                          breakpoint: 768,
+                          settings: {
+                            slidesToShow: 1,
+                            infinite: true,
+                            slidesToScroll: 1
+                          }
+                        },
+                        {
+                          breakpoint: 468,
+                          settings: {
+                            slidesToShow: 1,
+                            infinite: true,
+                            slidesToScroll: 1
+                          }
+                        }
+                      ]
                   }}
                   {...rsProps}
             >
@@ -89,3 +116,44 @@ export default class ReactSlick1 extends Component {
         );
     }
 }
+
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className + " style"}
+        style={{
+          ...style,
+          display: "block",
+          background: "#827f7f",
+  
+          borderRadius: "50%",
+          padding: "0px",
+          padding: "0",
+          color: "blue",
+          opacity: "0.7"
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+  
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+          background: "#827f7f",
+          borderRadius: "50%",
+          padding: "0",
+          color: "blue",
+          opacity: "0.7"
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+  

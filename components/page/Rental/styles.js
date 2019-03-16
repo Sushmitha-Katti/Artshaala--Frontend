@@ -1,8 +1,7 @@
 
 import sc from "styled-components";
 import img from "./images/gutar.png";
-import sc from "styled-components";
-import img from './images/gutar.png';
+
 
 const Body = sc.body`
  box-sizing: border-box;
@@ -356,6 +355,5 @@ grid-area:footer;
  `;
 
 export default Body;
- `;
+ 
 
-export default Body;
