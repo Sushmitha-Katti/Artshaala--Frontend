@@ -119,11 +119,12 @@ const Cards = styled.div`
   }
   font-family: "Montserrat", sans-serif;
   margin: 3rem 3rem;
-
-  @media only screen and (max-width: 768px) {
+  .courosels {
     align-items: center;
     justify-content: center;
+  }
 
+  @media only screen and (max-width: 768px) {
     .line {
       width: 100%;
       height: 2rem;
@@ -135,22 +136,18 @@ const Cards = styled.div`
  * For Courososel Card
  */
 const CouroselWrapper = styled.div`
-   
-
   .card {
-    max-height: 420px;
-    max-width: 270px;
-    margin: 2rem;
+    height: 420px;
+    width: 300px;
+    margin: 0;
   }
-  
-   
-    img {
-      max-height: 370px;
-      max-width: 270px;
-      margin-bottom: 10px;
-      border: 1px ridge #8888;
-      z-index: 10;
-    }
+
+  img {
+    height: 370px;
+    width: 300px;
+    margin-bottom: 10px;
+    border: 1px ridge #8888;
+    z-index: 10;
   }
 
   .rating {
@@ -170,28 +167,25 @@ const CouroselWrapper = styled.div`
     .card {
       height: 300px;
       width: 240px;
-      padding: 0;
-      margin: auto;
     }
     .cardimg {
       height: inherit;
       width: inherit;
-      padding: 0;
+
       padding-bottom: 10px;
     }
   }
   @media only screen and (max-width: 480px) {
-    
     .card {
       height: 360px;
       width: 240px;
-      padding: 0;
+
       margin: auto;
     }
     .cardimg {
       height: 300px;
       width: inherit;
-      padding: 0;
+
       padding-bottom: 10px;
     }
   }
