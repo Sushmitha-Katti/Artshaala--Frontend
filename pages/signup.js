@@ -1,39 +1,11 @@
+import SignUp from "../components/test/signuppage.js";
 import Head from "../components/head";
 import Nav from "../components/Navbar";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
-
-const ALL_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY {
-    users {
-      name
-      id
-      email
-    }
-  }
-`;
-
-const SignUp = () => (
+const SignUpPage = () => (
   <div>
-    <Head title="SignUp" />
-    <Query query={ALL_ITEMS_QUERY}>
-      {({ data }) => {
-        let { users } = data;
-        console.log(users);
-
-        return (
-          <div>
-            {users.map(user => (
-              <div>
-                <h1>{user.name}</h1>
-                <p>{user.email}</p>
-              </div>
-            ))}
-          </div>
-        );
-      }}
-    </Query>
+    <Head title="signup" />
+    <SignUp />
   </div>
 );
 
-export default SignUp;
+export default SignUpPage;
