@@ -79,13 +79,19 @@ class Signin extends Component {
               e.preventDefault();
               await signup();
               this.setState({ name: "", email: "", password: "" });
-              <p>{error}</p>;
+              Router.push({
+                pathname: "/"
+              });
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
               <h2>Sign into your account</h2>
               <div>
-                <b style={{ color: "red" }}>{erroe.message}</b>
+                <b style={{ color: "red" }}>
+                  {error
+                    ? "Oops!! Something went wrong! Enter Correct Email and Password"
+                    : ""}
+                </b>
               </div>
 
               <label htmlFor="email">

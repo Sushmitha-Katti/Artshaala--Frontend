@@ -107,7 +107,6 @@ class CreateItemPage extends Component {
                   onChange={this.saveToState}
                 />
               </label>
-
               <div className="centerbutton">
                 <button type="submit">Create Item</button>
               </div>

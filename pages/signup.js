@@ -1,9 +1,10 @@
 import SignUp from "../components/test/signuppage.js";
 import Head from "../components/head";
-import Nav from "../components/Navbar";
+import Navtest from "../components/test/navtest";
 const SignUpPage = () => (
   <div>
     <Head title="signup" />
+    <Navtest />
     <SignUp />
   </div>
 );
