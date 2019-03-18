@@ -16,16 +16,18 @@ const ALL_ITEMS_QUERY = gql`
 
 const ItemsList = styled.div`
   display: flex;
-
+  flex-wrap: wrap;
   margin: 2rem 4rem;
   justify-content: center;
   align-items: center;
 `;
 const ItemsStyle = styled.div`
   border: 1px solid black;
-  width: 200px;
-  height: 200px;
+  width: 500px;
+  height: 300px;
   margin: 2rem;
+  padding: 1rem;
+  overflow: hidden;
   text-align: center;
 `;
 
@@ -43,7 +45,8 @@ const Items = () => (
               <ItemsStyle>
                 <h1>{item.title}</h1>
                 <p>{item.description}</p>
-                <p>{item.price}</p>
+                <b style={{ margin: "1rem", fontSize: "110%" }}>Price</b>
+                &#8377;{item.price}
               </ItemsStyle>
             ))}
           </ItemsList>
