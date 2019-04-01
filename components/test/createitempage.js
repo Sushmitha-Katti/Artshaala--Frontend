@@ -36,9 +36,15 @@ const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
     $title: String!
     $description: String!
+    $image: String
     $price: Int!
   ) {
-    createItem(title: $title, description: $description, price: $price) {
+    createItem(
+      title: $title
+      description: $description
+      image: $image
+      price: $price
+    ) {
       id
     }
   }
@@ -48,13 +54,41 @@ class CreateItemPage extends Component {
   state = {
     title: "",
     description: "",
-    price: 0
+    price: 0,
+    image: " "
   };
+  // Function is called by all input fields in form except image field
   saveToState = e => {
     const { name, type, value } = e.target;
     const val = type === "number" ? parseFloat(value) : value;
     this.setState({ [name]: val });
   };
+
+  // This function is called by image field in the form.
+  // This uploads a image to cloudinary website
+  uploadFile = async e => {
+    // console.log("uploaing file ...");
+    const files = e.target.files;
+    //console.log(files);
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "Artshaala");
+    //console.log(data);
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dr6weeztx/image/upload",
+      {
+        method: "POST",
+        body: data
+      }
+    );
+    const file = await res.json();
+    console.log(file);
+    this.setState({
+      image: file.secure_url
+    });
+  };
+
   render() {
     return (
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
@@ -87,6 +121,25 @@ class CreateItemPage extends Component {
                   onChange={this.saveToState}
                 />
               </label>
+
+              <label htmlFor="file">
+                Image
+                <input
+                  type="file"
+                  name="file"
+                  placeholder="Upload an image"
+                  required
+                  onChange={this.uploadFile}
+                />
+                {this.state.image && (
+                  <img
+                    width="200"
+                    src={this.state.image}
+                    alt="Upload Preview"
+                  />
+                )}
+              </label>
+
               <label htmlFor="description">
                 Descriptiom
                 <input
@@ -97,6 +150,7 @@ class CreateItemPage extends Component {
                   onChange={this.saveToState}
                 />
               </label>
+
               <label htmlFor="price">
                 Price
                 <input
