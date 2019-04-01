@@ -10,6 +10,7 @@ const ALL_ITEMS_QUERY = gql`
       title
       description
       price
+      image
     }
   }
 `;
@@ -47,6 +48,7 @@ const Items = () => (
                 <p>{item.description}</p>
                 <b style={{ margin: "1rem", fontSize: "110%" }}>Price</b>
                 &#8377;{item.price}
+                {item.image && <img src={item.image} alt={item.title} />}
               </ItemsStyle>
             ))}
           </ItemsList>
