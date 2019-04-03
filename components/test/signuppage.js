@@ -3,6 +3,7 @@ import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import Router from "next/router";
+import Link from "next/link";
 
 /***************************Styled Components**************************************** */
 const Form = styled.form`
@@ -10,16 +11,24 @@ const Form = styled.form`
   justify-content: center;
 
   fieldset {
-    border: 4px solid black;
-    padding: 50px;
-    text-align: center;
+    border: 2px solid #a0a0a0;
+    padding: 20px 10px;
+
     display: grid;
+    width: 15rem;
+    h2 {
+      color: orange;
+      text-allign: center;
+    }
+  }
+  label {
+    margin: auto 1rem;
   }
 
   input {
     width: 400px;
     height: 30px;
-    margin: 1rem 4rem;
+    margin: 1rem 0rem;
   }
   button {
     width: 100px;
@@ -92,10 +101,10 @@ class Signup extends Component {
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
-              <h2>Sign Up for An Account</h2>
+              <h2>Create Account</h2>
 
               <label htmlFor="email">
-                Email
+                <b>Email</b>
                 <input
                   type="email"
                   name="email"
@@ -105,7 +114,7 @@ class Signup extends Component {
                 />
               </label>
               <label htmlFor="name">
-                Name
+                <b>Name</b>
                 <input
                   type="text"
                   name="name"
@@ -115,7 +124,7 @@ class Signup extends Component {
                 />
               </label>
               <label htmlFor="password">
-                Password
+                <b>Password</b>
                 <input
                   type="password"
                   name="password"
@@ -126,6 +135,12 @@ class Signup extends Component {
               </label>
               <div className="centerbutton">
                 <button type="submit">Sign Up!</button>
+              </div>
+              <div>
+                Already Have An Account?{" "}
+                <Link href="/signin">
+                  <a>SignIn</a>
+                </Link>
               </div>
             </fieldset>
           </Form>
