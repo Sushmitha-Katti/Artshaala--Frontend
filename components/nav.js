@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
-//import NavWrapper from "./styles.js";
+
+
 
 const Nav = () => (
   <NavWrapper>
@@ -196,6 +197,6 @@ const NavWrapper = styled.nav`
       left: 10px;
     }
   }
-`; 
+`;
 
 export default Nav;

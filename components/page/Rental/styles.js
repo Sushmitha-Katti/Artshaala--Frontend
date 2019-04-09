@@ -353,3 +353,8 @@ grid-area:footer;
  `;
 
 export default Body;
+<<<<<<< HEAD
+=======
+ 
+
+>>>>>>> 037cfb3f96bb437fe9c9ac4c1d9b13fdc3083866

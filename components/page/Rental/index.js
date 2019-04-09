@@ -1,8 +1,10 @@
+
 import React, { Component } from "react";
 import Body from "./styles";
 import logo from "./images/logo1.png";
 import Nav from "../../Navbar";
 import Footer from "../../Footer";
+
 
 class Rental extends Component {
   render() {
