@@ -6,7 +6,6 @@
     "apollo-boost": "^0.3.1",
     "apollo-client": "^2.5.1",
     "bootstrap": "^4.3.1",
-<<<<<<< HEAD
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "graphql": "^14.1.1",
@@ -16,11 +15,8 @@
     "next-with-apollo": "^3.4.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
-=======
     "install": "^0.12.2",
-    "next": "^8.0.1",
     "npm": "^6.9.0",
->>>>>>> 037cfb3f96bb437fe9c9ac4c1d9b13fdc3083866
     "react": "^16.8.2",
     "react-adopt": "^0.6.0",
     "react-apollo": "^2.5.2",
