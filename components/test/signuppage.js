@@ -9,35 +9,69 @@ import Link from "next/link";
 const Form = styled.form`
   display: flex;
   justify-content: center;
+  font-family: "Montserrat", sans-serif;
 
   fieldset {
-    border: 2px solid #a0a0a0;
-    padding: 20px 10px;
+    background:#F8F8F8;
+
+    border: 1px solid #a0a0a0;
+    padding: 20px 30px;
 
     display: grid;
-    width: 15rem;
-    h2 {
+    min-width: 350px;
+    height: auto;
+    .centered {
       color: orange;
-      text-allign: center;
+      text-align:center;
     }
   }
-  label {
-    margin: auto 1rem;
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #f7bb2f;
+    color: white;
+    padding: auto auto;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input:focus, textarea:focus {
+    border: 2px solid #f7bb2f;
+  }
+  
+  input[type=submit]:hover {
+    background-color:orange ;
   }
 
-  input {
-    width: 400px;
-    height: 30px;
-    margin: 1rem 0rem;
-  }
-  button {
-    width: 100px;
-    height: 40px;
-    background: orange;
+  input,textarea {
+    
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
 
-    .centerbutton {
-      display: flex;
-      justify-content: center;
+  }
+  .typebrandsize{
+    display:flex;
+    align-content: stretch;
+    .compo{
+      display:grid;
+      margin:0.3rem;
+    }
+  }
+
+  .signinlink{
+    color:black;
+    text-align:center;
+    a{
+      text-decoration:none;
     }
   }
 `;
@@ -101,47 +135,52 @@ class Signup extends Component {
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
+            <div className = "centered">
               <h2>Create Account</h2>
-
+            </div>
+            <div className = "signinlink">
+                <p>Already Have An Account?
+                <Link href="/signin">
+                  <a> SignIn</a>
+                </Link></p>
+              </div>
               <label htmlFor="email">
-                <b>Email</b>
+                <div><b>Email</b></div>
                 <input
                   type="email"
                   name="email"
-                  placeholder="email"
+                  
                   value={this.state.email}
                   onChange={this.saveToState}
                 />
               </label>
               <label htmlFor="name">
-                <b>Name</b>
+                <div><b>Name</b></div>
                 <input
                   type="text"
                   name="name"
-                  placeholder="name"
+                  
                   value={this.state.name}
                   onChange={this.saveToState}
                 />
               </label>
               <label htmlFor="password">
-                <b>Password</b>
+                <div><b>Password</b></div>
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
+                  placeholder="Atleast 6 characters"
                   value={this.state.password}
                   onChange={this.saveToState}
                 />
               </label>
-              <div className="centerbutton">
-                <button type="submit">Sign Up!</button>
+              <div className = "centered">
+                <div className="centerbutton">
+                  <input type="submit" value = "Submit"/>
+                </div>
               </div>
-              <div>
-                Already Have An Account?{" "}
-                <Link href="/signin">
-                  <a>SignIn</a>
-                </Link>
-              </div>
+              <br></br>
+             
             </fieldset>
           </Form>
         )}
@@ -152,3 +191,4 @@ class Signup extends Component {
 
 export default Signup;
 export { SIGNUP_MUTATION };
+export {Form};

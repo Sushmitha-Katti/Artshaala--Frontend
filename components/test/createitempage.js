@@ -3,8 +3,9 @@ import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import Router from "next/router";
+import {Form} from "./signuppage.js"
 
-const Form = styled.form`
+/*const Form = styled.form`
   display: flex;
   justify-content: center;
 
@@ -30,13 +31,13 @@ const Form = styled.form`
       justify-content: center;
     }
   }
-`;
+`;*/
 
 const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
     $title: String!
     $description: String!
-    $image: String
+    $images: String
     $price: Int!
   ) {
     createItem(
@@ -55,7 +56,7 @@ class CreateItemPage extends Component {
     title: "",
     description: "",
     price: 0,
-    image: " "
+    image:[]
   };
   // Function is called by all input fields in form except image field
   saveToState = e => {
@@ -69,25 +70,34 @@ class CreateItemPage extends Component {
   uploadFile = async e => {
     // console.log("uploaing file ...");
     const files = e.target.files;
-    //console.log(files);
+    console.log(files);
     const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "Artshaala");
-    //console.log(data);
+    for (let f of files){
+      console.log(f)
+      data.append("file", f);
+      data.append("upload_preset", "Artshaala");
+      console.log(data);
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dr6weeztx/image/upload",
+        {
+          method: "POST",
+          body: data
+        }
+      );
+      const file = await res.json();
+      console.log(file);
+      let filearray = file.secure_url
 
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dr6weeztx/image/upload",
-      {
-        method: "POST",
-        body: data
-      }
-    );
-    const file = await res.json();
-    console.log(file);
-    this.setState({
-      image: file.secure_url
-    });
-  };
+      this.setState(prevState => ({
+        image: [...prevState.image, filearray]
+      }))
+
+     
+      console.log(this.state.image)
+    };
+    }
+
+   
 
   render() {
     return (
@@ -106,13 +116,16 @@ class CreateItemPage extends Component {
               Router.push({
                 pathname: "/items"
               });
+              enctype="multipart/form-data"
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
-              <h2>Create Item</h2>
+            <div className = "centered">
+           
+              <h2>Create Item</h2></div>
 
               <label htmlFor="title">
-                Title
+                <div><b>Title</b></div>
                 <input
                   type="text"
                   name="title"
@@ -123,46 +136,84 @@ class CreateItemPage extends Component {
               </label>
 
               <label htmlFor="file">
-                Image
+                <div><b>Image</b></div>
                 <input
                   type="file"
                   name="file"
                   placeholder="Upload an image"
+                  
                   required
                   onChange={this.uploadFile}
+                  multiple
                 />
-                {this.state.image && (
+                {this.state.image && ( this.state.image.map(i =>
                   <img
-                    width="200"
-                    src={this.state.image}
-                    alt="Upload Preview"
-                  />
+                    width="100"
+                    height="100"
+                    src={i}
+                    
+                  />)
                 )}
               </label>
 
               <label htmlFor="description">
-                Descriptiom
+                <div><b>Specification</b></div>
+                <textarea id="description" name="description" placeholder="Specification of the item.." ></textarea>
+                
+              </label>
+              <div className="typebrandsize">
+              <div className= "compo"><b>Category</b>
                 <input
                   type="text"
-                  name="description"
-                  placeholder="descritpin"
-                  value={this.state.name}
+                  name="category"
+                  placeholder="Category"
+                  value={this.state.category}
                   onChange={this.saveToState}
                 />
-              </label>
-
-              <label htmlFor="price">
-                Price
+                </div>
+                <div className="compo"><b>brand</b>
                 <input
-                  type="number"
-                  name="price"
-                  placeholder="price"
-                  value={this.state.password}
+                  type="text"
+                  name="brand"
+                  placeholder="brand"
+                  value={this.state.brand}
                   onChange={this.saveToState}
                 />
-              </label>
+                </div>
+                <div className="compo"><b>size</b>
+                <input
+                  type="text"
+                  name="size"
+                  placeholder="Size"
+                  value={this.state.size}
+                  onChange={this.saveToState}
+                />
+                </div>
+              </div>
+
+              <div className="typebrandsize">
+                  <div className="compo"><b>Price</b>
+                  <input
+                    type="number"
+                    name="price"
+                    placeholder="price per item"
+                    value={this.state.price}
+                    onChange={this.saveToState}
+                  />
+                  </div>
+                  <div className="compo"><b>Stock</b>
+                  <input
+                    type="number"
+                    name="stock"
+                    placeholder="Number of Item Available"
+                    value={this.state.stock}
+                    onChange={this.saveToState}
+                  />
+                  </div>
+              </div>
+              <div className = "centered">
               <div className="centerbutton">
-                <button type="submit">Create Item</button>
+                <input type="submit" value = "Create Item"/></div>
               </div>
             </fieldset>
           </Form>

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
-
+import {Form} from "./signuppage.js"
 import styled from "styled-components";
 import Router from "next/router";
+import Link from "next/link";
 
-const Form = styled.form`
+/*const Form = styled.form`
   display: flex;
   justify-content: center;
 
@@ -31,7 +32,7 @@ const Form = styled.form`
       justify-content: center;
     }
   }
-`;
+`;*/
 const CURRENT_USER_QUERY = gql`
   query {
     me {
@@ -85,7 +86,7 @@ class Signin extends Component {
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
-              <h2>Sign into your account</h2>
+              <div className = "centered"><h2>Login</h2></div>
               <div>
                 <b style={{ color: "red" }}>
                   {error
@@ -95,27 +96,35 @@ class Signin extends Component {
               </div>
 
               <label htmlFor="email">
-                Email
+              <div><b>Email</b></div>
                 <input
                   type="email"
                   name="email"
-                  placeholder="email"
+                
                   value={this.state.email}
                   onChange={this.saveToState}
                 />
               </label>
               <label htmlFor="password">
-                Password
+                <div><b>Password</b></div>
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
+                 
                   value={this.state.password}
                   onChange={this.saveToState}
                 />
               </label>
+              <div className = "centered">
               <div className="centerbutton">
-                <button type="submit">Sign In!</button>
+                <input type="submit" value = "Sign In!"/>
+              </div>
+              </div>
+              <div className = "signinlink">
+                <p>New User ?
+                <Link href="/signup">
+                  <a> SignUp here</a>
+                </Link></p>
               </div>
             </fieldset>
           </Form>
