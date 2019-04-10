@@ -97,6 +97,9 @@ const Card = styled.div`
  * For Courosel Cards
  */
 const Cards = styled.div`
+ 
+    font-family: "Montserrat", sans-serif;
+    margin: 3rem 5rem;
   .title {
     display: grid;
     justify-content: space-around;
@@ -117,8 +120,7 @@ const Cards = styled.div`
     margin: 0;
     padding: 0;
   }
-  font-family: "Montserrat", sans-serif;
-  margin: 3rem 3rem;
+  
   .courosels {
     align-items: center;
     justify-content: center;
@@ -137,14 +139,14 @@ const Cards = styled.div`
  */
 const CouroselWrapper = styled.div`
   .card {
-    height: 420px;
-    width: 300px;
-    margin: 0;
+    height: 350;
+    width: 250px;
+    margin: 0rem;
   }
 
   img {
-    height: 370px;
-    width: 300px;
+    height: 350px;
+    width: 250px;
     margin-bottom: 10px;
     border: 1px ridge #8888;
     z-index: 10;
