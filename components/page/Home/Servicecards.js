@@ -8,7 +8,7 @@ import rental from "./rental.jpg";
 
 const CardWrapper = styled.div`
   display: grid;
-  margin: 3rem;
+  margin: 3rem 5rem;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
