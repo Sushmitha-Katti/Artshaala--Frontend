@@ -8,16 +8,26 @@ const D = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin:3rem 5rem;
+
+    
+ 
 `;
 const Slider = styled.div`
   font-family: "Montserrat", sans-serif;
-  width: 660px;
-  height: 200px;
+  width: 100%;
+  height: 150px;
   color: ${props => props.color};
   text-align: center;
   padding: 8rem 0rem;
   background: ${props => props.background};
   position: relative;
+  @media only screen and (max-width: 768px) {
+    height:100px;
+  }
+  @media only screen and (max-width: 400px) {
+    height:50px;
+  }
 
   .back {
     width: 100%;
@@ -36,16 +46,24 @@ const Slider = styled.div`
 
     background-color: #000000;
   }
+  
 `;
 
 const Newsletter = styled.div.attrs({})`
   font-family: "Montserrat", sans-serif;
-  width: 580px;
-  height: 200px;
+  width: 85%;
+  height: 150px;
   color: ${props => props.color};
   text-align: center;
   padding: 8rem 3rem;
   background: ${props => props.background};
+
+  @media only screen and (max-width: 768px) {
+    height:100px;
+  }
+  @media only screen and (max-width: 400px) {
+    height:50px;
+  }
 
   form {
     position: relative;
