@@ -5,6 +5,8 @@ import ServiceCards from "../components/page/Home/Servicecards";
 import CouroselCards from "../components/page/Home/couroselCards";
 import NewsLetter from "../components/page/Home/newsletter";
 
+
+
 const Home = () => (
   <div>
     <Head title="Home" />
