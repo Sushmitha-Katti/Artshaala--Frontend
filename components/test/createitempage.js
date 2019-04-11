@@ -37,14 +37,26 @@ const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
     $title: String!
     $description: String!
-    $images: String
+    $image: [String]
     $price: Int!
+    $type:String!
+    $category:String
+    $brand:String
+    $stock:Int
+    $size:String
+    
+
   ) {
     createItem(
       title: $title
-      description: $description
-      image: $image
+      specification: $description
+      images: $image
       price: $price
+      type: $type
+      category: $category
+      brand:$brand
+      stock:$stock
+      size:$size
     ) {
       id
     }
@@ -56,7 +68,12 @@ class CreateItemPage extends Component {
     title: "",
     description: "",
     price: 0,
-    image:[]
+    image:[],
+    stock:0,
+    category:"",
+    size:"",
+    brand:"",
+    type:"",
   };
   // Function is called by all input fields in form except image field
   saveToState = e => {
@@ -70,13 +87,13 @@ class CreateItemPage extends Component {
   uploadFile = async e => {
     // console.log("uploaing file ...");
     const files = e.target.files;
-    console.log(files);
+   
     const data = new FormData();
     for (let f of files){
-      console.log(f)
+    
       data.append("file", f);
       data.append("upload_preset", "Artshaala");
-      console.log(data);
+   
       const res = await fetch(
         "https://api.cloudinary.com/v1_1/dr6weeztx/image/upload",
         {
@@ -85,7 +102,7 @@ class CreateItemPage extends Component {
         }
       );
       const file = await res.json();
-      console.log(file);
+      
       let filearray = file.secure_url
 
       this.setState(prevState => ({
@@ -93,7 +110,7 @@ class CreateItemPage extends Component {
       }))
 
      
-      console.log(this.state.image)
+     
     };
     }
 
@@ -116,7 +133,7 @@ class CreateItemPage extends Component {
               Router.push({
                 pathname: "/items"
               });
-              enctype="multipart/form-data"
+              
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
@@ -158,7 +175,9 @@ class CreateItemPage extends Component {
 
               <label htmlFor="description">
                 <div><b>Specification</b></div>
-                <textarea id="description" name="description" placeholder="Specification of the item.." ></textarea>
+                <textarea id="description" name="description" placeholder="Specification of the item.."
+                value={this.state.description}
+                onChange={this.saveToState} ></textarea>
                 
               </label>
               <div className="typebrandsize">
@@ -192,6 +211,15 @@ class CreateItemPage extends Component {
               </div>
 
               <div className="typebrandsize">
+              <div className="compo"><b>Type</b>
+                  <input
+                    type="text"
+                    name="type"
+                    placeholder="type of item"
+                    value={this.state.type}
+                    onChange={this.saveToState}
+                  />
+                  </div>
                   <div className="compo"><b>Price</b>
                   <input
                     type="number"
