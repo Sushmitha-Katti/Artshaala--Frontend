@@ -74,6 +74,11 @@ const Form = styled.form`
       text-decoration:none;
     }
   }
+  .forgotpassword{
+    a{
+      text-decoration:none;
+    }
+  }
 `;
 
 //CURRENT_USER_QUERY

@@ -5,6 +5,7 @@ import {Form} from "./signuppage.js"
 import styled from "styled-components";
 import Router from "next/router";
 import Link from "next/link";
+import Nprogress from 'nprogress';
 
 /*const Form = styled.form`
   display: flex;
@@ -115,6 +116,13 @@ class Signin extends Component {
                   onChange={this.saveToState}
                 />
               </label>
+              <div className = "forgotpassword">
+                
+                <Link href="/signup">
+                  <a> Forgot Password</a>
+                </Link>
+              </div>
+
               <div className = "centered">
               <div className="centerbutton">
                 <input type="submit" value = "Sign In!"/>
