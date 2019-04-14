@@ -42,8 +42,9 @@ const CREATE_ITEM_MUTATION = gql`
     $type:String!
     $category:String
     $brand:String
-    $stock:Int
     $size:String
+    $stock:Int
+    
     
 
   ) {
@@ -55,8 +56,9 @@ const CREATE_ITEM_MUTATION = gql`
       type: $type
       category: $category
       brand:$brand
-      stock:$stock
       size:$size
+      stock:$stock
+     
     ) {
       id
     }
