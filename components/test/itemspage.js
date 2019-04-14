@@ -8,9 +8,15 @@ const ALL_ITEMS_QUERY = gql`
     items {
       id
       title
-      description
+      specification
       price
-      image
+      images
+      stock
+      brand
+      category
+      size
+      type
+
     }
   }
 `;
@@ -45,10 +51,11 @@ const Items = () => (
             {items.map(item => (
               <ItemsStyle>
                 <h1>{item.title}</h1>
-                <p>{item.description}</p>
+                <p>{item.specification}</p>
                 <b style={{ margin: "1rem", fontSize: "110%" }}>Price</b>
                 &#8377;{item.price}
-                {item.image && <img src={item.image} alt={item.title} />}
+               
+                {item.images && <img style={{ width: "200px", height:"200px"}} src={item.images[0]} alt={item.title} />}
               </ItemsStyle>
             ))}
           </ItemsList>
