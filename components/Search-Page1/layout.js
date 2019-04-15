@@ -25,7 +25,8 @@ class Layout extends Component{
                 <Sort 
                 filterpage = {this.props.filterpage}
                 />
-                <CardTemp/>
+                {/* <CardTemp/> */}
+                <Items/>
             </Wrapper>
         );
     }
