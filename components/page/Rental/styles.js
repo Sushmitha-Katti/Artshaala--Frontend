@@ -15,8 +15,7 @@ padding-top: 20px;
    }
 }
 .main-section {
-border-top: solid;
-border-bottom: solid;
+
 padding: 5rem;
 display: grid;
 grid-template-columns: 1fr 1fr;

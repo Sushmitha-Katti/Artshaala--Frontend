@@ -18,9 +18,7 @@ class Rental extends Component {
           />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-          <nav>
-            <Nav />
-          </nav>
+         
           <section className="main-section">
             <div className="SectionA">
               <h1>Rental</h1>
