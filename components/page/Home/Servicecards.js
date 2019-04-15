@@ -27,10 +27,10 @@ const CardWrapper = styled.div`
 class ServiceCards extends Component {
   render() {
     let Cards = [
-      { title: "Music Store", img: { musicstore } },
-      { title: "Service & Repairs", img: { service } },
-      { title: "Rentals", img: { rental } },
-      { title: "Mega Sale", img: { sale } }
+      { title: "Music Store", img: { musicstore },link:"/productsearch" },
+      { title: "Service & Repairs", img: { service }, link: "/services" },
+      { title: "Rentals", img: { rental } ,link:"/rental"},
+      { title: "Mega Sale", img: { sale }, link: "/" }
     ].map(card => {
       card.key = `{card.title}`;
       return card;
