@@ -31,17 +31,31 @@ const CardWrapper = styled.div`
   }
 `;
 
-
 const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
-    items{
+    items {
       id
       title
       price
       images
     }
   }
+`;
 
+// not using now:
+
+const ITEMS_QUERY = gql`
+  query ALL_ITEMS_QUERY {
+    items(where:{
+        type:"Guitar"
+    })
+      {
+      id
+      title
+      price
+      images
+    }
+  }
 `;
 
 class Items extends Component {

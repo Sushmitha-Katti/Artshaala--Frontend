@@ -104,6 +104,7 @@ class Signin extends Component {
                 
                   value={this.state.email}
                   onChange={this.saveToState}
+                  requ
                 />
               </label>
               <label htmlFor="password">
