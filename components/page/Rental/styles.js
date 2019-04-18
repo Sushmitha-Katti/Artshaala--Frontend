@@ -1,7 +1,5 @@
-
 import sc from "styled-components";
 import img from "./images/gutar.png";
-
 
 const Body = sc.body`
  box-sizing: border-box;
@@ -17,8 +15,7 @@ padding-top: 20px;
    }
 }
 .main-section {
-border-top: solid;
-border-bottom: solid;
+
 padding: 5rem;
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -355,5 +352,3 @@ grid-area:footer;
  `;
 
 export default Body;
- 
-

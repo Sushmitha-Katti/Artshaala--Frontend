@@ -1,6 +1,23 @@
 import React from "react";
 import NextHead from "next/head";
 import { string } from "prop-types";
+import NProgress from 'nprogress';
+import Router from 'next/router';
+
+
+Router.onRouteChangeStart = () => {
+  NProgress.start();
+  
+};
+Router.onRouteChangeComplete = () => {
+  NProgress.done();
+  
+};
+
+Router.onRouteChangeError = () => {
+  NProgress.done();
+ 
+};
 
 const defaultDescription = "";
 const defaultOGURL = "";
@@ -31,6 +48,7 @@ const Head = props => (
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+   
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
@@ -59,6 +77,7 @@ const Head = props => (
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
     />
+     <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
   </NextHead>
 );
 

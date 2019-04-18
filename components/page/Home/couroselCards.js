@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import CouroselCard from "./couroselCard";
 import guitar from "./guitar.jpg";
-
+import styled, { keyframes } from "styled-components";
 import { Cards } from "./styles";
 import Slider from "react-slick";
+
+const Flexcards = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 let properties = [
   {
@@ -68,12 +74,11 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className + " style"}
+      className={className}
       style={{
         ...style,
         display: "block",
         background: "#f7bb2f",
-
         borderRadius: "50%",
         padding: "0px"
       }}
@@ -112,24 +117,23 @@ class CouroselCards extends Component {
       prevArrow: <SamplePrevArrow />,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 800,
           settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            infinite: true,
-            dots: true
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true
           }
         },
         {
-          breakpoint: 768,
+          breakpoint: 769,
           settings: {
             slidesToShow: 2,
             infinite: true,
-            slidesToScroll: 2
+            slidesToScroll: 1
           }
         },
         {
-          breakpoint: 468,
+          breakpoint: 480,
           settings: {
             slidesToShow: 1,
             infinite: true,
@@ -141,12 +145,20 @@ class CouroselCards extends Component {
 
     let Courosels = properties.map(property => (
       <div>
-        {" "}
-        <CouroselCard property={property} />
+        <Flexcards>
+          <CouroselCard property={property} />
+        </Flexcards>
       </div>
     ));
     return (
       <Cards>
+        <div className="title">
+          <span className="line"> </span>
+          <span>
+            <h3>Best Sellers</h3>
+          </span>
+          <span className="line"> </span>
+        </div>
         <Slider {...settings}>{Courosels}</Slider>
       </Cards>
     );

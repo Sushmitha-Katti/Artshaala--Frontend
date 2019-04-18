@@ -48,11 +48,11 @@ const NavWrapper = styled.nav`
     }
     li {
       display: flex;
-      padding: 0.5rem;
+      padding: 0.5rem 0.5rem 0.2rem 0.5rem;
       height: 30px;
       justify-content: center;
       z-index: 10;
-      margin: 25px 10px;
+      margin: 10px 10px;
     }
     a {
       color: black;

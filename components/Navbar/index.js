@@ -8,12 +8,12 @@ class Navbar extends Component {
   render() {
     let links = [
       { href: "/", label: "Home" },
-      { href: "/store", label: "Store" },
-      { href: "/Service&Repairs", label: "Services & Repairs" },
-      { href: "/Rental", label: "Rental" },
-      { href: "/About", label: "About" },
-      { href: "/Blog", label: "Blog" },
-      { href: "/Contact", label: "Contact Us" }
+      { href: "/productsearch", label: "Store" },
+      { href: "/services", label: "Services & Repairs" },
+      { href: "/rental", label: "Rental" },
+      { href: "/about", label: "About" },
+      //{ href: "/Blog", label: "Blog" },
+      { href: "/contact", label: "Contact Us" }
     ].map(link => {
       link.key = `nav-link-${link.href}-${link.label}`;
       return link;

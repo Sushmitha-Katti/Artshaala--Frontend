@@ -17,7 +17,7 @@ class ServiceCard extends Component {
           <div className="title">
             <h4>{this.props.Cardcontent.title}</h4>
           </div>
-          <Link href="/">
+          <Link href={this.props.Cardcontent.link}>
             <a className="button">
               <b>Explore</b>
             </a>

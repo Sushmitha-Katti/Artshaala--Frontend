@@ -37,7 +37,7 @@ class Home extends React.Component {
       <div className="App">
         <Wrapper>
           <div>
-            <ul>
+            {/* <ul>
               <li>
                 <img src={logo} />
               </li>
@@ -79,7 +79,7 @@ class Home extends React.Component {
                 </Modal>
               </li>
               <li />
-            </ul>
+            </ul> */}
           </div>
           <div className="image" />
           <div className="col-lg-10 col-md-10 text-left">
