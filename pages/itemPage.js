@@ -1,7 +1,7 @@
-import Items from '../components/Search-Page1/Items'
+import Items from '../components/page/itemPage/Items'
 
 import Head from "../components/head";
-import Main from "../components/Search-Page1/main";
+import Main from "../components/page/itemPage/main";
 
 const Home = () => (
 

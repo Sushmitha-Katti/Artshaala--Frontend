@@ -38,12 +38,12 @@ const SortStyle = styled.nav`
     }
     
 
-    li{
+    .li-tag{
         margin:0;
         list-style:none;
         text-decoration:none;
     }
-    ul{
+    .ul-tag{
         margin:0;
         padding:1vw 0 1vw 0;
     }

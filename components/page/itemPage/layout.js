@@ -19,14 +19,37 @@ grid-template-columns: 20% 80%;
 
 
 class Layout extends Component{
+
+    state={
+        hi:1,
+        category:""
+    }
+
+    Category = (a)=>{
+        let category_var = this.state.category;
+        // hi1 = a+1;
+        category_var = a
+        this.setState({
+            category:category_var
+        })
+        
+    }
+
+    // category = ()=>{
+    //     const {}
+    // }
+    
     render(){
+         console.log("hello", this.state.category)
         return(
+           
             <Wrapper>
-                <Sort 
-                filterpage = {this.props.filterpage}
-                />
-                {/* <CardTemp/> */}
+                <Sort  filterpage = {this.props.filterpage} hello={this.hello} category={this.Category}/>
                 <Items/>
+
+
+                {/* <CardTemp/> */}
+
             </Wrapper>
         );
     }
