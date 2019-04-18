@@ -131,7 +131,7 @@ class CreateItemPage extends Component {
               const res = await createItem();
               //change the mutation to the single item page
               console.log(res);
-              this.setState({ title: "", description: "", price: "" });
+              this.setState({ title: "", description: "", price: 0 ,image:[], stock:0, category:"", size:"", brand:"", type:""});
               Router.push({
                 pathname: "/items"
               });
@@ -151,6 +151,7 @@ class CreateItemPage extends Component {
                   placeholder="Name of Instrument"
                   value={this.state.email}
                   onChange={this.saveToState}
+                  required
                 />
               </label>
 
@@ -179,7 +180,8 @@ class CreateItemPage extends Component {
                 <div><b>Specification</b></div>
                 <textarea id="description" name="description" placeholder="Specification of the item.."
                 value={this.state.description}
-                onChange={this.saveToState} ></textarea>
+                onChange={this.saveToState}
+                required ></textarea>
                 
               </label>
               <div className="typebrandsize">
@@ -190,6 +192,7 @@ class CreateItemPage extends Component {
                   placeholder="Category"
                   value={this.state.category}
                   onChange={this.saveToState}
+                  required
                 />
                 </div>
                 <div className="compo"><b>brand</b>
@@ -199,6 +202,7 @@ class CreateItemPage extends Component {
                   placeholder="brand"
                   value={this.state.brand}
                   onChange={this.saveToState}
+                  required
                 />
                 </div>
                 <div className="compo"><b>size</b>
@@ -208,6 +212,7 @@ class CreateItemPage extends Component {
                   placeholder="Size"
                   value={this.state.size}
                   onChange={this.saveToState}
+                  required
                 />
                 </div>
               </div>
@@ -220,6 +225,7 @@ class CreateItemPage extends Component {
                     placeholder="type of item"
                     value={this.state.type}
                     onChange={this.saveToState}
+                    required
                   />
                   </div>
                   <div className="compo"><b>Price</b>
@@ -229,6 +235,7 @@ class CreateItemPage extends Component {
                     placeholder="price per item"
                     value={this.state.price}
                     onChange={this.saveToState}
+                    required
                   />
                   </div>
                   <div className="compo"><b>Stock</b>
@@ -238,6 +245,7 @@ class CreateItemPage extends Component {
                     placeholder="Number of Item Available"
                     value={this.state.stock}
                     onChange={this.saveToState}
+                    required
                   />
                   </div>
               </div>

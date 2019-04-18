@@ -1,14 +1,29 @@
 import React,{Component} from 'react';
+import Link from "next/link";
 import Nav from '../../Navbar';
-import {Body,BlueText,Button}  from './style';
+import {Body,BlueText,Button,Collapsial,UserReviews}  from './style';
 import Footer from '../../Footer';
 import ImgGal from'../../ImageGallery/exportGal';
 import Head from '../../head';
 import StarRating from 'react-star-rating-component';
 import Cards from '../../page/Home/couroselCards';
+import ReviewPage from "./reviewpage"
+
+
 
 
 class Products extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+        open: false
+        }
+        this.togglePanel = this.togglePanel.bind(this);
+        }
+       togglePanel(e){
+        this.setState({open: !this.state.open})
+        }
+   
     render(){
         return(
             <div>
@@ -35,13 +50,21 @@ class Products extends React.Component{
              <StarRating   editing={false}
               renderStarIcon={()=> <i class="fa fa-star fa-2x" aria-hidden="true"></i>}
               starCount={5}
-              value={4}/>
+              value={3}/>
              <BlueText>100 reviews</BlueText>
              </div>
              <br/>
-             <BlueText>Write a review</BlueText>
-             <br/>
-             <br/>
+             <Collapsial>
+                <div onClick={(e)=>this.togglePanel(e)} className ='header'>
+                <BlueText style = {{margin:0,padding:0 ,cursor:"pointer"}}> Write review</BlueText></div>
+                {this.state.open ?(<ReviewPage/>) : null}
+            </Collapsial>
+            
+            {/*--------------------------------------------- Implementation of collapsial for reviews ---------------------------------------*/}
+             
+            {/*----------------------------------------------------------------------------------------------------------*/}
+         
+            <br></br>
              
            <span className="mon">Price: </span> <span className="mon-num">INR 6499.00/-</span>
             <p>

@@ -12,7 +12,6 @@ const Home = () => (
     <Head title="Home" />
     <Nav />
     <Common />
-
     <ServiceCards />
     <CouroselCards />
     <NewsLetter />

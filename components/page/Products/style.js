@@ -548,4 +548,108 @@ const Button = sc.div`
   }
 }
 `;
-export  {Body,BlueText,Button} ;
+
+const Collapsial = sc.div`
+.header{
+  margin:0;
+}
+#title{
+  color:blue;
+  cursor:pointer;
+  margin:0;
+}
+     
+`;
+/*******************    Star rating  ***********************/
+const UserReviews = sc.div`
+    
+    .content{
+      
+      
+    .flexbox{
+      display:grid;
+        grid-template-columns:2fr 1fr;
+        grid-gap:50px;
+        grid-auto-flow: column;
+        padding:10px 10px 10px 0px;
+      
+      
+      p{
+        color: #696969;
+        font-size:1rem;
+      }
+      .comments{
+        flex-basis: 200px;
+       margin:0rem 0rem;
+       flex:1;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        
+        resize: none;
+      }
+      textarea:focus { 
+        outline: none !important;
+        border-color: #F7BB2F;
+        
+    }
+     
+       
+    fieldset, label { margin: 0; padding: 0; }
+    
+   
+    
+    /****** Style Star Rating Widget *****/
+    
+    .userrating { 
+      border: none;
+      float: left;
+    }
+    
+    .userrating > input { display: none; } 
+    .userrating > label:before { 
+      margin: 5px;
+      font-size: 1.25em;
+      font-family: FontAwesome;
+      display: inline-block;
+      content: "\f005";
+    }
+    
+    .userrating > .half:before { 
+      content: "\f089";
+      position: absolute;
+    }
+    
+    .userrating > label { 
+      color: #ddd; 
+     float: right; 
+    }
+    
+    /***** CSS Magic to Highlight Stars on Hover *****/
+    
+    .userrating > input:checked ~ label, /* show gold star when clicked */
+    .userrating:not(:checked) > label:hover, /* hover current star */
+    .userrating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+    
+    .userrating > input:checked + label:hover, /* hover current star when changing userrating */
+    .userrating > input:checked ~ label:hover,
+    .userrating > label:hover ~ input:checked ~ label, /* lighten current selection */
+    .userrating > input:checked ~ label:hover ~ label { color: #FFED85;  } ;
+    .submitbutton{
+      border:none;
+      padding:10px 30px;
+      border-radius:5%;
+      font-size:1.1rem;
+      color:#404040	;
+    }
+    .submitbutton:hover{
+      background-color:#585858;
+      color:white;
+    }
+    `;
+export  {Body,BlueText,Button,Collapsial,UserReviews };

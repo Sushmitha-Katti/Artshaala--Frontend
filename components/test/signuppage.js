@@ -157,6 +157,7 @@ class Signup extends Component {
                   
                   value={this.state.email}
                   onChange={this.saveToState}
+                  required
                 />
               </label>
               <label htmlFor="name">
@@ -167,6 +168,7 @@ class Signup extends Component {
                   
                   value={this.state.name}
                   onChange={this.saveToState}
+                  required
                 />
               </label>
               <label htmlFor="password">
@@ -177,6 +179,7 @@ class Signup extends Component {
                   placeholder="Atleast 6 characters"
                   value={this.state.password}
                   onChange={this.saveToState}
+                  required
                 />
               </label>
               <div className = "centered">

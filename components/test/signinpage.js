@@ -104,6 +104,7 @@ class Signin extends Component {
                 
                   value={this.state.email}
                   onChange={this.saveToState}
+                  required
                 />
               </label>
               <label htmlFor="password">
@@ -114,6 +115,7 @@ class Signin extends Component {
                  
                   value={this.state.password}
                   onChange={this.saveToState}
+                  required
                 />
               </label>
               <div className = "forgotpassword">
