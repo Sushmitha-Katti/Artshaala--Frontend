@@ -1,15 +1,14 @@
-import React,{Component} from 'react';
+import React, { Component } from "react";
 import Cardstyle from "./cardStyle";
 import Link from "next/link";
 
-class Cards extends Component{
-    render(){
-        
-        return(
-            <Cardstyle>
-                
-            <div className="main">
-            {/* {(() => {
+class Cards extends Component {
+  render() {
+    return (
+      <Link href='/product'>
+      <Cardstyle>
+        <div className="main">
+          {/* {(() => {
                 if(this.props.Cardcontent.off ==null | this.props.Cardcontent.off =="" ){
                     return <span></span>
              }else{
@@ -33,16 +32,21 @@ class Cards extends Component{
                         
                     </p>
                     */}
-                    <div className="sub"><img src={Object.values(this.props.Cardcontent.images).toString()} className="pic"/>
-                    <div className="sub"><p className="cost">Name:{this.props.Cardcontent.title}</p>
-                    <div className="sub"><p className="cost">Price:{this.props.Cardcontent.price}</p>
-                    </div>
-                 </div>
-                 </div>
+          {console.log(this.props.Cardcontent.images[0])}
+          <div className="sub">
+            <img src={this.props.Cardcontent.images[0]} className="pic" />
+            <div className="sub">
+              <p className="cost">Name:{this.props.Cardcontent.title}</p>
+              <div className="sub">
+                <p className="cost">Price:{this.props.Cardcontent.price}</p>
+              </div>
             </div>
-            </Cardstyle>
-        );
-    }
+          </div>
+        </div>
+      </Cardstyle>
+      </Link>
+    );
+  }
 }
 
 export default Cards;
