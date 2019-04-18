@@ -60,6 +60,14 @@ const NavWrapper = styled.nav`
       font-size: 14px;
       height: 20px;
     }
+    button {
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+    font-family: inherit;
+    
+    background:none ;
+  }
     #alink:hover {
       background: #f7bb2f;
     }

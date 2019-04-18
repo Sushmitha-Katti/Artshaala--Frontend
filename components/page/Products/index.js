@@ -8,7 +8,19 @@ import Head from '../../head';
 import StarRating from 'react-star-rating-component';
 import Cards from '../../page/Home/couroselCards';
 import ReviewPage from "./reviewpage"
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 
+const SINGLE_ITEM_QUERY = gql`
+  query SINGLE_ITEM_QUERY($id: ID!) {
+    item(where: { id: $id }) {
+      id
+      title
+      specification
+     price
+    }
+  }
+`;
 
 
 
@@ -26,6 +38,19 @@ class Products extends React.Component{
    
     render(){
         return(
+            <Query
+            query={SINGLE_ITEM_QUERY}
+            variables={{
+             id: "cjuib22ikug4d0b92yvugs8dc",
+            }}
+            >
+            {({ error, loading, data }) => {
+            if (error) return <Error error={error} />;
+            if (loading) return <p>Loading...</p>;
+            if (!data.item) return <p>No Item Found for {this.props.id}</p>;
+            const item = data.item;
+            return (
+                
             <div>
             <head>
                 <Head/>
@@ -40,10 +65,7 @@ class Products extends React.Component{
             </div>
             <div className="discription">
             <h3>
-            Kadence Frontier Series Acoustic Guitar
-            With Equalizer,Super Combo with Bag,
-            1 pack Strings, Strap, Picks,Capo, 
-            Tuner and Guitar Stand.
+                {item.specification}
             </h3>
             
              <div className="rev">
@@ -66,7 +88,7 @@ class Products extends React.Component{
          
             <br></br>
              
-           <span className="mon">Price: </span> <span className="mon-num">INR 6499.00/-</span>
+           <span className="mon">Price: </span> <span className="mon-num">{item.price}</span>
             <p>
             Inclusive of all taxes  
             <br/>Pay on Delivery (Cash/Card) eligible
@@ -195,9 +217,14 @@ class Products extends React.Component{
            <Footer/>
        </footer>
        </div>
+            );
+            }}
+        </Query>
         );
-    }
-}
+        }
+        }
+
+        
 
 export default Products;
 
