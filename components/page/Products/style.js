@@ -81,12 +81,12 @@ const Body = sc.body`
   .rating{
     display:grid;
     padding-left:80px;
-    grid-template-columns:200px 200px 300px;
+    grid-template-columns:200px 120px 300px;
     grid-auto-flow: columns;
     }
     .rating-box{
     display:grid;
-    padding:30px;
+    padding:10px 30px 30px 30px;
     grid-template-columns:1fr 1fr;
     grid-gap:50px;
     }

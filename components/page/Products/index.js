@@ -17,9 +17,27 @@ const SINGLE_ITEM_QUERY = gql`
       id
       title
       specification
-     price
+      price
+      images
+      description
+      stock
+      
     }
   }
+  
+`;
+const ALL_REVIEWS_QUERY = gql`
+query ALL_REVIEWS_QUERY($id:ID!){
+    comments(where:{item:{id:$id}}){
+        comment
+        rating
+        user{
+            name
+            createdAt
+        }
+    }
+    
+}
 `;
 
 
@@ -41,7 +59,7 @@ class Products extends React.Component{
             <Query
             query={SINGLE_ITEM_QUERY}
             variables={{
-             id: "cjuib22ikug4d0b92yvugs8dc",
+             id: "cjumwi6wgf6o20b95jzqlp8cz",
             }}
             >
             {({ error, loading, data }) => {
@@ -61,7 +79,7 @@ class Products extends React.Component{
             <Body>
             <div className="main">
             <div className="gallery">
-            <ImgGal/>
+            <ImgGal images={item.images}/>
             </div>
             <div className="discription">
             <h3>
@@ -79,7 +97,7 @@ class Products extends React.Component{
              <Collapsial>
                 <div onClick={(e)=>this.togglePanel(e)} className ='header'>
                 <BlueText style = {{margin:0,padding:0 ,cursor:"pointer"}}> Write review</BlueText></div>
-                {this.state.open ?(<ReviewPage/>) : null}
+                {this.state.open ?(<ReviewPage id="cjumwi6wgf6o20b95jzqlp8cz"/>) : null}
             </Collapsial>
             
             {/*--------------------------------------------- Implementation of collapsial for reviews ---------------------------------------*/}
@@ -93,7 +111,15 @@ class Products extends React.Component{
             Inclusive of all taxes  
             <br/>Pay on Delivery (Cash/Card) eligible
             EMI starts at ₹306.<br/> No Cost EMI available</p>
-             <h3>In stock.</h3>
+            {this.state.image && ( this.state.image.map(i =>
+                  <img
+                    width="100"
+                    height="100"
+                    src={i}
+                    
+                  />)
+                )}
+              <h3>{item.stock ? "In Stock":"Out Of Stock" }</h3>
              <button className="myButton">Add to Cart</button>
             </div>
             </div>
@@ -103,7 +129,8 @@ class Products extends React.Component{
             </h2>
             <h3>
             <ul>
-                <li>Body Shape: Dreadnought</li>
+                {item.specification}
+                {/* <li>Body Shape: Dreadnought</li>
                 <li>Body Top: Laminated Lindenwood</li>
                 <li>Back and Sides: Laminated Mahogany</li>
                 <li>Body Finish: Gloss</li>
@@ -118,7 +145,7 @@ class Products extends React.Component{
                 <li>Tuning Machines: Covered Chrome</li>
                 <li>Scale Length: 25.6" (650 mm)</li>
                 <li>Bridge: Stained Maple</li>
-                <li>Pickguard: Black</li>
+                <li>Pickguard: Black</li> */}
             </ul>
             </h3>
             </div>
@@ -130,7 +157,7 @@ class Products extends React.Component{
             value={4}/>
             </div>
             <div className ="rr">
-            <BlueText >Write a review</BlueText>
+            <BlueText >100 reviews</BlueText>
             </div>
             <div className="rating-box">
             <div className="star">
