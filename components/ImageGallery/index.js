@@ -1,49 +1,28 @@
 import React, { Component } from 'react';
 import ReactImageMagnify from 'react-image-magnify';
 import ReactSlick from 'react-slick';
-import front_500 from './front-500.jpg'
-import front_1426 from './front-1426.jpg';
 
-import back_500 from './back-500.jpg'
-import back_1426 from './back-1426.jpg';
-// for both slick and magnification
-const frontSrcSet = [
-    { src: front_500, setting: '500w' },
-    { src: front_1426, setting: '1426w' }
-]
-    .map(item => `${item.src} ${item.setting}`)
-    .join(', ');
 
-const backSrcSet = [
-    { src: back_500, setting: '500w' },
-    { src: back_1426, setting: '1426w' }
-]
-    .map(item => `${item.src} ${item.setting}`)
-    .join(', ');
-
-const dataSource = [
-    {
-        srcSet: frontSrcSet,
-        small: front_500,
-        large: front_1426
-    },
-    {
-        srcSet: backSrcSet,
-        small: back_500,
-        large: back_1426
-    }
-];
-
-export default class ReactSlick1 extends Component {
+export default class ReactSlick2 extends Component {
     render() {
         const {
             rsProps,
-            rimProps
+            rimProps,
+            images
          } = this.props;
-
+       
+         let imagelist = []   
+         let dataSource = []
+        images.map(image => imagelist.push([{src: image, settings:'500w'},{src:image,settings:'1426w'}].map(item => `${item.src} ${item.settings}`)
+        .join(', ')));
+        var i = 0
+        imagelist.map((singleimagelist,i) => { let sample={srcSer:singleimagelist,small:images[i],large:images[i]}; i++; return dataSource.push(sample)} )
+        
         return (
             
             <body>
+           
+            
             <ReactSlick
                 {...{
                     arrows: true, 
@@ -84,6 +63,8 @@ export default class ReactSlick1 extends Component {
                   }}
                   {...rsProps}
             >
+                          
+
                 {dataSource.map((src, index) => (
                     <div key={index}>
            
@@ -97,6 +78,7 @@ export default class ReactSlick1 extends Component {
                                     enlargedImagePosition: 'over',  
                                     sizes: '(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px'
                                 },
+                               
                                 largeImage: {
                                     src: src.large,
                                     width: 1426,
@@ -104,6 +86,7 @@ export default class ReactSlick1 extends Component {
                                     height: 2000
                                 },
                                 lensStyle: { backgroundColor: 'rgba(0,0,0,.6)' }
+                              
                             }}
                             {...rimProps}
                         /> }
