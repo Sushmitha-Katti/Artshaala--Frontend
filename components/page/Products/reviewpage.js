@@ -84,15 +84,15 @@ class ReviewPage extends Component {
                     <div className= "ratings"><p>Rate this item</p>
                     <fieldset class="userrating">
                         <input type="radio" id="star5" name="rating" value="5" onChange={this.saveToState} /><label className = "full" for="star5" ></label>
-                        <input type="radio" id="star4half" name="rating" value="4.5" onChange={this.saveToState} /><label className="half" for="star4half" ></label>
+                        {/* <input type="radio" id="star4half" name="rating" value="4.5" onChange={this.saveToState} /><label className="half" for="star4half" ></label> */}
                         <input type="radio" id="star4" name="rating" value="4" onChange={this.saveToState} /><label className = "full" for="star4" ></label>
-                        <input type="radio" id="star3half" name="rating" value="3.5" onChange={this.saveToState} /><label className="half" for="star3half" ></label>
+                        {/* <input type="radio" id="star3half" name="rating" value="3.5" onChange={this.saveToState} /><label className="half" for="star3half" ></label> */}
                         <input type="radio" id="star3" name="rating" value="3" onChange={this.saveToState} /><label className = "full" for="star3" ></label>
-                        <input type="radio" id="star2half" name="rating" value="2.5" onChange={this.saveToState} /><label className="half" for="star2half" ></label>
+                        {/* <input type="radio" id="star2half" name="rating" value="2.5" onChange={this.saveToState} /><label className="half" for="star2half" ></label> */}
                         <input type="radio" id="star2" name="rating" value="2" onChange={this.saveToState} /><label className = "full" for="star2" ></label>
-                        <input type="radio" id="star1half" name="rating" value="1.5" onChange={this.saveToState} /><label className="half" for="star1half" ></label>
+                        {/* <input type="radio" id="star1half" name="rating" value="1.5" onChange={this.saveToState} /><label className="half" for="star1half" ></label> */}
                         <input type="radio" id="star1" name="rating" value="1" onChange={this.saveToState} /><label className = "full" for="star1" ></label>
-                        <input type="radio" id="starhalf" name="rating" value="0.5" onChange={this.saveToState} /><label className="half" for="starhalf" ></label>
+                        {/* <input type="radio" id="starhalf" name="rating" value="0.5" onChange={this.saveToState} /><label className="half" for="starhalf" ></label> */}
                     </fieldset>
                         <br></br><br></br>
                         <div >
