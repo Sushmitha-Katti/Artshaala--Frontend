@@ -9,25 +9,27 @@ import {Body,BlueText,Button,Collapsial,UserReviews}  from './style';
 
 
 
-/*const CREATE_REVIEW_MUTATION = gql`
+const CREATE_REVIEW_MUTATION = gql`
   mutation CREATE_REVIEW_MUTATION(
     $comment: String!
     $rating: Float!
+    $itemid:ID!
     
     
     
 
   ) {
-    createreview(
+    createComment(
       comment: $comment
       rating: $rating
+      itemid: $itemid
       
      
     ) {
       id
     }
   }
-`;*/
+`;
 
 
 
@@ -35,6 +37,7 @@ class ReviewPage extends Component {
   state = {
     comment: "",
     rating: 0,
+    itemid: "cjumwi6wgf6o20b95jzqlp8cz",
    
   };
   saveToState = e => {
@@ -45,19 +48,20 @@ class ReviewPage extends Component {
   
     
     render() {
+     
       return (
-        //<Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
-          //{(createItem, { error, loading }) => (
+        <Mutation mutation={CREATE_REVIEW_MUTATION} variables={this.state}>
+          {(creatComment, { error, loading }) => (
             <form
               method="post"
               onSubmit={async e => {
                 //stop submitting form
                 e.preventDefault();
                 //call the mutation
-                //const res = await createreview();
+                const res = await creatComment();
                 //change the mutation to the single item page
-                //console.log(res);
-                //this.setState({ comment: "", rating: 0});
+                console.log(res);
+                this.setState({ comment: "", rating: 0});
                 Router.push({
                   pathname: "/"
                 });
@@ -73,7 +77,7 @@ class ReviewPage extends Component {
                     
                     <div className = "comments">
                         <p>How did you feel about this item?</p>
-                        <textarea onChange={this.saveToState} id="description" name="description" placeholder="Specification of the item.."  ></textarea>
+                        <textarea onChange={this.saveToState} id="description" name="comment" placeholder="Help other to know about this item.."  ></textarea>
                     </div>
 
 
@@ -103,8 +107,8 @@ class ReviewPage extends Component {
                 </div>
             </UserReviews>
             </form>
-        //  )}
-      //  </Mutation>
+          )}
+        </Mutation>
       );
     }
   }

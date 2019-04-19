@@ -7,7 +7,7 @@ import ReactSlick from './index';
    
             <div className="fluid react-slick">
                 <div className="fluid__image-container">
-                    <ReactSlick {...{
+                    <ReactSlick images = {this.props.images} {...{
                         rimProps: {
                             isHintEnabled: true,
                             shouldHideHintAfterFirstActivation: false,
