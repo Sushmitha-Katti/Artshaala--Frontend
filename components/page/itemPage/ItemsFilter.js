@@ -45,9 +45,9 @@ const ALL_ITEMS_QUERY = gql`
 // not using now:
 
 const ITEMS_QUERY = gql`
-  query ITEMS_QUERY {
+  query ALL_ITEMS_QUERY {
     items(where:{
-        type:$category
+        type:"Guitar"
     })
       {
       id
@@ -59,16 +59,11 @@ const ITEMS_QUERY = gql`
 `;
 
 class Items extends Component {
-
-  state={
-    category:this.props.category
-  }
-
   render() {
     return (
       <div>
-        <Query query={ITEMS_QUERY}>
-          {({ data }) => {
+        <Query query={ALL_ITEMS_QUERY}>
+          {({ data,error,loading }) => {
             console.log(data);
             let cards = data.items.map(card => {
               card.key = `{card.id}`;

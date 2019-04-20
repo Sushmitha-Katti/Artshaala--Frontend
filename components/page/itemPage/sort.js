@@ -42,7 +42,6 @@ class Sort extends Component{
                 </div>
 
                 {/* for pc view */}
-<button> hello</button>
 
                <div className="main">
                     <input type="checkbox" id="menu"/>
@@ -57,16 +56,20 @@ class Sort extends Component{
                                 <Query query={ITEMS}>
                                     {
                                         (
-                                            { data,error,loading }
+                                            { data }
                                         ) => 
                                         {
-                                            console.log(data);
+                                            // console.log(data);
                                             return <li className="li-tag">
                                             {
                                                 data.items.map
                                                 (
                                                     category =>
-                                                    <li className="li-tag"><a href="#" onClick={()=>this.props.Category("5")}><span className="categories">{category.type}</span></a></li>
+                                                    <li className="li-tag">
+                                                        <a href="#" onClick={()=>this.props.category(category.type)}>
+                                                            <span className="categories">{category.type}</span>
+                                                        </a>
+                                                    </li>
                                                 )
                                             }</li>;
                                         
