@@ -92,12 +92,7 @@ class Products extends React.Component{
             return (
                 
             <div>
-            <head>
-                <Head/>
-            </head>
-            <nav>
-             <Nav/>
-            </nav>
+            
           
              {/* -----------------------------------------Query for Count of Comments--------------------------------------- */}
                                         

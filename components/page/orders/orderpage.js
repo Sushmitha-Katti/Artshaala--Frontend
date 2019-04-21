@@ -14,12 +14,25 @@ justify-content:center;
 flex-direction:column;
 
 
+
 .flexbox1{
     border:1px solid #C8C8C8;
     padding: 20px 30px;
     border-radius:2%;
     margin:2rem;
+    position:relative;
 } 
+.orderheader{
+    position:absolute;
+    opacity:0.5;
+    left:0;
+    top:0;
+    height:15%;
+    width:100%;
+    background-color:#C0C0C0;
+    z-index:-1;
+    margin:0 0 0.5rem 0;
+}
     
 .overlay{
     position: fixed;
@@ -118,14 +131,16 @@ class Orderpage extends Component {
     
     render() {
         return (
-        <OrdersWrapper>
+        // wrapped with flex
+        <OrdersWrapper>  
             <h2>Your Orders</h2>
-           <div className = "a">
+            <div className = "a">{/* grid element only for orders */}
            {this.state.open? <div className = "overlay"></div>:null}
            
            <div className = "orders">
 
-            <div className = "flexbox1">
+            <div className = "flexbox1"> {/* Each individual orders  */}
+            <div className = "orderheader"></div><br></br>
                 <b>Delivered 3-Apr-2019</b>
                 <div className = "gridrow">
                     
