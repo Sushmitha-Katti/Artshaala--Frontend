@@ -21,8 +21,10 @@ const SINGLE_ITEM_QUERY = gql`
       images
       description
       stock
+      
       comment(first:3){
           comment
+          createdAt
           rating
           user{
               name
@@ -86,6 +88,7 @@ class Products extends React.Component{
             const item = data.item;
             let ratinglist = {}
             console.log(item.comment.length)
+            console.log(item.createdAt)
             return (
                 
             <div>
@@ -184,8 +187,8 @@ class Products extends React.Component{
 
 
             <section className="rating">
-            <div className="rt">
-            <StarRating   editing={false} {/*************StarRating shoould be made dynamic***************************** */}
+            <div className="rt"> {/*************StarRating shoould be made dynamic***************************** */}
+            <StarRating   editing={false} 
             renderStarIcon={()=> <i class="fa fa-star fa-2x" aria-hidden="true"></i>}
             starCount={5}
             value={4}/>
@@ -256,7 +259,7 @@ class Products extends React.Component{
             value={comment.rating}/>
              </div>
              <h4 className="date">
-             25 January 2019
+             {comment.createdAt.toLocaleString("en-US")} 
              </h4>
              <BlueText>Verified Purchase</BlueText>
              <p className="content">{comment.comment}</p>
