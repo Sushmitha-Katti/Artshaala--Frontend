@@ -37,7 +37,7 @@ class ReviewPage extends Component {
   state = {
     comment: "",
     rating: 0,
-    itemid: "cjumwi6wgf6o20b95jzqlp8cz",
+    itemid: this.props.id,
 
    
   };

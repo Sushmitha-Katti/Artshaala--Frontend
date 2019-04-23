@@ -78,7 +78,7 @@ class Products extends React.Component{
             <Query                           //Item Query
             query={SINGLE_ITEM_QUERY}
             variables={{
-             id: "cjumwi6wgf6o20b95jzqlp8cz",
+             id: this.props.query.id,
             }}
             >
             {({ error, loading, data }) => {
@@ -99,7 +99,7 @@ class Products extends React.Component{
            { <Query
             query={COMMENT_CONNECTION_QUERY}
             variables={{
-             id: "cjumwi6wgf6o20b95jzqlp8cz",
+             id: this.props.query.id,
             }}
             >
             {({ error, loading, data }) => {
@@ -145,7 +145,7 @@ class Products extends React.Component{
               <Collapsial>                         {/*Goes to reviwPage   should change all static ids to dynamic ids*/}
                 <div onClick={(e)=>this.togglePanel(e)} className ='header'>
                 <BlueText style = {{margin:0,padding:0 ,cursor:"pointer"}}> Write review</BlueText></div>
-                {this.state.open ?(<ReviewPage id="cjumwi6wgf6o20b95jzqlp8cz"/>) : null}
+                {this.state.open ?(<ReviewPage id={this.props.query.id}/>) : null}
             </Collapsial>
             
            
@@ -165,8 +165,9 @@ class Products extends React.Component{
                     
                   />)
                 )}
-              <h3>{item.stock ? "In Stock":"Out Of Stock" }</h3>
-             <button className="myButton">Add to Cart</button> {/***** Button Should be linked******************* */}
+              <h3 style = {{color :"orange"}}>{item.stock ? "In Stock":"Out Of Stock" }</h3>
+              {item.stock? <button  className="myButton">Add to Cart</button>:null}
+             {/***** Button Should be linked******************* */}
             </div>
             </div>
             <div className="specs">
