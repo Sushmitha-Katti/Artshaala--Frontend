@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 
 import Link from "next/link";
@@ -21,6 +22,7 @@ const ITEMS = gql`
     }
   }
 `;
+
 
 class Sort extends Component {
   filterpages = e => {
@@ -130,6 +132,7 @@ class Sort extends Component {
                                 <span>Fender</span>
                                 <li className="li-tag"><input type="checkbox" id="checkboxes" name="cort"/></li>
                                 <span>Cort</span> */}
+
               </ul>
             </div>
             <div className="item">
@@ -196,3 +199,4 @@ class Sort extends Component {
 }
 
 export default Sort;
+

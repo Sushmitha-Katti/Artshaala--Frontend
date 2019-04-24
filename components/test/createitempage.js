@@ -44,13 +44,14 @@ const CREATE_ITEM_MUTATION = gql`
     $brand:String
     $size:String
     $stock:Int
+    $specification: String!
     
     
 
   ) {
     createItem(
       title: $title
-      specification: $description
+      specification: $specification
       images: $image
       price: $price
       type: $type
@@ -58,6 +59,7 @@ const CREATE_ITEM_MUTATION = gql`
       brand:$brand
       size:$size
       stock:$stock
+      description:$description
      
     ) {
       id
@@ -76,6 +78,7 @@ class CreateItemPage extends Component {
     size:"",
     brand:"",
     type:"",
+    specification:"",
   };
   // Function is called by all input fields in form except image field
   saveToState = e => {
@@ -131,7 +134,7 @@ class CreateItemPage extends Component {
               const res = await createItem();
               //change the mutation to the single item page
               console.log(res);
-              this.setState({ title: "", description: "", price: 0 ,image:[], stock:0, category:"", size:"", brand:"", type:""});
+              this.setState({ title: "", description: "", price: 0 ,image:[], stock:0, category:"", size:"", brand:"", type:"",specification:""});
               Router.push({
                 pathname: "/items"
               });
@@ -177,9 +180,17 @@ class CreateItemPage extends Component {
               </label>
 
               <label htmlFor="description">
-                <div><b>Specification</b></div>
-                <textarea id="description" name="description" placeholder="Specification of the item.."
+                <div><b>Description</b></div>
+                <textarea id="description" name="description" placeholder="Description of the item.."
                 value={this.state.description}
+                onChange={this.saveToState}
+                required ></textarea>
+                
+              </label>
+              <label htmlFor="specification">
+                <div><b>Specification</b></div>
+                <textarea id="specification" name="specification" placeholder="Specification of the item.."
+                value={this.state.specification}
                 onChange={this.saveToState}
                 required ></textarea>
                 

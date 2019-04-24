@@ -3,7 +3,7 @@ import { Component } from "react";
 import ReactDOM from "react-dom";
 import Link from "next/link";
 import Head from "../../head";
-import Nav from "../../nav";
+
 import one from "./imagerepair/one.jpg";
 import two from "./imagerepair/two.jpg";
 import three from "./imagerepair/three.jpg";
@@ -37,49 +37,7 @@ class Home extends React.Component {
       <div className="App">
         <Wrapper>
           <div>
-            {/* <ul>
-              <li>
-                <img src={logo} />
-              </li>
-              <li>
-                <a href="#home">Home</a>
-              </li>
-              <li>
-                <a href="#news">Stores</a>
-              </li>
-              <li>
-                <a href="#contact">Service & Repairs</a>
-              </li>
-              <li>
-                <a href="#about">Rental</a>
-              </li>
-              <li>
-                <a href="#about">About Us</a>
-              </li>
-              <li>
-                <a href="#about">Blog</a>
-              </li>
-              <li>
-                <a href="#about">Contact Us</a>
-              </li>
-              <li>
-                <button onClick={this.showModal}>Log In/Sign Up</button>
-                <Modal onClose={this.showModal} show={this.state.show}>
-                  <form>
-                    <h4>Sign up here</h4>
-                    <p>enter username : </p>
-                    <input type="text" />
-                    <p>enter password : </p>
-                    <input type="password" name="password" />
-                    <p>Confirm password : </p>
-                    <input type="password" name="password" />
-                    <h4>Already a user?</h4>
-                    <button>Login</button>
-                  </form>
-                </Modal>
-              </li>
-              <li />
-            </ul> */}
+            
           </div>
           <div className="image" />
           <div className="col-lg-10 col-md-10 text-left">

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./index.js";
 import NavWrapper from "./styles.js";
 import Link from "next/link";
-
+import SignoutPage from "../../components/test/signoutpage";
 import logo from "./logo.png";
 
 
@@ -36,7 +36,13 @@ class Nav extends Component {
                   <a>{label}</a>
                 </Link>
               </li>
+              
             ))}
+           
+            {this.props.isauth && (
+                <li id="alink" >
+                     <SignoutPage />
+                </li>)}
             <li key="formli">
               <form action="/">
                 <input type="text" placeholder="Search.." name="search" />
