@@ -1,29 +1,25 @@
-
 import React, { Component } from 'react';
 import styled, { keyframes } from "styled-components";
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
-
 import Cards from "./cards";
 
 const CardWrapper = styled.div`
-  display: grid;ord
+  display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-column-gap:20px;
+  grid-row-gap:20px;
 
   @media only screen and (max-width: 1150px) {
-
+      
     margin: 0.5rem;
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
   }
   @media only screen and (max-width: 950px) {
-
-    
+      
     margin: 0.5rem;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
@@ -49,9 +45,11 @@ const ALL_ITEMS_QUERY = gql`
 // not using now:
 
 const ITEMS_QUERY = gql`
-
-  query ITEMS_QUERY($category: String!) {
-    items(where: { type: $category }) {
+  query ALL_ITEMS_QUERY {
+    items(where:{
+        type:"Guitar"
+    })
+      {
       id
       title
       price
@@ -64,39 +62,30 @@ class Items extends Component {
   render() {
     return (
       <div>
-
-        <Query
-          query={this.props.category ? ITEMS_QUERY : ALL_ITEMS_QUERY}
-          variables={{ category: this.props.category }}
-        >
-          {({ data, error, loading }) => {
-            console.log("*******************************");
-
-            if (!data.items) return <p>No data</p>;
-            else {
-              let cards = data.items.map(card => {
-                card.key = `{card.id}`;
-                return card;
-              });
-
-              console.log(cards);
-              let Cardslist = cards.map(card => (
-                <div>
-                  <Cards Cardcontent={card} />
-                </div>
-              ));
-              return (
-                <div style={{ marginTop: -5 }}>
-                  <h2>Acoustic Guitar</h2>
+        <Query query={ALL_ITEMS_QUERY}>
+          {({ data,error,loading }) => {
+            console.log(data);
+            let cards = data.items.map(card => {
+              card.key = `{card.id}`;
+              return card;
+            });
+    
+            console.log(cards)
+            let Cardslist = cards.map(card => (
+              <div>
+                <Cards Cardcontent={card} />
+              </div>
+            ));
+          return ( <div style={{marginTop:-5,}}>
+                   <h2>Acoustic Guitar</h2>
                   <CardWrapper>{Cardslist}</CardWrapper>
-                </div>
-              );
-            }
+                  </div>
+                  );
+          
           }}
         </Query>
-      </div>
-    );
-
+        </div>
+    )
   }
 }
 
@@ -117,4 +106,5 @@ export default Items;
 //     )
 //   }
 // }
+
 
