@@ -1,23 +1,29 @@
-import React, { Component } from "react";
+
+import React, { Component } from 'react';
 import styled, { keyframes } from "styled-components";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+
 
 import Cards from "./cards";
 
 const CardWrapper = styled.div`
-  display: grid;
+  display: grid;ord
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 
   @media only screen and (max-width: 1150px) {
+
     margin: 0.5rem;
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
   }
   @media only screen and (max-width: 950px) {
+
+    
     margin: 0.5rem;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
@@ -43,6 +49,7 @@ const ALL_ITEMS_QUERY = gql`
 // not using now:
 
 const ITEMS_QUERY = gql`
+
   query ITEMS_QUERY($category: String!) {
     items(where: { type: $category }) {
       id
@@ -57,6 +64,7 @@ class Items extends Component {
   render() {
     return (
       <div>
+
         <Query
           query={this.props.category ? ITEMS_QUERY : ALL_ITEMS_QUERY}
           variables={{ category: this.props.category }}
@@ -88,10 +96,12 @@ class Items extends Component {
         </Query>
       </div>
     );
+
   }
 }
 
 export default Items;
+
 
 // class Items extends Component {
 //   render() {
@@ -107,3 +117,4 @@ export default Items;
 //     )
 //   }
 // }
+

@@ -21,10 +21,12 @@ const SINGLE_ITEM_QUERY = gql`
       images
       description
       stock
+
       
       comment(first:3){
           comment
           createdAt
+
           rating
           user{
               name
@@ -78,7 +80,9 @@ class Products extends React.Component{
             <Query                           //Item Query
             query={SINGLE_ITEM_QUERY}
             variables={{
+
              id: this.props.query.id,
+
             }}
             >
             {({ error, loading, data }) => {
@@ -88,18 +92,23 @@ class Products extends React.Component{
             const item = data.item;
             let ratinglist = {}
             console.log(item.comment.length)
+
             console.log(item.createdAt)
             return (
                 
             <div>
             
+
           
              {/* -----------------------------------------Query for Count of Comments--------------------------------------- */}
                                         
            { <Query
             query={COMMENT_CONNECTION_QUERY}
             variables={{
+
              id: this.props.query.id,
+
+ 
             }}
             >
             {({ error, loading, data }) => {
@@ -145,7 +154,9 @@ class Products extends React.Component{
               <Collapsial>                         {/*Goes to reviwPage   should change all static ids to dynamic ids*/}
                 <div onClick={(e)=>this.togglePanel(e)} className ='header'>
                 <BlueText style = {{margin:0,padding:0 ,cursor:"pointer"}}> Write review</BlueText></div>
+
                 {this.state.open ?(<ReviewPage id={this.props.query.id}/>) : null}
+
             </Collapsial>
             
            
@@ -165,9 +176,11 @@ class Products extends React.Component{
                     
                   />)
                 )}
+
               <h3 style = {{color :"orange"}}>{item.stock ? "In Stock":"Out Of Stock" }</h3>
               {item.stock? <button  className="myButton">Add to Cart</button>:null}
              {/***** Button Should be linked******************* */}
+
             </div>
             </div>
             <div className="specs">
@@ -183,8 +196,10 @@ class Products extends React.Component{
 
 
             <section className="rating">
+
             <div className="rt"> {/*************StarRating shoould be made dynamic***************************** */}
             <StarRating   editing={false} 
+
             renderStarIcon={()=> <i class="fa fa-star fa-2x" aria-hidden="true"></i>}
             starCount={5}
             value={4}/>
