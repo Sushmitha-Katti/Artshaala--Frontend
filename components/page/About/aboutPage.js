@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import AboutStyle from "./aboutStyle";
+import Link from "next/link";
+import { link } from "fs";
 
 class AboutPage extends Component {
   render() {
@@ -31,7 +33,9 @@ class AboutPage extends Component {
             view our magnificent instrument collection. Artshaala…your one stop
             neighbourhood musical partner!
           </p>
-          <button className="enquiry">Enquiry</button>
+          <Link href = "/contact">
+          <a className="enquiry">Enquiry</a>
+          </Link>
         </div>
       </AboutStyle>
     );

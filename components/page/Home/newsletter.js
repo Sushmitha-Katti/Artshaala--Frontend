@@ -2,6 +2,18 @@ import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
 import AutoCards from "./autocards";
 import autoguitar from "./autoguitar.jpg";
+import { Mutation } from "react-apollo";
+import gql from "graphql-tag";
+import Router from "next/router";
+
+
+const NEWSLETTER_MUTATION = gql`
+  mutation NEWSLETTER_MUTATION($email: String!) {
+    createNewsletter(email: $email) {
+      email 
+    } 
+  }
+`;
 
 /****************************************   Styled Components   **************************************** */
 const D = styled.div`
@@ -86,8 +98,20 @@ const Newsletter = styled.div.attrs({})`
 
 /********************************************************************************** */
 class NewsLetter extends Component {
+  state = {
+    email: ""
+  };
+  saveToState = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
   render() {
     return (
+      <Mutation
+        mutation={NEWSLETTER_MUTATION}
+        variables={this.state}
+       
+      >
+        {(data, { error, loading }) => (
       <D>
         <Newsletter background="#f7bb2f" color="black">
           <h1>Subscribe To Our Newsletter</h1>
@@ -95,15 +119,30 @@ class NewsLetter extends Component {
             loreum loreum loreum loreum loreum loreum loreum loreum loreum
             loreum loreum loreum
           </p>
-          <form>
+          
+          <form
+            method="post"
+            onSubmit={async e => {
+              e.preventDefault();
+              const res = await createNewsletter();
+              
+              this.setState({  email: ""});
+              Router.push({
+                pathname: "/"
+              });
+            }}
+          >
             <input
               className="textinput"
-              type="text"
+              type="email"
               name="email"
               placeholder="Your Email Address"
+              value={this.state.email}
+              onChange={this.saveToState}
+              required
             />
-            <i
-              type="button"
+            <input
+              type="submit"
               className="fa fa-angle-right fa-2x"
               aria-hidden="true"
             />
@@ -115,6 +154,8 @@ class NewsLetter extends Component {
           <AutoCards />
         </Slider>
       </D>
+       )}
+       </Mutation>
     );
   }
 }
