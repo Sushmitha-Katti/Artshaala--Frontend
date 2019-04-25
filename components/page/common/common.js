@@ -28,7 +28,7 @@ class Comman extends Component {
               ipsum
             </p>
             <br />
-            <Link href="/">
+            <Link href="/itemPage">
               <button className="line4">Explore Now</button>
             </Link>
           </div>
