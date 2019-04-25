@@ -19,6 +19,7 @@ const USER_ORDERS_QUERY = gql`
         description
         quantity
         image
+        itemid
       }
     }
   }
@@ -158,12 +159,13 @@ class Orderpage extends Component {
     constructor(props){
         super(props);
         this.state = {                // For toggling the review Item Component
-        open: false
+        open: false,
+        id:""
         }
         this.togglePanel = this.togglePanel.bind(this);
         }
-       togglePanel(e){
-        this.setState({open: !this.state.open})
+       togglePanel(e,itemid){
+        this.setState({open: !this.state.open,id: itemid})
         }
     
     
@@ -176,7 +178,7 @@ class Orderpage extends Component {
               const orders= data.orders;
               console.log(orders);
               return(
-        // wrapped with flex
+        
         <OrdersWrapper>  
             <h2>Your Orders</h2>
             <div className = "EntireOrders">{/* grid element only for orders */}
@@ -187,28 +189,33 @@ class Orderpage extends Component {
 
             <div className = "SingleOrder" key = {order.id}> {/* Each individual orders  */}
                 <div className = "orderheader"> </div>
-                <div className = "Orderheadervalues"><div> orderid:123</div><div>total :3</div></div>
+                <div className = "Orderheadervalues"><div> order Id:  {order.id}</div><div>total :{order.total}</div></div>
                
                 
                 <br></br>
-                <b>Delivered 3-Apr-2019</b>
-                <div className = "gridrow">
+                <b>Ordered at {order. createdAt}</b>
+                {order.items.map(item => (
+                     <div className = "gridrow">
                     
-                    <div>
-                        <img  src={Guitar} alt = "Guitar"></img>
-                    </div>
-                    <div className = "description">
-                        <h5>Acoustic Guitar</h5>
-                        <p>Rs 3000/-</p>
-                        <Link href="/product"><a><button>Buy it Again</button></a></Link>
+                     <div>
+                         <img  src={Guitar} alt = "Guitar"></img>
+                     </div>
+                     <div className = "description">
+                         <h5>{item.title}</h5>
+                         <p>Rs {item.price}/-</p>
+                         <Link href = {{pathname:'/product', query:{id:item.itemid}}}><a><button>Buy it Again</button></a></Link>
+                     
+                     </div>
+                     <div className = "btn"  onClick={(e)=>this.togglePanel(e,item.itemid)}>
+                         <h6 className = "review">Write a Product Review</h6>   
+                     </div>
                     
-                    </div>
-                    <div className = "btn"  onClick={(e)=>this.togglePanel(e)}>
-                        <h6 className = "review">Write a Product Review</h6>   
-                    </div>
-                    
-                </div>
-                
+                 </div>
+                 
+                ))}
+               
+              
+              
 
                 
             
@@ -219,8 +226,7 @@ class Orderpage extends Component {
       
             </div>
 
-            
-            {this.state.open ?(<div className = "reviewspage"><div className = "crossmark" onClick={(e)=>this.togglePanel(e)}>&#10060;</div><ReviewPage id="cjumwi6wgf6o20b95jzqlp8cz"/></div>) : null}
+            {this.state.open ?(<div className = "reviewspage"><div className = "crossmark" onClick={(e)=>this.togglePanel(e)}>&#10060;</div><ReviewPage id={this.state.id}/></div>) : null}
             
             </div>
         </OrdersWrapper>);
