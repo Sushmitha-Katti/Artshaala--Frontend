@@ -1,56 +1,59 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+
+import React, { Component } from 'react';
+import styled from 'styled-components';
 import CardTemp from "./cardtemp";
 import Sort from "./sort";
-import Items from "./Items";
+import Items from "./Items"
+
 
 const Wrapper = styled.nav`
-  display: grid;
-  margin: 20px;
-  justify-items: center;
-  grid-template-columns: 20% 80%;
+display: grid;
+margin: 20px;
+justify-items: center;
+grid-template-columns: 20% 80%;
 
-  @media (max-width: 750px) {
-    display: block;
+@media (max-width:750px){
+    display:block;
     align-items: center;
-  }
+}
 `;
 
-class Layout extends Component {
-  state = {
-    hi: 1,
-    category: ""
-  };
 
-  Category = a => {
-    // let category_var = this.state.category;
-    // hi1 = a+1;
-    let category_var = a;
-    this.setState({
-      category: category_var
-    });
-  };
+class Layout extends Component{
 
-  // category = ()=>{
-  //     const {}
-  // }
+    state={
+        category:""
+    }
 
-  render() {
-    console.log("hello", this.state.category);
-    return (
-      <Wrapper>
-        <Sort
-          filterpage={this.props.filterpage}
-          hello={this.hello}
-          category={this.Category}
-        />
-        <Items category={this.state.category} />
+    Category = (a)=>{
+        let category_var = this.state.category;
+        category_var = a
+        this.setState({
+            category:category_var
+        })
+        
+    }
 
-        {/* <CardTemp/> */}
-      </Wrapper>
-    );
-  }
+    // category = ()=>{
+    //     const {}
+    // }
+    
+    render(){
+         console.log("hello", this.state.category)
+        return(
+           
+            <Wrapper>
+                <Sort  filterpage = {this.props.filterpage} category={this.Category}/>
+                <Items category={this.state.category}/>
+
+
+                {/* <CardTemp/> */}
+
+            </Wrapper>
+        );
+    }
 }
+
 
 export default Layout;
 

@@ -11,7 +11,9 @@ let commonlinks = [
    { href: "/services", label: "Services & Repairs" },
    { href: "/rental", label: "Rental" },
    { href: "/about", label: "About" },
-   { href: "/blogs", label: "Blog" },
+
+   //{ href: "/Blog", label: "Blog" },
+
    { href: "/contact", label: "Contact Us" }
 ].map(link => {
    link.key = `nav-link-${link.href}-${link.label}`;

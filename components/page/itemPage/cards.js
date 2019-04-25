@@ -6,10 +6,15 @@ import Link from "next/link";
 
 
 
+
 class Cards extends Component {
   render() {
     return (
       <Link href={{pathname:'/product', query:{id:this.props.Cardcontent.id}}}>
+
+
+
+
       <Cardstyle>
         <div className="main">
           {/* {(() => {

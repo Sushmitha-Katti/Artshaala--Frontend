@@ -37,7 +37,10 @@ class ReviewPage extends Component {
   state = {
     comment: "",
     rating: 0,
-    itemid: "cjumwi6wgf6o20b95jzqlp8cz",
+
+    itemid: this.props.id,
+
+
    
   };
   saveToState = e => {
@@ -58,13 +61,19 @@ class ReviewPage extends Component {
                 //stop submitting form
                 e.preventDefault();
                 //call the mutation
+
+                 if(this.state.rating){
+                   
+                 
+                
+
                 const res = await creatComment();
                 //change the mutation to the single item page
                 console.log(res);
                 this.setState({ comment: "", rating: 0});
                 Router.push({
                   pathname: "/"
-                });
+                 });}
                 
               }}
             >
@@ -82,7 +91,7 @@ class ReviewPage extends Component {
 
 
                     <div className= "ratings"><p>Rate this item</p>
-                    <fieldset class="userrating">
+                    <fieldset class="userrating" >
                         <input type="radio" id="star5" name="rating" value="5" onChange={this.saveToState} /><label className = "full" for="star5" ></label>
                         {/* <input type="radio" id="star4half" name="rating" value="4.5" onChange={this.saveToState} /><label className="half" for="star4half" ></label> */}
                         <input type="radio" id="star4" name="rating" value="4" onChange={this.saveToState} /><label className = "full" for="star4" ></label>
@@ -93,8 +102,13 @@ class ReviewPage extends Component {
                         {/* <input type="radio" id="star1half" name="rating" value="1.5" onChange={this.saveToState} /><label className="half" for="star1half" ></label> */}
                         <input type="radio" id="star1" name="rating" value="1" onChange={this.saveToState} /><label className = "full" for="star1" ></label>
                         {/* <input type="radio" id="starhalf" name="rating" value="0.5" onChange={this.saveToState} /><label className="half" for="starhalf" ></label> */}
-                    </fieldset>
-                        <br></br><br></br>
+
+                        
+                    </fieldset><br></br><br></br>
+                    {!this.state.rating && <div><p style={{ color: "red", fontSize:"0.6rem" }}>!  Please select a star rating</p></div>}
+                       
+
+
                         <div >
                             <input className="submitbutton" type="submit" value = "Submit"/>
                         </div>
