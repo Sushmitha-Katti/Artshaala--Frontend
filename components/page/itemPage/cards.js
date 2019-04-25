@@ -5,8 +5,6 @@ import Link from "next/link";
 
 
 
-
-
 class Cards extends Component {
   render() {
     return (

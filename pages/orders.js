@@ -3,7 +3,7 @@ import Nav from "../components/Navbar";
 import Head from "../components/head";
 const Orders = () => (
     <div>
-<Head title="Orders" />
+    <Head title="Orders" />
       <Nav/>
       <Orderpage/>
     </div>
