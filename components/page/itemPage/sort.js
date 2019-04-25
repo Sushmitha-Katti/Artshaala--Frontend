@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 
 import Link from "next/link";
@@ -21,34 +22,13 @@ const ITEMS = gql`
   }
 `;
 
+
 class Sort extends Component {
   filterpages = e => {
     e.preventDefault();
     this.props.filterpage();
   };
 
-  // state = {
-  //   options: []
-  // };
-
-  // CheckedBox(e) {
-  //   // console.log(this.state.options);
-
-  //   let boxes = event.target.value;
-  //   //console.log("box", boxes);
-  //   if (this.state.options.includes(boxes)) {
-  //     let removedbox = this.state.options.filter(
-  //       item => item !== e.target.value
-  //     );
-  //     this.setState({ options: removedbox });
-  //   } else {
-  //     this.setState({
-  //       options: [...this.state.options, boxes]
-  //     });
-  //   }
-
-  //   console.log("--------------", this.state.options);
-  // }
 
   render() {
     return (
@@ -84,7 +64,7 @@ class Sort extends Component {
                 <Query query={ITEMS}>
                   {({ data, error, loading }) => {
                     let categorylist = [];
-                    console.log(data);
+                    console.log("Data",data);
                     data.items.map(category =>
                       categorylist.push(category.type)
                     );
@@ -120,6 +100,8 @@ class Sort extends Component {
               <ul className="ul-tag">
                 <Query query={ITEMS}>
                   {({ data, error, loading }) => {
+                    if(loading) return <p>Loading..</p>
+                    if(error) return <p>Error..{error.message}</p>
                     let brandlist = [];
                     data.items.map(brand => brandlist.push(brand.brand));
                     let unique_brand = Array.from(new Set(brandlist));
@@ -155,6 +137,7 @@ class Sort extends Component {
                                 <span>Fender</span>
                                 <li className="li-tag"><input type="checkbox" id="checkboxes" name="cort"/></li>
                                 <span>Cort</span> */}
+
               </ul>
             </div>
             <div className="item">
@@ -221,3 +204,4 @@ class Sort extends Component {
 }
 
 export default Sort;
+
