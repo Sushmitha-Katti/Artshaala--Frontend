@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import Nav from '../Navbar';
+import Footer from '../Footer';
+import { DeleteBlogWraper } from './styles/BlogStyles';
 
 const QUERY_ALL_BLOGS = gql`
   query {
@@ -47,9 +50,10 @@ export default class DeleteBlog extends Component {
         if(data.blogs.length > 0){
         return (
         <>
+        <Nav />
         {data.blogs.map(blog => (
-          <div style={{display:'block'}}>
-          <p style={{display:'inline'}} >{blog.title}</p>
+          <DeleteBlogWraper>
+          <p>{blog.title}</p>
           <Mutation 
                 mutation = {DELETE_BLOG_MUTATION}
                 variables = {{id: blog.id}}
@@ -68,8 +72,9 @@ export default class DeleteBlog extends Component {
                   >Delet{loading ? 'ing...' : 'e this'}</button>
                 )}
               </Mutation>
-          </div>
+          </DeleteBlogWraper>
         ))}
+        <Footer />
         </>
         )}
         return (

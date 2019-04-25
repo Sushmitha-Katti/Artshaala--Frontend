@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Headers from './Headers';
+import Nav from '../Navbar';
+import Footer from '../Footer';
+import { BlogPageStyle } from './styles/BlogStyles';
 
 const SINGLE_BLOG_QUERY = gql`
   query SINGLE_BLOG_QUERY($id: ID!) {
@@ -19,7 +22,6 @@ const SINGLE_BLOG_QUERY = gql`
 
 export default class Blog extends Component {
   render() {
-    console.log(this.props.id);
     return (
       <Query
         query={SINGLE_BLOG_QUERY}
@@ -28,14 +30,18 @@ export default class Blog extends Component {
         }}
       >
         {({ data, loading }) => {
-          console.log(data);
+          if(loading){
+            return <p style={{ textAlign: "center" }}>Loading</p>;
+          }
           return (
-            <>
+            <BlogPageStyle >
+              <Nav />
               <p>{data.blog.user.name}</p>
               <h1>{data.blog.title}</h1>
-              <img src={data.blog.image} alt="image"/>
+              <img className="image" src={data.blog.image} alt="image"/>
               <Headers headers={data.blog.headers}/>
-            </>
+              <Footer />
+            </BlogPageStyle >
           );
         }}
       </Query>

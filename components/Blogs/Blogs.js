@@ -1,9 +1,10 @@
 import React from "react";
 import { Query, Mutation } from "react-apollo";
 import { CURRENT_USER_QUERY } from "../test/User";
-import Form from "./Form";
+import Form from "./styles/Form";
 import gql from "graphql-tag";
 import Link from "next/link";
+import { BlogsStyles } from './styles/BlogStyles'
 
 const CREATE_BLOG_MUTATION = gql`
   mutation CREATE_BLOG_MUTATION(
@@ -46,6 +47,7 @@ class Blogs extends React.Component {
     headers: "",
     description: ""
   };
+
   handleChange = e => {
     const { name, type, value } = e.target;
     const val = type === "number" ? parseFloat(value) : value;
@@ -93,7 +95,10 @@ class Blogs extends React.Component {
               );
             }
             return (
-              <Mutation mutation={CREATE_BLOG_MUTATION} variables={this.state}>
+              <Mutation 
+              mutation={CREATE_BLOG_MUTATION} 
+              variables={this.state}
+              >
                 {(createBlog, { loading, error }) => (
                   <Form
                     data-test="form"
@@ -111,10 +116,6 @@ class Blogs extends React.Component {
                         headers: "",
                         description: ""
                       });
-                      // Router.push({
-                      //   pathname: '/item',
-                      //   query: { id: res.data.createBlog.id },
-                      // });
                     }}
                   >
                     <fieldset disabled={loading} aria-busy={loading}>
@@ -202,8 +203,7 @@ class Blogs extends React.Component {
             return (
               <>
                 {data.blogs.map(blog => (
-                  <>
-                    <p>{blog.user.name}</p>
+                  <BlogsStyles>
                     <h1>{blog.title}</h1>
                     <img src={blog.image} alt="image" />
                     <Link
@@ -212,9 +212,9 @@ class Blogs extends React.Component {
                         query: { id: blog.id }
                       }}
                     >
-                      <button>Know more</button>
+                    <button>Know more</button>
                     </Link>
-                  </>
+                  </BlogsStyles>
                 ))}
               </>
             );
