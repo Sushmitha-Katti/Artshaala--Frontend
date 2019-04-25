@@ -185,7 +185,7 @@ class Products extends React.Component{
 
             <section className="rating">
             <div className="rt">
-            <StarRating   editing={false} {/*************StarRating shoould be made dynamic***************************** */}
+            <StarRating   editing={false} 
             renderStarIcon={()=> <i class="fa fa-star fa-2x" aria-hidden="true"></i>}
             starCount={5}
             value={4}/>

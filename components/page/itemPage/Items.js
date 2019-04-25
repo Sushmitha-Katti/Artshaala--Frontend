@@ -1,26 +1,30 @@
-import React, { Component } from "react";
+
+import React, { Component } from 'react';
 import styled, { keyframes } from "styled-components";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
 import Cards from "./cards";
 import Pagination from './Pagination';
 import { perPage } from "../../../config";
 
 
 const CardWrapper = styled.div`
-  display: grid;
+  display: grid;ord
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 
   @media only screen and (max-width: 1150px) {
+
     margin: 0.5rem;
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
   }
   @media only screen and (max-width: 950px) {
-    margin: 0.5rem;
+
+    
     justify-items: center;
     grid-template-columns: 1fr 1fr;
   }
@@ -32,8 +36,8 @@ const CardWrapper = styled.div`
 `;
 
 const ALL_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY($skip:Int = 0,$first:Int=${perPage}) {
-    items(first:$first,skip:$skip,orderBy:createdAt_DESC) {
+  query ALL_ITEMS_QUERY {
+    items {
       id
       title
       price
@@ -45,6 +49,7 @@ const ALL_ITEMS_QUERY = gql`
 // not using now:
 
 const ITEMS_QUERY = gql`
+
   query ITEMS_QUERY($category: String!) {
     items(where: { type: $category }) {
       id
@@ -105,11 +110,13 @@ class Items extends Component {
     console.log("Page no",this.props.page)
     return (
       <div>
+
         <Pagination page={this.props.page}/>
+
         <Query
           query={this.props.category ? ITEMS_QUERY : ALL_ITEMS_QUERY}
           fetchPolicy="network-only"
-          variables={{ category: this.props.category, skip:this.props.page*perPage-perPage,first:perPage}} // skip the first n item and display the the next m items. m specified in first:m
+          variables={{ category: this.props.category}} // skip the first n item and display the the next m items. m specified in first:m
         >
           {({ data, error, loading }) => {
             console.log("*******************************");
@@ -140,6 +147,7 @@ class Items extends Component {
         <Pagination page={this.props.page}/>
       </div>
     );
+
   }
 }
 
