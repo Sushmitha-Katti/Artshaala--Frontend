@@ -18,33 +18,50 @@ const Wrapper = styled.nav`
 
 class Layout extends Component {
   state = {
-    hi: 1,
-    category: ""
+    category: "",
+    options:[]
   };
 
   Category = a => {
-    // let category_var = this.state.category;
-    // hi1 = a+1;
+   
     let category_var = a;
     this.setState({
       category: category_var
     });
   };
 
-  // category = ()=>{
-  //     const {}
-  // }
+  CheckedBox = e => {
+    // console.log(this.state.options);
 
+    let boxes = e;
+    console.log("box", boxes);
+    console.log(this.state);
+    if (this.state.options.includes(boxes)) {
+      let removedbox = this.state.options.filter(
+        item => item !== e
+      );
+      this.setState({ options: removedbox });
+    } else {
+      this.setState({
+        options: [...this.state.options, boxes]
+      });
+    }
+
+    console.log("--------------", this.state.options);
+  }
+ 
   render() {
+    
+    console.log("Layout",this.props)
     console.log("hello", this.state.category);
     return (
       <Wrapper>
         <Sort
           filterpage={this.props.filterpage}
-          hello={this.hello}
           category={this.Category}
+          CheckedBox={this.CheckedBox}
         />
-        <Items category={this.state.category} />
+        <Items category={this.state.category} brand= {this.state.options} page={this.props.page}/>
 
         {/* <CardTemp/> */}
       </Wrapper>
@@ -53,4 +70,3 @@ class Layout extends Component {
 }
 
 export default Layout;
-

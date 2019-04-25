@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 
 import Link from "next/link";
@@ -18,17 +17,38 @@ const ITEMS = gql`
       type
       brand
       price
-      images
     }
   }
 `;
-
 
 class Sort extends Component {
   filterpages = e => {
     e.preventDefault();
     this.props.filterpage();
   };
+
+  // state = {
+  //   options: []
+  // };
+
+  // CheckedBox(e) {
+  //   // console.log(this.state.options);
+
+  //   let boxes = event.target.value;
+  //   //console.log("box", boxes);
+  //   if (this.state.options.includes(boxes)) {
+  //     let removedbox = this.state.options.filter(
+  //       item => item !== e.target.value
+  //     );
+  //     this.setState({ options: removedbox });
+  //   } else {
+  //     this.setState({
+  //       options: [...this.state.options, boxes]
+  //     });
+  //   }
+
+  //   console.log("--------------", this.state.options);
+  // }
 
   render() {
     return (
@@ -42,7 +62,6 @@ class Sort extends Component {
         </div>
 
         {/* for pc view */}
-        <button> hello</button>
 
         <div className="main">
           <input type="checkbox" id="menu" />
@@ -65,6 +84,7 @@ class Sort extends Component {
                 <Query query={ITEMS}>
                   {({ data, error, loading }) => {
                     let categorylist = [];
+                    console.log(data);
                     data.items.map(category =>
                       categorylist.push(category.type)
                     );
@@ -76,11 +96,10 @@ class Sort extends Component {
                         {unique_category.map(category => (
                           <li className="li-tag">
                             <a
+                              href="#"
                               onClick={() => this.props.category(category)}
                             >
-                              <span className="categories">
-                                {category}
-                              </span>
+                              <span className="categories">{category}</span>
                             </a>
                           </li>
                         ))}
@@ -88,8 +107,6 @@ class Sort extends Component {
                     );
                   }}
                 </Query>
-                {/* <li><a href="#"><span className="categories">Electro Acoustic Guitars</span></a></li>
-                                <li><a href="#"><span className="categories">Acoustic Guitars</span></a></li> */}
               </ul>
             </div>
 
@@ -103,20 +120,26 @@ class Sort extends Component {
               <ul className="ul-tag">
                 <Query query={ITEMS}>
                   {({ data, error, loading }) => {
-                    console.log(data);
+                    let brandlist = [];
+                    data.items.map(brand => brandlist.push(brand.brand));
+                    let unique_brand = Array.from(new Set(brandlist));
+
+                    console.log("brand", unique_brand);
                     return (
                       <li className="li-tag">
-                        {data.items.map(brand => (
+                        {unique_brand.map(brand => (
                           <span>
                             <li className="li-tag">
                               <input
                                 type="checkbox"
                                 id="checkboxes"
                                 className="regular-checkbox"
-                                name="vault"
+                                name={brand}
+                                value={brand}
+                                onChange={e => this.props.CheckedBox(brand)}
                               />
                             </li>
-                            <span>{brand.brand}</span>
+                            <span>{brand}</span>
                           </span>
                         ))}
                       </li>
@@ -132,7 +155,6 @@ class Sort extends Component {
                                 <span>Fender</span>
                                 <li className="li-tag"><input type="checkbox" id="checkboxes" name="cort"/></li>
                                 <span>Cort</span> */}
-
               </ul>
             </div>
             <div className="item">
@@ -199,4 +221,3 @@ class Sort extends Component {
 }
 
 export default Sort;
-
