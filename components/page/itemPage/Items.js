@@ -9,7 +9,7 @@ import { perPage } from "../../../config";
 
 
 const CardWrapper = styled.div`
-  display: grid;ord
+  display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
