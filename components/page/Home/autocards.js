@@ -10,6 +10,7 @@ const T = styled.div`
   top: 30%;
   width: 100%;
   height: 50%;
+  right:0;
 `;
 
 const S = styled.div`
@@ -28,6 +29,10 @@ const S = styled.div`
     width: 100px;
     height: 100px;
     margin: 1rem;
+    @media only screen and (max-width: 768px) {
+      width: 70px;
+    height: 70px;
+    }
   }
 `;
 /*********************************************************************************/
@@ -42,7 +47,7 @@ class AutoCards extends Component {
       speed: 1000,
       autoplaySpeed: 2000,
       cssEase: "linear",
-      background: "red",
+     
       arrows: false
     };
     return (
