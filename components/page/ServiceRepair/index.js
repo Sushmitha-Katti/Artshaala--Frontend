@@ -91,7 +91,7 @@ class Services extends React.Component {
     return (<ServiceWrapper>
       <div className = "Enquiry">
       <h1>Services And Repairs</h1>
-      <h4>We know that you love music, that you love your instrument and how it can allow you to express yourself. Artshaala Music Store offer all kind of musical instruments service & repairing like Guitar, Keyboard, Drums, Violin, Harmonium, Tabla, Veena etc., We always try to repair your instrument while you wait, depending on the nature of the repair and high volume time period. If we cannot repair the instrument on the spot, we will give you a quick turn-around time to pick up your instrument.</h4>
+      <p>We know that you love music, that you love your instrument and how it can allow you to express yourself. Artshaala Music Store offer all kind of musical instruments service & repairing like Guitar, Keyboard, Drums, Violin, Harmonium, Tabla, Veena etc., We always try to repair your instrument while you wait, depending on the nature of the repair and high volume time period. If we cannot repair the instrument on the spot, we will give you a quick turn-around time to pick up your instrument.</p>
       <Link href="/contact">
       <a className = "enquireButton"><b>Enquire Now</b></a>
       </Link>
