@@ -47,6 +47,11 @@ const AboutStyle = Styled.nav`
         font-size:20px;
         margin-top:4rem;
         left:45%;
+        text-decoration:none;
+        color:white;
+    }
+    .enquiry:hover{
+        color:black;
     }
 
 `;

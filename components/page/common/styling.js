@@ -73,7 +73,12 @@ const Styling = styled.div`
         color:white;
         cursor: pointer;
         width: fit-content;
+       
         
+    }
+    .line4:hover{
+      color:black;
+
     }
 
     .l1 {

@@ -18,7 +18,6 @@ const ITEMS = gql`
       type
       brand
       price
-      images
     }
   }
 `;
@@ -29,6 +28,7 @@ class Sort extends Component {
     e.preventDefault();
     this.props.filterpage();
   };
+
 
   render() {
     return (
@@ -42,7 +42,6 @@ class Sort extends Component {
         </div>
 
         {/* for pc view */}
-        <button> hello</button>
 
         <div className="main">
           <input type="checkbox" id="menu" />
@@ -65,6 +64,7 @@ class Sort extends Component {
                 <Query query={ITEMS}>
                   {({ data, error, loading }) => {
                     let categorylist = [];
+                    console.log("Data",data);
                     data.items.map(category =>
                       categorylist.push(category.type)
                     );
@@ -76,11 +76,10 @@ class Sort extends Component {
                         {unique_category.map(category => (
                           <li className="li-tag">
                             <a
+                              href="#"
                               onClick={() => this.props.category(category)}
                             >
-                              <span className="categories">
-                                {category}
-                              </span>
+                              <span className="categories">{category}</span>
                             </a>
                           </li>
                         ))}
@@ -88,8 +87,6 @@ class Sort extends Component {
                     );
                   }}
                 </Query>
-                {/* <li><a href="#"><span className="categories">Electro Acoustic Guitars</span></a></li>
-                                <li><a href="#"><span className="categories">Acoustic Guitars</span></a></li> */}
               </ul>
             </div>
 
@@ -103,20 +100,28 @@ class Sort extends Component {
               <ul className="ul-tag">
                 <Query query={ITEMS}>
                   {({ data, error, loading }) => {
-                    console.log(data);
+                    if(loading) return <p>Loading..</p>
+                    if(error) return <p>Error..{error.message}</p>
+                    let brandlist = [];
+                    data.items.map(brand => brandlist.push(brand.brand));
+                    let unique_brand = Array.from(new Set(brandlist));
+
+                    console.log("brand", unique_brand);
                     return (
                       <li className="li-tag">
-                        {data.items.map(brand => (
+                        {unique_brand.map(brand => (
                           <span>
                             <li className="li-tag">
                               <input
                                 type="checkbox"
                                 id="checkboxes"
                                 className="regular-checkbox"
-                                name="vault"
+                                name={brand}
+                                value={brand}
+                                onChange={e => this.props.CheckedBox(brand)}
                               />
                             </li>
-                            <span>{brand.brand}</span>
+                            <span>{brand}</span>
                           </span>
                         ))}
                       </li>

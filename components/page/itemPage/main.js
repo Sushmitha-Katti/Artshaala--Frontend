@@ -30,7 +30,7 @@ class Main extends Component{
                 return (
                     <div>
                     <Navbar />
-                    <Layout filterpage={this.filterpage} 
+                    <Layout filterpage={this.filterpage} page = {this.props.prop.query.page} 
                     />
                     </div>
                 )
