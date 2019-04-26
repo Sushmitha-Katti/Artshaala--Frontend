@@ -9,12 +9,16 @@ import { BlogsStyles } from './styles/BlogStyles'
 const CREATE_BLOG_MUTATION = gql`
   mutation CREATE_BLOG_MUTATION(
     $title: String!
+    $author: String!
+    $summery: String!
     $image: String!
     $headers: String!
     $description: String!
   ) {
     createBlog(
       title: $title
+      author: $author
+      summery: $summery
       image: $image
       headers: $headers
       description: $description
@@ -26,12 +30,15 @@ const CREATE_BLOG_MUTATION = gql`
 
 const QUERY_ALL_BLOGS = gql`
   query {
-    blogs {
+    blogs(orderBy: createdAt_DESC) {
       id
       title
+      author
+      summery
       image
       headers
       description
+      createdAt
       user {
         id
         name
@@ -43,6 +50,8 @@ const QUERY_ALL_BLOGS = gql`
 class Blogs extends React.Component {
   state = {
     title: "",
+    author: "",
+    summery: "",
     image: "",
     headers: "",
     description: ""
@@ -89,10 +98,16 @@ class Blogs extends React.Component {
             if (loading) {
               return <p style={{ textAlign: "center" }}>Loading</p>;
             }
+            console.log(data)
             if (!data.me) {
               return (
                 <p style={{ textAlign: "center" }}>Sign in to create blogs</p>
               );
+            }
+            if(data.me.permissions.includes("User")){
+              return (
+                <p style={{ textAlign: "center" }}>Siged in as</p>
+              )
             }
             return (
               <Mutation 
@@ -110,8 +125,11 @@ class Blogs extends React.Component {
                       );
                       this.setState({ headers: l3.join("$$$$") });
                       const res = await createBlog();
+                      console.log(res)
                       this.setState({
                         title: "",
+                        author: "",
+                        summery: "",
                         image: "",
                         headers: "",
                         description: ""
@@ -157,7 +175,30 @@ class Blogs extends React.Component {
                           onChange={this.handleChange}
                         />
                       </label>
-                      <label htmlFor="price">
+                      <label htmlFor="author">
+                        Author
+                        <input
+                          type="text"
+                          id="author"
+                          name="author"
+                          placeholder="Author"
+                          required
+                          value={this.state.author}
+                          onChange={this.handleChange}
+                        />
+                      </label>
+                      <label htmlFor="summery">
+                        Summery
+                        <textarea
+                          id="summery"
+                          name="summery"
+                          placeholder="Summery"
+                          required
+                          value={this.state.summery}
+                          onChange={this.handleChange}
+                        />
+                      </label>
+                      <label htmlFor="headers">
                         Headers
                         <textarea
                           id="headers"
@@ -206,6 +247,7 @@ class Blogs extends React.Component {
                   <BlogsStyles>
                     <h1>{blog.title}</h1>
                     <img src={blog.image} alt="image" />
+                    <p>{blog.summery}</p>
                     <Link
                       href={{
                         pathname: "blog",

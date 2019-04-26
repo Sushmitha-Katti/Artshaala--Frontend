@@ -12,7 +12,7 @@ let commonlinks = [
    { href: "/rental", label: "Rental" },
    { href: "/about", label: "About" },
 
-   //{ href: "/Blog", label: "Blog" },
+   { href: "/blogs", label: "Blogs" },
 
    { href: "/contact", label: "Contact Us" }
 ].map(link => {

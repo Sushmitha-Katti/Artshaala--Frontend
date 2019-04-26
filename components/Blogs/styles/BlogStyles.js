@@ -29,36 +29,47 @@ const DeleteBlogWraper = Styles.div`
 
 const BlogPageStyle = Styles.div`
   display: grid;
-  grid-template-cloumns: 1fr;
-  text-align: center;
+  grid-template-columns: 3fr 1fr;
+`;
+
+const MainBlogStyle = Styles.div`
+  display: inline-block;
+  text-align: justify;
+  padding: 2em;
   .image {
     display: block;
-    height: auto;
-    width: auto;
-    margin: auto;
+    margin: auto
   }
 `;
 
+const SidePannel = Styles.div`
+  display: inline-block;
+  text-align: justify
+  padding: 2em;
+`;
+
 const BlogHeaders = Styles.div`
-  display: block;
-  width: 80%;
+  display: inline-block;
   text-align: center;
+  
   &:nth-child(odd) {
     display: block;
-    background:rgba(65, 89, 33, 0.5);
+    background:rgba(65, 89, 33, 0.2);
     color: black;
     margin: auto;
-    margin-top: 4px;
+    margin-top: 10px;
     padding: 6px;
     padding-left: 10px
     border-radius: 10px 10px 0 0;
     text-align: left;
     border-left: 5px solid rgba(65, 89, 33, 0.8);
-    font-size: 30px;
+    font-size: 26px;
+    font-family: Futura, Arial, sans-serif;
+    font-weight: bold;
   }
   &:nth-child(even) {
     display: block;
-    background:rgba(129, 174, 247, 0.5);
+    background:rgba(129, 174, 247, 0.2);
     color: brown;
     padding: 6px;
     padding-left: 10px
@@ -67,6 +78,8 @@ const BlogHeaders = Styles.div`
     border-radius: 0 0 10px 10px;
     text-align: left;
     border-left: 5px solid rgba(129, 174, 247, 0.8);
+    font-family: Futura, Arial, sans-serif;
+    font-size: 18px;
   }
 `;
 
@@ -74,14 +87,18 @@ const BlogsStyles = Styles.div`
   dispaly: block;
   width: 99%;
   height: auto;
-  background:rgba(129, 174, 247, 0.3);
+  background:rgba(129, 174, 247, 0.1);
   border-radius: 15px 5px;
   padding: 10px;
   margin: auto;
   margin-top: 10px;
   margin-right: 3px;
   text-align: center;
-
+  h1 {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Rockwell;
+  }
   .image {
     display: block;
   }
@@ -97,4 +114,4 @@ const BlogsStyles = Styles.div`
   }
 `;
 
-export { DeleteBlogWraper, BlogPageStyle, BlogHeaders, BlogsStyles }
+export { DeleteBlogWraper, BlogPageStyle, BlogHeaders, BlogsStyles, MainBlogStyle, SidePannel }
