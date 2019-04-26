@@ -17,12 +17,17 @@ const NEWSLETTER_MUTATION = gql`
 
 /****************************************   Styled Components   **************************************** */
 const D = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns:1fr 1fr;
+ 
   margin:3rem 5rem;
+  place-items:center center;
 
-    
+  @media only screen and (max-width: 768px) {
+    grid-template-columns:1fr;
+    grid-row-gap:20px;
+ 
+  }  
  
 `;
 const Slider = styled.div`
@@ -36,9 +41,17 @@ const Slider = styled.div`
   position: relative;
   @media only screen and (max-width: 768px) {
     height:100px;
+    font-size:0.7rem;
+    padding:  2rem 1rem  7rem 1rem;
+   
+
   }
   @media only screen and (max-width: 400px) {
     height:50px;
+    font-size:0.5rem;
+    padding:  1rem 1rem  12rem 1rem;
+
+  
   }
 
   .back {
@@ -58,60 +71,109 @@ const Slider = styled.div`
 
     background-color: #000000;
   }
+
   
 `;
 
 const Newsletter = styled.div.attrs({})`
   font-family: "Montserrat", sans-serif;
-  width: 85%;
+  width: 100%;
   height: 150px;
   color: ${props => props.color};
   text-align: center;
-  padding: 8rem 3rem;
+  padding: 8rem 0rem;
   background: ${props => props.background};
 
-  @media only screen and (max-width: 768px) {
-    height:100px;
-  }
+ 
   @media only screen and (max-width: 400px) {
     height:50px;
+    font-size:0.5rem;
+    
+    
   }
 
   form {
     position: relative;
   }
+ 
   .textinput {
     padding: 0.5rem;
     height: 2rem;
     width: 90%;
     border: none;
   }
-  i {
+  .textinput:focus{
+    outline-color:#ffff;
+  }
+ 
+  .newsletterbtn {
     position: absolute;
     top: 15%;
-    right: 50px;
+    right: 30px;
+    border-radius:50%;
     background: #dcdcdc;
     padding: 0px 9px;
-    border-radius: 50%;
+    size:2rem;
+
+    border:none;
+  color: black;
+ 
+  font-size: 2rem;
+  cursor: pointer;
+}
+.newsletterbtn:focus{
+  outline-color:#ffff;
+  
+}
+@media only screen and (max-width: 768px) {
+   padding: 1rem 1rem 6rem 1rem;
+   font-size:0.7rem;
+    .textinput {
+    height:100px;
+    font-size:0.5rem;
+     padding: 0.7rem;
+    height: 1rem;
+    width: 70%;
+    border: none;
+    }
+  .newsletterbtn {
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    border-radius:50%;
+    background: #dcdcdc;
+    padding: 1px 4px;
+    border:none;
+    color: black;
+    font-size: 0.7rem;
+ 
   }
+
+  }
+
 `;
 
 /********************************************************************************** */
 class NewsLetter extends Component {
   state = {
-    email: ""
+    email: "",
+  
   };
   saveToState = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  showalert = () => {
+   alert("Thank you for signing to our Newletter")
+  }
+
   render() {
     return (
       <Mutation
-        mutation={NEWSLETTER_MUTATION}
+        mutation={NEWSLETTER_MUTATION }
         variables={this.state}
        
       >
-        {(data, { error, loading }) => (
+        {(createNewsletter , { error, loading }) => (
       <D>
         <Newsletter background="#f7bb2f" color="black">
           <h1>Subscribe To Our Newsletter</h1>
@@ -126,10 +188,11 @@ class NewsLetter extends Component {
               e.preventDefault();
               const res = await createNewsletter();
               
-              this.setState({  email: ""});
-              Router.push({
-                pathname: "/"
-              });
+              this.setState({  email: "",success: true});
+              this.showalert()
+            
+              
+             
             }}
           >
             <input
@@ -141,11 +204,9 @@ class NewsLetter extends Component {
               onChange={this.saveToState}
               required
             />
-            <input
-              type="submit"
-              className="fa fa-angle-right fa-2x"
-              aria-hidden="true"
-            />
+            <input type="submit" class="newsletterbtn fa-input" value=">"></input>
+           
+            
           </form>
         </Newsletter>
         <Slider color="white">

@@ -10,7 +10,6 @@ const Styling = styled.div`
     width: 100%;
     height: 100%;
   }
-
   @media (min-width: 768px) {
     #main > div:nth-child(3) {
       display: flex;
@@ -40,7 +39,6 @@ const Styling = styled.div`
       font-size: 40px;
     }
   }
-
   @media (max-width: 768px) {
     #main > div:nth-child(3) > div:first-child {
       width: 80%;
@@ -73,25 +71,21 @@ const Styling = styled.div`
       font-size: 17px;
     }
   }
-
   @media (max-width: 480px) {
     #main > div:nth-child(2) h1:before,
     #main > div:nth-child(2) h1:after {
       width: 15%;
     }
   }
-
   #main > div:first-child {
     width: 100%;
     height: 400px;
   }
-
   #main > div:nth-child(2) {
     padding-top: 30px;
     background-color: rgba(180, 180, 180, 0.2);
     padding-bottom: 30px;
   }
-
   #main > div:nth-child(2) h1 {
     overflow: hidden;
     text-align: center;
@@ -100,7 +94,6 @@ const Styling = styled.div`
     padding-right: 7%;
     font-family: "Patua One", cursive;
   }
-
   #main > div:nth-child(2) h1:before,
   #main > div:nth-child(2) h1:after {
     background-color: rgb(180, 180, 180);
@@ -110,38 +103,30 @@ const Styling = styled.div`
     position: relative;
     vertical-align: middle;
   }
-
   #main > div:nth-child(2) h1:before {
     right: 0.5em;
   }
-
   #main > div:nth-child(2) h1:after {
     left: 0.5em;
   }
-
   #main > div:nth-child(2) p {
     text-align: center;
     padding-top: 20px;
     padding-left: 9%;
     padding-right: 9%;
-
     color: rgb(60, 60, 60);
     font-family: "Abel", sans-serif;
   }
-
   #main > div:nth-child(3) > div:first-child {
     margin-top: 60px;
   }
-
   form > p {
     color: rgb(60, 60, 60);
-
     margin-bottom: 30px;
     font-family: "Montserrat", sans-serif;
   }
-
   input[type="text"],
-  textarea {
+  textarea, input[type = "email"] {
     background-color: rgb(60, 60, 60);
     font-size: 20px;
     padding: 2%;
@@ -150,13 +135,11 @@ const Styling = styled.div`
     margin-bottom: 30px;
     width: 100%;
   }
-
   textarea {
     height: 100px;
     background-color: #f7bb2f;
     color: #000000;
   }
-
   button {
     border: none;
     width: 45%;
@@ -173,7 +156,6 @@ const Styling = styled.div`
     margin-left: 10px;
     margin-right: 10px;
   }
-
   .address {
     margin-top: 40px;
     padding: 2%;
@@ -182,12 +164,10 @@ const Styling = styled.div`
     color: rgb(60, 60, 60);
     margin-bottom: 30%;
   }
-
   a {
     text-decoration: none;
     color: rgb(60, 60, 60);
   }
-
   .address h1,
   .address h2 {
     font-family: "Montserrat", sans-serif;

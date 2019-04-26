@@ -25,6 +25,7 @@ margin:0 0;
   border-radius:1%;
  background:#F8F8F8;
  margin-bottom:1rem;
+
   .enquireButton{
     text-decoration: none;
     padding:1rem 1.5rem;
@@ -47,6 +48,7 @@ margin:0 0;
   grid-auto-rows: 1fr;
   justify-content: center;
   align-content: center;
+  
 }
 .right{
     border-right: 3px solid #F7bb2f;
@@ -77,7 +79,149 @@ margin:0 0;
     border: 1px solid black;
   }
 }
+@media only screen and (max-width: 768px) {
 
+  .Enquiry{
+  display:grid;
+  grid-template-columns: 1fr ;
+
+  padding:2rem 3rem;
+  font-size:1.1rem;
+  place-items: center center;
+  border-radius:1%;
+ background:#F8F8F8;
+ margin:2rem 0rem;
+ 
+  .enquireButton{
+    text-decoration: none;
+    padding:0.9rem 1.3rem;
+    background-color:#F7bb2f;
+    color:black;
+    border-radius:2%;
+  }
+  h1{
+    color:#F7bb2f;
+  }
+  .enquireButton:hover{
+    color:white;
+  }
+  
+}
+
+  .MainGrid{
+  margin:0.9rem 1rem;
+  display:grid;
+  grid-template-columns: 1fr ; 
+  grid-auto-rows: 1fr;
+  justify-content: center;
+  align-content: center;
+  
+}
+.right{
+    border-bottom: 3px solid #F7bb2f;
+    border-right:none;
+    height: 300px;
+    border-radius:5%;
+    border-top: 3px solid #F7bb2f;
+  }
+  .left{
+    border-top: 3px solid #F7bb2f;
+    border-bottom: 3px solid #F7bb2f;
+    height: 300px;
+    border-radius:5%;
+    border-left:none;
+  }
+  #last{
+    border:none;
+  }
+  .EachGrid{
+    ul{li{
+      font-size:0.9rem;
+    }
+    }
+  
+ 
+  img{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    border: 1px solid black;
+  }
+}
+}
+@media only screen and (max-width: 480px) {
+  .Enquiry{
+  display:grid;
+  grid-template-columns: 1fr ;
+
+  padding:1rem 2rem;
+  font-size:0.9rem;
+  place-items: center center;
+  border-radius:1%;
+ background:#F8F8F8;
+ margin:2rem 0rem;
+ 
+  .enquireButton{
+    text-decoration: none;
+    padding:0.8rem 1.1rem;
+    background-color:#F7bb2f;
+    color:black;
+    border-radius:2%;
+  }
+  h1{
+    color:#F7bb2f;
+  }
+  .enquireButton:hover{
+    color:white;
+  }
+  
+}
+  .MainGrid{
+  margin:0.9rem 1rem;
+  display:grid;
+  grid-template-columns: 1fr ; 
+  grid-auto-rows: 1fr;
+  justify-content: center;
+  align-content: center;
+ 
+}
+.right{
+    border-bottom: 3px solid #F7bb2f;
+    border-right:none;
+    height: 310px;
+    border-radius:5%;
+    border-top: 3px solid #F7bb2f;
+  }
+  .left{
+    border-top: 3px solid #F7bb2f;
+    border-bottom: 3px solid #F7bb2f;
+    height: 310px;
+    border-radius:5%;
+    border-left:none;
+  }
+  #last{
+    border:none;
+  }
+
+  .EachGrid{
+    ul{
+      li
+      {
+      font-size:0.7rem;
+      }
+    }
+    
+   
+  
+ 
+  img{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    border: 1px solid black;
+  }
+}
+}
 `;
 
 
@@ -113,10 +257,10 @@ class Services extends React.Component {
 
       
 
-        <div className = "EachGrid left">  {/* Each Services*/} 
+        <div id = "guitarservicing" className = "EachGrid left">  {/* Each Services*/} 
             <div ClassName = "description">
             <h3>Guitar Servicing</h3>
-            <ul>
+            <ul >
               <li>
               Guitar restringing/Guitar strings changing
               </li>
@@ -239,7 +383,7 @@ class Services extends React.Component {
             </div>
             
         </div>
-        <div className = "left"></div>
+        <div  id = "last" className = "left"></div>
 
       </div>
 
