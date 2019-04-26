@@ -40,7 +40,7 @@ const RentalWrapper = sc.div`
         h1{font-size:3rem;
             text-align:center;}
         margin:3rem;
-        input[type=text], textarea {
+        input[type=text], textarea, input[type = email] {
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -57,6 +57,7 @@ const RentalWrapper = sc.div`
             border-radius: 5%;
             background:#3c3c3c;
             color:white;
+            cursor:pointer;
 
           }
      }

@@ -2,11 +2,34 @@ import React, { Component } from "react";
 import { Styling } from "./styles";
 import Head from "next/head";
 import Map from "./map";
+import { Mutation } from "react-apollo";
+import gql from "graphql-tag";
+import {CONTACT_MUTATION} from "../Rental/index"
 
 class Contact extends Component {
-  state = {};
+  state = {
+    email: "",
+    phone: "",
+    name: "",
+    message: "",
+    subject: "",
+  };
+  saveToState = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  showalert = () => {
+    alert("Thank for filling the form. we will get in touch with you soon")
+   };
+
+
   render() {
     return (
+      <Mutation
+        mutation={CONTACT_MUTATION}
+        variables={this.state}
+       
+      >
+        {(contact , { error, loading }) => (
       <Styling>
         <Head>
           <link
@@ -18,6 +41,7 @@ class Contact extends Component {
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
+        
 
         <div id="main">
           <div>
@@ -33,16 +57,36 @@ class Contact extends Component {
           </div>
           <div>
             <div>
-              <form>
+              <form method="post"
+               onSubmit={async e => {
+                 e.preventDefault();
+                 const res = await contact();
+                 
+                 this.setState({  email: "",name:"", phone:"", subject:"",message: ""});
+                 this.showalert()
+               
+                 
+                
+               }}>
                 <p>Get in Touch</p>
                 <div>
-                  <input type="text" name="name" placeholder="Name" />
-                  <input type="text" name="phone" placeholder="Phone" />
-                  <input type="text" name="email" placeholder="Email" />
-                  <input type="text" name="subject" placeholder="Subject" />
-                  <textarea type="text" name="message" placeholder="Message" />
-                  <button type="input" className="btn btn-default btn-lg">
-                    SUBMIT
+                  <input type="text" name="name" placeholder="Name" value={this.state.name}
+              onChange={this.saveToState}
+              required />
+                  <input type="text" name="phone" placeholder="Phone" value={this.state.phone}
+              onChange={this.saveToState}
+              required />
+                  <input type="email" name="email" placeholder="Email" value={this.state.email}
+              onChange={this.saveToState}
+              required/>
+                  <input type="text" name="subject" placeholder="Subject" value={this.state.subject}
+              onChange={this.saveToState}
+              required/>
+                  <textarea type="text" name="message" placeholder="Message" value={this.state.message}
+              onChange={this.saveToState}
+              required/>
+                  <button type="submit" className="btn btn-default btn-lg">
+                    SUBMIT 
                     <span className="glyphicon glyphicon-circle-arrow-right" />
                   </button>
                 </div>
@@ -80,7 +124,7 @@ class Contact extends Component {
 
               <h2>Email</h2>
               <h4>
-                <a href="mailto:artshaalamusicstore@gmail.com">
+                <a href="mailto:artshaalamusicstore@gmail.com ">
                   artshaalamusicstore@gmail.com
                 </a>
               </h4>
@@ -88,6 +132,9 @@ class Contact extends Component {
           </div>
         </div>
       </Styling>
+      )}
+      </Mutation>
+
     );
   }
 }
