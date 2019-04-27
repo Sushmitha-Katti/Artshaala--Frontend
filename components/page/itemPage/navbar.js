@@ -35,13 +35,15 @@ class Navbar extends Component{
                     <button type="submit" className="search"><i className="fa fa-search fa-lg"></i></button>
                     
                 </span>
-                        <li><Link href="#"><a>All</a></Link></li>
-                        <li><Link href="#"><a>Guitars</a></Link></li>
-                        <li><Link href="#"><a>Keyboards & pianos</a></Link></li>
-                        <li><Link href="#"><a>Drums</a></Link></li>
-                        <li><Link href="#"><a>Violins</a></Link></li>
-                        <li><Link href="#"><a>Indian Instruments</a></Link></li>
+                        <li><Link href="#"><a onClick={() =>this.props.typefunc("")}>All</a></Link></li>
+                        <li><Link href="#"><a onClick={() =>this.props.typefunc("guitar")}>Guitars</a></Link></li>
+                        <li><Link href="#"><a onClick={() => this.props.typefunc("keyboard")}>Keyboards & pianos</a></Link></li>
+                        <li><Link href="#"><a onClick={() => this.props.typefunc("drums")}>Drums</a></Link></li>
+                        <li><Link href="#"><a onClick={() => this.props.typefunc("violin")}>Violins</a></Link></li>
+                        <li><Link href="#"><a onClick={() => this.props.typefunc("Indian Instrument")}>Indian Instruments</a></Link></li>
                         <li><Link href="#"><a>Others</a></Link></li>
+                        {/* <li><Link href="#"><a onClick={() => this.props.typefunc("other")}>Others</a></Link></li> */}
+                        
                     </ul>
                 </div>
                </div>
@@ -52,6 +54,3 @@ class Navbar extends Component{
 }
 
 export default Navbar;
-
-
- {/* &#9776; */}

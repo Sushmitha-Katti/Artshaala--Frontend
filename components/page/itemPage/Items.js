@@ -9,12 +9,13 @@ import { perPage } from "../../../config";
 
 
 const CardWrapper = styled.div`
-  display: grid;ord
+  display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+ 
 
   @media only screen and (max-width: 1150px) {
 
@@ -25,6 +26,7 @@ const CardWrapper = styled.div`
   @media only screen and (max-width: 950px) {
 
     
+    margin: 0.5rem;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
   }
@@ -36,52 +38,61 @@ const CardWrapper = styled.div`
 `;
 
 const ALL_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY {
-    items {
+  query ALL_ITEMS_QUERY{
+    items{
       id
       title
       price
       images
+      category
+      type
+      brand
     }
   }
+`;
+const TYPE_ITEMS_QUERY = gql`
+query TYPE_ITEMS_QUERY($type: String!) {
+  items(where: { type: $type}) {
+    id
+      title
+      price
+      images
+      category
+      type
+      brand
+  }
+}
 `;
 
 // not using now:
 
 const ITEMS_QUERY = gql`
 
-  query ITEMS_QUERY($category: String!) {
-    items(where: { type: $category }) {
+  query ITEMS_QUERY($category: String!, $type:String!) {
+    items(where: { category: $category, type:$type }) {
       id
       title
       price
       images
+      category
+      type
+      brand
     }
   }
 `;
 // const BRAND_ITEMS_QUERY = gql`
-// query BRAND_ITEMS_QUERY($: String!,) {
-//   items(where:
-// {
-// OR: [{
-//   brand: "Yamaha"
-// }, {
-//   brand: "setg"
-  
-// },
-// {
-  
-// }]
-// })
-// {
-//     id
-//     title
-//     brand
-//     type
-//     price
-//     images
-//   }
-// }`;
+// query BRAND_ITEMS_QUERY($brand: String!) {
+//         items(where: { brand_in: [$brand] })
+//             {
+//                 id
+//                 title
+//                 brand
+//                 type
+//                 price
+//                 images
+//             }
+// }
+// `;
 
 
 class Items extends Component {
@@ -107,16 +118,17 @@ class Items extends Component {
 
 
 
-    console.log("Page no",this.props.page)
+    console.log("brand of items.js",this.props.brand)
     return (
       <div>
 
         <Pagination page={this.props.page}/>
 
         <Query
-          query={this.props.category ? ITEMS_QUERY : ALL_ITEMS_QUERY}
-          fetchPolicy="network-only"
-          variables={{ category: this.props.category}} // skip the first n item and display the the next m items. m specified in first:m
+        // query={this.props.brand?BRAND_ITEMS_QUERY:ALL_ITEMS_QUERY} variables={{ brand:this.props.brand}}
+           query={this.props.type ? (this.props.category ? ITEMS_QUERY : TYPE_ITEMS_QUERY):ALL_ITEMS_QUERY}
+          // fetchPolicy="network-only"
+          variables={{ category: this.props.category, type:this.props.type, skip:this.props.page*perPage-perPage,first:perPage}} // skip the first n item and display the the next m items. m specified in first:m
         >
           {({ data, error, loading }) => {
             console.log("*******************************");
@@ -132,7 +144,7 @@ class Items extends Component {
               console.log(cards);
               let Cardslist = cards.map(card => (
                 <div>
-                  <Cards Cardcontent={card} />
+                  <Cards Cardcontent={card}/>
                 </div>
               ));
               return (
@@ -144,7 +156,7 @@ class Items extends Component {
             }
           }}
         </Query>
-        <Pagination page={this.props.page}/>
+      
       </div>
     );
 
@@ -152,3 +164,20 @@ class Items extends Component {
 }
 
 export default Items;
+
+
+// variables={{ category: this.props.category, skip:this.props.page*perPage-perPage,first:perPage}}
+
+// const ALL_ITEMS_QUERY = gql`
+//   query ALL_ITEMS_QUERY($skip:Int = 0,$first:Int=${perPage}) {
+//     items(first:$first,skip:$skip,orderBy:createdAt_DESC) {
+//       id
+//       title
+//       price
+//       images
+//       category
+//       type
+//       brand
+//     }
+//   }
+// `;

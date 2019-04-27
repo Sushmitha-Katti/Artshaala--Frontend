@@ -5,7 +5,10 @@ import FilterMobile from "./filterMobile";
 class Main extends Component{
 
     state={
-        step:1
+        step:1,
+        type:"",
+        hi:""
+
     }
     
     mainpage = () => {
@@ -22,6 +25,13 @@ class Main extends Component{
         });
     }
 
+    Type = (a) => {
+        let type_var =a;
+        this.setState({
+            type: type_var
+          });
+    };
+
     render(){
         const { step } = this.state;
 
@@ -29,8 +39,8 @@ class Main extends Component{
             case 1:
                 return (
                     <div>
-                    <Navbar />
-                    <Layout filterpage={this.filterpage} page = {this.props.prop.query.page} 
+                    <Navbar typefunc = {this.Type}/>
+                    <Layout filterpage={this.filterpage} page = {this.props.prop.query.page} type = {this.state.type}
                     />
                     </div>
                 )

@@ -60,8 +60,9 @@ class Layout extends Component {
           filterpage={this.props.filterpage}
           category={this.Category}
           CheckedBox={this.CheckedBox}
+          type={this.props.type}
         />
-        <Items category={this.state.category} brand= {this.state.options} page={this.props.page}/>
+        <Items category={this.state.category} brand= {this.state.options} page={this.props.page} type={this.props.type}/>
 
         {/* <CardTemp/> */}
       </Wrapper>

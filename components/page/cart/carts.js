@@ -1,5 +1,19 @@
 import React, { Component } from "react";
 import { Styles, Price, Subtotal } from "./cartStyle";
+import { Query,Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const LOCAL_STATE_QUERY = gql`
+  query {
+    cartOpen @client
+  }
+`;
+
+const TOGGLE_CART_MUTATION = gql`
+  mutation {
+    toggleCart @client
+  }
+`;
 
 class Carts extends Component {
   state = {};
@@ -58,3 +72,4 @@ class Carts extends Component {
 }
 
 export default Carts;
+export { LOCAL_STATE_QUERY,TOGGLE_CART_MUTATION };
