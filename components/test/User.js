@@ -12,6 +12,22 @@ const CURRENT_USER_QUERY = gql`
       orders {
         id
       }
+      cart {
+        id
+        quantity
+        item {
+          id
+          price
+          images
+          title
+          description
+          comment{
+            rating
+          }
+        }
+      }
+    
+      
     }
   }
 `;
