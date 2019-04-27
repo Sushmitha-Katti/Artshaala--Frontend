@@ -23,7 +23,7 @@ let commonlinks = [
 
  let authlinks = [
   { href: "/orders", label: "Orders" },
-  { href: "/me", label: "Account" },
+  
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
@@ -40,7 +40,7 @@ let notauthlinks = [
 });
 let links = []
 let isauth = true;
-
+let cartcount = 0;
 
 const Navbar = () => (
   <User>
@@ -50,13 +50,16 @@ const Navbar = () => (
       if(me){
          links = commonlinks.concat(authlinks)
          isauth = true;
+         cartcount = me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
+         console.log('/////////////');
+         console.log(cartcount);
       }
       else{
-        links = commonlinks.concat(notauthlinks)
+        links = commonlinks.concat(notauthlinks);
         isauth = false;
       }
    
-      return(<Nav links={links} isauth = {isauth}/>)
+      return(<Nav links={links} isauth = {isauth} cartcount = {cartcount}/>)
     }}
   </User>
 );

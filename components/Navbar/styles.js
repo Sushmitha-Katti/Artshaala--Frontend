@@ -96,7 +96,21 @@ const NavWrapper = styled.nav`
       font-size: 1em;
       padding: 0 20px;
     }
-    .fa {
+    #nothover{
+      
+        border:1px solid orange;
+        border-radius:10%;
+        
+      
+      li:hover{
+        background:none;
+        .cart{
+          color:orange;
+        }
+      }
+    }
+    
+    .search {
       box-sizing: border-box;
       padding: 5px;
       width: 30px;
@@ -111,6 +125,7 @@ const NavWrapper = styled.nav`
       transition: all 1s;
       color: #808080;
     }
+    
     .mobilelogo {
       display: none;
     }
@@ -122,7 +137,7 @@ const NavWrapper = styled.nav`
       form:hover input {
         display: block;
       }
-      form:hover .fa {
+      form:hover .search {
         background: #ccc;
       }
     }
