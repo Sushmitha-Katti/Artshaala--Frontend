@@ -11,7 +11,9 @@ let commonlinks = [
    { href: "/services", label: "Services & Repairs" },
    { href: "/rental", label: "Rental" },
    { href: "/about", label: "About" },
-   { href: "/blogs", label: "Blog" },
+
+   { href: "/blogs", label: "Blogs" },
+
    { href: "/contact", label: "Contact Us" }
 ].map(link => {
    link.key = `nav-link-${link.href}-${link.label}`;
@@ -28,8 +30,8 @@ let commonlinks = [
 });
 
 let notauthlinks = [
-  { href: "/signin", label: "Signin" },
- { href: "/signup", label: "SignUp" },
+  { href: "/signin", label: "Sign In" },
+ { href: "/signup", label: "Sign Up" },
  
   
 ].map(link => {

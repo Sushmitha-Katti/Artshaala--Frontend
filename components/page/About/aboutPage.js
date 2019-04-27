@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import AboutStyle from "./aboutStyle";
+import Link from "next/link";
+import { link } from "fs";
 
 class AboutPage extends Component {
   render() {
@@ -9,7 +11,7 @@ class AboutPage extends Component {
           <div className="title">
             <span className="line"> </span>
             <span>
-              <h3 className="heading">About</h3>
+              <h3 className="heading">About Us</h3>
             </span>
             <span className="line"> </span>
           </div>
@@ -25,13 +27,15 @@ class AboutPage extends Component {
             consistent performance. We sell all kind western and Indian musical
             instruments at our store.We over a range of exclusive discounts on
             top of the line musical instruments, professional music gear and
-            accessories along with stage and studio equipment. Use our unique
+            accessories along with stage and studio equipment.  <br></br> <br></br>Use our unique
             EMI scheme to buy your favourite instruments…buy now pay later!!
-            Feel free to walk in next door to our store any hour of the day and
+            <br></br> <br></br> free to walk in next door to our store any hour of the day and
             view our magnificent instrument collection. Artshaala…your one stop
             neighbourhood musical partner!
           </p>
-          <button className="enquiry">Enquiry</button>
+          <Link href = "/contact">
+          <a className="enquiry">Enquiry</a>
+          </Link>
         </div>
       </AboutStyle>
     );
