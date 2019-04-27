@@ -16,10 +16,19 @@ class Cartitems extends Component {
         title: "Juarez JRZ38CBK Linden Wood Acoustic Guitar",
         reviews: "100 reviews",
         price: "INR 6499.00",
-        quantity: "1"
+        quantity: "1",
+        id:1,
+      },
+      {
+        img: { guitar1 },
+        title: "Juarez JRZ38CBK Linden Wood Acoustic Guitar",
+        reviews: "100 reviews",
+        price: "INR 6499.00",
+        quantity: "2",
+        id:2,
       }
     ].map(cart => {
-      cart.key = `{cart.cost}`;
+      cart.key = `{cart.id}`;
       return cart;
     });
 
