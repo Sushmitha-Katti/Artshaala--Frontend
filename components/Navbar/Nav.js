@@ -4,7 +4,7 @@ import NavWrapper from "./styles.js";
 import Link from "next/link";
 import SignoutPage from "../../components/test/signoutpage";
 import logo from "./logo.png";
-
+import CartCount from "../page/cart/cartcount";
 
 
 class Nav extends Component {
@@ -38,17 +38,21 @@ class Nav extends Component {
               </li>
               
             ))}
+              
            
             {this.props.isauth && (
                 <li id="alink" >
                      <SignoutPage />
                 </li>)}
+                <li id = "nothover"> <i  style={{color:"orange"}} className="fa fa-shopping-cart fa-lg cart"></i><CartCount  count = {this.props.cartcount}/></li>
+              
             <li key="formli">
               <form action="/">
                 <input type="text" placeholder="Search.." name="search" />
-                <i className="fa fa-search" />
+                <i className="fa fa-search search " />
               </form>
             </li>
+            
           </ul>
           <div className="mobilelogo">
             <img src={logo} alt="logo" />

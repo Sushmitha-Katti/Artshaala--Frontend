@@ -10,6 +10,7 @@ import Cards from '../../page/Home/couroselCards';
 import ReviewPage from "./reviewpage"
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import AddToCart from '../cart/addtocart';
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -178,7 +179,7 @@ class Products extends React.Component{
                 )}
 
               <h3 style = {{color :"orange"}}>{item.stock ? "In Stock":"Out Of Stock" }</h3>
-              {item.stock? <button  className="myButton">Add to Cart</button>:null}
+              {item.stock? <AddToCart id = {this.props.query.id}/>:null}
              {/***** Button Should be linked******************* */}
 
             </div>

@@ -79,6 +79,7 @@ class Signin extends Component {
             method="post"
             onSubmit={async e => {
               e.preventDefault();
+              
               await signup();
               this.setState({ name: "", email: "", password: "" });
               Router.push({
@@ -127,7 +128,7 @@ class Signin extends Component {
 
               <div className = "centered">
               <div className="centerbutton">
-                <input type="submit" value = "Sign In!"/>
+                <input type="submit" name = "check"value = "Sign In!"/>
               </div>
               </div>
               <div className = "signinlink">
@@ -145,3 +146,4 @@ class Signin extends Component {
 }
 
 export default Signin;
+export  CURRENT_USER_QUERY ;

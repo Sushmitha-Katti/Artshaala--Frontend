@@ -27,7 +27,7 @@ const CardWrapper = styled.div`
 class ServiceCards extends Component {
   render() {
     let Cards = [
-      { title: "Music Store", img: { musicstore },link:"/productsearch" },
+      { title: "Music Store", img: { musicstore },link:"/itemPage" },
       { title: "Service & Repairs", img: { service }, link: "/services" },
       { title: "Rentals", img: { rental } ,link:"/rental"},
       { title: "Mega Sale", img: { sale }, link: "/" }
