@@ -44,8 +44,8 @@ let notauthlinks = [
 
 
 let adminlinks = [
-  { href: "/createitem", label: "Create Item" },
- { href: "/notifications", label: "Notifications" },
+  { href: "/admin", label: "Admin" },
+ 
  
   
 ].map(link => {

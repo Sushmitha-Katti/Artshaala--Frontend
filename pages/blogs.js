@@ -9,7 +9,7 @@ const blogPage = () => (
       <Head title="Blogs" />
       <Nav />
       <Blogs />
-      <Footer />
+    
     </div>
   );
   

@@ -47,12 +47,12 @@ class Nav extends Component {
             {!this.props.admin && ( 
                 <li id = "nothover"> <Link href=  "/mycart"><a><i  style={{color:"orange"}} className="fa fa-shopping-cart fa-lg cart"></i></a></Link><CartCount  count = {this.props.cartcount}/></li>)}
               
-            <li key="formli">
+            {/* <li key="formli">
               <form action="/">
                 <input type="text" placeholder="Search.." name="search" />
                 <i className="fa fa-search search " />
               </form>
-            </li>
+            </li> */}
             
           </ul>
           <div className="mobilelogo">
