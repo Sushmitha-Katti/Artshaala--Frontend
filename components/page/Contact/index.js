@@ -56,7 +56,8 @@ class Contact extends Component {
             </p>
           </div>
           <div>
-            <div>
+           
+            <section className = "contactForm" id = "contactForm">
               <form method="post"
                onSubmit={async e => {
                  e.preventDefault();
@@ -91,8 +92,9 @@ class Contact extends Component {
                   </button>
                 </div>
               </form>
-            </div>
-            <div className="address">
+            </section>
+         
+            <section className="address">
               <h1>Artshaala Music Store,</h1>
 
               <br />
@@ -128,7 +130,7 @@ class Contact extends Component {
                   artshaalamusicstore@gmail.com
                 </a>
               </h4>
-            </div>
+            </section>
           </div>
         </div>
       </Styling>

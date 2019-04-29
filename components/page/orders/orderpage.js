@@ -176,7 +176,7 @@ class Orderpage extends Component {
               if (error) return <p> error... </p>;
               if (loading) return <p>Loading...</p>;
               const orders= data.orders;
-              console.log(orders);
+             
               return(
         
         <OrdersWrapper>  

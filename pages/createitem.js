@@ -5,7 +5,7 @@ import Navtest from "../components/test/navtest";
 const SignIn = () => (
   <div>
     <Head title="Create item" />
-    <Navtest />
+    <Nav/>
     <CreateItemPage />
   </div>
 );

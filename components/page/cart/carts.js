@@ -22,12 +22,12 @@ class Carts extends Component {
     count: this.props.cartItem.quantity
   };
    autoClick = async (e,itemid) => {
-    console.log(e)
+   
     
     await this.setState({count: parseInt(e.target.value), id: itemid})
-    console.log(this.state)
+  
     let  btnclick = document.getElementById(this.props.cartItem.id);
-    console.log(btnclick)
+
     btnclick.click();
   
 };
@@ -74,9 +74,7 @@ class Carts extends Component {
                            onSubmit={async e => {
                           console.log("submited")
                              e.preventDefault();
-                             console.log('****************')
-                             console.log(this.state.id)
-                             console.log(this.state.count)
+                             
                              const res = await updatecart();
                              console.log(res)
                              
