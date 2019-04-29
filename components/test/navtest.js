@@ -48,29 +48,33 @@ const NavTestWrapper = styled.div`
 const Navtest = () => (
   <NavTestWrapper>
     <ul className="nav-links">
-      <li id="alink">
-        <Link href="/signup">
-          <a>SignUp</a>
-        </Link>
-      </li>
-      <li id="alink">
-        <Link href="/signin">
-          <a>SignIn</a>
-        </Link>
-      </li>
-      <li id="alink">
-        <Link href="/items">
-          <a>Items</a>
+
+    <li id="alink">
+        <Link href="/">
+          <a>Home</a>
         </Link>
       </li>
       <li id="alink">
         <Link href="/createitem">
-          <a>Create Items</a>
+          <a>Create Item</a>
         </Link>
       </li>
       <li id="alink">
-        <SignoutPage />
+        <Link href="/blogs">
+          <a>Blogs</a>
+        </Link>
       </li>
+      <li id="alink">
+        <Link href="/notification">
+          <a>Notification</a>
+        </Link>
+      </li>
+      <li id="alink">
+        <Link href="/customerorders">
+          <a>Orders</a>
+        </Link>
+      </li>
+     
     </ul>
     ;
   </NavTestWrapper>
