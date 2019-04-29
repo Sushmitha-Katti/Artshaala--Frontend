@@ -15,7 +15,7 @@ const Styling = styled.div`
       display: flex;
       justify-content: space-between;
     }
-    #main > div:nth-child(3) > div:first-child {
+    #main > div:nth-child(3) > .contactForm {
       order: 2;
       width: 35%;
       margin-right: 7%;
