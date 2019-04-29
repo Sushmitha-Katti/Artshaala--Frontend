@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Mutation } from "react-apollo";
+import { Mutation, Query } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import Router from "next/router";
 import {Form} from "./signuppage.js"
+import  { CURRENT_USER_QUERY } from "./User";
 
 /*const Form = styled.form`
   display: flex;
@@ -123,6 +124,15 @@ class CreateItemPage extends Component {
 
   render() {
     return (
+      <Query query = {CURRENT_USER_QUERY}>
+      {({data, error, loading}) => {
+          if (error) return <p> error... </p>
+          if (loading) return <p>Loading...</p>
+          console.log(data.me)
+          if(!data.me.permissions.includes('ADMIN')) return <h1>Sorry only admin can login</h1>
+          else 
+         
+          return(
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
         {(createItem, { error, loading }) => (
           <Form
@@ -136,7 +146,7 @@ class CreateItemPage extends Component {
               console.log(res);
               this.setState({ title: "", description: "", price: 0 ,image:[], stock:0, category:"", size:"", brand:"", type:"",specification:""});
               Router.push({
-                pathname: "/items"
+                pathname: "/createitem"
               });
               
             }}
@@ -268,6 +278,8 @@ class CreateItemPage extends Component {
           </Form>
         )}
       </Mutation>
+      )}}
+      </Query>
     );
   }
 }
