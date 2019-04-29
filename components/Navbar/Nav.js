@@ -44,7 +44,8 @@ class Nav extends Component {
                 <li id="alink" >
                      <SignoutPage />
                 </li>)}
-                <li id = "nothover"> <i  style={{color:"orange"}} className="fa fa-shopping-cart fa-lg cart"></i><CartCount  count = {this.props.cartcount}/></li>
+            {!this.props.admin && ( 
+                <li id = "nothover"> <Link href=  "/mycart"><a><i  style={{color:"orange"}} className="fa fa-shopping-cart fa-lg cart"></i></a></Link><CartCount  count = {this.props.cartcount}/></li>)}
               
             <li key="formli">
               <form action="/">
