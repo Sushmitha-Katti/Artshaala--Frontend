@@ -33,7 +33,7 @@ class AboutPage extends Component {
             view our magnificent instrument collection. Artshaala…your one stop
             neighbourhood musical partner!
           </p>
-          <Link href = "/contact">
+          <Link href = "/contact#contactForm">
           <a className="enquiry">Enquiry</a>
           </Link>
         </div>

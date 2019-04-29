@@ -96,10 +96,10 @@ const Body = sc.body`
 
   // comment start
   .comment{
-    padding-top:80px;
-    padding-bottom:60px;
+    padding-top:10px;
+    padding-bottom:10px;
     padding-left:80px;
-    padding-right:50px;
+    padding-right:20px;
   }
     .head{
       font: 25px "Fira Sans", sans-serif;
@@ -222,8 +222,8 @@ const Body = sc.body`
     }
   
     .comment{
-      padding-top:80px;
-      padding-bottom:60px;
+      padding-top:10px;
+      padding-bottom:10px;
       padding-left:30px;
       padding-right:50px;
       .head{
@@ -347,8 +347,8 @@ const Body = sc.body`
   }
 
   .comment{
-    padding-top:80px;
-    padding-bottom:60px;
+    padding-top:10px;
+    padding-bottom:10px;
     padding-left:30px;
     padding-right:50px;
     .head{
@@ -475,8 +475,8 @@ const Body = sc.body`
   }
 
   .comment{
-    padding-top:80px;
-    padding-bottom:60px;
+    padding-top:10px;
+    padding-bottom:10px;
     padding-left:30px;
     padding-right:50px;
     .head{

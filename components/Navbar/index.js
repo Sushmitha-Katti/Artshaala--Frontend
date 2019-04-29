@@ -20,15 +20,16 @@ let commonlinks = [
    return link;
  });
 
-
+//----------------------------------AUTHENTICATED LINKS------------------------------------------------------------------
  let authlinks = [
   { href: "/orders", label: "Orders" },
-  { href: "/me", label: "Account" },
+  
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
 });
 
+//---------------------------------------NOT AUTHENTICATED LINKS------------------------------------------------------
 let notauthlinks = [
   { href: "/signin", label: "Sign In" },
  { href: "/signup", label: "Sign Up" },
@@ -38,25 +39,49 @@ let notauthlinks = [
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
 });
+
+//------------------------------------------ADMIN LINKS------------------------------------------------------------
+
+
+let adminlinks = [
+  { href: "/admin", label: "Admin" },
+ 
+ 
+  
+].map(link => {
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
+//--------------------------------------------------------------------------------------------------------------------
+
+
 let links = []
 let isauth = true;
-
+let cartcount = 0;
+let admin = false;
 
 const Navbar = () => (
   <User>
     {({ data }) => {
       const me = data ? data.me : null
      
-      if(me){
+      if(me && !me.permissions.includes('ADMIN')){
          links = commonlinks.concat(authlinks)
          isauth = true;
+         cartcount = me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
+        
       }
-      else{
-        links = commonlinks.concat(notauthlinks)
+      else if(me && me.permissions.includes('ADMIN')){
+        links = commonlinks.concat(adminlinks);
+        admin = true;
+      }
+      else {
+        links = commonlinks.concat(notauthlinks);
         isauth = false;
       }
+      
    
-      return(<Nav links={links} isauth = {isauth}/>)
+      return(<Nav links={links} isauth = {isauth} cartcount = {cartcount} admin = {admin}/>)
     }}
   </User>
 );

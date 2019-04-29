@@ -40,6 +40,9 @@ const MainBlogStyle = Styles.div`
     display: block;
     margin: auto
   }
+  .preserve {
+    display: inline;
+  }
 `;
 
 const SidePannel = Styles.div`

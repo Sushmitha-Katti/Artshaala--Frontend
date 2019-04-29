@@ -10,6 +10,7 @@ import Cards from '../../page/Home/couroselCards';
 import ReviewPage from "./reviewpage"
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import AddToCart from '../cart/addtocart';
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -126,11 +127,13 @@ class Products extends React.Component{
               } , {})
               
               
+              
               let average_rating = 0;
               for(var key in count) {
                 average_rating = average_rating + count[key] * key;    //Returns weighted sum of ratings
               }
-              console.log(average_rating/review)          //Average rating
+              const avgrating = (average_rating/review)    //Average rating
+              
            
             return (
                 <Body>
@@ -167,7 +170,7 @@ class Products extends React.Component{
             <p>
             Inclusive of all taxes  
             <br/>Pay on Delivery (Cash/Card) eligible
-            EMI starts at ₹306.<br/> No Cost EMI available</p>     {/****************** EMI Should be dynamic**************/}
+            </p>     {/****************** EMI Should be dynamic**************/}
             {this.state.image && ( this.state.image.map(i =>
                   <img
                     width="100"
@@ -178,7 +181,7 @@ class Products extends React.Component{
                 )}
 
               <h3 style = {{color :"orange"}}>{item.stock ? "In Stock":"Out Of Stock" }</h3>
-              {item.stock? <button  className="myButton">Add to Cart</button>:null}
+              {item.stock? <AddToCart id = {this.props.query.id}/>:null}
              {/***** Button Should be linked******************* */}
 
             </div>
@@ -202,7 +205,7 @@ class Products extends React.Component{
 
             renderStarIcon={()=> <i class="fa fa-star fa-2x" aria-hidden="true"></i>}
             starCount={5}
-            value={4}/>
+            value={avgrating}/>
             </div>
             <div className ="rr">
             <BlueText >{review} reviews</BlueText>
@@ -234,23 +237,23 @@ class Products extends React.Component{
             <StarRating   editing={false}
             renderStarIcon={()=><i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={5}/>
+            value={(count[4]/review)*5}/>
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={4}/>
+            value={(count[3]/review)*5}/>
             <StarRating   editing={false}
             renderStarIcon={()=><i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={3}/>
+            value={(count[2]/review)*5}/>
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={2}/>
+            value={(count[1]/review)*5}/>
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={1}/>
+            value={(count[0]/review)*5}/>
             </div>
             </div>
             </section>
@@ -259,9 +262,9 @@ class Products extends React.Component{
             {/* -----------------------------------------------Reviews Section------------------------------------------- */}
            
             {item.comment.map(comment =>
-                
-                <section className="comment">
-            <h1 className="head">{comment.user.name}</h1>
+
+            <section style = {{paddingTop:10+"px",  paddingLeft:  60+"px" ,paddingBotton:10+"px" }} className="comment">
+            <h1 className="head"><b>{comment.user.name}</b></h1>
             <div>
             <StarRating   
             editing={false}
@@ -272,27 +275,14 @@ class Products extends React.Component{
              <h4 className="date">
              {comment.createdAt.toLocaleString("en-US")} 
              </h4>
-             <BlueText>Verified Purchase</BlueText>
+           
              <p className="content">{comment.comment}</p>
-             <p className="rev"> One person found this useful</p>
-             <div>
-             <Button>
-             <button className="myButton" style={{marginRight: '20px'}}>
-              Helpful
-             </button>
-             <button className="myButton" style={{marginRight: '20px'}}>
-              Comment
-             </button>
-             <button className="myButton" >
-              Report
-             </button>
-             </Button>  
-             </div>
+            
             </section>      
             )}
         {/*----------------------------------Related Products Section------------------------------------ */}    
             <div>
-                <h1 className="rp">RELATED PRODUCTS</h1>
+                <h1 className="rp" style = {{textAlign:"center"}}>RELATED PRODUCTS</h1>
                 <Cards/>
             </div>
        </Body>
