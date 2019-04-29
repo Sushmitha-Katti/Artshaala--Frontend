@@ -39,14 +39,14 @@ const AboutStyle = Styled.nav`
         font-size:20px;
     }
     .enquiry{
-        position: absolute;
+        
         background-color:#F7BB2F;
         border:solid 1px #F7BB2F;
         border-radius:3%;
         padding:12px 25px;
         font-size:20px;
-        margin-top:4rem;
-        left:45%;
+        position: relative;
+        marign:2px;
         text-decoration:none;
         color:white;
     }
