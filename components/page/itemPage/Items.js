@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import styled, { keyframes } from "styled-components";
 import { Query } from 'react-apollo';

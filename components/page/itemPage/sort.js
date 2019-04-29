@@ -46,8 +46,13 @@ class Sort extends Component {
 
   render() {
     return (
+
+      
+
       <SortStyle>
+        
         {/* for phone view */}
+
 
         <div className="center">
           <button onClick={this.filterpages} className="filterbutton">
@@ -220,6 +225,8 @@ class Sort extends Component {
           </div>
         </div>
       </SortStyle>
+                              
+                            
     );
   }
 }

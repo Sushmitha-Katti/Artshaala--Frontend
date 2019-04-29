@@ -5,6 +5,7 @@ const NavWrapper = styled.nav`
   :global(body) {
     margin: 0;
     padding: 0;
+    z-index:0;
   }
 
 

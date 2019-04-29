@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import logo from "./logo.png";
 import NavWrapper from "./NavStyle.js";
+import AutoComplete from "./Search"
 
 <meta content="width=device-width, initial-scale=1" name="viewport" />
+
 
 class Navbar extends Component{
 
@@ -14,11 +16,12 @@ class Navbar extends Component{
                 <div className="main">
                 <div className="topnav">
                 <img className="logo" src={logo}/>
-                <span className="box">
+                <AutoComplete/>
+                {/* <span className="box">
                     <input type="text" placeholder="Search.." name="search" className="userinput"/>
                     <button type="submit" className="search"><i className="fa fa-search fa-lg"></i></button>
                     
-                </span>
+                </span> */}
                </div> 
                <div className="Navbar">
                     <div className="nav-btn">
@@ -41,7 +44,7 @@ class Navbar extends Component{
                         <li><Link href="#"><a onClick={() => this.props.typefunc("drums")}>Drums</a></Link></li>
                         <li><Link href="#"><a onClick={() => this.props.typefunc("violin")}>Violins</a></Link></li>
                         <li><Link href="#"><a onClick={() => this.props.typefunc("Indian Instrument")}>Indian Instruments</a></Link></li>
-                        <li><Link href="#"><a>Others</a></Link></li>
+                        {/* <li><Link href="#"><a>Others</a></Link></li> */}
                         {/* <li><Link href="#"><a onClick={() => this.props.typefunc("other")}>Others</a></Link></li> */}
                         
                     </ul>

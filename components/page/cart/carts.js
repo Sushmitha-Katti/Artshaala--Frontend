@@ -48,6 +48,7 @@ class Carts extends Component {
                     </center>
                   </div>
                   <button className="input">+</button>
+                
                 </span>
               </div>
             </div>
