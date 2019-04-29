@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
-import { BlogHeaders } from './styles/BlogStyles'
+import React, { Component, Fragment } from 'react';
+import { BlogHeaders } from './styles/BlogStyles';
+import { Markup } from 'interweave';
 
 export default class Headers extends Component {
   render() {
     return (
     <div>
       {this.props.headers.split("$$$$").map(head => (
-        <BlogHeaders>{head}</BlogHeaders>
+        
+        <BlogHeaders>
+          <Fragment>
+            
+              <Markup content={head} /> 
+              {head}
+          </Fragment>
+        </BlogHeaders>
       ))}
-    </div>
+    </div> 
     )
   }
 }

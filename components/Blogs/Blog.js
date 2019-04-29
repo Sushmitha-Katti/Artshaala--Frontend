@@ -61,7 +61,11 @@ export default class Blog extends Component {
             <Nav />
             <BlogPageStyle >
               <MainBlogStyle>
-                <p><span>{data.blog.author}</span><span>{"  .  "}</span><span>{data.blog.createdAt}</span></p>
+                <p>
+                  <span>{data.blog.author}</span>
+                  <pre className="preserve">{"    "}</pre>
+                  <span>{data.blog.createdAt.split('T')[0]}</span>
+                </p>
                 <h1>{data.blog.title}</h1>
                 <img className="image" src={data.blog.image} alt="image"/>
                 <p>{data.blog.summery}</p>
