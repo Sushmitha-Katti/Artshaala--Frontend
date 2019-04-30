@@ -99,16 +99,8 @@ class Blogs extends React.Component {
               return <p style={{ textAlign: "center" }}>Loading</p>;
             }
             console.log(data)
-            if (!data.me) {
-              return (
-                <p style={{ textAlign: "center" }}>Sign in to create blogs</p>
-              );
-            }
-            if(data.me.permissions.includes("User")){
-              return (
-                <p style={{ textAlign: "center" }}>Siged in as</p>
-              )
-            }
+            if(data.me){
+            if(data.me.permissions.includes("USER")){
             return (
               <Mutation 
               mutation={CREATE_BLOG_MUTATION} 
@@ -227,7 +219,14 @@ class Blogs extends React.Component {
                   </Form>
                 )}
               </Mutation>
-            );
+            )}
+            else{
+              return null;
+            }
+          }
+          else{
+            return null;
+          }
           }}
         </Query>
         <Query query={QUERY_ALL_BLOGS}>
