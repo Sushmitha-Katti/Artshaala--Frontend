@@ -74,6 +74,7 @@ const Navbar = () => (
       else if(me && me.permissions.includes('ADMIN')){
         links = commonlinks.concat(adminlinks);
         admin = true;
+        isauth = true;
       }
       else {
         links = commonlinks.concat(notauthlinks);
