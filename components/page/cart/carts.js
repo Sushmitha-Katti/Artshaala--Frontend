@@ -121,4 +121,3 @@ class Carts extends Component {
 }
 
 export default Carts;
-export { LOCAL_STATE_QUERY,TOGGLE_CART_MUTATION };

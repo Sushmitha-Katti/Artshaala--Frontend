@@ -83,7 +83,7 @@ class Cards extends Component {
       
       return (
         <Update>
-        {me.permissions.includes("USER") && <div>
+        {me.permissions.includes("ADMIN") && <div>
        <DeleteItem id={this.props.Cardcontent.id}/> 
        
        <Link href ={{
