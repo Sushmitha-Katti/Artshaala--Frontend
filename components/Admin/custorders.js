@@ -3,31 +3,14 @@ import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import RemoveContact from "./deletecontact";
+import Link from "next/link";
 
 
 const PENDING_ORDERS_QUERY = gql`
-  query {
+  query PENDING_ORDERS_QUERY {
 adminorders{
     id
-  
     total
-    items{
-        id
-        title
-        
-        description
-        image
-        price
-        quantity
-        itemid
-        
-    }
-    user{
-        id
-        name
-        email
-        
-    }
     charge
     createdAt
     paymentmode
@@ -47,7 +30,7 @@ const ItemsList = styled.div`
   align-items: center;
 
   .eachcontact{
-    border:3px solid orange;
+    border:1px solid orange;
     border-radius: 3%;
     margin:2rem;
    
@@ -105,6 +88,7 @@ const AdminOrders = () => (
           <ItemsList>
             {adminorders.map(order => (
                 <div className = "eachcontact">
+               <Link href={{pathname:'/individualorders', query:{id:order.id}}}>
               <ItemsStyle>
                 
                 <b>id: </b><b>{order.id}</b>
@@ -118,6 +102,8 @@ const AdminOrders = () => (
                 
                
               </ItemsStyle> 
+              </Link>
+            
              
               
              

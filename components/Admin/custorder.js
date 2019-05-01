@@ -5,38 +5,19 @@ import styled from "styled-components";
 import RemoveContact from "./deletecontact";
 
 
-const PENDING_ORDERS_QUERY = gql`
-  query {
-adminorders{
-    id
-  
-    total
-    items{
-        id
-        title
-        
-        description
-        image
-        price
-        quantity
-        itemid
-        
-    }
-    user{
-        id
-        name
-        email
-        
-    }
-    charge
-    createdAt
-    paymentmode
-   
 
-}
+const PENDING_ORDER_QUERY = gql`
+  query PENDING_ORDER_QUERY($id: ID!) {
+    order( id: $id ) {
+      charge
+      
+     
+    }
   }
   
 `;
+
+
 
 
 const ItemsList = styled.div`
@@ -92,45 +73,37 @@ display: grid;
   
 `;
 
-const AdminOrders = () => (
+const AdminOrder = (props) => (
+  
 
-  <Query query={PENDING_ORDERS_QUERY}>
+  <Query                           //Item Query
+    query={PENDING_ORDER_QUERY}
+    variables={{
+
+      id: "cjuv6x955v4ez0b95x8x9duog"
+
+      }}
+    >
     {({ data, loading, error }) => {
-      let { adminorders } = data;
+      if(error){
+        console.log(error)
+      }
       console.log(data);
-
+      console.log(props.query.id)
+      console.log('********')
+     
       return (
-        <div  >
-          
+
           <ItemsList>
-            {adminorders.map(order => (
-                <div className = "eachcontact">
-              <ItemsStyle>
-                
-                <b>id: </b><b>{order.id}</b>
-                <b>Total: </b><p>{order.total}</p>
-            
-                <b>charge: </b><p>{order.charge}</p>
-                
-                <b>createdAt: </b><p>{order.createdAt}</p>
-                
+            Hello
            
-                
-               
-              </ItemsStyle> 
-             
-              
-             
-               </div> 
-            ))}
-            
           </ItemsList>
-        </div>
+        
         
       );
     }}
   </Query>
  
 );
-export default AdminOrders;
-export {PENDING_ORDERS_QUERY};
+export default AdminOrder;
+export {PENDING_ORDER_QUERY};

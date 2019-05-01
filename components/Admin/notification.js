@@ -28,7 +28,7 @@ const ItemsList = styled.div`
   align-items: center;
 
   .eachcontact{
-    border:3px solid orange;
+    border:1px solid orange;
     border-radius: 3%;
     margin:2rem;
    
@@ -36,14 +36,14 @@ const ItemsList = styled.div`
     button{
       padding: 1rem 3rem;
       background:none;
-      border: 1px solid red;
+      border: 1px solid green;
       border-radius:5%;
       margin:2rem;
-      color:red;
+      color:green;
 
   }
   button:hover{
-      background:red;
+      background:green;
       color:white;
       
   }

@@ -9,7 +9,7 @@ export default (params) =>
 <div>
 <Head title="Manage Orders" />
 <Navtest />
-<CustOrders />
+<CustOrders {...params} />
 
 </div>
 
