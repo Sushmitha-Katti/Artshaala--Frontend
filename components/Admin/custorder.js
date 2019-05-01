@@ -4,21 +4,13 @@ import gql from "graphql-tag";
 import styled from "styled-components";
 import RemoveContact from "./deletecontact";
 
-
-
 const PENDING_ORDER_QUERY = gql`
   query PENDING_ORDER_QUERY($id: ID!) {
-    order( id: $id ) {
+    order(id: $id) {
       charge
-      
-     
     }
   }
-  
 `;
-
-
-
 
 const ItemsList = styled.div`
   display: grid;
@@ -27,83 +19,62 @@ const ItemsList = styled.div`
   justify-content: center;
   align-items: center;
 
-  .eachcontact{
-    border:3px solid orange;
+  .eachcontact {
+    border: 3px solid orange;
     border-radius: 3%;
-    margin:2rem;
-   
+    margin: 2rem;
+
     padding-bottom: 2rem;
-    button{
+    button {
       padding: 1rem 3rem;
-      background:none;
+      background: none;
       border: 1px solid red;
-      border-radius:5%;
-      margin:2rem;
-      color:red;
-
+      border-radius: 5%;
+      margin: 2rem;
+      color: red;
+    }
+    button:hover {
+      background: red;
+      color: white;
+    }
   }
-  button:hover{
-      background:red;
-      color:white;
-      
-  }
-  }
-
-
 `;
 const ItemsStyle = styled.div`
-display: grid;
-  grid-template-columns: 0.5fr 7fr; 
-  
+  display: grid;
+  grid-template-columns: 0.5fr 7fr;
+
   width: 90%;
   height: auto;
- 
+
   padding: 2%;
   overflow: hidden;
-  
-  margin:2rem;
- 
-  p{
-      margin:0;
+
+  margin: 2rem;
+
+  p {
+    margin: 0;
   }
-  h1{
-      margin:0;
+  h1 {
+    margin: 0;
   }
-  
-  
 `;
 
-const AdminOrder = (props) => (
-  
-
-  <Query                           //Item Query
+const AdminOrder = props => (
+  <Query //Item Query
     query={PENDING_ORDER_QUERY}
     variables={{
-
-      id: "cjuv6x955v4ez0b95x8x9duog"
-
-      }}
-    >
+      id: props.query.id
+    }}
+  >
     {({ data, loading, error }) => {
-      if(error){
-        console.log(error)
+      if (error) {
+        console.log(error);
       }
       console.log(data);
-      console.log(props.query.id)
-      console.log('********')
-     
-      return (
 
-          <ItemsList>
-            Hello
-           
-          </ItemsList>
-        
-        
-      );
+      return (<ItemsList>{data.order.charge}</ItemsList>);
     }}
   </Query>
- 
 );
 export default AdminOrder;
-export {PENDING_ORDER_QUERY};
+export { PENDING_ORDER_QUERY };
