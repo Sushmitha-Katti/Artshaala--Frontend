@@ -18,8 +18,22 @@ const ITEMS = gql`
       type
       brand
       price
+      category
     }
   }
+`;
+
+const TYPE_BASED_ITEMS = gql`
+query TYPE_BASED_ITEMS($type: String!) {
+  items(where: { type: $type }) {
+      id
+      title
+      type
+      brand
+      price
+      category
+  }
+}
 `;
 
 
@@ -32,8 +46,13 @@ class Sort extends Component {
 
   render() {
     return (
+
+      
+
       <SortStyle>
+        
         {/* for phone view */}
+
 
         <div className="center">
           <button onClick={this.filterpages} className="filterbutton">
@@ -61,22 +80,29 @@ class Sort extends Component {
               </label>
               <hr />
               <ul className="ul-tag">
-                <Query query={ITEMS}>
+                <Query 
+                query={this.props.type ? TYPE_BASED_ITEMS:ITEMS}
+                 variables={{type:this.props.type}}>
+                 
                   {({ data, error, loading }) => {
+                    if(loading) <p>Loading..</p>
+                    if(error) <p>Error..{error.message}</p>
                     let categorylist = [];
                     console.log("Data",data);
                     data.items.map(category =>
-                      categorylist.push(category.type)
+                      categorylist.push(category.category)
                     );
                     let unique_category = Array.from(new Set(categorylist));
 
-                    console.log(unique_category);
+                    console.log("unique_category",unique_category);
                     return (
                       <li className="li-tag">
                         {unique_category.map(category => (
+                          
                           <li className="li-tag">
                             <a
-                              href="#"
+                             href = "#"
+                              // href={"/itemPage?category="+category}
                               onClick={() => this.props.category(category)}
                             >
                               <span className="categories">{category}</span>
@@ -98,7 +124,7 @@ class Sort extends Component {
               </label>
               <hr />
               <ul className="ul-tag">
-                <Query query={ITEMS}>
+              <Query query={this.props.type ? TYPE_BASED_ITEMS:ITEMS} variables={{type:this.props.type}}>
                   {({ data, error, loading }) => {
                     if(loading) return <p>Loading..</p>
                     if(error) return <p>Error..{error.message}</p>
@@ -199,6 +225,8 @@ class Sort extends Component {
           </div>
         </div>
       </SortStyle>
+                              
+                            
     );
   }
 }

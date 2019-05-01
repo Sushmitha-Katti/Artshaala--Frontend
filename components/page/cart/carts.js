@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Styles, Price, Subtotal } from "./cartStyle";
+
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import {CURRENT_USER_QUERY} from "../../test/User";
@@ -61,6 +62,7 @@ class Carts extends Component {
                       <span>{item.comment.length} reviews</span>
                       <br />
 
+
                       <div className="values">
                         <div>
                           <span style={{ fontSize: 18 + "px" }}>Price:</span>
@@ -96,7 +98,6 @@ class Carts extends Component {
                         </div>
                       
                       </div>
-
                       <p
                         style={{
                           fontSize: 18 + "px",
@@ -120,3 +121,4 @@ class Carts extends Component {
 }
 
 export default Carts;
+export { LOCAL_STATE_QUERY,TOGGLE_CART_MUTATION };

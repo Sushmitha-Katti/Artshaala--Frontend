@@ -31,34 +31,30 @@ import Nprogress from 'nprogress';
     }
   }
 `;*/
-const CURRENT_USER_QUERY = gql`
-  query {
-    me {
-      id
-      email
-      name
-      permissions
-      orders {
-        id
-      }
+// const CURRENT_USER_QUERY = gql`
+//   query {
+//     me {
+//       id
+//       email
+//       name
+//       permissions
+//       orders {
+//         id
+//       }
+//     }
+//   }
+// `;
+
+const REQUEST_RESET_MUTATION = gql`
+  mutation REQUEST_RESET_MUTATION($email: String!) {
+    requestReset(email: $email) {
+      message
     }
   }
 `;
 
-const SIGNIN_MUTATION = gql`
-  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
-    signin(email: $email, password: $password) {
-      id
-      email
-      name
-    }
-  }
-`;
-
-class Signin extends Component {
+class RequestReset extends Component {
   state = {
-    name: "",
-    password: "",
     email: ""
   };
   saveToState = e => {
@@ -67,33 +63,32 @@ class Signin extends Component {
   render() {
     return (
       <Mutation
-        mutation={SIGNIN_MUTATION}
+        mutation={REQUEST_RESET_MUTATION}
         variables={this.state}
-        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
-        {(signup, { error, loading }) => (
+        {(reset, { error, loading, called }) => (
           <Form
             method="post"
             onSubmit={async e => {
               e.preventDefault();
               
-              await signup();
-              this.setState({ name: "", email: "", password: "" });
-              Router.push({
-                pathname: "/"
-              });
+              await reset();
+              this.setState({ email: "" });
+              // Router.push({
+              //   pathname: "/"
+              // });
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
-              <div className = "centered"><h2>Login</h2></div>
+              <div className = "centered"><h2>Request Password Reset</h2></div>
               <div>
                 <b style={{ color: "red" }}>
                   {error
-                    ? "Oops!! Something went wrong! Enter Correct Email and Password"
+                    ? "Oops!! Something went wrong! Enter Correct Email"
                     : ""}
                 </b>
               </div>
-
+              { !error && !loading && called && <p>Success Check your email for reset</p>}
               <label htmlFor="email">
               <div><b>Email</b></div>
                 <input
@@ -105,35 +100,14 @@ class Signin extends Component {
                   required
                 />
               </label>
-              <label htmlFor="password">
-                <div><b>Password</b></div>
-                <input
-                  type="password"
-                  name="password"
-                 
-                  value={this.state.password}
-                  onChange={this.saveToState}
-                  required
-                />
-              </label>
-              <div className = "forgotpassword">
-                
-                <Link href="/resetRequest">
-                  <a> Forgot Password</a>
-                </Link>
-              </div>
+              
 
               <div className = "centered">
               <div className="centerbutton">
-                <input type="submit" name = "check"value = "Sign In!"/>
+                <input type="submit" name = "check"value = "Request Reset"/>
               </div>
               </div>
-              <div className = "signinlink">
-                <p>New User ?
-                <Link href="/signup">
-                  <a> SignUp here</a>
-                </Link></p>
-              </div>
+              
             </fieldset>
           </Form>
         )}
@@ -142,6 +116,5 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
-export { CURRENT_USER_QUERY } ;
-
+export default RequestReset;
+// export { CURRENT_USER_QUERY } ;

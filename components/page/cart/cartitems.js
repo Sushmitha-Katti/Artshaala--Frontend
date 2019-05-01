@@ -26,6 +26,7 @@ class Cartitems extends Component {
         price: "INR 6499.00",
         quantity: "2",
         id:2,
+
       }
     ].map(cart => {
       cart.key = `{cart.id}`;

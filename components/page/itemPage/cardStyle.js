@@ -12,7 +12,8 @@ const Cardstyle = styled.nav`
         text-align:left;
         margin-left:15px;
         font-size:15px;
-        //font-weight:bold;
+        width: 185px;
+         height: 350px;
     }
     .off{
         margin:15px 130px 0;
@@ -26,13 +27,16 @@ const Cardstyle = styled.nav`
     }
     .pic{
         width:150px;
+        height:210px;
         cursor:pointer;
+        margin:6px;
         
     }
     .cost{
         padding:0;
         margin:-6px 2px 2px 2px;
         color:red;
+        
     }
     .descrip{
         margin-top:5px;
