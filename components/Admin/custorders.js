@@ -3,20 +3,22 @@ import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import RemoveContact from "./deletecontact";
+import Link from "next/link";
 
 
+const PENDING_ORDERS_QUERY = gql`
+  query PENDING_ORDERS_QUERY {
+adminorders{
+    id
+    total
+    charge
+    createdAt
+    paymentmode
+   
 
-const ALL_CONTACTS_QUERY = gql`
-  query {
-    contacts {
-        id
-        email
-        phone
-        subject
-        message
-        name
-    }
+}
   }
+  
 `;
 
 
@@ -36,14 +38,14 @@ const ItemsList = styled.div`
     button{
       padding: 1rem 3rem;
       background:none;
-      border: 1px solid green;
+      border: 1px solid red;
       border-radius:5%;
       margin:2rem;
-      color:green;
+      color:red;
 
   }
   button:hover{
-      background:green;
+      background:red;
       color:white;
       
   }
@@ -73,36 +75,39 @@ display: grid;
   
 `;
 
-const Notification = () => (
+const AdminOrders = () => (
 
-  <Query query={ALL_CONTACTS_QUERY}>
-    {({ data }) => {
-      let { contacts } = data;
-      console.log(contacts);
+  <Query query={PENDING_ORDERS_QUERY}>
+    {({ data, loading, error }) => {
+      let { adminorders } = data;
+      console.log(data);
 
       return (
         <div  >
           
           <ItemsList>
-            {contacts.map(contact => (
+            {adminorders.map(order => (
                 <div className = "eachcontact">
+               <Link href={{pathname:'/individualorders', query:{id:order.id}}}>
               <ItemsStyle>
                 
-                <b>Name: </b><b>{contact.name}</b>
-                <b>Email: </b><p>{contact.email}</p>
-                <b>Phone: </b> <p> {contact.phone}</p>
-                <b>Subject: </b><p>{contact.subject}</p>
+                <b>id: </b><b>{order.id}</b>
+                <b>Total: </b><p>{order.total}</p>
+            
+                <b>charge: </b><p>{order.charge}</p>
                 
-                <b>Message: </b><p>{contact.message}</p>
+                <b>createdAt: </b><p>{order.createdAt}</p>
                 
            
                 
                
-              </ItemsStyle>
-              <RemoveContact id ={contact.id} />
+              </ItemsStyle> 
+              </Link>
+            
+             
               
              
-              </div>
+               </div> 
             ))}
             
           </ItemsList>
@@ -113,5 +118,5 @@ const Notification = () => (
   </Query>
  
 );
-export default Notification;
-export { ALL_CONTACTS_QUERY };
+export default AdminOrders;
+export {PENDING_ORDERS_QUERY};
