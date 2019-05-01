@@ -4,11 +4,11 @@ import Head from "../components/head";
 import Navtest from "../components/test/navtest";
 import CustOrder   from "../components/Admin/custorder";
 
-export default (params) => 
+export default (props) => 
 <div>
 <Head title="Manage Orders" />
 <Navtest />
-<CustOrder {...params}/>
+<CustOrder {...props}/>
 
 </div>
 

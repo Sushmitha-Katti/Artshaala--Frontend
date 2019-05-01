@@ -121,3 +121,4 @@ class Carts extends Component {
 }
 
 export default Carts;
+export { CART_COUNT_MUTATION };
