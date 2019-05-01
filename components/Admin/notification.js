@@ -14,7 +14,6 @@ const ALL_CONTACTS_QUERY = gql`
         subject
         message
         name
-
     }
   }
 `;

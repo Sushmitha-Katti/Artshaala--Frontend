@@ -27,6 +27,7 @@ const ItemsList = styled.div`
   margin: 2rem 4rem;
   justify-content: center;
   align-items: center;
+  
 `;
 const ItemsStyle = styled.div`
   border: 1px solid black;
