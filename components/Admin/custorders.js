@@ -5,18 +5,37 @@ import styled from "styled-components";
 import RemoveContact from "./deletecontact";
 
 
-
-const ALL_CONTACTS_QUERY = gql`
+const PENDING_ORDERS_QUERY = gql`
   query {
-    contacts {
+adminorders{
+    id
+  
+    total
+    items{
         id
-        email
-        phone
-        subject
-        message
-        name
+        title
+        
+        description
+        image
+        price
+        quantity
+        itemid
+        
     }
+    user{
+        id
+        name
+        email
+        
+    }
+    charge
+    createdAt
+    paymentmode
+   
+
+}
   }
+  
 `;
 
 
@@ -73,36 +92,36 @@ display: grid;
   
 `;
 
-const Notification = () => (
+const AdminOrders = () => (
 
-  <Query query={ALL_CONTACTS_QUERY}>
-    {({ data }) => {
-      let { contacts } = data;
-      console.log(contacts);
+  <Query query={PENDING_ORDERS_QUERY}>
+    {({ data, loading, error }) => {
+      let { adminorders } = data;
+      console.log(data);
 
       return (
         <div  >
           
           <ItemsList>
-            {contacts.map(contact => (
+            {adminorders.map(order => (
                 <div className = "eachcontact">
               <ItemsStyle>
                 
-                <b>Name: </b><b>{contact.name}</b>
-                <b>Email: </b><p>{contact.email}</p>
-                <b>Phone: </b> <p> {contact.phone}</p>
-                <b>Subject: </b><p>{contact.subject}</p>
+                <b>id: </b><b>{order.id}</b>
+                <b>Total: </b><p>{order.total}</p>
+            
+                <b>charge: </b><p>{order.charge}</p>
                 
-                <b>Message: </b><p>{contact.message}</p>
+                <b>createdAt: </b><p>{order.createdAt}</p>
                 
            
                 
                
-              </ItemsStyle>
-              <RemoveContact id ={contact.id} />
+              </ItemsStyle> 
+             
               
              
-              </div>
+               </div> 
             ))}
             
           </ItemsList>
@@ -113,5 +132,5 @@ const Notification = () => (
   </Query>
  
 );
-export default Notification;
-export { ALL_CONTACTS_QUERY };
+export default AdminOrders;
+export {PENDING_ORDERS_QUERY};
