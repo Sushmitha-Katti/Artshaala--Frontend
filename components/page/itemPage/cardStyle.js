@@ -54,6 +54,10 @@ const Cardstyle = styled.nav`
         color:#FBBD1D;
        
     }
+    .updatebtn{
+        text-decoration:none;
+        color:black;
+    }
     @media only screen and (max-width: 900px) {
         .main{
            // width:150px;

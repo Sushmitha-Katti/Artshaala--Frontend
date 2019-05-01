@@ -292,9 +292,7 @@ class Products extends React.Component{
             
          
         </Query>}
-       <footer>
-           <Footer/> {/** Footer  */}
-       </footer>
+      
        </div>
             )
             }}

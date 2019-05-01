@@ -107,6 +107,7 @@ class Reset extends Component {
               <div className="centerbutton">
                 <input type="submit" name = "check" value = "Reset Password"/>
               </div>
+              { !error && !loading && called && <p>Success password has been reset</p>}
               </div>
               {/* <div className = "signinlink">
                 <p>New User ?

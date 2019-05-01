@@ -52,7 +52,7 @@ const Pagination = props => (
             prefetch
             href={{
               pathname: 'itemPage',
-              query: { page: page + 1 },
+              query: { page: page + 1,type:this.props.type },
             }}
           >
             <a className="next" aria-disabled={page >= pages}>
@@ -68,39 +68,3 @@ const Pagination = props => (
 export default Pagination;
 export { PAGINATION_QUERY };
 
-
-
-{/* <PaginationStyles data-test="pagination">
-          <Head>
-            <title>
-              Sick Fits! — Page {page} of {pages}
-            </title>
-          </Head>
-          <Link
-            prefetch
-            href={{
-              pathname: 'items',
-              query: { page: page - 1 },
-            }}
-          >
-            <a className="prev" aria-disabled={page <= 1}>
-              ← Prev
-            </a>
-          </Link>
-          <p>
-            Page {props.page} of
-            <span className="totalPages">{pages}</span>!
-          </p>
-          <p>{count} Items Total</p>
-          <Link
-            prefetch
-            href={{
-              pathname: 'items',
-              query: { page: page + 1 },
-            }}
-          >
-            <a className="next" aria-disabled={page >= pages}>
-              Next →
-            </a>
-          </Link>
-        </PaginationStyles> */}
