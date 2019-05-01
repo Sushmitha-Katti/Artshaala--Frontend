@@ -8,7 +8,7 @@ import {ALL_CONTACTS_QUERY} from "./notification";
 
 const REMOVE_CONTACT_MUTATION = gql`
   mutation REMOVE_CONTACT_MUTATION($id: ID!) {
-    deleteContact(id: $id) {
+    updateContact(id: $id) {
       id
     }
   }
@@ -17,15 +17,15 @@ const REMOVE_CONTACT_MUTATION = gql`
 const BigButton = styled.button`
   font-size: 1rem;
   background: none;
-  color:red;
-  border: 1px solid red;
+  color:green;
+  border: 1px solid green;
   margin:1rem;
   padding: 0.5rem 1rem;
   border-radius:5%;
   
   &:hover {
     color: white;
-    background:red;
+    background:green;
     cursor: pointer;
   }
 `;
@@ -40,7 +40,7 @@ class RemoveContact extends React.Component {
       // 1. first read the cache
       const data = cache.readQuery({ query: ALL_CONTACTS_QUERY  });
       // 2. remove that contact
-      const contactId = payload.data.deleteContact.id;
+      const contactId = payload.data.updateContact.id;
       data.contacts = data.contacts.filter(contact => contact.id !== contactId);
       // 3. write it back to the cache
       cache.writeQuery({ query: ALL_CONTACTS_QUERY  , data });
@@ -59,15 +59,15 @@ class RemoveContact extends React.Component {
             },
           }}
         >
-          {(removecontact, { loading, error }) => (
+          {(updatecontact, { loading, error }) => (
             <BigButton
               disabled={loading}
               onClick={() => {
-                removecontact().catch(err => alert(err.message));
+                updatecontact().catch(err => alert(err.message));
               }}
-              title="Delete Contact"
+              
             >
-              Delete
+              Mark as Done
             </BigButton>
           )}
         </Mutation>
