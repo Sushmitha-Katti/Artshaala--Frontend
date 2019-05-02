@@ -8,6 +8,27 @@ const PENDING_ORDER_QUERY = gql`
   query PENDING_ORDER_QUERY($id: ID!) {
     order(id: $id) {
       charge
+      total
+      createdAt
+      paymentmode
+      
+      user{
+        id
+        name
+        email
+        address
+       
+      }
+      items{
+        id
+        title
+        description
+        image
+        price
+        quantity
+        itemid
+      }
+      
     }
   }
 `;
