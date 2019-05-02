@@ -75,10 +75,10 @@ class Cart extends Component {
                 </div> */}
               </div>
 
-              <div className="products">
-                {/* <p>RELATED PRODUCTS</p>
-                <Carditems /> */}
-              </div>
+              {/*<div className="products">
+                 <p>RELATED PRODUCTS</p>
+                <Carditems />
+              </div> */}
             </div>
           </Styles>
        )

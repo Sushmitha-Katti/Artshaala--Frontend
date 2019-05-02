@@ -150,7 +150,7 @@ class Products extends React.Component{
              <StarRating   editing={false}
               renderStarIcon={()=> <i class="fa fa-star fa-2x" aria-hidden="true"></i>}
               starCount={5}
-              value={3}/>
+              value={avgrating}/>
              <BlueText>{review} reviews</BlueText>
              </div>
              <br/>
@@ -292,7 +292,6 @@ class Products extends React.Component{
             
          
         </Query>}
-      
        </div>
             )
             }}
