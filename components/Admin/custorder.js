@@ -16,7 +16,7 @@ const PENDING_ORDER_QUERY = gql`
         id
         name
         email
-        address
+        
        
       }
       items{
