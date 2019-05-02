@@ -3,10 +3,11 @@ import styled from "styled-components";
 const Cardstyle = styled.nav`
     .main{
         padding:0px;
-       border:0.6px solid #b3b3b3;
+        border:0.6px solid #b3b3b3;
         width:200px;
         text-align:center;
-        
+        border-radius: 5px;
+        box-shadow: 0 0 10px 3px rgba(0,0,0,0.5);
     }
     .sub{
         text-align:left;

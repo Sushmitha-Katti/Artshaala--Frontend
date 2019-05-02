@@ -8,6 +8,7 @@ const PENDING_ORDER_QUERY = gql`
   query PENDING_ORDER_QUERY($id: ID!) {
     order(id: $id) {
       charge
+      status
     }
   }
 `;
