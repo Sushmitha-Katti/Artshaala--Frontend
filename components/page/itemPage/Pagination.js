@@ -1,11 +1,11 @@
-import React from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
-import Head from 'next/head';
-import Link from 'next/link';
-import PaginationStyles from './PaginationStyles';
-import { perPage } from '../../../config'
-import Error from './ErrorMessage';
+import React from "react";
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
+import Head from "next/head";
+import Link from "next/link";
+import PaginationStyles from "./PaginationStyles";
+import { perPage } from "../../../config";
+import Error from "./ErrorMessage";
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
@@ -22,7 +22,7 @@ const Pagination = props => (
     {({ data, loading, error }) => {
       if (loading) return <p>Loading...</p>;
       if (error) return <Error error={error} />;
-      const count = data.itemsConnection.aggregate.count
+      const count = data.itemsConnection.aggregate.count;
       const pages = Math.ceil(count / perPage);
       const page = Number(props.page);
       return (
@@ -35,8 +35,8 @@ const Pagination = props => (
           <Link
             prefetch
             href={{
-              pathname: 'itemPage',
-              query: { page: page - 1 },
+              pathname: "itemPage",
+              query: { page: page - 1 }
             }}
           >
             <a className="prev" aria-disabled={page <= 1}>
@@ -51,8 +51,8 @@ const Pagination = props => (
           <Link
             prefetch
             href={{
-              pathname: 'itemPage',
-              query: { page: page + 1,type:this.props.type },
+              pathname: "itemPage",
+              query: { page: page + 1 }
             }}
           >
             <a className="next" aria-disabled={page >= pages}>
@@ -67,4 +67,3 @@ const Pagination = props => (
 
 export default Pagination;
 export { PAGINATION_QUERY };
-

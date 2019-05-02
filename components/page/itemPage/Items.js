@@ -123,7 +123,7 @@ class Items extends Component {
     return (
       <div>
 
-        <Pagination page={this.props.page} type={this.props.type}/>
+        <Pagination page={this.props.page}/>
 
         <Query
         // query={this.props.brand?BRAND_ITEMS_QUERY:ALL_ITEMS_QUERY} variables={{ brand:this.props.brand}}
