@@ -8,6 +8,7 @@ const PENDING_ORDER_QUERY = gql`
   query PENDING_ORDER_QUERY($id: ID!) {
     order(id: $id) {
       charge
+<<<<<<< HEAD
       total
       createdAt
       paymentmode
@@ -29,6 +30,9 @@ const PENDING_ORDER_QUERY = gql`
         itemid
       }
       
+=======
+      status
+>>>>>>> b5bcceeb7f0f5c24063063284465d1d9b577413c
     }
   }
 `;
