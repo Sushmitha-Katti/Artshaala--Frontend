@@ -292,7 +292,6 @@ class Products extends React.Component{
             
          
         </Query>}
-       
        </div>
             )
             }}

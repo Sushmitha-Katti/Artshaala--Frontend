@@ -88,13 +88,13 @@ class Sort extends Component {
                     if(loading) <p>Loading..</p>
                     if(error) <p>Error..{error.message}</p>
                     let categorylist = [];
-                    console.log("Data",data);
+                    // console.log("Data",data);
                     data.items.map(category =>
                       categorylist.push(category.category)
                     );
                     let unique_category = Array.from(new Set(categorylist));
 
-                    console.log("unique_category",unique_category);
+                    // console.log("unique_category",unique_category);
                     return (
                       <li className="li-tag">
                         {unique_category.map(category => (
@@ -132,7 +132,7 @@ class Sort extends Component {
                     data.items.map(brand => brandlist.push(brand.brand));
                     let unique_brand = Array.from(new Set(brandlist));
 
-                    console.log("brand", unique_brand);
+                    // console.log("brand", unique_brand);
                     return (
                       <li className="li-tag">
                         {unique_brand.map(brand => (

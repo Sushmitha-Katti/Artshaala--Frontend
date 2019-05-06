@@ -7,7 +7,7 @@ import Nav from "./Nav.js";
 
 let commonlinks = [
    { href: "/", label: "Home" },
-  { href: "/itemPage", label: "Store" },
+  { href: "/itemPage?type=all&page=1", label: "Store" },
    { href: "/services", label: "Services & Repairs" },
    { href: "/rental", label: "Rental" },
    { href: "/about", label: "About" },

@@ -7,43 +7,6 @@ import Router from "next/router";
 import Link from "next/link";
 import Nprogress from 'nprogress';
 
-/*const Form = styled.form`
-  display: flex;
-  justify-content: center;
-  fieldset {
-    border: 4px solid black;
-    padding: 50px;
-    text-align: center;
-    display: grid;
-  }
-  input {
-    width: 400px;
-    height: 30px;
-    margin: 1rem 4rem;
-  }
-  button {
-    width: 100px;
-    height: 40px;
-    background: orange;
-    .centerbutton {
-      display: flex;
-      justify-content: center;
-    }
-  }
-`;*/
-// const CURRENT_USER_QUERY = gql`
-//   query {
-//     me {
-//       id
-//       email
-//       name
-//       permissions
-//       orders {
-//         id
-//       }
-//     }
-//   }
-// `;
 
 const REQUEST_RESET_MUTATION = gql`
   mutation REQUEST_RESET_MUTATION($email: String!) {
@@ -88,6 +51,7 @@ class RequestReset extends Component {
                     : ""}
                 </b>
               </div>
+              
               { !error && !loading && called && <p>Success Check your email for reset</p>}
               <label htmlFor="email">
               <div><b>Email</b></div>
@@ -117,4 +81,3 @@ class RequestReset extends Component {
 }
 
 export default RequestReset;
-// export { CURRENT_USER_QUERY } ;

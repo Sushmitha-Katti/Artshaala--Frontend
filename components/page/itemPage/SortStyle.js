@@ -5,7 +5,7 @@ const SortStyle = styled.nav`
     .multi-level{
         margin-top:20px;
 
-        width:180px;
+        width:250px;
     }
 
     .item{
@@ -76,7 +76,7 @@ const SortStyle = styled.nav`
     }
 
     hr{
-        width:160px;
+        width:230px;
         margin:0;
     }
     .center{

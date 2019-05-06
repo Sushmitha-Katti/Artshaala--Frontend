@@ -4,9 +4,27 @@ const DropDown = styled.div`
   position: absolute;
   width: 60%;
   left:24.5%;
+  /* margin-left:16.5vw; */
   z-index: 200;
   display:block;
   
+  @media(min-width:100px){
+    left:17%;
+  }
+
+  @media(max-width:950px){
+    left:27%;
+  }
+  @media(max-width:850px){
+    left:27.3%;
+  }
+
+  @media(max-width:750px){
+    left:28%;
+  }
+  @media(max-width:650px){
+    left:33%;
+  }
 `;
 
 const DropDownItem = styled.div`
