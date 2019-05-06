@@ -6,6 +6,7 @@ import Cartitems from "./cartitems";
 import Meta from "./meta";
 import User from "../../test/User";
 import Carts from "./carts";
+import Link from "next/link";
 
 
 class Cart extends Component {
@@ -62,9 +63,12 @@ class Cart extends Component {
                   <br />
                   <br />
                   <center>
+                    <Link href = "/add"><a>
                     <button type="input" className="btn btn-default btn-lg">
                       Proceed to Buy
                     </button>
+                    </a>
+                    </Link>
                   </center>
                 </div>
               </div>

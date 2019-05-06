@@ -4,10 +4,12 @@ import gql from "graphql-tag";
 import styled from "styled-components";
 import Link from "next/link";
 import RemoveContact from "./deletecontact";
+import UpdateOrder from "./orderstatusbutton";
 
 const PENDING_ORDER_QUERY = gql`
   query PENDING_ORDER_QUERY($id: ID!) {
     order(id: $id) {
+
       charge
       total
       createdAt
@@ -16,7 +18,17 @@ const PENDING_ORDER_QUERY = gql`
       user{
         id
         name
-        email       
+        email    
+        address{
+          id
+          mobile
+          pincode
+          addressline1
+          addressline2
+          landmark
+          city
+          state
+        }   
       }
       items{
         id
@@ -151,6 +163,16 @@ const AdminOrder = props => (
                 <p><b>Total no. of items: </b>{data.order.total}</p>
                 <p><b>Payment Mode: </b>{data.order.paymentmode}</p>
                 <p><b>Status: </b>{data.order.status}</p>
+                <p><b>Address: </b> {data.order.user.address.mobile}<br></br>
+                {data.order.user.address.pincode}<br/>
+                {data.order.user.address.addressline1}<br/>
+                {data.order.user.address.addressline2}<br/>
+                {data.order.user.address.landmark}<br/>
+                {data.order.user.address.city}<br/>
+                {data.order.user.address.state}</p>
+
+                {data.order.status === "PENDING" && <UpdateOrder id = { props.query.id} />}
+                
               </div>
               
               <div>
