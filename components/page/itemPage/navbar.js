@@ -38,12 +38,12 @@ class Navbar extends Component{
                     <button type="submit" className="search"><i className="fa fa-search fa-lg"></i></button>
                     
                 </span>
-                        <li><Link href="#"><a onClick={() =>this.props.typefunc("")}>All</a></Link></li>
-                        <li><Link href="#"><a onClick={() =>this.props.typefunc("guitar")}>Guitars</a></Link></li>
-                        <li><Link href="#"><a onClick={() => this.props.typefunc("keyboard")}>Keyboards & pianos</a></Link></li>
-                        <li><Link href="#"><a onClick={() => this.props.typefunc("drums")}>Drums</a></Link></li>
-                        <li><Link href="#"><a onClick={() => this.props.typefunc("violin")}>Violins</a></Link></li>
-                        <li><Link href="#"><a onClick={() => this.props.typefunc("Indian Instrument")}>Indian Instruments</a></Link></li>
+                        <li><Link href={{pathname:'/itemPage', query:{type:"all",page:1}}}><a>All</a></Link></li>
+                        <li><Link href={{pathname:'/itemPage', query:{type:"guitar",page:1}}}><a>Guitars</a></Link></li>
+                        <li><Link href={{pathname:'/itemPage', query:{type:"keyboard",page:1}}}><a>Keyboards & pianos</a></Link></li>
+                        <li><Link href={{pathname:'/itemPage', query:{type:"drums",page:1}}}><a>Drums</a></Link></li>
+                        <li><Link href={{pathname:'/itemPage', query:{type:"violin",page:1}}}><a>Violins</a></Link></li>
+                        <li><Link href={{pathname:'/itemPage', query:{type:"Indian Instrument",page:1}}}><a>Indian Instruments</a></Link></li>
                         {/* <li><Link href="#"><a>Others</a></Link></li> */}
                         {/* <li><Link href="#"><a onClick={() => this.props.typefunc("other")}>Others</a></Link></li> */}
                         

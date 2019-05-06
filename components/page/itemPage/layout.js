@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 import CardTemp from "./cardtemp";
 import Sort from "./sort";
-import Items from "./Items"
-
+import Items from "./Items";
 
 const Wrapper = styled.nav`
-display: grid;
-margin: 20px;
-justify-items: center;
-grid-template-columns: 20% 80%;
+  display: grid;
+  margin: 20px;
+  justify-items: center;
+  grid-template-columns: 20% 80%;
 
-@media (max-width:750px){
-    display:block;
+  @media (max-width: 750px) {
+    display: block;
     align-items: center;
-}
+  }
 `;
 
 class Layout extends Component {
   state = {
     category: "",
-    options:[]
+    options: []
   };
 
   Category = a => {
-   
     let category_var = a;
     this.setState({
       category: category_var
@@ -35,12 +33,10 @@ class Layout extends Component {
     // console.log(this.state.options);
 
     let boxes = e;
-    console.log("box", boxes);
-    console.log(this.state);
+    // console.log("box", boxes);
+    // console.log(this.state);
     if (this.state.options.includes(boxes)) {
-      let removedbox = this.state.options.filter(
-        item => item !== e
-      );
+      let removedbox = this.state.options.filter(item => item !== e);
       this.setState({ options: removedbox });
     } else {
       this.setState({
@@ -48,13 +44,12 @@ class Layout extends Component {
       });
     }
 
-    console.log("--------------", this.state.options);
-  }
- 
+    // console.log("--------------", this.state.options);
+  };
+
   render() {
-    
-    console.log("Layout",this.props)
-    console.log("hello", this.state.category);
+    // console.log("Layout", this.props);
+    // console.log("hello", this.state.category);
     return (
       <Wrapper>
         <Sort
@@ -63,7 +58,13 @@ class Layout extends Component {
           CheckedBox={this.CheckedBox}
           type={this.props.type}
         />
-        <Items category={this.state.category} brand= {this.state.options} page={this.props.page} type={this.props.type}/>
+        <Items
+          category={this.state.category}
+          brand={this.state.options}
+          page={this.props.page}
+          type={this.props.type}
+        />
+        {console.log("layout.js",this.props.type)}
 
         {/* <CardTemp/> */}
       </Wrapper>
@@ -71,6 +72,4 @@ class Layout extends Component {
   }
 }
 
-
 export default Layout;
-
