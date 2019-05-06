@@ -16,15 +16,26 @@ const PAGINATION_QUERY = gql`
     }
   }
 `;
+const TYPE_PAGINATION_QUERY = gql`
+  query TYPE_PAGINATION_QUERY($type:String) {
+    itemsConnection(where:{type:$type}) {
+      aggregate {
+        count
+      }
+    }
+  }
+`;
+
 
 const Pagination = props => (
-  <Query query={PAGINATION_QUERY}>
+  <Query query={props.type!='all' ?TYPE_PAGINATION_QUERY:PAGINATION_QUERY} variables={{type:props.type}}>
     {({ data, loading, error }) => {
       if (loading) return <p>Loading...</p>;
       if (error) return <Error error={error} />;
       const count = data.itemsConnection.aggregate.count;
       const pages = Math.ceil(count / perPage);
       const page = Number(props.page);
+      console.log("pagination",props.type);
       return (
         <PaginationStyles data-test="pagination">
           <Head>
@@ -36,7 +47,7 @@ const Pagination = props => (
             prefetch
             href={{
               pathname: "itemPage",
-              query: { page: page - 1 }
+              query: { page: page - 1, type:props.type }
             }}
           >
             <a className="prev" aria-disabled={page <= 1}>
@@ -52,7 +63,7 @@ const Pagination = props => (
             prefetch
             href={{
               pathname: "itemPage",
-              query: { page: page + 1 }
+              query: { page: page + 1, type:props.type }
             }}
           >
             <a className="next" aria-disabled={page >= pages}>

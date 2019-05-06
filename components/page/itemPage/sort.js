@@ -80,7 +80,7 @@ class Sort extends Component {
               </label>
               <hr />
               <ul className="ul-tag">
-                {/* <Query 
+                <Query 
                 query={this.props.type ? TYPE_BASED_ITEMS:ITEMS}
                  variables={{type:this.props.type}}>
                  
@@ -153,7 +153,7 @@ class Sort extends Component {
                       </li>
                     );
                   }}
-                </Query> */}
+                </Query>
 
                 {/* <li className="li-tag"><input type="checkbox" id="checkboxes" className="regular-checkbox" name="vault"/></li>
                                 <span>Vault</span>
