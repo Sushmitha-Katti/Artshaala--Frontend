@@ -44,10 +44,11 @@ class Layout extends Component {
       });
     }
 
-    // console.log("--------------", this.state.options);
+    
   };
 
   render() {
+    console.log("--------------", this.state.options);
     // console.log("Layout", this.props);
     // console.log("hello", this.state.category);
     return (
@@ -57,12 +58,14 @@ class Layout extends Component {
           category={this.Category}
           CheckedBox={this.CheckedBox}
           type={this.props.type}
+         
         />
         <Items
           category={this.state.category}
           brand={this.state.options}
           page={this.props.page}
           type={this.props.type}
+          brand = {this.state.options}
         />
         {console.log("layout.js",this.props.type)}
 

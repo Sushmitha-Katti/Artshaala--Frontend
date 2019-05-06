@@ -7,7 +7,8 @@ const Cardstyle = styled.nav`
         width:200px;
         text-align:center;
         border-radius: 5px;
-        box-shadow: 0 0 10px 3px rgba(0,0,0,0.5);
+        /* box-shadow: 0 0 10px 3px rgba(0,0,0,0.5); */
+        
     }
     .sub{
         text-align:left;
@@ -15,6 +16,9 @@ const Cardstyle = styled.nav`
         font-size:15px;
         width: 185px;
          height: 350px;
+       p{
+           margin:2px 0;
+       }
     }
     .off{
         margin:15px 130px 0;
@@ -36,8 +40,7 @@ const Cardstyle = styled.nav`
     .cost{
         padding:0;
         margin:-6px 2px 2px 2px;
-        color:red;
-        
+     
     }
     .descrip{
         margin-top:5px;
