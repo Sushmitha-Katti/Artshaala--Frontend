@@ -34,7 +34,7 @@ const PENDING_ORDER_QUERY = gql`
         id
         title
         description
-        image
+        images
         price
         quantity
         itemid
@@ -152,7 +152,7 @@ const AdminOrder = props => (
                     <Link href={{pathname:'/product', query:{id:item.itemid}}}>
                       <div className="items">
                         <ItemStyling>
-                          <div><img src= {item.image}/></div>
+                          <div><img src= {item.images[0]}/></div>
                           <div>
                             <p><b>Item id:</b> {item.itemid}</p>
                             <p><b>Title:</b> {item.title}</p>
