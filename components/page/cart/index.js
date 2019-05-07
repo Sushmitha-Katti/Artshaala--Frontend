@@ -24,7 +24,7 @@ class Cart extends Component {
     return (
       <User>
          {({ data :{me} }) => {
-          if(!me) return null; //Todo : Redirect to signin page
+          if(!me) return ; //Todo : Redirect to signin page
         
     
       return (

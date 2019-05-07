@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from '../../test/User';
 import styled from 'styled-components';
 import Head from 'next/head';
+import User from "../../test/User";
 
 
 const RentalWrapper = styled.div`
@@ -231,9 +232,24 @@ const CREATE_ADDRESS_MUTATION = gql`
     }
   }
 `;
+
 const CREATE_ORDER_MUTATION = gql`
-mutation CREATE_ORDER_MUTATION()
+  mutation createOrder( $mode: String!) {
+    createOrder( mode: $mode) {
+      id
+      charge
+      total
+      items {
+        id
+        title
+      }
+    }
+  }
 `;
+
+function totalItems(cart) {
+  return cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
+}
 
 
 
@@ -246,7 +262,7 @@ class AddAddress extends React.Component {
     landmark:"",
     city:"",
     state:"",
-    mode: 0
+    mode: ""
    
   };
 
@@ -257,12 +273,12 @@ class AddAddress extends React.Component {
   setModeon = e => {
     
     
-    this.setState({ mode: 1 });
+    this.setState({ mode: "ONLINE" });
   };
   setModeof = e => {
     
     
-    this.setState({ mode: 2 });
+    this.setState({ mode: "OFFLINE" });
   };
 
 
@@ -273,6 +289,12 @@ class AddAddress extends React.Component {
   };
     render() {
       const { id } = this.props;
+      return (
+      <User>
+         {({ data :{me} }) => {
+          if(!me) return null; //Todo : Redirect to signin page
+       
+      
       return (
         <Mutation
           mutation={CREATE_ADDRESS_MUTATION}
@@ -337,7 +359,26 @@ class AddAddress extends React.Component {
          
          </div> 
          <div className = "paymentmode">
-         <form >
+         /* MUTATION FOR CREATE ORDER  */
+         <Mutation
+              mutation={CREATE_ORDER_MUTATION}
+              variables={this.state}
+              refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+        >
+            {createOrder => (
+         <form 
+         method="post"
+            onSubmit={async e => {
+              //stop submitting form
+              e.preventDefault();
+              //call the mutation
+              console.log(this.state.mode);
+              const res = await createOrder();
+              //change the mutation to the single item page
+              
+              alert("Order is placed successfully")
+            }}
+        >
         
          <h1>Payment Mode</h1>
          <div className = "inputs"><input type="radio" id="s-option" name="selector" onChange = {this.setModeon}/ > <label for="f-option">Pay Online</label></div>
@@ -349,6 +390,8 @@ class AddAddress extends React.Component {
          
         
          </form>
+         )}
+            </Mutation>
          </div>
          </RentalWrapper>
         )}
@@ -356,6 +399,9 @@ class AddAddress extends React.Component {
         </Mutation>
         
       );
+    }}
+    </User>
+    );
     }
   }
   export default AddAddress;
