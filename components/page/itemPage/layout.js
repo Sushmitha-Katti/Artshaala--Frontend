@@ -19,7 +19,9 @@ const Wrapper = styled.nav`
 class Layout extends Component {
   state = {
     category: "",
-    options: []
+    options: [],
+    price:[],
+    rating:[]
   };
 
   Category = a => {
@@ -29,7 +31,7 @@ class Layout extends Component {
     });
   };
 
-  CheckedBox = e => {
+  CheckedBrand = e => {
     // console.log(this.state.options);
 
     let boxes = e;
@@ -42,13 +44,38 @@ class Layout extends Component {
       this.setState({
         options: [...this.state.options, boxes]
       });
-    }
+    }  
+};
 
-    
-  };
-
+CheckedPrice = e => {
+  let boxes = e;
+  // console.log("box", boxes);
+  // console.log(this.state);
+  if (this.state.price.includes(boxes)) {
+    let removedbox = this.state.price.filter(item => item !== e);
+    this.setState({ price: removedbox });
+  } else {
+    this.setState({
+      price: [...this.state.price, boxes]
+    });
+  }  
+}
+CheckedRating = e => {
+  let boxes = e;
+  // console.log("box", boxes);
+  // console.log(this.state);
+  if (this.state.rating.includes(boxes)) {
+    let removedbox = this.state.rating.filter(item => item !== e);
+    this.setState({ rating: removedbox });
+  } else {
+    this.setState({
+      rating: [...this.state.rating, boxes]
+    });
+  }  
+}
   render() {
-    console.log("--------------", this.state.options);
+
+    // console.log("--------------", this.state.price);
     // console.log("Layout", this.props);
     // console.log("hello", this.state.category);
     return (
@@ -56,9 +83,10 @@ class Layout extends Component {
         <Sort
           filterpage={this.props.filterpage}
           category={this.Category}
-          CheckedBox={this.CheckedBox}
+          CheckedBrand={this.CheckedBrand}
           type={this.props.type}
-         
+          CheckedPrice = {this.CheckedPrice}
+         CheckedRating = {this.CheckedRating}
         />
         <Items
           category={this.state.category}
@@ -66,8 +94,11 @@ class Layout extends Component {
           page={this.props.page}
           type={this.props.type}
           brand = {this.state.options}
+          price = {this.state.price}
+          rating = {this.state.rating}
+
         />
-        {console.log("layout.js",this.props.type)}
+        {/* {console.log("layout.js",this.props.type)} */}
 
         {/* <CardTemp/> */}
       </Wrapper>

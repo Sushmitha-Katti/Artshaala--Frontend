@@ -22,13 +22,7 @@ class Main extends Component {
     });
   };
 
-  // Type = async () => {
-  // //  let type_var = a;
-  //   await this.setState({
-  //     type: this.props.prop.query.type,
-  //   });
-  //   console.log("type of url",this.state.type)
-  // };
+
 
   render() {
     const { step } = this.state;
@@ -43,7 +37,7 @@ class Main extends Component {
               page={this.props.prop.query.page}
               type={this.props.prop.query.type}
             />
-            { console.log("type of main",this.state.type)}
+            {/* { console.log("type of main",this.state.type)} */}
           </div>
         );
       case 2:

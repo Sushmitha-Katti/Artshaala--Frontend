@@ -42,10 +42,12 @@ const SortStyle = styled.nav`
         margin:0;
         list-style:none;
         text-decoration:none;
+        color:black;
     }
+    
     .ul-tag{
         margin:0;
-        padding:1vw 0 1vw 0;
+        padding:0.4vw 0 0.4vw 0;
     }
 
     span{
@@ -61,6 +63,9 @@ const SortStyle = styled.nav`
 
     .categories{
         margin:0;
+    }
+    .categories:hover{
+        color: orange;
     }
     label{
         
