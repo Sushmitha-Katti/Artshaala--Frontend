@@ -15,7 +15,7 @@ const Cardstyle = styled.nav`
         margin-left:15px;
         font-size:15px;
         width: 185px;
-         height: 350px;
+         height: 400px;
        p{
            margin:2px 0;
        }

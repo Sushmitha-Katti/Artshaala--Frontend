@@ -143,8 +143,8 @@ brandPrice = (x,y,a,b)=> {
             // console.log("*******************************",this.props.brand?this.props.brand:"");
             // console.log("data",data.items)
             let res=data.items;
-             console.log("this.props.brand",this.props.brand)
-             console.log("this.props.price",this.props.price)
+            //  console.log("this.props.brand",this.props.brand)
+            //  console.log("this.props.price",this.props.price)
             this.props.price && this.props.brand==0 ?(res =(data.items).filter(f=>this.prices(f.price,this.props.price))):res;
             this.props.brand && this.props.price==0 ? (res =(data.items).filter(f=>this.filters(f.brand,this.props.brand))):res;
             this.props.brand!=0 && this.props.price!=0 ? (res =(data.items).filter(f=>this.brandPrice(f.brand,f.price,this.props.brand,this.props.price))):res;
