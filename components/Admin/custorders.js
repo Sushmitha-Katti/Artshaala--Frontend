@@ -14,6 +14,22 @@ adminorders{
     charge
     createdAt
     paymentmode
+    status
+   
+
+}
+  }
+  
+`;
+const STATUS_ORDERS_QUERY = gql`
+  query STATUS_ORDERS_QUERY($status: STATUS) {
+adminorders(status: status){
+    id
+    total
+    charge
+    createdAt
+    paymentmode
+    status
    
 
 }
@@ -30,11 +46,25 @@ const ItemsList = styled.div`
   margin: 2rem 4rem;
   justify-content: center;
   align-items: center;
+  .deliverystatus{
+   
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+    button{
+      border:none;
+      background:none;
+      cursor: pointer;
+      color:grey;
+    }
+  }
 
   .eachcontact{
     border:1px solid orange;
     border-radius: 3%;
     margin:2rem;
+    cursor: pointer;
    
     padding-bottom: 2rem;
     button{
@@ -78,6 +108,7 @@ display: grid;
 `;
 
 const AdminOrders = () => (
+  
 
   <Query query={PENDING_ORDERS_QUERY}>
     {({ data, loading, error }) => {
@@ -88,6 +119,7 @@ const AdminOrders = () => (
         <div  >
           
           <ItemsList>
+          
             {adminorders.map(order => (
                 <div className = "eachcontact">
                <Link href={{pathname:'/individualorders', query:{id:order.id}}}>
@@ -98,7 +130,8 @@ const AdminOrders = () => (
             
                 <b>charge: </b><p>{order.charge}</p>
                 
-                <b>createdAt: </b><p>{order.createdAt}</p>
+                <b>Ordered: </b><p>{order.createdAt}</p>
+                <b>Status: </b>{order.status === "DELIVERED" &&  <p style = {{color:"green"}}>DELIVERED</p>}{order.status === "PENDING" &&  <p style = {{color:"red"}}>PENDING</p>}
                 
            
                 

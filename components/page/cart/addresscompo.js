@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from '../../test/User';
 import styled from 'styled-components';
+import Head from 'next/head';
 
 
 const RentalWrapper = styled.div`
@@ -76,12 +77,27 @@ const RentalWrapper = styled.div`
               
           
             }
+            
          label{
           margin-left:1rem;
          }
               
               
               
+            }
+            .btn{
+              background: #f7bb2f;
+              border: 1px solid #f7bb2f;
+              padding: 2px 5px;
+              border-radius: 5%;
+              width: 90%;
+              color: white;
+              margin: 0.5rem 1rem;
+              padding: 0.8rem 0.7rem;
+
+            }
+            .btn:hover{
+              background:orange;
             }
         }
         .inputs:hover{
@@ -146,6 +162,7 @@ const RentalWrapper = styled.div`
                 margin:0.3rem;
                 font-size:0.8rem;
             }
+           
         }
         .renatlform{
         .formwrapper{
@@ -226,9 +243,22 @@ class AddAddress extends React.Component {
     landmark:"",
     city:"",
     state:"",
+    mode: 0
    
   };
   
+  setModeon = e => {
+    
+    
+    this.setState({ mode: 1 });
+  };
+  setModeof = e => {
+    
+    
+    this.setState({ mode: 2 });
+  };
+
+
   saveToState = e => {
     const { name, type, value } = e.target;
     const val = value;
@@ -300,11 +330,12 @@ class AddAddress extends React.Component {
          
          </div> 
          <div className = "paymentmode">
-         <form>
+         <form >
+        
          <h1>Payment Mode</h1>
-         <div className = "inputs"><input type="radio" id="s-option" name="selector"/> <label for="f-option">Pay Online</label></div>
-         <div className = "inputs"><input type="radio" id="s-option" name="selector"/> <label for="f-option">Pay Offline</label></div>
-     
+         <div className = "inputs"><input type="radio" id="s-option" name="selector" onChange = {this.setModeon}/ > <label for="f-option">Pay Online</label></div>
+         <div className = "inputs"><input type="radio" id="s-option" name="selector" onChange = {this.setModeof}/> <label for="f-option">Pay Offline</label></div>
+         {this.state.mode?  <div ><button type = "submit" className = "btn">CONFIRM</button></div>: null}
           
          
          

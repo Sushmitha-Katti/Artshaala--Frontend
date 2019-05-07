@@ -12,6 +12,7 @@ const USER_ORDERS_QUERY = gql`
       id
       total
       createdAt
+      status
       items {
         id
         title
@@ -62,14 +63,14 @@ flex-direction:column;
     position:relative;
 } 
 .orderheader{
-    position:absolute;
+    
     opacity:0.5;
     left:0;
     top:0;
     height:15%;
     width:100%;
     background-color:#C0C0C0;
-    z-index:-1;
+   
     margin:0 0 0.5rem 0;
 }
     
@@ -189,7 +190,7 @@ class Orderpage extends Component {
 
             <div className = "SingleOrder" key = {order.id}> {/* Each individual orders  */}
                 <div className = "orderheader"> </div>
-                <div className = "Orderheadervalues"><div> order Id:  {order.id}</div><div>total :{order.total}</div></div>
+                <div className = "Orderheadervalues"><div> order Id:  {order.id}</div><div>status: {order.status}</div><div>total :{order.total}</div></div>
                
                 
                 <br></br>

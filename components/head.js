@@ -77,7 +77,10 @@ const Head = props => (
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
     />
+     
      <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
+     
+     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </NextHead>
 );
 
