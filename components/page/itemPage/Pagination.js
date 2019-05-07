@@ -58,7 +58,7 @@ const Pagination = props => (
             Page {props.page} of
             <span className="totalPages"> {pages}</span>
           </p>
-          <p>{count} Items Total</p>
+          <p className="next">{count} Items Total</p>
           <Link
             prefetch
             href={{
