@@ -65,8 +65,6 @@ query TYPE_ITEMS_QUERY($type: String!) {
 }
 `;
 
-// not using now:
-
 const ITEMS_QUERY = gql`
 
   query ITEMS_QUERY($category: String!, $type:String!) {
@@ -81,19 +79,7 @@ const ITEMS_QUERY = gql`
     }
   }
 `;
-// const BRAND_ITEMS_QUERY = gql`
-// query BRAND_ITEMS_QUERY($brand: String!) {
-//         items(where: { brand_in: [$brand] })
-//             {
-//                 id
-//                 title
-//                 brand
-//                 type
-//                 price
-//                 images
-//             }
-// }
-// `;
+
 
 
 class Items extends Component {
@@ -102,7 +88,31 @@ class Items extends Component {
     return {query}
   }
   
-
+  filters = (x,a)=> {
+    let i;
+    for(i=0;i<a.length;i++){
+    	if(x == a[i]){
+            return x
+        }
+    }
+}
+prices = (x,a)=> {
+  let i;
+  for(i=0;i<a.length;i++){
+    if(x <= a[i] && x >= (a[i]-4000)){
+          return x
+      }
+  }
+}
+brandPrice = (x,y,a,b)=> {
+  let i;
+  let len = a.length + b.length;
+  for(i=0;i<len;i++){
+    if(x == a[i] && y <=b[i]){
+          return x,y
+      }
+  }
+}
  
 
   render() {
@@ -122,22 +132,29 @@ class Items extends Component {
     // console.log("brand of items.js",this.props.brand)
     return (
       <div>
-
-        <Pagination page={this.props.page} type={this.props.type}/>
+{this.props.type!= 'all'?"":<Pagination page={this.props.page} type={this.props.type}/>}
 
         <Query
-        // query={this.props.brand?BRAND_ITEMS_QUERY:ALL_ITEMS_QUERY} variables={{ brand:this.props.brand}}
            query={this.props.type!=="all" ? (this.props.category ? ITEMS_QUERY : TYPE_ITEMS_QUERY):ALL_ITEMS_QUERY}
           // fetchPolicy="network-only"
           variables={{ category: this.props.category, type:this.props.type, skip:this.props.page*perPage-perPage,first:perPage}} // skip the first n item and display the the next m items. m specified in first:m
         >
           {({ data, error, loading }) => {
-            // console.log("*******************************");
+            // console.log("*******************************",this.props.brand?this.props.brand:"");
+            // console.log("data",data.items)
+            let res=data.items;
+             console.log("this.props.brand",this.props.brand)
+             console.log("this.props.price",this.props.price)
+            this.props.price && this.props.brand==0 ?(res =(data.items).filter(f=>this.prices(f.price,this.props.price))):res;
+            this.props.brand && this.props.price==0 ? (res =(data.items).filter(f=>this.filters(f.brand,this.props.brand))):res;
+            this.props.brand!=0 && this.props.price!=0 ? (res =(data.items).filter(f=>this.brandPrice(f.brand,f.price,this.props.brand,this.props.price))):res;
+
+
             if(loading) return <p>Loading</p>
             if(error) return <p>Error: {error.message}</p>
-            if (!data.items) return <p>No data</p>;
+            if (!data.items) return <p>No data</p>; 
             else {
-              let cards = data.items.map(card => {
+              let cards =(res!=0? res: (data.items)).map(card => {
                 card.key = `{card.id}`;
                 return card;
               });
@@ -167,21 +184,5 @@ class Items extends Component {
 export default Items;
 export {ALL_ITEMS_QUERY };
 
-
-// variables={{ category: this.props.category, skip:this.props.page*perPage-perPage,first:perPage}}
-
-// const ALL_ITEMS_QUERY = gql`
-//   query ALL_ITEMS_QUERY($skip:Int = 0,$first:Int=${perPage}) {
-//     items(first:$first,skip:$skip,orderBy:createdAt_DESC) {
-//       id
-//       title
-//       price
-//       images
-//       category
-//       type
-//       brand
-//     }
-//   }
-// `;
 
 

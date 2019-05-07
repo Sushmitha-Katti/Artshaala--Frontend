@@ -38,6 +38,7 @@ class Navbar extends Component{
                     <button type="submit" className="search"><i className="fa fa-search fa-lg"></i></button>
                     
                 </span>
+                        <li><Link href="/"><a>Home</a></Link></li>
                         <li><Link href={{pathname:'/itemPage', query:{type:"all",page:1}}}><a>All</a></Link></li>
                         <li><Link href={{pathname:'/itemPage', query:{type:"guitar",page:1}}}><a>Guitars</a></Link></li>
                         <li><Link href={{pathname:'/itemPage', query:{type:"keyboard",page:1}}}><a>Keyboards & pianos</a></Link></li>

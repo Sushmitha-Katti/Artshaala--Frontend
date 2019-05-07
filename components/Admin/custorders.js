@@ -131,8 +131,11 @@ const AdminOrders = () => (
             
                 <b>charge: </b><p>{order.charge}</p>
                 
+
                 <b>Ordered: </b><p>{order.createdAt}</p>
                 <b>Status: </b>{order.status === "DELIVERED" &&  <b style = {{color:"green"}}>DELIVERED</b>}{order.status === "PENDING" &&  <b style = {{color:"red"}}>PENDING</b>}
+
+            
                 
            
                 

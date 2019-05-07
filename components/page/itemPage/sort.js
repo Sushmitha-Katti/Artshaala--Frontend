@@ -43,17 +43,18 @@ class Sort extends Component {
     this.props.filterpage();
   };
 
+  
 
   render() {
+    
     return (
 
-      
+    
 
       <SortStyle>
-        
-        {/* for phone view */}
+        {this.props.type =='all'?"": 
 
-
+     ( <div>
         <div className="center">
           <button onClick={this.filterpages} className="filterbutton">
             <i className="fa fa-filter" /> Filter
@@ -144,7 +145,7 @@ class Sort extends Component {
                                 className="regular-checkbox"
                                 name={brand}
                                 value={brand}
-                                onChange={e => this.props.CheckedBox(brand)}
+                                onChange={e => this.props.CheckedBrand(brand)}
                               />
                             </li>
                             <span>{brand}</span>
@@ -155,15 +156,7 @@ class Sort extends Component {
                   }}
                 </Query>
 
-                {/* <li className="li-tag"><input type="checkbox" id="checkboxes" className="regular-checkbox" name="vault"/></li>
-                                <span>Vault</span>
-                                <li className="li-tag"><input type="checkbox" id="checkboxes" name="yamaha"/></li>
-                                <span>Yamaha</span>
-                                <li className="li-tag"><input type="checkbox" id="checkboxes" name="fender"/></li>
-                                <span>Fender</span>
-                                <li className="li-tag"><input type="checkbox" id="checkboxes" name="cort"/></li>
-                                <span>Cort</span> */}
-
+          
               </ul>
             </div>
             <div className="item">
@@ -173,24 +166,15 @@ class Sort extends Component {
                 <i className="fa fa-chevron-down" />
               </label>
               <hr />
+             { [1000,5000,10000,15000,20000].map((f,index,array)=>
+              array[index+1]!=null?
               <ul className="ul-tag">
                 <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="rs1" />
+                  <input type="checkbox" id="checkboxes" name="rs1" value={array[index+1]}  onChange={e => this.props.CheckedPrice(array[index+1])} />
                 </li>
-                <span>Rs. 1000 to Rs. 5000</span>
-                <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="rs2" />
-                </li>
-                <span>Rs. 50000 to Rs. 10,000</span>
-                <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="rs3" />
-                </li>
-                <span>Rs. 10,000 to Rs. 15,000</span>
-                <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="rs4" />
-                </li>
-                <span>Rs. 15,000 to Rs. 20,000</span>
-              </ul>
+                <span>Rs. {array[index].toLocaleString()} to Rs. {array[index+1].toLocaleString()}</span></ul>:""
+              )}
+              
             </div>
             <div className="item">
               <input type="checkbox" id="D" />
@@ -199,31 +183,19 @@ class Sort extends Component {
                 <i className="fa fa-chevron-down" />
               </label>
               <hr />
+              { [5,4,3.5,3].map((f,index,array)=>
               <ul className="ul-tag">
                 <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="stars5" />
+                  <input type="checkbox" id="checkboxes" name="rs1" value={array[index]}  onChange={e => this.props.CheckedRating(array[index])} />
                 </li>
-                <span>5 Stars</span>
-                <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="stars4.5" />
-                </li>
-                <span>4.5 Stars</span>
-                <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="stars4" />
-                </li>
-                <span>4 stars</span>
-                <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="stars3.5" />
-                </li>
-                <span>3.5 Stars</span>
-                <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="stars3" />
-                </li>
-                <span>3 Stars</span>
-              </ul>
+                <span>{array[index]} Stars</span></ul>
+              )}
+             
             </div>
           </div>
         </div>
+            </div> ) }
+      
       </SortStyle>
                               
                             
