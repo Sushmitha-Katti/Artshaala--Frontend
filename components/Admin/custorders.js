@@ -43,7 +43,7 @@ adminorders(status: status){
 const ItemsList = styled.div`
   display: grid;
   flex-wrap: wrap;
-  margin: 2rem 4rem;
+  margin: 1rem 4rem;
   justify-content: center;
   align-items: center;
   .deliverystatus{
@@ -63,7 +63,7 @@ const ItemsList = styled.div`
   .eachcontact{
     border:1px solid orange;
     border-radius: 3%;
-    margin:2rem;
+    margin:1rem;
     cursor: pointer;
    
     padding-bottom: 2rem;
@@ -72,7 +72,7 @@ const ItemsList = styled.div`
       background:none;
       border: 1px solid red;
       border-radius:5%;
-      margin:2rem;
+      margin:1rem;
       color:red;
 
   }
@@ -119,6 +119,7 @@ const AdminOrders = () => (
         <div  >
           
           <ItemsList>
+          <div style = {{textAlign:"center"}}><h1>Orders</h1></div>
           
             {adminorders.map(order => (
                 <div className = "eachcontact">
@@ -131,7 +132,7 @@ const AdminOrders = () => (
                 <b>charge: </b><p>{order.charge}</p>
                 
                 <b>Ordered: </b><p>{order.createdAt}</p>
-                <b>Status: </b>{order.status === "DELIVERED" &&  <p style = {{color:"green"}}>DELIVERED</p>}{order.status === "PENDING" &&  <p style = {{color:"red"}}>PENDING</p>}
+                <b>Status: </b>{order.status === "DELIVERED" &&  <b style = {{color:"green"}}>DELIVERED</b>}{order.status === "PENDING" &&  <b style = {{color:"red"}}>PENDING</b>}
                 
            
                 
