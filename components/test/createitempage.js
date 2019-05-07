@@ -133,7 +133,8 @@ class CreateItemPage extends Component {
           else 
          
           return(
-      <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
+      <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}
+      >
         {(createItem, { error, loading }) => (
           <Form
             method="post"
