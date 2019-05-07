@@ -43,34 +43,6 @@ const PENDING_ORDER_QUERY = gql`
   }
 `;
 
-// const ItemsList = styled.div`
-//   display: grid;
-//   flex-wrap: wrap;
-//   margin: 2rem 4rem;
-//   justify-content: center;
-//   align-items: center;
-
-//   .eachcontact {
-//     border: 3px solid orange;
-//     border-radius: 3%;
-//     margin: 2rem;
-
-//     padding-bottom: 2rem;
-//     button {
-//       padding: 1rem 3rem;
-//       background: none;
-//       border: 1px solid red;
-//       border-radius: 5%;
-//       margin: 2rem;
-//       color: red;
-//     }
-//     button:hover {
-//       background: red;
-//       color: white;
-//     }
-//   }
-// `;
-
 
 const ItemsList = styled.nav `
 
