@@ -231,6 +231,9 @@ const CREATE_ADDRESS_MUTATION = gql`
     }
   }
 `;
+const CREATE_ORDER_MUTATION = gql`
+mutation CREATE_ORDER_MUTATION()
+`;
 
 
 
@@ -246,6 +249,10 @@ class AddAddress extends React.Component {
     mode: 0
    
   };
+
+  handlepayment = async  e => {
+
+  }
   
   setModeon = e => {
     
