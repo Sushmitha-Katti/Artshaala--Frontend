@@ -151,7 +151,7 @@ const AdminOrder = props => (
           console.log(error);
         }
         let tot_amt = []
-        // console.log("custorder.js",data);
+        console.log("custorder.js",data);
         return (
             <ItemsList>
             <ItemsStyle>
