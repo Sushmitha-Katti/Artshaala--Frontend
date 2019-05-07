@@ -102,7 +102,14 @@ class Items extends Component {
     return {query}
   }
   
-
+  filters = (x,a)=> {
+    let i;
+    for(i=0;i<a.length;i++){
+    	if(x == a[i]){
+            return x
+        }
+    }
+}
  
 
   render() {
@@ -132,12 +139,21 @@ class Items extends Component {
           variables={{ category: this.props.category, type:this.props.type, skip:this.props.page*perPage-perPage,first:perPage}} // skip the first n item and display the the next m items. m specified in first:m
         >
           {({ data, error, loading }) => {
-            // console.log("*******************************");
+            console.log("*******************************",this.props.brand?this.props.brand:"");
+            console.log("data",data.items)
+            let res=data.items;
+            console.log("this.props.brand",this.props.brand)
+            
+            this.props.brand ? (res =(data.items).filter(f=>this.filters(f.brand,this.props.brand))):res;
+           console.log("res",res.length)
             if(loading) return <p>Loading</p>
             if(error) return <p>Error: {error.message}</p>
             if (!data.items) return <p>No data</p>;
+
+            
+            
             else {
-              let cards = data.items.map(card => {
+              let cards =(res!=0? res: (data.items)).map(card => {
                 card.key = `{card.id}`;
                 return card;
               });

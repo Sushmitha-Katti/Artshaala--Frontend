@@ -155,15 +155,7 @@ class Sort extends Component {
                   }}
                 </Query>
 
-                {/* <li className="li-tag"><input type="checkbox" id="checkboxes" className="regular-checkbox" name="vault"/></li>
-                                <span>Vault</span>
-                                <li className="li-tag"><input type="checkbox" id="checkboxes" name="yamaha"/></li>
-                                <span>Yamaha</span>
-                                <li className="li-tag"><input type="checkbox" id="checkboxes" name="fender"/></li>
-                                <span>Fender</span>
-                                <li className="li-tag"><input type="checkbox" id="checkboxes" name="cort"/></li>
-                                <span>Cort</span> */}
-
+          
               </ul>
             </div>
             <div className="item">
