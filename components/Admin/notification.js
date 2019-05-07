@@ -23,22 +23,22 @@ const ALL_CONTACTS_QUERY = gql`
 const ItemsList = styled.div`
   display: grid;
   flex-wrap: wrap;
-  margin: 2rem 4rem;
+  margin: 1rem 4rem;
   justify-content: center;
   align-items: center;
 
   .eachcontact{
     border:1px solid orange;
     border-radius: 3%;
-    margin:2rem;
+    margin:1rem;
    
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     button{
-      padding: 1rem 3rem;
+      padding: 1rem 2rem;
       background:none;
       border: 1px solid green;
       border-radius:5%;
-      margin:2rem;
+      margin:1rem;
       color:green;
 
   }
@@ -77,13 +77,15 @@ const Notification = () => (
 
   <Query query={ALL_CONTACTS_QUERY}>
     {({ data }) => {
-      let { contacts } = data;
-      console.log(contacts);
+      let { contacts } = data
+      console.log(contacts)
 
       return (
         <div  >
           
+          
           <ItemsList>
+          <div style = {{textAlign:"center"}}><h1>Contacts</h1></div>
             {contacts.map(contact => (
                 <div className = "eachcontact">
               <ItemsStyle>

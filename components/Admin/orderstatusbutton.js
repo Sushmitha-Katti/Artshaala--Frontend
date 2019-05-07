@@ -64,6 +64,7 @@ class UpdateOrder extends React.Component {
               disabled={loading}
               onClick={() => {
                 updateorder().catch(err => alert(err.message));
+                alert("Changed status to delivered")
               }}
               
             >
