@@ -12,9 +12,9 @@ class FilterMobile extends Component{
     state={
         step:1,
         category:'',
-        brand:'',
-        pricing:'',
-        rating:''
+        brand:[],
+        pricing:[],
+        rating:[]
     }
     
     stepOne = () => {
@@ -57,40 +57,15 @@ class FilterMobile extends Component{
     }
 
     Category = a => {
-        let category_var = a;
-        this.setState({
-          category: category_var
-        });
+       this.props.category(a)
       };
-      CheckedBrand = e => {
-        // console.log(this.state.options);
-    
-        let boxes = e;
-        // console.log("box", boxes);
-        // console.log(this.state);
-        if (this.state.options.includes(boxes)) {
-          let removedbox = this.state.options.filter(item => item !== e);
-          this.setState({ options: removedbox });
-        } else {
-          this.setState({
-            options: [...this.state.options, boxes]
-          });
-        }  
+      CheckedBrand = a => {
+        this.props.CheckedBrand(a)
     };
     
     CheckedPrice = e => {
-      let boxes = e;
-      // console.log("box", boxes);
-      // console.log(this.state);
-      if (this.state.price.includes(boxes)) {
-        let removedbox = this.state.price.filter(item => item !== e);
-        this.setState({ price: removedbox });
-      } else {
-        this.setState({
-          price: [...this.state.price, boxes]
-        });
-      }  
-    }
+      this.props.CheckedPrice(e)
+    };
     CheckedRating = e => {
       let boxes = e;
       // console.log("box", boxes);

@@ -15,24 +15,19 @@ class Pricing extends Component {
                     <button onClick={this.filterpage} className="icon" ><i class="fa fa-arrow-left"></i></button>
                     <span className="title">Pricing</span>
                 </div>
-                    <ul className="list">
-                        <div className="items">
-                            <span className="texts">Rs. 1000 to Rs. 5000</span>
-                            <li><input type="checkbox" id="checkboxes" name="rs1"/></li>
-                        </div>        
-                        <div className="items">        
-                            <span className="texts">Rs. 50000 to Rs. 10,000</span>
-                            <li><input type="checkbox" id="checkboxes" name="rs2"/></li>
-                        </div>        
-                        <div className="items">        
-                            <span className="texts">Rs. 10,000 to Rs. 15,000</span>
-                            <li><input type="checkbox" id="checkboxes" name="rs3"/></li>
-                        </div>        
-                        <div className="items">        
-                            <span className="texts">Rs. 15,000 to Rs. 20,000</span>
-                            <li><input type="checkbox" id="checkboxes" name="rs4"/></li>
-                        </div>              
-                            </ul>
+                <ul className="list">
+                { [1000,5000,10000,15000,20000].map((f,index,array)=>
+              array[index+1]!=null?
+              <div className="items">
+              <span className="texts">Rs. {array[index].toLocaleString()} to Rs. {array[index+1].toLocaleString()}</span>
+                <li>
+                  <input type="checkbox" id="checkboxes" name="rs1" value={array[index+1]}  onChange={e => this.props.CheckedPrice(array[index+1])} />
+                </li>
+                </div>:""
+              )}
+              </ul>
+              
+                   
             </FilterMobileStyle>
     )
   }

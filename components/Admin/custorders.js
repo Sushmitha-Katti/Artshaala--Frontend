@@ -23,7 +23,7 @@ adminorders{
 `;
 const STATUS_ORDERS_QUERY = gql`
   query STATUS_ORDERS_QUERY($status: STATUS) {
-adminorders(status: status){
+adminorders(where:{status: $status}){
     id
     total
     charge
