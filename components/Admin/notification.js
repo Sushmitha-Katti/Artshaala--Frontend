@@ -7,13 +7,14 @@ import RemoveContact from "./deletecontact";
 const ALL_CONTACTS_QUERY = gql`
   query {
     contacts {
-      id
-      email
-      phone
-      subject
-      message
-      name
-      status
+        id
+        email
+        phone
+        subject
+        message
+        name
+        status
+        createdAt
     }
   }
 `;
@@ -85,11 +86,13 @@ const Notification = () => (
                   <p>{contact.message}</p>
                   <b>Status: </b>
                   <p>{contact.status}</p>
-                </ItemsStyle>
-                {
+                  
+                <b>Date: </b><p>{contact.createdAt.split('T')[0] }</p>
+                <b>Time: </b><p>{contact.createdAt.split('T')[1].split('.')[0]}</p>               
+              </ItemsStyle>
+              {
                   contact.status == "DONE" ? null : <RemoveContact id={contact.id} />
                 }
-                
               </div>
             ))}
           </ItemsList>
