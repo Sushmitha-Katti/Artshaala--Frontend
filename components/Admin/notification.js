@@ -69,7 +69,7 @@ const Notification = () => (
         <div>
           <ItemsList>
             <div style={{ textAlign: "center" }}>
-              <h1>Contacts</h1>
+              <h1>Notification of Contacts</h1>
             </div>
             {contacts.map(contact => (
               <div className="eachcontact">

@@ -69,7 +69,7 @@ class Contact extends Component {
                  
                 
                }}>
-                <p>Get in Touch</p>
+                <p className="parag">Get in Touch</p>
                 <div>
                   <input type="text" name="name" placeholder="Name" value={this.state.name}
               onChange={this.saveToState}

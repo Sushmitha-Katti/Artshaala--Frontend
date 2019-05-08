@@ -3,8 +3,6 @@ import Styled from "styled-components";
 const AboutStyle = Styled.nav`
 
     font-family:"Monsterrat",sans-serif;
-
-
     .main{
         text-align:center;
     }
@@ -14,7 +12,7 @@ const AboutStyle = Styled.nav`
     justify-content: space-around;
     padding: 0;
     margin: 1rem 3rem;
-    grid-template-columns: 1fr 0.3fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
     grid-gap: 0rem;
     justify-items: center;
 
@@ -34,24 +32,33 @@ const AboutStyle = Styled.nav`
     
   }
     .para{
-        text-align:left;
-        margin:0 7rem ;
+        text-align:justify;
+        margin:0 5rem ;
         font-size:20px;
+        height: auto;
     }
     .enquiry{
-        
         background-color:#F7BB2F;
         border:solid 1px #F7BB2F;
         border-radius:3%;
         padding:12px 25px;
         font-size:20px;
-        position: relative;
-        marign:2px;
         text-decoration:none;
         color:white;
+        display:block;
+        margin:auto;
+        width:7rem;
     }
     .enquiry:hover{
         color:black;
+    }
+
+    @media only screen and (max-width: 480px){
+        .para {
+            text-align:justify;
+            margin:0 2rem ;
+            font-size:20px;
+        }
     }
 
 `;

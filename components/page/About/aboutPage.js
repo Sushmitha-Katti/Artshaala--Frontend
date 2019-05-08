@@ -33,10 +33,13 @@ class AboutPage extends Component {
             view our magnificent instrument collection. Artshaala…your one stop
             neighbourhood musical partner!
           </p>
+          <div style={{paddingTop: 10}}>
           <Link href = "/contact#contactForm">
-          <a className="enquiry">Enquiry</a>
+          <button className="enquiry">Enquiry</button>
           </Link>
+          </div>
         </div>
+        
       </AboutStyle>
     );
   }
