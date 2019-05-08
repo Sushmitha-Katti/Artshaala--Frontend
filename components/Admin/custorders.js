@@ -113,7 +113,7 @@ const AdminOrders = () => (
   <Query query={PENDING_ORDERS_QUERY}>
     {({ data, loading, error }) => {
       let { adminorders } = data;
-      console.log(data);
+      console.log("admin",data);
 
       return (
         <div  >

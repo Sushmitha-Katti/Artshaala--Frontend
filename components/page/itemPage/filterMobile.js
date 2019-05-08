@@ -56,6 +56,55 @@ class FilterMobile extends Component{
         this.setState({ [input]: e.target.value });
     }
 
+    Category = a => {
+        let category_var = a;
+        this.setState({
+          category: category_var
+        });
+      };
+      CheckedBrand = e => {
+        // console.log(this.state.options);
+    
+        let boxes = e;
+        // console.log("box", boxes);
+        // console.log(this.state);
+        if (this.state.options.includes(boxes)) {
+          let removedbox = this.state.options.filter(item => item !== e);
+          this.setState({ options: removedbox });
+        } else {
+          this.setState({
+            options: [...this.state.options, boxes]
+          });
+        }  
+    };
+    
+    CheckedPrice = e => {
+      let boxes = e;
+      // console.log("box", boxes);
+      // console.log(this.state);
+      if (this.state.price.includes(boxes)) {
+        let removedbox = this.state.price.filter(item => item !== e);
+        this.setState({ price: removedbox });
+      } else {
+        this.setState({
+          price: [...this.state.price, boxes]
+        });
+      }  
+    }
+    CheckedRating = e => {
+      let boxes = e;
+      // console.log("box", boxes);
+      // console.log(this.state);
+      if (this.state.rating.includes(boxes)) {
+        let removedbox = this.state.rating.filter(item => item !== e);
+        this.setState({ rating: removedbox });
+      } else {
+        this.setState({
+          rating: [...this.state.rating, boxes]
+        });
+      }  
+    }    
+
     render(){
         const { step } = this.state;
         const { category,brand,pricing,rating } = this.state;
@@ -80,6 +129,9 @@ class FilterMobile extends Component{
                         stepOne ={this.stepOne}
                         handleChange = {this.handleChange}
                         values={values}
+                        type={this.props.type}
+                        category={this.Category}
+                        // page={this.props.page}
                     />
                 )
             case 3:
@@ -88,6 +140,8 @@ class FilterMobile extends Component{
                     stepOne ={this.stepOne}
                     handleChange = {this.handleChange}
                     values={values}
+                    type={this.props.type}
+                    CheckedBrand={this.CheckedBrand}
                 />
             )
             case 4:
@@ -96,6 +150,8 @@ class FilterMobile extends Component{
                     stepOne ={this.stepOne}
                     handleChange = {this.handleChange}
                     values={values}
+                    type={this.props.type}
+                    CheckedPrice = {this.CheckedPrice}
                 />
             )
             case 5:
@@ -104,6 +160,8 @@ class FilterMobile extends Component{
                     stepOne ={this.stepOne}
                     handleChange = {this.handleChange}
                     values={values}
+                    type={this.props.type}
+                    CheckedRating = {this.CheckedRating}
                 />
             )
         }

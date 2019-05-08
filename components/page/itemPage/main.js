@@ -41,7 +41,11 @@ class Main extends Component {
           </div>
         );
       case 2:
-        return <FilterMobile mainpage={this.mainpage} />;
+        return <FilterMobile 
+        mainpage={this.mainpage}
+        page={this.props.prop.query.page}
+        type={this.props.prop.query.type}
+        />;
     }
 
     return <div />;

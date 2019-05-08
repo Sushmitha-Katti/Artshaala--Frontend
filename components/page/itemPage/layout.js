@@ -93,7 +93,6 @@ CheckedRating = e => {
           brand={this.state.options}
           page={this.props.page}
           type={this.props.type}
-          brand = {this.state.options}
           price = {this.state.price}
           rating = {this.state.rating}
 
