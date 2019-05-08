@@ -8,13 +8,14 @@ import RemoveContact from "./deletecontact";
 
 const ALL_CONTACTS_QUERY = gql`
   query {
-    contacts {
+    contacts(orderBy: createdAt_DESC) {
         id
         email
         phone
         subject
         message
         name
+        createdAt
     }
   }
 `;
@@ -96,7 +97,8 @@ const Notification = () => (
                 <b>Subject: </b><p>{contact.subject}</p>
                 
                 <b>Message: </b><p>{contact.message}</p>
-                
+                <b>Date: </b><p>{contact.createdAt.split('T')[0] }</p>
+                <b>Time: </b><p>{contact.createdAt.split('T')[1].split('.')[0]}</p>
            
                 
                
