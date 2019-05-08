@@ -100,7 +100,7 @@ class Blogs extends React.Component {
             }
             console.log(data)
             if(data.me){
-            if(data.me.permissions.includes("USER")){
+            if(data.me.permissions.includes("ADMIN")){
             return (
               <Mutation 
               mutation={CREATE_BLOG_MUTATION} 

@@ -5,6 +5,7 @@ import ReviewPage from "../Products/reviewpage"
 import Link from "next/link";
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import DeleteOrder from "./deleteorders"
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
@@ -19,9 +20,10 @@ const USER_ORDERS_QUERY = gql`
         price
         description
         quantity
-        image
+        images
         itemid
       }
+      paymentmode
     }
   }
 `;
@@ -40,10 +42,12 @@ flex-direction:column;
     justify-content:flex-start;
     align-content: space-between;
     width:100%;
-    position:absolute;
-    top:5%;
+    padding: 5px;
+    top:0;
     margin:0;
     left:0;
+    border-radius:3%;
+   
 
     div{
        
@@ -153,6 +157,22 @@ flex-direction:column;
     cursor:pointer;
 
 }
+.cancelbtn{
+    text-align:center;
+    button{
+   
+        padding:5px;
+        border:1px solid red;
+        border-radius:5%;
+        background:none;
+        color: red;
+        cursor:pointer;
+        opacity:1.0;}
+        button:hover{
+            color:white;
+            background:red;
+        }
+}
 
 `;
 
@@ -189,31 +209,36 @@ class Orderpage extends Component {
            {orders.map(order => (
 
             <div className = "SingleOrder" key = {order.id}> {/* Each individual orders  */}
-                <div className = "orderheader"> </div>
-                <div className = "Orderheadervalues"><div> order Id:  {order.id}</div><div>status: {order.status}</div><div>total :{order.total}</div></div>
-               
+                
+                <div className = "Orderheadervalues"><div> order Id:  {order.id}</div><div>status: <b>{order.status}</b></div><div>total :{order.total}</div></div>
+               <hr/>
                 
                 <br></br>
                 <b>Ordered at {order. createdAt}</b>
                 {order.items.map(item => (
                      <div className = "gridrow">
-                    
+                     
                      <div>
-                         <img  src={Guitar} alt = "Guitar"></img>
+                         <img  src={item.images[0]} alt = "Guitar"></img>
                      </div>
                      <div className = "description">
                          <h5>{item.title}</h5>
                          <p>Rs {item.price}/-</p>
-                         <Link href = {{pathname:'/product', query:{id:item.itemid}}}><a><button>Buy it Again</button></a></Link>
+                         
+                         {order.status === "DELIVERED"?  <Link href = {{pathname:'/product', query:{id:item.itemid}}}><a><button>Buy it Again</button></a></Link>: null}
                      
                      </div>
                      <div className = "btn"  onClick={(e)=>this.togglePanel(e,item.itemid)}>
-                         <h6 className = "review">Write a Product Review</h6>   
+                     {order.status === "DELIVERED"?   <h6 className = "review">Write a Product Review</h6>   :null}
                      </div>
-                    
+                   
                  </div>
-                 
-                ))}
+                  ))}
+                  <br/>
+                  <div className = "cancelbtn">
+                  {order.status === "PENDING"?  <DeleteOrder id = {order.id}/>: null}
+                  </div>
+                
                
               
               

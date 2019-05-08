@@ -79,12 +79,8 @@ class Rental extends Component {
                onSubmit={async e => {
                  e.preventDefault();
                  const res = await contact();
-                 
                  this.setState({  email: "",name:"", phone:"", subject:"",message: ""});
                  this.showalert()
-               
-                 
-                
                }}
               >
                 <div><h1>Get In Touch</h1></div>
@@ -92,7 +88,7 @@ class Rental extends Component {
                 <input type =  "text"  placeholder="Name"  name= "name" value={this.state.name}
               onChange={this.saveToState}
               required></input>
-                <input type =  "email"  placeholder="Email" name = "email" value={this.state.email}
+                <input type =  "email" placeholder="Email" name = "email" value={this.state.email}
               onChange={this.saveToState}
               required ></input>
                 <input type =  "text"  placeholder="Subject" name = "subject" value={this.state.subject}

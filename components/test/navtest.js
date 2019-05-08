@@ -76,7 +76,7 @@ const Navtest = () => (
       </li>
      
     </ul>
-    ;
+    
   </NavTestWrapper>
 );
 export default Navtest;

@@ -50,7 +50,7 @@ class RemoveContact extends React.Component {
         <Mutation
           mutation={REMOVE_CONTACT_MUTATION}
           variables={{ id: this.props.id }}
-          update={this.update}
+          //update={this.update}
           optimisticResponse={{
             __typename: 'Mutation',
             removeContact: {

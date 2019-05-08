@@ -8,7 +8,7 @@ const Wrapper = styled.nav`
   display: grid;
   margin: 20px;
   justify-items: center;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: auto 4fr;
 
   @media (max-width: 750px) {
     display: block;

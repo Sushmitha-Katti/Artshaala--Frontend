@@ -40,14 +40,10 @@ class Layout extends Component{
     render(){
          console.log("hello", this.state.category)
         return(
-           
             <Wrapper>
                 <Sort  filterpage = {this.props.filterpage} category={this.Category}/>
                 <Items category={this.state.category}/>
-
-
                 {/* <CardTemp/> */}
-
             </Wrapper>
         );
     }
