@@ -234,8 +234,8 @@ const CREATE_ADDRESS_MUTATION = gql`
 `;
 
 const CREATE_ORDER_MUTATION = gql`
-  mutation createOrder( $mode: String!) {
-    createOrder( mode: $mode) {
+  mutation createOrder( $paymentId: String $mode: String!) {
+    createOrder(  paymentId: $paymentId mode: $mode) {
       id
       charge
       total
@@ -258,26 +258,71 @@ class AddAddress extends React.Component {
     mobile: "",
     pincode: "",
     addressline1: "",
-    addressline2:"",
-    landmark:"",
-    city:"",
-    state:"",
-    mode: ""
-   
+    addressline2: "",
+    landmark: "",
+    city: "",
+    state: "",
+    mode: "",
+    amount: 0,
+    pId:""
+
   };
 
-  handlepayment = async  e => {
 
-  }
-  
+
+  handlepayment = async (e, me, createOrder, mode) => {
+    e.preventDefault();
+    const totalamount = await me.cart.reduce((tally, cartitem) =>
+
+      tally + cartitem.quantity * cartitem.item.price, 0);
+
+    const options = {
+      key: 'rzp_test_YAQuOxH0F7Ph5f',
+      amount: totalamount * 100,
+      name: me.name,
+      description: "Payment",
+
+      async handler(response ) {
+        const paymentId =  response.razorpay_payment_id;
+        console.log(paymentId);
+        
+        const order = await createOrder({variables:{
+          paymentId,
+          mode
+        }});
+        console.log(order)
+
+      },
+      prefill: {
+        name: me.name,
+        email: me.email
+      },
+      notes: {
+        address: "address"
+      },
+      theme: {
+        color: "#f9bd21"
+      }
+
+
+    };
+    const rzp1 = new window.Razorpay(options);
+    await rzp1.open();
+
+
+
+  };
+
+
+
   setModeon = e => {
-    
-    
+
+
     this.setState({ mode: "ONLINE" });
   };
   setModeof = e => {
-    
-    
+
+
     this.setState({ mode: "OFFLINE" });
   };
 
@@ -287,122 +332,125 @@ class AddAddress extends React.Component {
     const val = value;
     this.setState({ [name]: val });
   };
-    render() {
-      const { id } = this.props;
-      return (
-      <User>
-         {({ data :{me} }) => {
-          if(!me) return null; //Todo : Redirect to signin page
-       
-      
-      return (
-        <Mutation
-          mutation={CREATE_ADDRESS_MUTATION}
-          variables={
-            this.state
-          }
-          refetchQueries={[{ query: CURRENT_USER_QUERY }]}
-        >
-       
-       {(addadress, { error, loading }) => ( 
-          <RentalWrapper>
-          <div className = "renatlform"> 
-          <div className = "formwrapper">
-         <form
-         method="post"
-         onSubmit={async e => {
-           e.preventDefault();
-           const res = await addadress();
-           
-           this.setState({  mobile: "",pincode:"", addressline1:"", addressline2:"",landmark: "",city: "", state: ""});
-           console.log(res)
-           alert("Successfully updated")
-         
-           
-          
-         }}
-        >
-          <div><h1>Address</h1></div>
-         <b>Mobile</b>
-          <input type =  "text"    name= "mobile" value={this.state.moblie}
-        onChange={this.saveToState}
-        required></input>
-        <b>Pincode</b>
-        <input type =  "text"    name= "pincode" value={this.state.pincode}
-        onChange={this.saveToState}
-        required></input>
-        <b>Flat, House no., Building, Company, Apartment</b> 
-          <input type =  "text"  placeholder="" name = "addressline1" value={this.state.addressline1}
-        onChange={this.saveToState}
-        required ></input>
-        <b>Area, Colony, Street, Sector, Village</b>
-          <input type =  "text"   name = "addressline2" value={this.state.addressline2}
-        onChange={this.saveToState}
-        required ></input>
-        <b>landmark</b>
-          <input type =  "text"  placeholder="eg- KIMS Hospital" name = "landmark" value={this.state.landmark}
-        onChange={this.saveToState}
-        required></input>
-        <b>city/Town</b>
-          <input type =  "text"  name = "city" value={this.state.city}
-        onChange={this.saveToState}
-        required></input>
-        <b>State</b>
-          <input type =  "text"  name = "state" value={this.state.state}
-        onChange={this.saveToState}
-        required></input>
-         
-        <input type="submit" value = "SUBMIT "/>
+  render() {
+    const { id } = this.props;
+    return (
 
-        </form>
-         </div>
-         
-         </div> 
-         <div className = "paymentmode">
-         /* MUTATION FOR CREATE ORDER  */
-         <Mutation
-              mutation={CREATE_ORDER_MUTATION}
-              variables={this.state}
+      <User>
+        {({ data: { me } }) => {
+          if (!me) return null; //Todo : Redirect to signin page
+
+
+          return (
+
+            <Mutation
+              mutation={CREATE_ADDRESS_MUTATION}
+              variables={
+                this.state
+              }
               refetchQueries={[{ query: CURRENT_USER_QUERY }]}
-        >
-            {createOrder => (
-         <form 
-         method="post"
-            onSubmit={async e => {
-              //stop submitting form
-              e.preventDefault();
-              //call the mutation
-              console.log(this.state.mode);
-              const res = await createOrder();
-              //change the mutation to the single item page
-              
-              alert("Order is placed successfully")
-            }}
-        >
-        
-         <h1>Payment Mode</h1>
-         <div className = "inputs"><input type="radio" id="s-option" name="selector" onChange = {this.setModeon}/ > <label for="f-option">Pay Online</label></div>
-         <div className = "inputs"><input type="radio" id="s-option" name="selector" onChange = {this.setModeof}/> <label for="f-option">Pay Offline</label></div>
-         {this.state.mode?  <div ><button type = "submit" className = "btn">CONFIRM</button></div>: null}
-          
-         
-         
-         
-        
-         </form>
-         )}
+            >
+
+              {(addadress, { error, loading }) => (
+                <RentalWrapper>
+                  <div className="renatlform">
+                    <div className="formwrapper">
+                      <form
+                        method="post"
+                        onSubmit={async e => {
+                          e.preventDefault();
+                          const res = await addadress();
+
+                          this.setState({ mobile: "", pincode: "", addressline1: "", addressline2: "", landmark: "", city: "", state: "" });
+                          console.log(res)
+                          alert("Successfully updated")
+
+
+
+                        }}
+                      >
+                        <div><h1>Address</h1></div>
+                        <b>Mobile</b>
+                        <input type="text" name="mobile" value={this.state.moblie}
+                          onChange={this.saveToState}
+                          required></input>
+                        <b>Pincode</b>
+                        <input type="text" name="pincode" value={this.state.pincode}
+                          onChange={this.saveToState}
+                          required></input>
+                        <b>Flat, House no., Building, Company, Apartment</b>
+                        <input type="text" placeholder="" name="addressline1" value={this.state.addressline1}
+                          onChange={this.saveToState}
+                          required ></input>
+                        <b>Area, Colony, Street, Sector, Village</b>
+                        <input type="text" name="addressline2" value={this.state.addressline2}
+                          onChange={this.saveToState}
+                          required ></input>
+                        <b>landmark</b>
+                        <input type="text" placeholder="eg- KIMS Hospital" name="landmark" value={this.state.landmark}
+                          onChange={this.saveToState}
+                          required></input>
+                        <b>city/Town</b>
+                        <input type="text" name="city" value={this.state.city}
+                          onChange={this.saveToState}
+                          required></input>
+                        <b>State</b>
+                        <input type="text" name="state" value={this.state.state}
+                          onChange={this.saveToState}
+                          required></input>
+
+                        <input type="submit" value="SUBMIT " />
+
+                      </form>
+                    </div>
+
+                  </div>
+                  <div className="paymentmode">
+
+                    <Mutation
+                      mutation={CREATE_ORDER_MUTATION}
+                      
+                      refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+                    >
+                      {createOrder => (
+                        <form
+                          method="post"
+                          onSubmit={async e => {
+                            //stop submitting form
+                            e.preventDefault();
+                            //call the mutation
+                            if (this.state.mode === "ONLINE") {
+                              await this.handlepayment(e, me, createOrder, this.state.mode);
+                              /* const res = await createOrder(); */
+                             
+                            }
+                            else{
+                            const res = await createOrder();
+                            //change the mutation to the single item page
+
+                            alert("Order is placed successfully")
+                            }
+                          }}
+                        >
+
+                          <h1>Payment Mode</h1>
+                          <div className="inputs"><input type="radio" id="s-option" name="selector" onChange={this.setModeon} /> <label for="f-option">Pay Online</label></div>
+                          <div className="inputs"><input type="radio" id="s-option" name="selector" onChange={this.setModeof} /> <label for="f-option">Pay Offline</label></div>
+                          {this.state.mode ? <div ><button type="submit" className="btn">CONFIRM</button></div> : null}
+                        </form>
+                      )}
+                    </Mutation>
+                  </div>
+                </RentalWrapper>
+              )}
+
             </Mutation>
-         </div>
-         </RentalWrapper>
-        )}
-        
-        </Mutation>
-        
-      );
-    }}
-    </User>
+
+          );
+        }}
+      </User>
     );
-    }
   }
-  export default AddAddress;
-  export { CREATE_ADDRESS_MUTATION };
+}
+export default AddAddress;
+export { CREATE_ADDRESS_MUTATION };

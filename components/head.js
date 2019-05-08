@@ -79,7 +79,6 @@ const Head = props => (
     />
      
      <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
-     
      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </NextHead>
 );

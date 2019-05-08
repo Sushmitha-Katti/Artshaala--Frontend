@@ -2,32 +2,21 @@ import sc from "styled-components";
 import img from "./images/gutar.png";
 
 
-
-
 const RentalWrapper = sc.div`
     margin:2rem 3rem;
     display:grid;
     grid-template-columns: 1fr 1fr; 
     grid-gap: 30px;
     place-items:center center;
-    
-    
-    
-    
     .aboutRental{
-      
         background: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)), url(${img});
-    
         background-size: cover;
-    
         background-position: center;
          color: white;
         width:100%;
         height:600px;
         display:grid;
         grid-template-columns: 1fr ; 
-    
-        
     }
     .renatlform{
         background:#f7bb2f;
@@ -58,11 +47,8 @@ const RentalWrapper = sc.div`
             background:#3c3c3c;
             color:white;
             cursor:pointer;
-
           }
      }
-        
-
     }
     .aboutwrapper{
         h1{text-align:center;
@@ -83,8 +69,6 @@ const RentalWrapper = sc.div`
         .aboutwrapper {
             h1{font-size:2rem;}
             margin:2rem;
-                    
-                
             .paragraph{
                 margin:0.3rem;
                 font-size:1rem;
@@ -117,20 +101,17 @@ const RentalWrapper = sc.div`
             
          }
         }
-        
 
         @media only screen and (max-width: 480px)
     {
         grid-template-columns: 1fr ; 
+        
         .aboutRental, .renatlform{
             height: 400px;
-           
         }
         .aboutwrapper {
             h1{font-size:1.5rem;}
-            margin:1rem;
-                    
-                
+            margin:1rem;  
             .paragraph{
                 margin:0.3rem;
                 font-size:0.8rem;
@@ -150,7 +131,6 @@ const RentalWrapper = sc.div`
                 border-radius: 2%;
               }
               input[type=submit] {
-               
                 padding: 10px 20px;
                 margin: 6px 0;
                 box-sizing: border-box;
@@ -158,16 +138,18 @@ const RentalWrapper = sc.div`
                 border-radius: 5%;
                 background:#3c3c3c;
                 color:white;
-    
+              }  
+              input[type=email] {
+                width: 100%;
+                padding: 8px 8px;
+                margin: 6px 0;
+                box-sizing: border-box;
+                border:none;
+                border-radius: 2%;
               }
-            
          }
-        }
-        
-
-        
+        }   
     }
-
 `;
 
 // const Body = sc.body`

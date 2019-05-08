@@ -76,6 +76,10 @@ const Styling = styled.div`
     #main > div:nth-child(2) h1:after {
       width: 15%;
     }
+    .parag {
+      text-align: center;
+      padding-top: 30px;
+    }
   }
   #main > div:first-child {
     width: 100%;
@@ -157,12 +161,10 @@ const Styling = styled.div`
     margin-right: 10px;
   }
   .address {
-    margin-top: 40px;
     padding: 2%;
     padding-top: 0.8%;
     /*background-color: rgba(180, 180, 180, 0.1);*/
     color: rgb(60, 60, 60);
-    margin-bottom: 30%;
   }
   a {
     text-decoration: none;

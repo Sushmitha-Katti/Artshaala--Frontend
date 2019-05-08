@@ -50,14 +50,15 @@ class RemoveContact extends React.Component {
         <Mutation
           mutation={REMOVE_CONTACT_MUTATION}
           variables={{ id: this.props.id }}
-          update={this.update}
-          optimisticResponse={{
-            __typename: 'Mutation',
-            removeContact: {
-              __typename: 'Contact',
-              id: this.props.id,
-            },
-          }}
+          //update={this.update}
+          // optimisticResponse={{
+          //   __typename: 'Mutation',
+          //   removeContact: {
+          //     __typename: 'Contact',
+          //     id: this.props.id,
+          //   },
+          // }}
+          refetchQueries = {[{query:ALL_CONTACTS_QUERY}]}
         >
           {(updatecontact, { loading, error }) => (
             <BigButton

@@ -12,7 +12,7 @@ export default class Headers extends Component {
           <Fragment>
             
               <Markup content={head} /> 
-              {head}
+              
           </Fragment>
         </BlogHeaders>
       ))}
