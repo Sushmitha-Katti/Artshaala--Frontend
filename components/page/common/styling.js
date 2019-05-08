@@ -34,7 +34,7 @@ const Styling = styled.div`
         font-weight: 300;
         font-size:2.5vmin;
         width: fit-content; 
-        background: #ffffffcc;      
+        background: rgba(255,255,255, 0.5);      
     }
   
     .line2 {
@@ -45,7 +45,7 @@ const Styling = styled.div`
         font-style: normal;
         font-weight: 400; 
         width: fit-content; 
-        background: #ffffffcc; 
+        background: rgba(255,255,255, 0.1); 
     }
 
     .line3 {
@@ -57,7 +57,7 @@ const Styling = styled.div`
         font-weight: 400;
         font-size:3vmin;
         width: fit-content;
-        background: #ffffffcc;
+        background: rgba(255,255,255, 0.1); 
         
     }
     .line4 {
