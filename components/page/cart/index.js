@@ -7,6 +7,7 @@ import Meta from "./meta";
 import User from "../../test/User";
 import Carts from "./carts";
 import Link from "next/link";
+import Signin from "../../test/signinpage.js" 
 
 
 class Cart extends Component {
@@ -24,7 +25,7 @@ class Cart extends Component {
     return (
       <User>
          {({ data :{me} }) => {
-          if(!me) return ; //Todo : Redirect to signin page
+          if(!me) return <Signin />; //Todo : Redirect to signin page
         
     
       return (

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-//import { CURRENT_USER_QUERY } from '../../test/User';
+import { CURRENT_USER_QUERY } from '../../test/User';
 import styled from 'styled-components';
 import Head from 'next/head';
-import User, {CURRENT_USER_QUERY} from "../../test/User";
+import User from "../../test/User";
 import RentalWrapper from './addressStyle';
 
-
+//----------------------------create Address Mutation-----------------------------------------------
 
 const CREATE_ADDRESS_MUTATION = gql`
   mutation CREATE_ADDRESS_MUTATION(
@@ -20,9 +20,6 @@ const CREATE_ADDRESS_MUTATION = gql`
     $landmark:String
     $city:String!
     $state:String!
-   
-    
-    
 
   ) {
     createaAddress(
@@ -40,7 +37,7 @@ const CREATE_ADDRESS_MUTATION = gql`
     }
   }
 `;
-
+//---------------------------------------------Create Order Mutation-------------------------------------------------
 const CREATE_ORDER_MUTATION = gql`
   mutation createOrder( $paymentId: String $mode: String!) {
     createOrder(  paymentId: $paymentId mode: $mode) {
@@ -60,7 +57,7 @@ function totalItems(cart) {
 }
 
 
-
+//-------------------------------------------------Address Class---------------------------------------------------
 class AddAddress extends React.Component {
   state = {
     mobile: "",
@@ -77,7 +74,7 @@ class AddAddress extends React.Component {
 
   };
 
-
+                    //------------------handle payment method-----------------------------------
 
   handlepayment = async (e, me, createOrder, mode) => {
     e.preventDefault();
@@ -92,14 +89,15 @@ class AddAddress extends React.Component {
       description: "Payment",
 
       async handler(response ) {
-        const paymentId =  response.razorpay_payment_id;
+        const paymentId = await response.razorpay_payment_id;
         console.log(paymentId);
         
         const order = await createOrder({variables:{
           paymentId,
           mode
         }});
-        console.log(order)
+        alert("paid successfully");
+        console.log(order);
 
       },
       prefill: {
@@ -112,52 +110,49 @@ class AddAddress extends React.Component {
       theme: {
         color: "#f9bd21"
       }
-
-
     };
     const rzp1 = new window.Razorpay(options);
     await rzp1.open();
-
-
-
+    console.log("done")
   };
-
-
+ //----------------------------for displaying the payment method--------------------
   setDisplayState = e =>{ 
     this.setState({display: "true"});
   };
 
-
+  //-----------------------------for setting the online mode-----------------------------------
   setModeon = e => {
-
 
     this.setState({ mode: "ONLINE" });
   };
-  setModeof = e => {
-
-
-    this.setState({ mode: "OFFLINE" });
+  //----------------------------for setting offline mode---------------------------------------
+  setModeof = async e => {
+    await this.setState({ mode: "OFFLINE" });
+    console.log(this.state.mode);
   };
 
-
+  //----------------------------for changing the state values of address field------------------
   saveToState = e => {
     const { name, type, value } = e.target;
     const val = value;
     this.setState({ [name]: val });
   };
+
+  //--------------------------------render method------------------------------------------------
   render() {
     const { id } = this.props;
     return (
-
+      //-----------------------------user query------------------------------------------
       <User>
         {( {data: me},error, loading) => {
           if (!me) return null; //Todo : Redirect to signin page
          
-          
+          console.log("calling Me ")
+          console.log(me);
 
 
           return (
-
+    //-----------------------------------create order mutation--------------------------
             <Mutation
               mutation={CREATE_ADDRESS_MUTATION}
               variables={
@@ -173,6 +168,7 @@ class AddAddress extends React.Component {
                   
                 
                     <div className="formwrapper">
+                    {/*---------------- If there is a  previous address then it will be displayed here------------ */}
                     {me.me.address?
                     <div className = "previousaddress">
                     <div><b>{me.me.name}</b></div>
@@ -191,14 +187,14 @@ class AddAddress extends React.Component {
 
                           this.setState({ mobile: "", pincode: "", addressline1: "", addressline2: "", landmark: "", city: "", state: "" ,display: "true"});
                           console.log(res)
-                          alert("Successfully updated")
+                          alert("Address is Successfully updated ")
                           
 
 
                         }}
                       >
                         
-                        
+                        {/*--------------------Adding new address------------------------  */}
                         <div><h3> Add New Address</h3></div>
                         <b>Mobile</b>
                         <input type="text" name="mobile" value={this.state.moblie}
@@ -232,13 +228,15 @@ class AddAddress extends React.Component {
                         <input type="submit" value="SUBMIT " />
 
                       </form>
+
                     </div>
 
                   </div>
+                  {/* -------------------Payment Method------------------------- */}
                   {this.state.display? 
                   <div className="paymentmode">
                   <div className = "overlay"></div>
-
+                    {/* -------------------Create Order Mutation------------------- */}
                     <Mutation
                       mutation={CREATE_ORDER_MUTATION}
                       
@@ -251,14 +249,19 @@ class AddAddress extends React.Component {
                             //stop submitting form
                             e.preventDefault();
                             //call the mutation
-                            if (this.state.mode === "ONLINE") {
-                              await this.handlepayment(e, me, createOrder, this.state.mode);
-                              /* const res = await createOrder(); */
+                            if (this.state.mode == "ONLINE") {
+                              console.log("IS this working")
+                              console.log(me)
+                              await this.handlepayment(e, me.me, createOrder, this.state.mode);
+                              console.log("returned")
                              
                             }
                             else{
-                            const res = await createOrder();
-                            //change the mutation to the single item page
+                            const res = await createOrder({variables:{
+                              paymentId: "offline mode",
+                              mode: this.state.mode
+                            }});
+                           
 
                             alert("Order is placed successfully")
                             }

@@ -36,11 +36,17 @@ class AddToCart extends React.Component {
         }}
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
-        {(addToCart, { loading }) => (
+        {(addToCart, { loading , error}) => {
+          if (error) {
+      
+              alert(error.message.split(":")[1])
+            
+          }
+          return(
           <Button disabled={loading} onClick={addToCart}>
             <h3 className = "add">Add{loading && 'ing'} To Cart </h3>
           </Button>
-        )}
+        )}}
       </Mutation>
     );
   }

@@ -32,11 +32,12 @@ const ItemsList = styled.div`
     margin: 1rem;
     padding-bottom: 1rem;
     button {
-      padding: 1rem 2rem;
+      padding: 0.5rem 1rem;
       background: none;
       border: 1px solid green;
       border-radius: 5%;
       margin: 1rem;
+      margin-left:3rem;
       color: green;
     }
     button:hover {
@@ -63,9 +64,13 @@ const ItemsStyle = styled.div`
 
 const Notification = () => (
   <Query query={ALL_CONTACTS_QUERY}>
-    {({ data }) => {
+    {({ data,error, loading }) => {
+      if(loading) return<p> loading</p>
+      if(error) return<p>{error.message.split(':')[1]}</p>
+
       let { contacts } = data;
       console.log(contacts);
+
       return (
         <div>
           <ItemsList>

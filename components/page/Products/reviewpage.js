@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Router from "next/router";
 //import {Form} from "../../test/signuppage.js";
 import {Body,BlueText,Button,Collapsial,UserReviews}  from './style';
-
+import User from "../../test/User";
 
 
 
@@ -53,6 +53,15 @@ class ReviewPage extends Component {
     render() {
      
       return (
+        <User>
+        {( {data: me},error, loading) => {
+           
+         
+          console.log("calling Me ")
+          console.log(me);
+
+
+          return (
         <Mutation mutation={CREATE_REVIEW_MUTATION} variables={this.state}>
           {(creatComment, { error, loading }) => (
             <form
@@ -61,13 +70,14 @@ class ReviewPage extends Component {
                 //stop submitting form
                 e.preventDefault();
                 //call the mutation
+        
 
                  if(this.state.rating){
                    
                  
                 
 
-                const res = await creatComment();
+                const res = await creatComment().catch((error) => alert(error))
                 //change the mutation to the single item page
                 console.log(res);
                 this.setState({ comment: "", rating: 0});
@@ -123,6 +133,9 @@ class ReviewPage extends Component {
             </form>
           )}
         </Mutation>
+             );
+            }}
+          </User>
       );
     }
   }

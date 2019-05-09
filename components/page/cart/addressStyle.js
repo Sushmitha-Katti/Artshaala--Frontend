@@ -29,6 +29,7 @@ const RentalWrapper = styled.div`
                 border-radius:5%;
                 margin-top: 15px;
                 color: white;
+                cursor: pointer;
               }
             }
             
