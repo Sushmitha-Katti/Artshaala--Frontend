@@ -12,6 +12,16 @@ const CURRENT_USER_QUERY = gql`
       orders {
         id
       }
+      address{
+        id
+        mobile
+        state
+        city
+        pincode
+        addressline1
+        addressline2
+        
+      }
       cart {
         id
         quantity
