@@ -11,14 +11,7 @@ const RentalWrapper = styled.div`
     margin:1rem 3rem;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr; 
-    grid-gap: 30px;
-    
-    
-    
-    
-    
-    
-        
+    grid-gap: 30px;   
     }
     .renatlform{
       
@@ -283,14 +276,15 @@ class AddAddress extends React.Component {
       description: "Payment",
 
       async handler(response ) {
-        const paymentId =  response.razorpay_payment_id;
+        const paymentId = await response.razorpay_payment_id;
         console.log(paymentId);
         
         const order = await createOrder({variables:{
           paymentId,
           mode
         }});
-        console.log(order)
+        alert("paid successfully");
+        console.log(order);
 
       },
       prefill: {
@@ -303,29 +297,21 @@ class AddAddress extends React.Component {
       theme: {
         color: "#f9bd21"
       }
-
-
     };
     const rzp1 = new window.Razorpay(options);
     await rzp1.open();
-
-
-
+    console.log("done")
   };
 
-
-
-  setModeon = e => {
-
-
-    this.setState({ mode: "ONLINE" });
-  };
-  setModeof = e => {
-
-
-    this.setState({ mode: "OFFLINE" });
+  setModeon = async e => {
+    await this.setState({ mode: "ONLINE" });
+    console.log(this.state.mode);
   };
 
+  setModeof = async e => {
+    await this.setState({ mode: "OFFLINE" });
+    console.log(this.state.mode);
+  };
 
   saveToState = e => {
     const { name, type, value } = e.target;
@@ -419,9 +405,9 @@ class AddAddress extends React.Component {
                             //stop submitting form
                             e.preventDefault();
                             //call the mutation
-                            if (this.state.mode === "ONLINE") {
+                            if (this.state.mode == "ONLINE") {
                               await this.handlepayment(e, me, createOrder, this.state.mode);
-                              /* const res = await createOrder(); */
+                              console.log("returned")
                              
                             }
                             else{
