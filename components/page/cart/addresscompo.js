@@ -1,204 +1,12 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import { CURRENT_USER_QUERY } from '../../test/User';
+//import { CURRENT_USER_QUERY } from '../../test/User';
 import styled from 'styled-components';
 import Head from 'next/head';
-import User from "../../test/User";
+import User, {CURRENT_USER_QUERY} from "../../test/User";
+import RentalWrapper from './addressStyle';
 
-
-const RentalWrapper = styled.div`
-    margin:1rem 3rem;
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-gap: 30px;
-    
-    
-    
-    
-    
-    
-        
-    }
-    .renatlform{
-      
-        width:100%;
-        
-        display:grid;
-        grid-template-columns: 1fr ; 
-    
-     .formwrapper{
-        h1{font-size:3rem;
-            text-align:center;}
-        margin:3rem;
-        b{
-          font-size:0.8rem;
-          color:black;
-        }
-        input[type=text], textarea, input[type = email] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border:none;
-            border-radius: 2%;
-            border: 1px solid grey;
-          }
-          input[type=submit] {
-           
-            padding: 15px 35px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border:1px #3c3c3c;
-            border-radius: 5%;
-            background:#f7bb2f;
-            color:white;
-           
-            cursor:pointer;
-
-          }
-     }
-        
-
-    }
-    .paymentmode{
-        h1{text-align:center;
-        font-size:2.5rem;}
-        margin:3rem;
-        .inputs{
-            margin:1rem;
-            border: 1px solid #F7bb2f;
-            padding:0.8rem 0.7rem;
-            border-radius: 5%;
-            position: relative;
-            input{
-              font-size:2rem;
-              height:20px;
-              width: 20px;
-              
-          
-            }
-            
-         label{
-          margin-left:1rem;
-         }
-              
-              
-              
-            }
-            .btn{
-              background: #f7bb2f;
-              border: 1px solid #f7bb2f;
-              padding: 2px 5px;
-              border-radius: 5%;
-              width: 90%;
-              color: white;
-              margin: 0.5rem 1rem;
-              padding: 0.8rem 0.7rem;
-
-            }
-            .btn:hover{
-              background:orange;
-            }
-        }
-        .inputs:hover{
-          
-          cursor: pointer;
-        }
-    }
-    @media only screen and (max-width: 900px)
-    {
-        grid-template-columns: 1fr ; 
-        
-        .paymentmode {
-            h1{font-size:2rem;}
-            margin:2rem;
-                    
-            .inputs{
-              margin:0.3rem;
-                font-size:0.9rem;
-            }
-        }
-        .renatlform{
-        .formwrapper{
-            h1{font-size:2rem;
-                text-align:center;}
-            margin:2rem;
-           
-            input[type=text], textarea {
-                width: 100%;
-                padding: 8px 8px;
-                margin: 6px 0;
-                box-sizing: border-box;
-                border:none;
-                border-radius: 2%;
-                border: 1px solid grey;
-              }
-              input[type=submit] {
-               
-                padding: 10px 20px;
-                margin: 6px 0;
-                box-sizing: border-box;
-                border:1px #3c3c3c;
-                border-radius: 5%;
-                background:#3c3c3c;
-                color:white;
-    
-              }
-            
-         }
-        }
-        
-
-        @media only screen and (max-width: 480px)
-    {
-        grid-template-columns: 1fr ; 
-      
-        .paymentmode{
-            h1{font-size:1.5rem;}
-            margin:1rem;
-                    
-                
-            .inputs{
-                margin:0.3rem;
-                font-size:0.8rem;
-            }
-           
-        }
-        .renatlform{
-        .formwrapper{
-            h1{font-size:1.5rem;
-                text-align:center;}
-            margin:1rem;
-            input[type=text], textarea {
-                width: 100%;
-                padding: 8px 8px;
-                margin: 6px 0;
-                box-sizing: border-box;
-                border:none;
-                border-radius: 2%;
-                border: 1px solid grey;
-              }
-              input[type=submit] {
-               
-                padding: 10px 20px;
-                margin: 6px 0;
-                box-sizing: border-box;
-                border:1px #3c3c3c;
-                border-radius: 5%;
-                background:#3c3c3c;
-                color:white;
-    
-              }
-            
-         }
-        }
-        
-
-        
-    }
-
-`;
 
 
 const CREATE_ADDRESS_MUTATION = gql`
@@ -264,7 +72,8 @@ class AddAddress extends React.Component {
     state: "",
     mode: "",
     amount: 0,
-    pId:""
+    pId:"",
+    display: false
 
   };
 
@@ -314,6 +123,10 @@ class AddAddress extends React.Component {
   };
 
 
+  setDisplayState = e =>{ 
+    this.setState({display: "true"});
+  };
+
 
   setModeon = e => {
 
@@ -337,8 +150,10 @@ class AddAddress extends React.Component {
     return (
 
       <User>
-        {({ data: { me } }) => {
+        {( {data: me},error, loading) => {
           if (!me) return null; //Todo : Redirect to signin page
+         
+          
 
 
           return (
@@ -354,22 +169,37 @@ class AddAddress extends React.Component {
               {(addadress, { error, loading }) => (
                 <RentalWrapper>
                   <div className="renatlform">
+                  
+                  
+                
                     <div className="formwrapper">
+                    {me.me.address?
+                    <div className = "previousaddress">
+                    <div><b>{me.me.name}</b></div>
+                    <div>{me.me.address.addressline1}</div>
+                    <div>{me.me.address.addressline2}</div>
+                    
+                    <div>{me.me.address.mobile}</div>
+                    <div>{me.me.address.city}, {me.me.address.state},{me.me.address.pincode}</div>
+                    <button onClick = {this.setDisplayState }>Deliver to this address</button>  </div>:null}
+                  
                       <form
                         method="post"
                         onSubmit={async e => {
                           e.preventDefault();
                           const res = await addadress();
 
-                          this.setState({ mobile: "", pincode: "", addressline1: "", addressline2: "", landmark: "", city: "", state: "" });
+                          this.setState({ mobile: "", pincode: "", addressline1: "", addressline2: "", landmark: "", city: "", state: "" ,display: "true"});
                           console.log(res)
                           alert("Successfully updated")
-
+                          
 
 
                         }}
                       >
-                        <div><h1>Address</h1></div>
+                        
+                        
+                        <div><h3> Add New Address</h3></div>
                         <b>Mobile</b>
                         <input type="text" name="mobile" value={this.state.moblie}
                           onChange={this.saveToState}
@@ -405,7 +235,9 @@ class AddAddress extends React.Component {
                     </div>
 
                   </div>
+                  {this.state.display? 
                   <div className="paymentmode">
+                  <div className = "overlay"></div>
 
                     <Mutation
                       mutation={CREATE_ORDER_MUTATION}
@@ -432,15 +264,15 @@ class AddAddress extends React.Component {
                             }
                           }}
                         >
-
-                          <h1>Payment Mode</h1>
+                          
+                          <h3>Payment Mode</h3>
                           <div className="inputs"><input type="radio" id="s-option" name="selector" onChange={this.setModeon} /> <label for="f-option">Pay Online</label></div>
                           <div className="inputs"><input type="radio" id="s-option" name="selector" onChange={this.setModeof} /> <label for="f-option">Pay Offline</label></div>
-                          {this.state.mode ? <div ><button type="submit" className="btn">CONFIRM</button></div> : null}
+                          {this.state.mode ? <div  ><button type="submit" className="btn">CONFIRM</button></div> : null}
                         </form>
                       )}
                     </Mutation>
-                  </div>
+                  </div>:null}
                 </RentalWrapper>
               )}
 
