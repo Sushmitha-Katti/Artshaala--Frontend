@@ -20,7 +20,7 @@ const BigButton = styled.button`
   color:green;
   border: 1px solid green;
   margin:1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.7rem;
   border-radius:5%;
   
   &:hover {
