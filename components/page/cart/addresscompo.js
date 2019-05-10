@@ -6,6 +6,9 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import User from "../../test/User";
 import RentalWrapper from './addressStyle';
+import Router from 'next/router';
+import { inflateRaw } from 'zlib';
+import logo from '../../Navbar/logo.png'
 
 //----------------------------create Address Mutation-----------------------------------------------
 
@@ -85,8 +88,10 @@ class AddAddress extends React.Component {
     const options = {
       key: 'rzp_test_YAQuOxH0F7Ph5f',
       amount: totalamount * 100,
-      name: me.name,
+      name: "Artshaala",
       description: "Payment",
+      currency: "INR",
+      image: {logo},
 
       async handler(response ) {
         const paymentId = await response.razorpay_payment_id;
@@ -105,7 +110,7 @@ class AddAddress extends React.Component {
         email: me.email
       },
       notes: {
-        address: "address"
+        address: me.address
       },
       theme: {
         color: "#f9bd21"
@@ -197,11 +202,11 @@ class AddAddress extends React.Component {
                         {/*--------------------Adding new address------------------------  */}
                         <div><h3> Add New Address</h3></div>
                         <b>Mobile</b>
-                        <input type="text" name="mobile" value={this.state.moblie}
+                        <input type="text" name="mobile" maxLength = '10' minLength = '10' value={this.state.moblie}
                           onChange={this.saveToState}
                           required></input>
                         <b>Pincode</b>
-                        <input type="text" name="pincode" value={this.state.pincode}
+                        <input type="text" name="pincode" maxLength = '6' minLength = '6' value={this.state.pincode}
                           onChange={this.saveToState}
                           required></input>
                         <b>Flat, House no., Building, Company, Apartment</b>
@@ -262,8 +267,12 @@ class AddAddress extends React.Component {
                               mode: this.state.mode
                             }});
                            
-
+                            
                             alert("Order is placed successfully")
+                            Router.push({
+                              pathname: '/'
+                            })
+
                             }
                           }}
                         >

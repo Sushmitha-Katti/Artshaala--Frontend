@@ -206,6 +206,7 @@ class Orderpage extends Component {
            {this.state.open? <div className = "overlay"></div>:null}
            
            <div className = "orders">
+           {orders? <p style = {{ marginBottom : 14+"rem"}}>No orders</p> : null}
            {orders.map(order => (
 
             <div className = "SingleOrder" key = {order.id}> {/* Each individual orders  */}
@@ -215,6 +216,7 @@ class Orderpage extends Component {
                 
                 <br></br>
                 <b>Ordered at {order. createdAt}</b>
+                
                 {order.items.map(item => (
                      <div className = "gridrow">
                      

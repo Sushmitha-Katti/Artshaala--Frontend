@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import styled from "styled-components";
 import Router from "next/router";
 import Link from "next/link";
+import {CURRENT_USER_QUERY} from './User'
 
 /***************************Styled Components**************************************** */
 const Form = styled.form`
@@ -82,19 +83,19 @@ const Form = styled.form`
 `;
 
 //CURRENT_USER_QUERY
-const CURRENT_USER_QUERY = gql`
-  query {
-    me {
-      id
-      email
-      name
-      permissions
-      orders {
-        id
-      }
-    }
-  }
-`;
+// const CURRENT_USER_QUERY = gql`
+//   query {
+//     me {
+//       id
+//       email
+//       name
+//       permissions
+//       orders {
+//         id
+//       }
+//     }
+//   }
+// `;
 
 /********************SIGNUP MUTATTION******************************************** */
 const SIGNUP_MUTATION = gql`

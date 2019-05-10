@@ -6,60 +6,61 @@ import styled from "styled-components";
 import Router from "next/router";
 import Link from "next/link";
 import Nprogress from 'nprogress';
+import {CURRENT_USER_QUERY} from './User'
 
-/*const Form = styled.form`
-  display: flex;
-  justify-content: center;
-  fieldset {
-    border: 4px solid black;
-    padding: 50px;
-    text-align: center;
-    display: grid;
-  }
-  input {
-    width: 400px;
-    height: 30px;
-    margin: 1rem 4rem;
-  }
-  button {
-    width: 100px;
-    height: 40px;
-    background: orange;
-    .centerbutton {
-      display: flex;
-      justify-content: center;
-    }
-  }
-`;*/
-const CURRENT_USER_QUERY = gql`
-  query {
-    me {
-      id
-      email
-      name
-      address{
-        id
-      }
+// /*const Form = styled.form`
+//   display: flex;
+//   justify-content: center;
+//   fieldset {
+//     border: 4px solid black;
+//     padding: 50px;
+//     text-align: center;
+//     display: grid;
+//   }
+//   input {
+//     width: 400px;
+//     height: 30px;
+//     margin: 1rem 4rem;
+//   }
+//   button {
+//     width: 100px;
+//     height: 40px;
+//     background: orange;
+//     .centerbutton {
+//       display: flex;
+//       justify-content: center;
+//     }
+//   }
+// `;*/
+// const CURRENT_USER_QUERY = gql`
+//   query {
+//     me {
+//       id
+//       email
+//       name
+//       address{
+//         id
+//       }
      
-      permissions
-      orders {
-        id
-      }
-      cart {
-        id
-        quantity
-        item {
-          id
-          price
-          image
-          title
-          description
-        }
-      }
+//       permissions
+//       orders {
+//         id
+//       }
+//       cart {
+//         id
+//         quantity
+//         item {
+//           id
+//           price
+//           image
+//           title
+//           description
+//         }
+//       }
       
-    }
-  }
-`;
+//     }
+//   }
+// `;
 
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
@@ -86,6 +87,9 @@ class Signin extends Component {
         mutation={SIGNIN_MUTATION}
         variables={this.state}
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+        options = {[{
+          awaitRefetchQueries: true}]
+     }
       >
         {(signup, { error, loading }) => (
           <Form
