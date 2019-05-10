@@ -36,7 +36,7 @@ const CURRENT_USER_QUERY = gql`
       
     }
     }
-  }
+  
 `;
 
 
@@ -83,9 +83,9 @@ class Reset extends Component {
               
               await reset();
               this.setState({ password: "",confirmPassword:"" });
-              // Router.push({
-              //   pathname: "/"
-              // });
+              Router.push({
+                pathname: "/"
+              });
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
