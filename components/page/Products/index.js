@@ -143,7 +143,7 @@ class Products extends React.Component{
             </div>
             <div className="discription">
             <h3>
-                {item.specification}
+                {item.title}
             </h3>
             
              <div className="rev">

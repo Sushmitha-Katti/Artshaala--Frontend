@@ -26,6 +26,7 @@ class Cart extends Component {
       <User>
          {({ data :{me} }) => {
           if(!me) return <Signin />; //Todo : Redirect to signin page
+          if(!me.cart) return null;
         
     
       return (
@@ -74,10 +75,10 @@ class Cart extends Component {
                 </div>
               </div>
 
-              <div className="products">
+              {/* <div className="products">
                 <p>RELATED PRODUCTS</p>
                 <Carditems />
-              </div>
+              </div> */}
             </div>
           </Styles>
        )
