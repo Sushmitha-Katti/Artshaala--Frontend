@@ -85,6 +85,7 @@ class Reset extends Component {
               this.setState({ password: "",confirmPassword:"" });
               Router.push({
                 pathname: "/"
+
               });
             }}
           >
