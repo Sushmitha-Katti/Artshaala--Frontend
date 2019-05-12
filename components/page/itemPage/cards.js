@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Cardstyle from "./cardStyle";
 import Link from "next/link";
-
+import gql from 'graphql-tag';
 import {CURRENT_USER_QUERY} from "../../test/User"
 import { Query } from "react-apollo";
 import DeleteItem from './deleteItem';
@@ -29,7 +29,23 @@ const Update = styled.div`
 ;
 
 
-
+const RATING_QUERY = gql`
+  query RATING_QUERY($id: ID!) {
+    commentsConnection(where:{item:{id:$id}}){
+        edges{
+      node{
+        rating
+        
+      }
+        }
+    aggregate{
+      count
+    }
+  }
+      
+  }
+  
+`;
 
 
 
@@ -47,12 +63,53 @@ class Cards extends Component {
       <Cardstyle>
         <div className="main">
           <div className="sub">
-            <img src={this.props.Cardcontent.images[0]} className="pic" />            
+            <img src={this.props.Cardcontent.images[0]} className="pic" />        
               <p className="cost">Name:{this.props.Cardcontent.title}</p>                        
                 <p className="cost">Price:{this.props.Cardcontent.price}</p>               
                 <p className="cost">Category:{this.props.Cardcontent.category}</p>               
                 <p className="cost">Type:{this.props.Cardcontent.type}</p>
-                <p className="cost">Brand:{this.props.Cardcontent.brand}</p>          
+                <p className="cost">Brand:{this.props.Cardcontent.brand}</p>  
+                
+                { <Query
+            query={RATING_QUERY}
+            variables={{
+
+             id: this.props.Cardcontent.id,
+
+ 
+            }}
+            >
+            {({ error, loading, data }) => {
+            if (error) return <Error error={error} />;
+            if (loading) return <p>Loading...</p>;
+        
+            if (!data.commentsConnection) return <p>NO rating</p>;
+            const review = data.commentsConnection.aggregate.count;   //returns totoal no of reviews
+            if(review!=0){
+            let ratinglist = []
+            data.commentsConnection.edges.map(edge => ratinglist.push(edge['node']['rating']))  //returns list of ratings
+
+            const count = ratinglist.reduce( (tally, rating) => {      //returns the dictionary where key is rating and value is count of rating
+                tally[rating] = (tally[rating] || 0) + 1 ;
+               
+                return tally;
+              } , {})
+              
+              
+              
+              let average_rating = 0;
+              
+                for(var key in count) {
+                average_rating = average_rating + count[key] * key;    //Returns weighted sum of ratings
+              }
+              const avgrating = Math.round((average_rating/review)*10)/10    //Average rating with rounding of to 1 decimal place
+              
+              return (<p className="cost">Rating: {avgrating}</p>)
+            }
+            else return(<p className="cost">Rating: 5(default)</p>)
+              
+            }}</Query>}
+              
           </div>
         </div>
       </Cardstyle>

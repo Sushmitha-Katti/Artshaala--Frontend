@@ -67,6 +67,9 @@ const FilterMobileStyle = styled.nav`
         text-decoration:none;
         padding:0;
     }
+    .categorylinks{
+        text-decoration:none;
+    }
 
 // brand.js DESIGN
 

@@ -100,7 +100,7 @@ class Items extends Component {
     let i;
     let len = a.length + b.length;
     for (i = 0; i < len; i++) {
-      if (x == a[i] && y <= b[i]) {
+      if (x == a[i] && y <= b[i] && y>= b[i]- 4000) {
         return x, y;
       }
     }
@@ -146,33 +146,19 @@ class Items extends Component {
           {({ data, error, loading }) => {
             // console.log("*******************************",this.props.brand?this.props.brand:"");
             // console.log("data",data.items)
-            let res = data.items;
-            console.log("this.props.brand", this.props.brand);
-            console.log("this.props.price", this.props.price);
-            this.props.price && this.props.brand == 0
-              ? (res = data.items.filter(f =>
-                  this.prices(f.price, this.props.price)
-                ))
-              : res;
-            this.props.brand && this.props.price == 0
-              ? (res = data.items.filter(f =>
-                  this.filters(f.brand, this.props.brand)
-                ))
-              : res;
-            this.props.brand != 0 && this.props.price != 0
-              ? (res = data.items.filter(f =>
-                  this.brandPrice(
-                    f.brand,
-                    f.price,
-                    this.props.brand,
-                    this.props.price
-                  )
-                ))
-              : res;
 
-            if (loading) return <p>Loading</p>;
-            if (error) return <p>Error: {error.message}</p>;
-            if (!data.items) return <p>No data</p>;
+            let res=data.items;
+            //  console.log("this.props.brand",this.props.brand)
+            //  console.log("this.props.price",this.props.price)
+            this.props.price && this.props.brand==0 ?(res =(data.items).filter(f=>this.prices(f.price,this.props.price))):res;
+            this.props.brand && this.props.price==0 ? (res =(data.items).filter(f=>this.filters(f.brand,this.props.brand))):res;
+            this.props.brand!=0 && this.props.price!=0 ? (res =(data.items).filter(f=>this.brandPrice(f.brand,f.price,this.props.brand,this.props.price))):res;
+
+
+            if(loading) return <p>Loading</p>
+            if(error) return <p>Error: {error.message}</p>
+            if (!data.items) return <p>No data</p>; 
+
             else {
               let cards = (res != 0 ? res : data.items).map(card => {
                 card.key = `{card.id}`;

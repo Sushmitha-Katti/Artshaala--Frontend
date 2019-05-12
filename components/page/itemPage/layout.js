@@ -19,14 +19,15 @@ const Wrapper = styled.nav`
 class Layout extends Component {
   state = {
     category: "",
-    options: [],
+    brand: [],
     price:[],
     rating:[]
   };
 
   Category = a => {
     let category_var = a;
-    this.setState({
+    
+ this.setState({
       category: category_var
     });
   };
@@ -37,12 +38,12 @@ class Layout extends Component {
     let boxes = e;
     // console.log("box", boxes);
     // console.log(this.state);
-    if (this.state.options.includes(boxes)) {
-      let removedbox = this.state.options.filter(item => item !== e);
-      this.setState({ options: removedbox });
+    if (this.state.brand.includes(boxes)) {
+      let removedbox = this.state.brand.filter(item => item !== e);
+      this.setState({ brand: removedbox });
     } else {
       this.setState({
-        options: [...this.state.options, boxes]
+        brand: [...this.state.brand, boxes]
       });
     }  
 };
@@ -89,12 +90,11 @@ CheckedRating = e => {
          CheckedRating = {this.CheckedRating}
         />
         <Items
-          category={this.state.category}
-          brand={this.state.options}
+          category={this.props.category!=''?this.props.category:this.state.category}
+          brand={(this.props.brand).length!=0?this.props.brand:this.state.brand}
           page={this.props.page}
           type={this.props.type}
-          brand = {this.state.options}
-          price = {this.state.price}
+          price = {this.props.price!=null?this.props.price:this.state.price}
           rating = {this.state.rating}
 
         />
