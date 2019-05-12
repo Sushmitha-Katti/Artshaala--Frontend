@@ -281,10 +281,10 @@ class Products extends React.Component{
             </section>      
             )}
         {/*----------------------------------Related Products Section------------------------------------ */}    
-            <div>
+            {/* <div>
                 <h1 className="rp" style = {{textAlign:"center"}}>RELATED PRODUCTS</h1>
                 <Cards/>
-            </div>
+            </div> */}
        </Body>
 
 
