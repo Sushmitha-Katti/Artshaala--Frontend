@@ -36,7 +36,7 @@ class Cart extends Component {
               <div className="cart">
               
               <div>
-                  <p>Cart</p>
+                  <p>{me.name}'s Cart</p>
                   {me.cart.map(cartItem =>  <Carts key = {cartItem.id} cartItem = {cartItem} />)}
                  
                 </div> 

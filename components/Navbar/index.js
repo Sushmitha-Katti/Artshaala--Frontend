@@ -22,7 +22,7 @@ let commonlinks = [
 
 //----------------------------------AUTHENTICATED LINKS------------------------------------------------------------------
  let authlinks = [
-  { href: "/orders", label: "Orders" },
+  { href: "/orders", label: "Your Orders" },
   
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`;
