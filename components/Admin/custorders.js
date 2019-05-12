@@ -23,7 +23,7 @@ adminorders{
 `;
 const STATUS_ORDERS_QUERY = gql`
   query STATUS_ORDERS_QUERY($status: STATUS) {
-adminorders(status: status){
+adminorders(where:{status: $status}){
     id
     total
     charge
@@ -113,7 +113,7 @@ const AdminOrders = () => (
   <Query query={PENDING_ORDERS_QUERY}>
     {({ data, loading, error }) => {
       let { adminorders } = data;
-      console.log(data);
+      console.log("admin",data);
 
       return (
         <div  >

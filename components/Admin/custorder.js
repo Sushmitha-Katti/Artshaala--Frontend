@@ -67,7 +67,7 @@ const ItemsStyle = styled.div`
 `;
 const ItemStyling = styled.div`
   display: grid;
-  grid-template-columns:40% 60%;
+  grid-template-columns:50% 50%;
   grid-gap: 20px 0;
   /* flex-wrap: wrap; */
  
