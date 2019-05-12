@@ -76,10 +76,10 @@ class Blogs extends React.Component {
     const files = e.target.files;
     const data = new FormData();
     data.append("file", files[0]);
-    data.append("upload_preset", "Artshaala");
+    data.append("upload_preset", "artshaala");
 
     const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dr6weeztx/image/upload",
+      "https://api.cloudinary.com/v1_1/dzvm3lnee/image/upload",
       {
         method: "POST",
         body: data
