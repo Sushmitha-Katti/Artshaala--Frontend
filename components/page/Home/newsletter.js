@@ -20,7 +20,7 @@ const D = styled.div`
   display: grid;
   grid-template-columns:1fr 1fr;
  
-  margin:3rem 5rem;
+  margin:3rem 4rem;
   place-items:center center;
 
   @media only screen and (max-width: 768px) {
@@ -41,23 +41,34 @@ const Slider = styled.div`
   position: relative;
   @media only screen and (max-width: 768px) {
     height:100px;
+    width:70%;
     font-size:0.7rem;
-    padding:  2rem 1rem  7rem 1rem;
+    padding:  2rem 1.5rem  9rem 1.5rem;
    
 
   }
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 420px) {
     height:50px;
     font-size:0.5rem;
-    padding:  1rem 1rem  12rem 1rem;
+    padding:  1rem 1.5rem  12rem 1.5rem;
 
   
   }
+  @media only screen and (max-width: 350px) {
+    height:50px;
+    font-size:0.5rem;
+    padding:  1rem 2rem  12rem 2rem;
+
+  
+  }
+
 
   .back {
     width: 100%;
     height: 100%;
     z-index: 5;
+    margin:auto;
+    padding: 5rem 0rem;
   }
   .imageoverlay {
     position: absolute;
@@ -126,7 +137,58 @@ const Newsletter = styled.div.attrs({})`
   
 }
 @media only screen and (max-width: 768px) {
-   padding: 1rem 1rem 6rem 1rem;
+  width: 70%;
+   padding: 1rem 1.5rem 5rem 1.5rem;
+   font-size:0.9rem;
+    .textinput {
+    height:100px;
+    font-size:0.7rem;
+     padding: 0.7rem;
+    height: 1rem;
+    width: 70%;
+    border: none;
+    }
+  .newsletterbtn {
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    border-radius:50%;
+    background: #dcdcdc;
+    padding: 1px 4px;
+    border:none;
+    color: black;
+    font-size: 0.7rem;
+ 
+  }
+
+  }
+  @media only screen and (max-width: 400px) {
+    padding: 1rem 1.5rem 10rem 1.5rem;
+   font-size:0.7rem;
+    .textinput {
+    height:100px;
+    font-size:0.5rem;
+     padding: 0.7rem;
+    height: 1rem;
+    width: 70%;
+    border: none;
+    }
+  .newsletterbtn {
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    border-radius:50%;
+    background: #dcdcdc;
+    padding: 1px 4px;
+    border:none;
+    color: black;
+    font-size: 0.7rem;
+ 
+  }
+  }
+  @media only screen and (max-width: 350px) {
+    
+    padding: 1rem 1.5rem 12rem 1.5rem;
    font-size:0.7rem;
     .textinput {
     height:100px;
