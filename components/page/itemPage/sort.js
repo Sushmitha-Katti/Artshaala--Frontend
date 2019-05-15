@@ -52,9 +52,9 @@ class Sort extends Component {
     
 
       <SortStyle>
-        {this.props.type =='all'?"": 
+        {/* {this.props.type =='all'?"":  */}
 
-     ( <div>
+      <div>
         <div className="center">
           <button onClick={this.filterpages} className="filterbutton">
             <i className="fa fa-filter" /> Filter
@@ -82,8 +82,9 @@ class Sort extends Component {
               <hr />
               <ul className="ul-tag">
                 <Query 
-                query={this.props.type ? TYPE_BASED_ITEMS:ITEMS}
-                 variables={{type:this.props.type}}>
+                query={ITEMS}
+                //  variables={{type:this.props.type}}
+                >
                  
                   {({ data, error, loading }) => {
                     if(loading) <p>Loading..</p>
@@ -91,7 +92,7 @@ class Sort extends Component {
                     let categorylist = [];
                     // console.log("Data",data);
                     data.items.map(category =>
-                      categorylist.push(category.category)
+                      categorylist.push(category.type)
                     );
                     let unique_category = Array.from(new Set(categorylist));
 
@@ -194,7 +195,7 @@ class Sort extends Component {
             </div>
           </div>
         </div>
-            </div> ) }
+            </div> 
       
       </SortStyle>
                               

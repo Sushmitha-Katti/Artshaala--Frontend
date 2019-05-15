@@ -45,8 +45,9 @@ class CategoryList extends Component {
                 </div>
                 <ul className="categorylist">
             <Query 
-                query={this.props.type ? TYPE_BASED_ITEMS:ITEMS}
-                 variables={{type:this.props.type}}>
+                query={ITEMS}
+                //  variables={{type:this.props.type}}
+                 >
                  
                   {({ data, error, loading }) => {
                     if(loading) <p>Loading..</p>
@@ -54,7 +55,7 @@ class CategoryList extends Component {
                     let categorylist = [];
                     // console.log("Data",data);
                     data.items.map(category =>
-                      categorylist.push(category.category)
+                      categorylist.push(category.type)
                     );
                     let unique_category = Array.from(new Set(categorylist));
 

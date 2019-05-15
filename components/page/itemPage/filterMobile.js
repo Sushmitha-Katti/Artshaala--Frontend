@@ -104,7 +104,7 @@ class FilterMobile extends Component{
                         stepOne ={this.stepOne}
                         handleChange = {this.handleChange}
                         values={values}
-                        type={this.props.type}
+                        // type={this.props.type}
                         category={this.Category}
                         // page={this.props.page}
                     />
@@ -115,7 +115,7 @@ class FilterMobile extends Component{
                     stepOne ={this.stepOne}
                     handleChange = {this.handleChange}
                     values={values}
-                    type={this.props.type}
+                    // type={this.props.type}
                     CheckedBrand={this.CheckedBrand}
                 />
             )

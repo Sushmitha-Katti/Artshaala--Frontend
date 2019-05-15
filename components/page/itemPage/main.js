@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./navbar";
 import Layout from "./layout";
 import FilterMobile from "./filterMobile";
+// import Navbar from '../../Navbar/index'
 class Main extends Component {
   state = {
     step: 1,
@@ -76,7 +77,7 @@ CheckedPrice = e => {
               price = {this.state.price}
               filterpage={this.filterpage}
               page={this.props.prop.query.page}
-              type={this.props.prop.query.type}
+              // type={this.props.prop.query.type}
             />
             {/* { console.log("type of main",this.state.type)} */}
           </div>
@@ -85,7 +86,7 @@ CheckedPrice = e => {
         return <FilterMobile 
         mainpage={this.mainpage}
         page={this.props.prop.query.page}
-        type={this.props.prop.query.type}
+        // type={this.props.prop.query.type}
         category={this.Category}
         CheckedBrand={this.CheckedBrand}
         CheckedPrice = {this.CheckedPrice}

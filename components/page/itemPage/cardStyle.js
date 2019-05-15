@@ -4,7 +4,7 @@ const Cardstyle = styled.nav`
     .main{
         padding:0px;
         border:0.6px solid #b3b3b3;
-        width:200px;
+        width:250px;
         text-align:center;
         border-radius: 5px;
         /* box-shadow: 0 0 10px 3px rgba(0,0,0,0.5); */
@@ -12,10 +12,12 @@ const Cardstyle = styled.nav`
     }
     .sub{
         text-align:left;
-        margin-left:15px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:15px;
         font-size:15px;
         width: 185px;
-         height: 400px;
+         /* height: 400px; */
        p{
            margin:2px 0;
        }
@@ -34,7 +36,12 @@ const Cardstyle = styled.nav`
         width:150px;
         height:210px;
         cursor:pointer;
-        margin:6px;
+       
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom:15px;
+ 
         
     }
     .cost{
@@ -62,17 +69,25 @@ const Cardstyle = styled.nav`
         text-decoration:none;
         color:black;
     }
-    @media only screen and (max-width: 900px) {
+    /* @media only screen and (max-width: 900px) {
         .main{
-           // width:150px;
+            width:150px;
         }
-    }
+    } */
 
     @media only screen and (max-width: 480px) {
         .main{
             margin-top:20px;
         }
     }
+    /* @media only screen and (max-width: 300px) {
+        .main{
+            width:100px;
+        }
+        .sub{
+            width:80px;
+        }
+    } */
 `;
 
 export default Cardstyle;
