@@ -7,20 +7,59 @@ const NavWrapper = styled.nav`
     padding: 0;
   }
   .Header {
-    background: #f8f8f8;
-    text-align: center;
-    padding: 1rem;
+    .ribbon{
+      background-image: linear-gradient(to right, #f7bb2f , orange,#f7bb2f,orange, #f7bb2f);
+      width:100%;
+      height: 0.3rem;
+      margin-bottom:1rem;
+
+
+    }
+    
+    background: #E8E8E8;
+  
+    
     position: relative;
-    border-bottom: 1px solid black;
+    .gridlogoandsearch{
+      display:grid;
+      grid-template-columns:1fr 4fr 1fr 1fr;
+      
+      #nothover{
+        position:relative;
+        margin-left: 5rem;
+        margin-top:0.2rem;
+ 
+
+      .cartimage{
+        border: 2px solid #f7bb2f;
+        background:#f7bb2f;
+        padding: 5px;
+      width:2rem;
+      height:2rem;
+      border-radius: 50%;
+    
+    }
+    .count{
+      position:absolute;
+      top:0;
+    }
+         
+    }
+    }
+    
     .image {
+      margin-left:1rem;
       height: 50px;
       width: 200px;
     }
     .contact {
+      margin-left:1rem;
+      margin-top:1rem;
       display: inline-block;
-      position: absolute;
-      left: 10%;
-      top: 30%;
+      margin-bottom: 1rem;
+      font-size:1rem;
+     
+     
     }
     @media only screen and (max-width: 768px) {
       .contact {
@@ -35,18 +74,27 @@ const NavWrapper = styled.nav`
   }
   .Navbar {
     position: relative;
+    background: #f8f8f8;
     margin-top: 0px;
     * {
       box-sizing: border-box;
       text-align: center;
     }
     .nav-links {
+      background: #E8E8E8;
+     
       display: flex;
       justify-content: center;
-      background: white;
+     
       margin-top: 0px;
+     
     }
+    .Sign.In{
+      color:orange;
+      font-size:1rem;
+    } 
     li {
+    
       display: flex;
       padding: 0.5rem 0.5rem 0.2rem 0.5rem;
       height: 30px;
@@ -69,7 +117,7 @@ const NavWrapper = styled.nav`
     background:none ;
   }
     #alink:hover {
-      background: #f7bb2f;
+     a{ color: #f7bb2f;}
     }
 
     #nav-check {
@@ -96,19 +144,8 @@ const NavWrapper = styled.nav`
       font-size: 1em;
       padding: 0 20px;
     }
-    #nothover{
-      
-        border:1px solid orange;
-        border-radius:10%;
-        
-      
-      li:hover{
-        background:none;
-        .cart{
-          color:orange;
-        }
-      }
-    }
+    
+   
     
     .search {
       box-sizing: border-box;

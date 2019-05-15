@@ -6,7 +6,7 @@ import Nav from "../components/Navbar";
 const page = () => (
   <div>
     <Head title="Cart" />
-    <Nav />
+   
     <Cart />
   </div>
 );

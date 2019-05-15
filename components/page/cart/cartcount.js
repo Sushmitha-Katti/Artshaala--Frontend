@@ -9,8 +9,13 @@ const Dot = styled.div`
   
 color: black;
 border-radius: 50%;
-margin:0;
-margin-left:1px;
+margin:0.1rem 0.5rem;
+margin-left:0.6rem;
+position:absolute;
+margin-bottom: 15px;
+top:0.3rem;
+left:0.7rem;
+
 
 
 

@@ -6,7 +6,7 @@ import Nav from "../components/Navbar";
 const Page = () => (
   <div>
     <Head title="Contact" />
-    <Nav/>
+    
     <Contact />
   </div>
 );

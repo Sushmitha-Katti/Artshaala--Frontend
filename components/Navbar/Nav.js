@@ -5,17 +5,26 @@ import Link from "next/link";
 import SignoutPage from "../../components/test/signoutpage";
 import logo from "./logo.png";
 import CartCount from "../page/cart/cartcount";
+import AutoComplete from '../page/itemPage/Search';
+import cart from './cart.png';
 
 
 class Nav extends Component {
   render() {
     return (
       <NavWrapper>
+        
         <div className="Header">
-          <img className="image" alt="Logo" src={logo} />
-          <div className="contact">
+        
+          <div className = "ribbon "></div>
+          <div className = "gridlogoandsearch">
+            <img className="image" alt="Logo" src={logo} /> 
+            <AutoComplete/>
+            <div className="contact">
             <i className="fa fa-phone fa-lg" aria-hidden="true" />
             (+91) 73380 40655
+          </div>
+            <div id = "nothover"> <Link href=  "/mycart"><a><img className="cartimage" alt="Logo" src={cart} /> </a></Link><CartCount className = "count"  count = {this.props.cartcount}/></div>
           </div>
         </div>
         <div className="Navbar">
@@ -31,9 +40,9 @@ class Nav extends Component {
 
           <ul className="nav-links">
             {this.props.links.map(({ key, href, label }) => (
-              <li id="alink" key={key}>
+              <li  id="alink" key={key}>
                 <Link href={href}>
-                  <a>{label}</a>
+                  <a className = {label}>{label==="Sign In"? <strong>{label}</strong>: label}</a>
                 </Link>
               </li>
               
@@ -44,15 +53,10 @@ class Nav extends Component {
                 <li id="alink" >
                      <SignoutPage />
                 </li>)}
-            {!this.props.admin && this.props.cartcount > 0 && ( 
-                <li id = "nothover"> <Link href=  "/mycart"><a><i  style={{color:"orange"}} className="fa fa-shopping-cart fa-lg cart"></i></a></Link><CartCount  count = {this.props.cartcount}/></li>)}
+            
+               
               
-            {/* <li key="formli">
-              <form action="/">
-                <input type="text" placeholder="Search.." name="search" />
-                <i className="fa fa-search search " />
-              </form>
-            </li> */}
+           
             
           </ul>
           <div className="mobilelogo">

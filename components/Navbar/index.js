@@ -32,7 +32,7 @@ let commonlinks = [
 //---------------------------------------NOT AUTHENTICATED LINKS------------------------------------------------------
 let notauthlinks = [
   { href: "/signin", label: "Sign In" },
- { href: "/signup", label: "Sign Up" },
+ 
  
   
 ].map(link => {
