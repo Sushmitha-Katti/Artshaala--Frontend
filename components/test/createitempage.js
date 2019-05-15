@@ -98,15 +98,17 @@ class CreateItemPage extends Component {
     for (let f of files){
     
       data.append("file", f);
-      data.append("upload_preset", "Artshaala");
+      data.append("upload_preset", "artshaala");
    
       const res = await fetch(
-        "https://api.cloudinary.com/v1_1/dr6weeztx/image/upload",
+        "https://api.cloudinary.com/v1_1/dzvm3lnee/image/upload",
         {
           method: "POST",
           body: data
         }
-      );
+      ).catch((err) => {
+        console.log(err)
+      });
       const file = await res.json();
       
       let filearray = file.secure_url
