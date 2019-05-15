@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 const blogPage = () => (
     <div>
       <Head title="Blogs" />
-      <Nav />
+      
       <Blogs />
     
     </div>

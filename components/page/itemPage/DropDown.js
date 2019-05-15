@@ -1,9 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 
 const DropDown = styled.div`
-  position: absolute;
-  width: 60%;
-  left:24.5%;
+ 
+  width:90%;
+  margin:5px 0 0 25px;
+  
   /* margin-left:16.5vw; */
   z-index: 200;
   display:block;
@@ -52,10 +53,12 @@ const glow = keyframes`
 const SearchStyles = styled.div`
   position: relative;
   input {
-    width: 60%;
+    width: 90%;
     padding: 10px;
     margin:5px 0 0 25px;
-    border: 1px solid black;
+    
+    border:white;
+    border-radius:2%;
     /* font-size: 1.5rem; */
     &.loading {
       animation: ${glow} 0.5s ease-in-out infinite alternate;

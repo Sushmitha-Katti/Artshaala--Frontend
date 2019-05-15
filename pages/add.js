@@ -6,7 +6,7 @@ import AddAddress from "../components/page/cart/addresscompo";
 const Adress = (props) => (
     <div>
       <Head title="Add Adress" />
-      <Navbar/>
+     
       <AddAddress  />
 
       

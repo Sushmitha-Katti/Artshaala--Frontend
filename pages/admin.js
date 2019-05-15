@@ -7,7 +7,7 @@ import Navtest from "../components/test/navtest";
 const Admin = () => (
     <div>
       <Head title="Admin" />
-      <Navtest />
+      
       <Notification/>
     
     </div>

@@ -23,7 +23,7 @@ class Page extends Component {
       <Wrapper>
         
           <Head/>
-          
+          <Nav/>
           <Inner>{this.props.children}</Inner>
 
           <Footer/>  
