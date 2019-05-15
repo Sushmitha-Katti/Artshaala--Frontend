@@ -21,7 +21,7 @@ const Styling = styled.div`
         margin-top:-2vh;
         margin-left:5vw;
         display:inline-block;
-        position:relative;
+        position:relative;  
        
     }
 

@@ -15,6 +15,16 @@ const Wrapper = styled.nav`
     align-items: center;
   }
 `;
+const FilterText = styled.div`
+  text-align:left;
+  .texts{
+    border:1px solid #FFA500;
+    padding:5px;
+    margin:15px;
+    
+  }
+
+`;
 
 class Layout extends Component {
   state = {
@@ -81,27 +91,35 @@ CheckedRating = e => {
     // console.log("hello", this.state.category);
     return (
       <Wrapper>
-        <Sort
+      <div>
+         <FilterText>
+                {this.state.category!=''? <div className="texts"><b>Category: </b> {this.state.category}</div>:""}
+               {(this.state.brand).length!=0? <div className="texts"><b>Brand: </b> {this.state.brand}</div>:""} 
+               {(this.state.price).length!=0? <div className="texts"><b>Price: </b> {this.state.price}</div>:""} 
+               {(this.state.rating).length!=0? <div className="texts"><b>Rating: </b> {this.state.rating}</div>:""} 
+          </FilterText>
+       
+       <Sort
           filterpage={this.props.filterpage}
           category={this.Category}
           CheckedBrand={this.CheckedBrand}
-          type={this.props.type}
+          // type={this.props.type}
           CheckedPrice = {this.CheckedPrice}
          CheckedRating = {this.CheckedRating}
         />
+        </div>
+        <div>
         <Items
           category={this.props.category!=''?this.props.category:this.state.category}
           brand={(this.props.brand).length!=0?this.props.brand:this.state.brand}
           page={this.props.page}
-          type={this.props.type}
+          // type={this.props.type}
           price = {this.props.price!=null?this.props.price:this.state.price}
           rating = {this.state.rating}
 
-        />
-        {/* {console.log("layout.js",this.props.type)} */}
-
-        {/* <CardTemp/> */}
+        /> </div>
       </Wrapper>
+     
     );
   }
 }

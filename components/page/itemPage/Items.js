@@ -9,7 +9,7 @@ import { perPage } from "../../../config";
 const CardWrapper = styled.div`
   display: grid;
   justify-items: center;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
 
   grid-column-gap: 20px;
   grid-row-gap: 20px;
@@ -33,6 +33,7 @@ const CardWrapper = styled.div`
   }
 `;
 
+
 const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY($skip:Int = 0,$first:Int=${perPage}) {
     items(first:$first,skip:$skip,orderBy:createdAt_DESC) {
@@ -48,8 +49,8 @@ const ALL_ITEMS_QUERY = gql`
 `;
 
 const TYPE_ITEMS_QUERY = gql`
-  query TYPE_ITEMS_QUERY($type: String!) {
-    items(where: { type: $type }) {
+  query TYPE_ITEMS_QUERY($category: String!) {
+    items(where: { type: $category }) {
       id
       title
       price
@@ -121,24 +122,27 @@ class Items extends Component {
     // console.log("brand of items.js",this.props.brand)
     return (
       <div>
-        {this.props.type != "all" ? (
+        {this.props != null ? (
           ""
         ) : (
-          <Pagination page={this.props.page} type={this.props.type} />
+          <Pagination page={this.props.page}
+          //  type={this.props.type} 
+           />
         )}
 
         <Query
-          query={
-            this.props.type !== "all"
-              ? this.props.category
-                ? ITEMS_QUERY
-                : TYPE_ITEMS_QUERY
-              : ALL_ITEMS_QUERY
-          }
+          // query={
+          //   this.props.type !== "all"
+          //     ? this.props.category
+          //       ? ITEMS_QUERY
+          //       : TYPE_ITEMS_QUERY
+          //     : ALL_ITEMS_QUERY
+          // }
+          query={this.props.category? TYPE_ITEMS_QUERY : ALL_ITEMS_QUERY}
           // fetchPolicy="network-only"
           variables={{
             category: this.props.category,
-            type: this.props.type,
+            // type: this.props.type,
             skip: this.props.page * perPage - perPage,
             first: perPage
           }} // skip the first n item and display the the next m items. m specified in first:m
@@ -172,14 +176,18 @@ class Items extends Component {
                 </div>
               ));
               return (
+                <div>
+               
                 <div style={{ marginTop: -5 }}>
                   <h2>
-                    {this.props.type !== "all"
-                      ? this.props.type.charAt(0).toUpperCase() +
-                        this.props.type.slice(1)
-                      : "All Instruments"}
+                    { this.props.category?
+                       (this.props.category.charAt(0).toUpperCase() +
+                        this.props.category.slice(1)):"All"
+                     }
                   </h2>
+                  
                   <CardWrapper>{Cardslist}</CardWrapper>
+                </div>
                 </div>
               );
             }
