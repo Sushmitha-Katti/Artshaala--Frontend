@@ -6,6 +6,7 @@ import {CURRENT_USER_QUERY} from "../../test/User"
 import { Query } from "react-apollo";
 import DeleteItem from './deleteItem';
 import styled from "styled-components";
+import StarRating from 'react-star-rating-component';
 
 const Update = styled.div`
 .updatebtn{
@@ -68,7 +69,8 @@ class Cards extends Component {
                 <p className="cost">Price:{this.props.Cardcontent.price}</p>               
                 <p className="cost">Category:{this.props.Cardcontent.category}</p>               
                 <p className="cost">Type:{this.props.Cardcontent.type}</p>
-                <p className="cost">Brand:{this.props.Cardcontent.brand}</p>  
+                <p className="cost">Brand:{this.props.Cardcontent.brand}</p> 
+                
                 
                 { <Query
             query={RATING_QUERY}
@@ -104,9 +106,19 @@ class Cards extends Component {
               }
               const avgrating = Math.round((average_rating/review)*10)/10    //Average rating with rounding of to 1 decimal place
               
-              return (<p className="cost">Rating: {avgrating}</p>)
+              return (
+                <StarRating   
+                editing={false}
+                renderStarIcon={()=> <i class="fa fa-star fa-1x" aria-hidden="true"></i>}
+                starCount={5}
+                value={avgrating}/> 
+              )
             }
-            else return(<p className="cost">Rating: 5(default)</p>)
+            else return(<StarRating   
+              editing={false}
+              renderStarIcon={()=> <i class="fa fa-star fa-1x" aria-hidden="true"></i>}
+              starCount={5}
+              value={5}/> )
               
             }}</Query>}
               
