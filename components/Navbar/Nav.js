@@ -18,7 +18,8 @@ class Nav extends Component {
         
           <div className = "ribbon "></div>
           <div className = "gridlogoandsearch">
-            <img className="image" alt="Logo" src={logo} /> 
+          <div>
+            <img className="image" alt="Logo" src={logo} /> </div>
             <AutoComplete/>
             <div className="contact">
             <i className="fa fa-phone fa-lg" aria-hidden="true" />
@@ -59,9 +60,7 @@ class Nav extends Component {
            
             
           </ul>
-          <div className="mobilelogo">
-            <img src={logo} alt="logo" />
-          </div>
+         
         </div>
       </NavWrapper>
     );

@@ -53,6 +53,7 @@ class AutoComplete extends React.Component {
             <div>
               <ApolloConsumer>
                 {client => (
+                
                   <input
                     {...getInputProps({
                       type: 'search',
@@ -64,7 +65,9 @@ class AutoComplete extends React.Component {
                         this.onChange(e, client);
                       },
                     })}
+                  
                   />
+                 
                 )}
               </ApolloConsumer>
               {isOpen && (

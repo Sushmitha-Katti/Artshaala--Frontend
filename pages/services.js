@@ -18,7 +18,7 @@ import Nav from "../components/Navbar";
 const  Services = () => (
     <div>
       <Head title="Services" />
-      <Nav />
+     
       <ServiceRepair />
     </div>
   );

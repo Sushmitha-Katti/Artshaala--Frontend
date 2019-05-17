@@ -12,15 +12,17 @@ const Form = styled.form`
   justify-content: center;
   font-family: "Montserrat", sans-serif;
 
+
   fieldset {
-    background:#F8F8F8;
-
-    border: 1px solid #a0a0a0;
+    
+    background-color:white;
+   border: 1px solid #f7bb2f;
     padding: 20px 30px;
-
+    border-radius:1%;
     display: grid;
     min-width: 350px;
     height: auto;
+    z-index:5;
     .centered {
       color: orange;
       text-align:center;

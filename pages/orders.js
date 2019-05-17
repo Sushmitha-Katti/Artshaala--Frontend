@@ -4,7 +4,7 @@ import Head from "../components/head";
 const Orders = () => (
     <div>
     <Head title="Orders" />
-      <Nav/>
+     
       <Orderpage/>
     </div>
   );
