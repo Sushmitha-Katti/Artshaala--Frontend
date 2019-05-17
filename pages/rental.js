@@ -7,7 +7,7 @@ import Head from "../components/head";
 const rental = () => (
     <div>
       <Head title="Rental" />
-      <Nav />
+     
       <Rental  />
 
     </div>

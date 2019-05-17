@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const NavWrapper = styled.nav`
   font-family: "Montserrat", sans-serif;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10);
+  background: #F0F0F0;
+  width:100%;
   :global(body) {
     margin: 0;
     padding: 0;
@@ -13,13 +16,10 @@ const NavWrapper = styled.nav`
       height: 0.3rem;
       margin-bottom:1rem;
 
-
     }
     
-    background: #E8E8E8;
   
-    
-    position: relative;
+
     .gridlogoandsearch{
       display:grid;
       grid-template-columns:1fr 4fr 1fr 1fr;
@@ -31,11 +31,10 @@ const NavWrapper = styled.nav`
  
 
       .cartimage{
-        border: 2px solid #f7bb2f;
-        background:#f7bb2f;
+      
         padding: 5px;
-      width:2rem;
-      height:2rem;
+      width:2.3rem;
+      height:2.3rem;
       border-radius: 50%;
     
     }
@@ -62,30 +61,102 @@ const NavWrapper = styled.nav`
      
     }
     @media only screen and (max-width: 768px) {
-      .contact {
-        position: relative;
+      .ribbon{
+      background-image: linear-gradient(to right, #f7bb2f , orange,#f7bb2f,orange, #f7bb2f);
+      width:100%;
+      height: 0.3rem;
+      margin-bottom:1rem;
       }
-      display: flex;
-      justify-content: center;
+      .contact{
+        display:none;
+      }
+      .gridlogoandsearch div:nth-child(2){
+        grid-column:1/6;
+        grid-row: 2/ 3;
+
+      }
+      .gridlogoandsearch div:nth-child(1){
+        grid-column:3/4;
+        grid-row: 1/ 2;
+        img{
+          width:250px;
+          height:70px;
+        }
+
+      }
+      .gridlogoandsearch div:nth-child(4){
+        grid-column:4/5;
+        grid-row: 1/ 2;
+        margin-right:1rem;
+        
+        margin-left:0rem;
+       margin-top:0rem;
+
+
+      }
+
+    
+      
     }
-    @media only screen and (max-width: 480px) {
-      display: none;
+
+
+    @media only screen and (max-width: 420px) {
+      .ribbon{
+      background-image: linear-gradient(to right, #f7bb2f , orange,#f7bb2f,orange, #f7bb2f);
+      width:100%;
+      height: 0.3rem;
+      margin-bottom:1rem;
+      }
+      .contact{
+        display:none;
+      }
+      .gridlogoandsearch div:nth-child(2){
+        grid-column:2fr;
+        grid-row: 2/ 3;
+
+      }
+      .gridlogoandsearch div:nth-child(1){
+        grid-column:2fr;
+        grid-row: 1/ 2;
+        img{
+          width:150px;
+          height:50px;
+        }
+
+      }
+      .gridlogoandsearch div:nth-child(4){
+        grid-column:1fr;
+        grid-row: 1/ 2;
+        margin-right:1rem;
+        
+        margin-left:0rem;
+       margin-top:0rem;
+
+
+      }
+
+    
+      
     }
+    
+  
+    
   }
   .Navbar {
-    position: relative;
-    background: #f8f8f8;
+    
+   
     margin-top: 0px;
     * {
       box-sizing: border-box;
       text-align: center;
     }
     .nav-links {
-      background: #E8E8E8;
+     
+     
      
       display: flex;
       justify-content: center;
-     
+      flex-wrap: wrap;
       margin-top: 0px;
      
     }
@@ -166,28 +237,20 @@ const NavWrapper = styled.nav`
     .mobilelogo {
       display: none;
     }
-    @media only screen and (min-width: 480px) {
-      form:hover {
-        width: 200px;
-        cursor: pointer;
-      }
-      form:hover input {
-        display: block;
-      }
-      form:hover .search {
-        background: #ccc;
-      }
-    }
-    @media only screen and (max-width: 480px) {
-      padding-bottom: 5rem;
+    
+    @media only screen and (max-width: 780px) {
+      
+        padding-bottom:0.8rem;
+      
+      
       .nav-btn {
         display: inline-block;
         position: absolute;
-        right: 0;
-        top: auto;
-        z-index: 7;
+        left: 5px;
+        top: 30px;
+        z-index: 300;
         margin-bottom: 4rem;
-        background: #e8e8e8;
+        
       }
       .nav-btn > label {
         display: inline-block;
@@ -195,39 +258,48 @@ const NavWrapper = styled.nav`
         height: 50px;
         padding: 13px;
         color: #f7bb2f;
+        cursor: pointer
       }
       .nav-btn > label > span {
         display: block;
         width: 25px;
-        height: 10px;
-        border-top: 2px solid black;
+        height: 8px;
+        border-top: 2.5px solid #f7bb2f;
       }
       .nav-links {
         display: none;
       }
       .nav-links {
         display: block;
-        width: 100%;
+        
+        width: 0%;
+        box-shadow: 0 35px 35px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10);
+       
         justify-content: center;
-        height: 0px;
-        transition: all 0.3s ease-in;
+        height: 0%;
+        transition: all 0.3s ease-out;
+        
         overflow-y: hidden;
-        top: 10%;
+        top: 40px;
         left: 0;
-        padding: 0;
+        padding: 0rem;
+
         position: absolute;
-        margin-top: 2.8rem;
-        background: #e8e8e8;
+        margin-top: 0rem;
+        background: white;
       }
       .nav-links li {
-        padding: 0.5rem;
+        padding: 2rem 1rem;
         top: 10rem;
         width: 100%;
         margin: 0;
+        border-bottom: 1px solid orange;
       }
       .nav-links li a {
         display: block;
         color: black;
+        font-size:1rem;
+        font-weight:bold;
       }
 
       #nav-check:not(:checked) + .nav-links {
@@ -235,10 +307,17 @@ const NavWrapper = styled.nav`
       }
       #nav-check:checked + .nav-links {
         position: absolute;
+        border-top: 0.3rem solid orange;
         height: auto;
-        overflow-y: hidden;
-        z-index: 8;
+        width:100%;
+        z-index: 100;
+        padding: 3rem 3rem;
+        top: 0.3rem;
+        transition: all 0.4s linear;
+         border-bottom-left-radius:0%;
+        
       }
+      
       form {
         display: none;
       }
@@ -252,8 +331,7 @@ const NavWrapper = styled.nav`
         margin-left: 0px;
         z-index: 5;
         img {
-          width: 100px;
-          height: 30px;
+          display:none
         }
       }
     }

@@ -4,7 +4,7 @@ import Nav from "../components/Navbar";
 const SignIn = () => (
   <div>
     <Head title="signin" />
-    <Nav />
+   
     <Signin />
   </div>
 );

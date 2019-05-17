@@ -65,13 +65,13 @@ const Navbar = () => (
     {({ data }) => {
       const me = data ? data.me : null
      
-      if(me && !me.permissions.includes('ADMIN')){
+      if(me ){
          
          
          links = commonlinks.concat(authlinks)
          isauth = true;
          cartcount = me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
-        
+       
       }
       else if(me && me.permissions.includes('ADMIN')){
         links = commonlinks.concat(adminlinks);

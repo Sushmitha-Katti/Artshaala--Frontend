@@ -7,7 +7,7 @@ import Nav from "../components/Navbar";
 export default (params) => 
 <div>
 <Head title="Product" />
-<Nav />
+
 <Products {...params} />
 </div>
 
