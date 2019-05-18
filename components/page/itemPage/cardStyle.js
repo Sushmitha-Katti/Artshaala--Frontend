@@ -1,5 +1,21 @@
-import styled from "styled-components";
+import styled,{ keyframes }  from "styled-components";
 
+const spin = keyframes`
+0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+const Loader = styled.div`
+
+
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #f7bb2f;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: ${spin} 2s linear infinite; /* Safari */
+    animation: ${spin} 2s linear infinite;
+  
+`;
 const Cardstyle = styled.nav`
     .main{
         padding:0px;
@@ -10,6 +26,10 @@ const Cardstyle = styled.nav`
         /* box-shadow: 0 0 10px 3px rgba(0,0,0,0.5); */
         
     }
+ 
+
+
+
     .sub{
         text-align:left;
         margin-left:auto;
@@ -91,4 +111,5 @@ const Cardstyle = styled.nav`
 `;
 
 export default Cardstyle;
+export {Loader};
 

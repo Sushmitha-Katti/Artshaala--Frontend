@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { Query } from "react-apollo";
 import FilterMobileStyle from './filterMobileStyle'; 
-
+import {Loader} from "./cardStyle";
+ 
 const TYPE_BASED_ITEMS = gql`
     query TYPE_BASED_ITEMS($type: String!) {
         items(where: { type: $type }) {
@@ -50,7 +51,7 @@ class CategoryList extends Component {
                  >
                  
                   {({ data, error, loading }) => {
-                    if(loading) <p>Loading..</p>
+                    if(loading) return <Loader/>
                     if(error) <p>Error..{error.message}</p>
                     let categorylist = [];
                     // console.log("Data",data);

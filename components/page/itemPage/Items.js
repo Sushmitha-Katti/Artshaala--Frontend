@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import Cards from "./cards";
 import Pagination from "./Pagination";
 import { perPage } from "../../../config";
+import {Loader} from "./cardStyle";
 
 const CardWrapper = styled.div`
   display: grid;
@@ -159,7 +160,7 @@ class Items extends Component {
             this.props.brand!=0 && this.props.price!=0 ? (res =(data.items).filter(f=>this.brandPrice(f.brand,f.price,this.props.brand,this.props.price))):res;
 
 
-            if(loading) return <p>Loading</p>
+            if(loading) return  <Loader></Loader>
             if(error) return <p>Error: {error.message}</p>
             if (!data.items) return <p>No data</p>; 
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Cardstyle from "./cardStyle";
+import Cardstyle,{Loader} from "./cardStyle";
 import Link from "next/link";
 import gql from 'graphql-tag';
 import {CURRENT_USER_QUERY} from "../../test/User"
@@ -83,7 +83,7 @@ class Cards extends Component {
             >
             {({ error, loading, data }) => {
             if (error) return <Error error={error} />;
-            if (loading) return <p>Loading...</p>;
+            if (loading) return <Loader></Loader>;
         
             if (!data.commentsConnection) return <p>NO rating</p>;
             const review = data.commentsConnection.aggregate.count;   //returns totoal no of reviews
