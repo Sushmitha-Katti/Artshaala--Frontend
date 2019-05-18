@@ -5,7 +5,7 @@ import Link from "next/link";
 import SortStyle from "./SortStyle";
 import FilterMobile from "./filterMobile";
 import Layout from "./layout";
-
+import {Loader} from "./cardStyle";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
@@ -87,7 +87,7 @@ class Sort extends Component {
                 >
                  
                   {({ data, error, loading }) => {
-                    if(loading) <p>Loading..</p>
+                    if(loading) return <Loader></Loader>
                     if(error) <p>Error..{error.message}</p>
                     let categorylist = [];
                     // console.log("Data",data);
@@ -128,7 +128,7 @@ class Sort extends Component {
               <ul className="ul-tag">
               <Query query={this.props.type ? TYPE_BASED_ITEMS:ITEMS} variables={{type:this.props.type}}>
                   {({ data, error, loading }) => {
-                    if(loading) return <p>Loading..</p>
+                    if(loading) return  <Loader></Loader>
                     if(error) return <p>Error..{error.message}</p>
                     let brandlist = [];
                     data.items.map(brand => brandlist.push(brand.brand));

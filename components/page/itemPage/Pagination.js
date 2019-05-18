@@ -6,6 +6,7 @@ import Link from "next/link";
 import PaginationStyles from "./PaginationStyles";
 import { perPage } from "../../../config";
 import Error from "./ErrorMessage";
+import {Loader} from "./cardStyle";
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
@@ -30,7 +31,7 @@ const TYPE_PAGINATION_QUERY = gql`
 const Pagination = props => (
   <Query query={PAGINATION_QUERY} >
     {({ data, loading, error }) => {
-      if (loading) return <p>Loading...</p>;
+      if (loading) return <Loader/>;
       if (error) return <Error error={error} />;
       const count = data.itemsConnection.aggregate.count;
       const pages = Math.ceil(count / perPage);
