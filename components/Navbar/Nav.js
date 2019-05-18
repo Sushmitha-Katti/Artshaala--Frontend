@@ -25,7 +25,7 @@ class Nav extends Component {
             <i className="fa fa-phone fa-lg" aria-hidden="true" />
             (+91) 73380 40655
           </div>
-            <div id = "nothover"> <Link href=  "/mycart"><a><img className="cartimage" alt="Logo" src={cart} /> </a></Link><CartCount className = "count"  count = {this.props.cartcount}/></div>
+    <div id = "nothover"> <Link href=  "/mycart"><a><img className="cartimage" alt="Logo" src={cart} /> </a></Link>{this.props.cartcount>0?<CartCount className = "count"  count = {this.props.cartcount}/>:null}</div>
           </div>
         </div>
         <div className="Navbar">
