@@ -77,6 +77,7 @@ const Navbar = () => (
         links = commonlinks.concat(adminlinks);
         admin = true;
         isauth = true;
+        cartcount = me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
       }
       else {
         links = commonlinks.concat(notauthlinks);
