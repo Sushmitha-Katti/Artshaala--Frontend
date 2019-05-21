@@ -46,6 +46,7 @@ const CREATE_ITEM_MUTATION = gql`
     $size:String
     $stock:Int
     $specification: String!
+    $discount: Int
     
     
 
@@ -61,6 +62,7 @@ const CREATE_ITEM_MUTATION = gql`
       size:$size
       stock:$stock
       description:$description
+      discount: $discount
      
     ) {
       id
@@ -80,6 +82,8 @@ class CreateItemPage extends Component {
     brand:"",
     type:"",
     specification:"",
+    discount: 0,
+
   };
   // Function is called by all input fields in form except image field
   saveToState = e => {
@@ -229,20 +233,7 @@ class CreateItemPage extends Component {
                   required
                 />
                 </div>
-                <div className="compo"><b>size</b>
-                <input
-                  type="text"
-                  name="size"
-                  placeholder="Size"
-                  value={this.state.size}
-                  onChange={this.saveToState}
-                  required
-                />
-                </div>
-              </div>
-
-              <div className="typebrandsize">
-              <div className="compo"><b>Type</b>
+                <div className="compo"><b>Type</b>
                   <input
                     type="text"
                     name="type"
@@ -252,16 +243,21 @@ class CreateItemPage extends Component {
                     required
                   />
                   </div>
-                  <div className="compo"><b>Price</b>
-                  <input
-                    type="number"
-                    name="price"
-                    placeholder="price per item"
-                    value={this.state.price}
-                    onChange={this.saveToState}
-                    required
-                  />
-                  </div>
+               
+              </div>
+
+              <div className="typebrandsize">
+              <div className="compo"><b>size</b>
+                <input
+                  type="text"
+                  name="size"
+                  placeholder="Size"
+                  value={this.state.size}
+                  onChange={this.saveToState}
+                  required
+                />
+                </div>
+              
                   <div className="compo"><b>Stock</b>
                   <input
                     type="number"
@@ -272,7 +268,33 @@ class CreateItemPage extends Component {
                     required
                   />
                   </div>
+              
               </div>
+              <div className="typebrandsize">
+            
+                <div className="compo"><b>discount</b>
+                <input
+                  type="number"
+                  name="discount"
+                  placeholder="Discount"
+                  value={this.state.discount}
+                  onChange={this.saveToState}
+                  required
+                />
+                </div>
+             
+                  <div className="compo"><b>Price</b>
+                  <input
+                    type="number"
+                    name="price"
+                    placeholder="price per item"
+                    value={this.state.price}
+                    onChange={this.saveToState}
+                    required
+                  />
+                  </div>
+              </div>
+
               <div className = "centered">
               <div className="centerbutton">
                 <input type="submit" value = "Create Item"/></div>

@@ -22,6 +22,7 @@ const SINGLE_ITEM_QUERY = gql`
       images
       description
       stock
+      
 
       
       comment(first:3){
@@ -183,6 +184,7 @@ class Products extends React.Component{
               <h3 style = {{color :"orange"}}>{item.stock ? "In Stock":"Out Of Stock" }</h3>
               {item.stock? <AddToCart id = {this.props.query.id}/>:null}
              {/***** Button Should be linked******************* */}
+             <h3>Description</h3><p>{  item.description}</p>
 
             </div>
             </div>
@@ -190,11 +192,11 @@ class Products extends React.Component{
             <h2>
             Specifications
             </h2>
-            <h3>
+           
             <ul>
-                {item.specification}
+                {item.specification.split("|").map(item => <p>{item}</p>)}
             </ul>
-            </h3>
+           
             </div>
 
 
@@ -237,23 +239,23 @@ class Products extends React.Component{
             <StarRating   editing={false}
             renderStarIcon={()=><i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[4]/review)*5}/>
+            value={(count[5]/review)*5}/>{           count[5]}
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[3]/review)*5}/>
+            value={(count[4]/review)*5}/>{count[4]}
             <StarRating   editing={false}
             renderStarIcon={()=><i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[2]/review)*5}/>
+            value={(count[3]/review)*5}/>{count[3]}
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[1]/review)*5}/>
+            value={(count[2]/review)*5}/>{count[2]}
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[0]/review)*5}/>
+            value={(count[1]/review)*5}/>{count[1]}
             </div>
             </div>
             </section>
