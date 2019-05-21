@@ -277,7 +277,7 @@ const NavWrapper = styled.nav`
        
         justify-content: center;
         height: 0%;
-        transition: all 0.3s ease-out;
+        
         
         overflow-y: hidden;
         top: 40px;

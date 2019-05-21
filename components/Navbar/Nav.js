@@ -10,8 +10,16 @@ import cart from './cart.png';
 
 
 class Nav extends Component {
+  state = {
+    selected: false,
+  }
+  toggle = () => {
+    this.setState(({ selected }) => ({ selected: !selected }))
+  }
   render() {
+    const { selected } = this.state
     return (
+      
       <NavWrapper>
         
         <div className="Header">
@@ -30,18 +38,18 @@ class Nav extends Component {
         </div>
         <div className="Navbar">
           <div className="nav-btn">
-            <label htmlFor="nav-check">
+            <label htmlFor="nav-check"  onClick={this.toggle}>
               <span />
               <span />
               <span />
             </label>
           </div>
 
-          <input type="checkbox" id="nav-check" />
+          <input type="checkbox" id="nav-check" checked={selected} />
 
           <ul className="nav-links">
             {this.props.links.map(({ key, href, label }) => (
-              <li  id="alink" key={key}>
+              <li  id="alink" key={key} onClick={this.toggle} >
                 <Link href={href}>
                   <a className = {label}>{label==="Sign In"? <strong>{label}</strong>: label}</a>
                 </Link>

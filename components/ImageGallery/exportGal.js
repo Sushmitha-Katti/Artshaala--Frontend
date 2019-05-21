@@ -23,14 +23,14 @@ class ImgGal extends Component {
 }
 const Body=sc.body`
 display: grid;
-grid-template-columns: 400px;
+grid-template-columns: 300px;
 padding-left:30px;
 padding-right:30px;
 
 @media (max-width: 1024px){
 display: grid;
 grid-template-columns: 300px;
-padding-left:10px;
+padding-left:40px;
 padding-right:30px;
 }
 
@@ -41,7 +41,7 @@ padding-right:30px;
     padding-right:30px;
     }
 
-@media (min-width: 320px){
+@media (max-width: 320px){
     display: grid;
     grid-template-columns: 240px;
     padding-left:10px;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactImageMagnify from 'react-image-magnify';
-import ReactSlick from 'react-slick';
+import Slider from 'react-slick';
 
 
 export default class ReactSlick2 extends Component {
@@ -11,56 +11,71 @@ export default class ReactSlick2 extends Component {
             images
          } = this.props;
        
+       const settings ={
+
+     
+
+        customPaging: function(i) {
+        return (
+        
+          <a>
+             <img style = {{width:40+"px" ,height : 40+"px", marginRight : 20+"px",paddingRight: 40+"px"}} src = {images[i]}/>
+          </a>
+      
+          
+        );
+      },
+        dotsClass: "slick-dots slick-thumb",
+        arrows: true, 
+        dots: true,
+        infinite: true,
+        speed: 500,
+        
+        slidesToScroll: 1,
+        
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                infinite: true,
+                slidesToScroll: 1
+              }
+            },
+            {
+              breakpoint: 468,
+              settings: {
+                slidesToShow: 1,
+                infinite: true,
+                slidesToScroll: 1
+              }
+            }
+          ]
+      }
          let imagelist = []   
          let dataSource = []
         images.map(image => imagelist.push([{src: image, settings:'500w'},{src:image,settings:'1426w'}].map(item => `${item.src} ${item.settings}`)
         .join(', ')));
         var i = 0
-        imagelist.map((singleimagelist,i) => { let sample={srcSer:singleimagelist,small:images[i],large:images[i]}; i++; return dataSource.push(sample)} )
+        imagelist.map((singleimagelist,i) => { let sample={srcSet:singleimagelist,small:images[i],large:images[i]}; i++; return dataSource.push(sample)} )
         
         return (
             
             <body>
            
             
-            <ReactSlick
-                {...{
-                    arrows: true, 
-                    dots: true,
-                    infinite: true,
-                    speed: 500,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    nextArrow: <SampleNextArrow />,
-                    prevArrow: <SamplePrevArrow />,
-                    responsive: [
-                        {
-                          breakpoint: 1024,
-                          settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: true
-                          }
-                        },
-                        {
-                          breakpoint: 768,
-                          settings: {
-                            slidesToShow: 1,
-                            infinite: true,
-                            slidesToScroll: 1
-                          }
-                        },
-                        {
-                          breakpoint: 468,
-                          settings: {
-                            slidesToShow: 1,
-                            infinite: true,
-                            slidesToScroll: 1
-                          }
-                        }
-                      ]
-                  }}
+            <Slider
+            {...settings}
+               
                   {...rsProps}
             >
                           
@@ -74,6 +89,8 @@ export default class ReactSlick2 extends Component {
                                     alt: 'Wristwatch by Versace',
                                     isFluidWidth: true,
                                     src: src.small,
+                                   // width: 700,
+                                   // height: 800,
                                     srcSet: src.srcSet,
                                     enlargedImagePosition: 'over',  
                                     sizes: '(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px'
@@ -81,9 +98,9 @@ export default class ReactSlick2 extends Component {
                                
                                 largeImage: {
                                     src: src.large,
-                                    width: 1426,
+                                    width: 1200,
                                     enlargedImagePosition: 'over',  
-                                    height: 2000
+                                    height: 1200
                                 },
                                 lensStyle: { backgroundColor: 'rgba(0,0,0,.6)' }
                               
@@ -93,7 +110,7 @@ export default class ReactSlick2 extends Component {
                         
                     </div>
                 ))}
-            </ReactSlick>
+            </Slider>
             </body>
          
         );
