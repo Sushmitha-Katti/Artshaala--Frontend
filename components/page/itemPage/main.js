@@ -6,10 +6,10 @@ import FilterMobile from "./filterMobile";
 class Main extends Component {
   state = {
     step: 1,
-    category:'',
-        brand:[],
-        price:[],
-        rating:[]
+    category: "",
+    brand: [],
+    price: [],
+    rating: []
   };
 
   mainpage = () => {
@@ -46,22 +46,35 @@ class Main extends Component {
       this.setState({
         brand: [...this.state.brand, boxes]
       });
-    }  
-};
+    }
+  };
 
-CheckedPrice = e => {
-  let boxes = e;
-  // console.log("box", boxes);
-  // console.log(this.state);
-  if (this.state.price.includes(boxes)) {
-    let removedbox = this.state.price.filter(item => item !== e);
-    this.setState({ price: removedbox });
-  } else {
-    this.setState({
-      price: [...this.state.price, boxes]
-    });
-  }  
-}
+  CheckedPrice = e => {
+    let boxes = e;
+    // console.log("box", boxes);
+    // console.log(this.state);
+    if (this.state.price.includes(boxes)) {
+      let removedbox = this.state.price.filter(item => item !== e);
+      this.setState({ price: removedbox });
+    } else {
+      this.setState({
+        price: [...this.state.price, boxes]
+      });
+    }
+  };
+  CheckedRating = e => {
+    let boxes = e;
+    // console.log("box", boxes);
+    // console.log(this.state);
+    if (this.state.rating.includes(boxes)) {
+      let removedbox = this.state.rating.filter(item => item !== e);
+      this.setState({ rating: removedbox });
+    } else {
+      this.setState({
+        rating: [...this.state.rating, boxes]
+      });
+    }
+  };
 
   render() {
     const { step } = this.state;
@@ -70,11 +83,12 @@ CheckedPrice = e => {
       case 1:
         return (
           <div>
-            <Navbar typefunc={this.Type} />
+            {/* <Navbar typefunc={this.Type} /> */}
             <Layout
-              category = {this.state.category}
-              brand = {this.state.brand}
-              price = {this.state.price}
+              category={this.state.category}
+              brand={this.state.brand}
+              price={this.state.price}
+              rating={this.state.rating}
               filterpage={this.filterpage}
               page={this.props.prop.query.page}
               // type={this.props.prop.query.type}
@@ -83,14 +97,17 @@ CheckedPrice = e => {
           </div>
         );
       case 2:
-        return <FilterMobile 
-        mainpage={this.mainpage}
-        page={this.props.prop.query.page}
-        // type={this.props.prop.query.type}
-        category={this.Category}
-        CheckedBrand={this.CheckedBrand}
-        CheckedPrice = {this.CheckedPrice}
-        />;
+        return (
+          <FilterMobile
+            mainpage={this.mainpage}
+            page={this.props.prop.query.page}
+            // type={this.props.prop.query.type}
+            category={this.Category}
+            CheckedBrand={this.CheckedBrand}
+            CheckedPrice={this.CheckedPrice}
+            CheckedRating={this.CheckedRating}
+          />
+        );
     }
 
     return <div />;

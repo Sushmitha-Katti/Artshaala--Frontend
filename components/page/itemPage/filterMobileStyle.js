@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 const FilterMobileStyle = styled.nav`
-
+    .filterPage{
+        /* margin-top:-250px;
+        z-index:100; */
+    }
     button{
         background-color:white;
         border:0;

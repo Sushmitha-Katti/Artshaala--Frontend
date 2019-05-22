@@ -16,7 +16,7 @@ class Rating extends Component {
                     <span className="title">Ratings</span>
                 </div>
                     <ul className="list">
-                        <div className="items">
+                        {/* <div className="items">
                             <span className="texts">5 Stars</span>
                             <li><input type="checkbox" id="checkboxes" name="stars5"/></li>
                         </div>        
@@ -35,7 +35,18 @@ class Rating extends Component {
                         <div className="items">        
                             <span className="texts">3 Stars</span>
                             <li><input type="checkbox" id="checkboxes" name="stars3"/></li>
-                        </div>              
+                        </div> */}
+
+
+                        { [4,3,2,1].map((f,index,array)=>
+              <div className="items">
+              <span className="texts">{array[index]} <i class="fa fa-star" aria-hidden="true"></i> & above</span>
+                <li>
+                  <input type="checkbox" id="checkboxes" name="rs1" value={array[index]}  onChange={e => this.props.CheckedRating(array[index])} />
+                </li>
+                </div>
+              )}
+                           
                             </ul>
                        
                 

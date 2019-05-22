@@ -30,6 +30,7 @@ class Filter extends Component {
         const{ values } = this.props;
         return (
         <FilterMobileStyle>
+            <div className = "filterPage">
             <div className="main"><button onClick={this.mainpages} className="returnbutton"><i className="fa fa-times"></i></button>
             <span className="filtertext">Filter </span></div>
             
@@ -44,6 +45,7 @@ class Filter extends Component {
             
             <div className="sub"><span className="filternames">Rating </span>
             <button onClick={this.ratinglist} className="filterbuttons"><i className="fa fa-angle-right"></i></button></div>
+        </div>
         </FilterMobileStyle>
         )
   }
