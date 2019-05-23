@@ -98,9 +98,9 @@ export default class ReactSlick2 extends Component {
                                
                                 largeImage: {
                                     src: src.large,
-                                    width: 1200,
+                                    width: 700,
                                     enlargedImagePosition: 'over',  
-                                    height: 1200
+                                    height: 700
                                 },
                                 lensStyle: { backgroundColor: 'rgba(0,0,0,.6)' }
                               

@@ -22,11 +22,11 @@ const NavWrapper = styled.nav`
 
     .gridlogoandsearch{
       display:grid;
-      grid-template-columns:1fr 4fr 1fr 1fr;
+      grid-template-columns:3fr 13fr 3.5fr 2.5fr;
       
       #nothover{
         position:relative;
-        margin-left: 5rem;
+        margin-left: 2rem;
         margin-top:0.2rem;
  
 

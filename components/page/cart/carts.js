@@ -111,7 +111,8 @@ class Carts extends Component {
                       <span style={{ fontSize: 23 + "px" }}>Subtotal:</span>
                       <Subtotal big>{quantity * item.price}</Subtotal>
                     </div>
-                  </div>: <p>This item has been deleted</p>}
+                    {/* If item only is deleted then show item is deleted */}
+                  </div>:<div> <b style = {{margin : 1+"rem"}}>This item has been deleted</b>  <RemoveFromCart id = {this.props.cartItem.id}/></div>}
                   
                 </Styles>
        )}
