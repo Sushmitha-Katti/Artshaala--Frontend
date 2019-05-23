@@ -21,10 +21,7 @@ const SINGLE_ITEM_QUERY = gql`
       price
       images
       description
-      stock
-      
-
-      
+      stock      
       comment(first:3){
           comment
           createdAt
@@ -99,18 +96,12 @@ class Products extends React.Component{
             return (
                 
             <div>
-            
-
-          
              {/* -----------------------------------------Query for Count of Comments--------------------------------------- */}
                                         
            { <Query
             query={COMMENT_CONNECTION_QUERY}
             variables={{
-
              id: this.props.query.id,
-
- 
             }}
             >
             {({ error, loading, data }) => {
@@ -184,18 +175,26 @@ class Products extends React.Component{
               <h3 style = {{color :"orange"}}>{item.stock ? "In Stock":"Out Of Stock" }</h3>
               {item.stock? <AddToCart id = {this.props.query.id}/>:null}
              {/***** Button Should be linked******************* */}
-             <h3>Description</h3><p>{  item.description}</p>
+             <h4 style = {{color: "orange"}}>Hurry Up only {item.stock} items left!</h4>
+             {/* <h3>Description</h3><p>{  item.description}</p> */}
 
             </div>
             </div>
             <div className="specs">
-            <h2>
-            Specifications
-            </h2>
-           
-            <ul>
-                {item.specification.split("|").map(item => <p>{item}</p>)}
-            </ul>
+            <div>
+                <h2 className = "headspecs ">
+                Specifications
+                </h2>
+              
+                <ul className = "eachspecs">
+                    {item.specification.split("|").map(item => <p>{item}</p>)}
+                </ul>
+            </div>
+            <div>
+            <div>
+            <h3 className = "headspecs" style = {{paddingLeft: 0+"px"}} >Description</h3><p style = {{paddingRight:2+"rem"}}>{  item.description}</p>
+            </div>
+            </div>
            
             </div>
 
@@ -239,54 +238,56 @@ class Products extends React.Component{
             <StarRating   editing={false}
             renderStarIcon={()=><i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[5]/review)*5}/>{           count[5]}
+            value={(count[5]/review)*5}/>
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[4]/review)*5}/>{count[4]}
+            value={(count[4]/review)*5}/>
             <StarRating   editing={false}
             renderStarIcon={()=><i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[3]/review)*5}/>{count[3]}
+            value={(count[3]/review)*5}/>
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[2]/review)*5}/>{count[2]}
+            value={(count[2]/review)*5}/>
             <StarRating   editing={false}
             renderStarIcon={()=> <i class="fa fa-window-minimize fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={(count[1]/review)*5}/>{count[1]}
+            value={(count[1]/review)*5}/>
             </div>
+            
             </div>
             </section>
            
        
             {/* -----------------------------------------------Reviews Section------------------------------------------- */}
            
+           <h3 style = {{paddingLeft:  60+"px" }}>Comments</h3>
+           
             {item.comment.map(comment =>
 
-            <section style = {{paddingTop:10+"px",  paddingLeft:  60+"px" ,paddingBotton:10+"px" }} className="comment">
+            <section style = {{marginTop: 1+"rem",marginLeft: 4+"rem",marginRight: 4+"rem",paddingTop:5+"px",borderRadius: 1+"%" , paddingLeft:  20+"px" ,paddingBotton:5+"px", border:1+"px solid grey" }} className="comment">
             <h1 className="head"><b>{comment.user.name}</b></h1>
+            
             <div>
             <StarRating   
             editing={false}
             renderStarIcon={()=> <i class="fa fa-star fa-1x" aria-hidden="true"></i>}
             starCount={5}
-            value={comment.rating}/>
+            value={comment.rating}/> {comment.createdAt.split("T")[0]} 
              </div>
-             <h4 className="date">
-             {comment.createdAt.toLocaleString("en-US")} 
-             </h4>
+             
            
              <p className="content">{comment.comment}</p>
             
             </section>      
             )}
         {/*----------------------------------Related Products Section------------------------------------ */}    
-            {/* <div>
+           <div>
                 <h1 className="rp" style = {{textAlign:"center"}}>RELATED PRODUCTS</h1>
                 <Cards/>
-            </div> */}
+            </div>
        </Body>
 
 

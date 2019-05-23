@@ -81,9 +81,8 @@ class ReviewPage extends Component {
                 //change the mutation to the single item page
                 console.log(res);
                 this.setState({ comment: "", rating: 0});
-                Router.push({
-                  pathname: "/"
-                 });}
+                alert("Successfully reviewd a product")
+                }
                 
               }}
             >
