@@ -168,7 +168,7 @@ class CreateItemPage extends Component {
                 <input
                   type="text"
                   name="title"
-                  placeholder="Name of Instrument"
+                  placeholder="Name of instrument"
                   value={this.state.email}
                   onChange={this.saveToState}
                   required
@@ -176,11 +176,11 @@ class CreateItemPage extends Component {
               </label>
 
               <label htmlFor="file">
-                <div><b>Image</b></div>
+                <div><b>Images</b></div>
                 <input
                   type="file"
                   name="file"
-                  placeholder="Upload an image"
+                  placeholder="Upload images"
                   
                   required
                   onChange={this.uploadFile}
@@ -198,7 +198,7 @@ class CreateItemPage extends Component {
 
               <label htmlFor="description">
                 <div><b>Description</b></div>
-                <textarea id="description" name="description" placeholder="Description of the item.."
+                <textarea id="description" name="description" placeholder="Description of the item."
                 value={this.state.description}
                 onChange={this.saveToState}
                 required ></textarea>
@@ -206,7 +206,7 @@ class CreateItemPage extends Component {
               </label>
               <label htmlFor="specification">
                 <div><b>Specification</b></div>
-                <textarea id="specification" name="specification" placeholder="Specification of the item.."
+                <textarea id="specification" name="specification" placeholder="Specifications of the item."
                 value={this.state.specification}
                 onChange={this.saveToState}
                 required ></textarea>
@@ -223,11 +223,11 @@ class CreateItemPage extends Component {
                   required
                 />
                 </div>
-                <div className="compo"><b>brand</b>
+                <div className="compo"><b>Brand</b>
                 <input
                   type="text"
                   name="brand"
-                  placeholder="brand"
+                  placeholder="Brand name"
                   value={this.state.brand}
                   onChange={this.saveToState}
                   required
@@ -247,7 +247,7 @@ class CreateItemPage extends Component {
               </div>
 
               <div className="typebrandsize">
-              <div className="compo"><b>size</b>
+              <div className="compo"><b>Size</b>
                 <input
                   type="text"
                   name="size"
@@ -262,7 +262,7 @@ class CreateItemPage extends Component {
                   <input
                     type="number"
                     name="stock"
-                    placeholder="Number of Item Available"
+                    placeholder="Number of item available"
                     value={this.state.stock}
                     onChange={this.saveToState}
                     required
@@ -272,7 +272,7 @@ class CreateItemPage extends Component {
               </div>
               <div className="typebrandsize">
             
-                <div className="compo"><b>discount</b>
+                <div className="compo"><b>Discount</b>
                 <input
                   type="number"
                   name="discount"
@@ -287,7 +287,7 @@ class CreateItemPage extends Component {
                   <input
                     type="number"
                     name="price"
-                    placeholder="price per item"
+                    placeholder="Price per item"
                     value={this.state.price}
                     onChange={this.saveToState}
                     required

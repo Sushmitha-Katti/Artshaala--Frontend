@@ -11,10 +11,8 @@ import CouroselCard from "../components/page/Home/couroselCard";
 const Home = () => (
   <div>
     <Head title="Home" />
-   
     <Common />
     <ServiceCards />
-    
     <NewsLetter />
   </div>
 );
