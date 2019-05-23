@@ -192,7 +192,7 @@ class Products extends React.Component{
             </div>
             <div>
             <div>
-            <h3 className = "headspecs" style = {{paddingLeft: 0+"px"}} >Description</h3><p style = {{paddingRight:2+"rem"}}>{  item.description}</p>
+            <h2 className = "headspecs" style = {{paddingLeft: 0+"px"}} >Description</h2><p className = "specsdesc" style = {{paddingRight:2+"rem"}}>{  item.description}</p>
             </div>
             </div>
            
@@ -263,7 +263,7 @@ class Products extends React.Component{
        
             {/* -----------------------------------------------Reviews Section------------------------------------------- */}
            
-           <h3 style = {{paddingLeft:  60+"px" }}>Comments</h3>
+           {item.comment ? <h3 style = {{paddingLeft:  60+"px" }}>Comments</h3>:null}
            
             {item.comment.map(comment =>
 

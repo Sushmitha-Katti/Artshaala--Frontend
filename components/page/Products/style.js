@@ -187,7 +187,7 @@ const Body = sc.body`
   }
   .specs{
       display:grid;
-      grid-template-rows:1fr 1fr;
+      grid-template-rows:1fr 2fr;
       grid-auto-flow:row;
       grid-template-areas:'specs';
       justify-items:left;
@@ -306,11 +306,16 @@ const Body = sc.body`
 }
 .specs{
     display:grid;
-    grid-template-rows:1fr;
+    grid-template-columns:1fr;
     grid-auto-flow:row;
     grid-template-areas:'specs';
     justify-items:left;
     padding-left:0px;
+    
+      .specsdesc{
+        padding-left: 40px;
+      }
+    
 }
   h2{
     padding-top:100px;
@@ -428,7 +433,7 @@ const Body = sc.body`
 }
 .specs{
     display:grid;
-    grid-template-rows:1fr;
+    grid-template-columns:1fr;
     grid-auto-flow:row;
     grid-template-areas:'specs';
     justify-items:left;
