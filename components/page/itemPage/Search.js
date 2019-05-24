@@ -53,7 +53,7 @@ class AutoComplete extends React.Component {
             <div>
               <ApolloConsumer>
                 {client => (
-                
+                <div className = "searchbar">
                   <input
                     {...getInputProps({
                       type: 'search',
@@ -67,6 +67,8 @@ class AutoComplete extends React.Component {
                     })}
                   
                   />
+                  <i class="fa fa-search fa-lg searchicon" aria-hidden="true"></i>
+                  </div>
                  
                 )}
               </ApolloConsumer>

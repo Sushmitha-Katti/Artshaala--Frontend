@@ -2,27 +2,22 @@ import styled from "styled-components";
 
 const NavWrapper = styled.nav`
   font-family: "Montserrat", sans-serif;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10);
-  background: #F0F0F0;
+  /* box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10); */
+  background: #282828;
   width:100%;
   :global(body) {
     margin: 0;
     padding: 0;
   }
   .Header {
-    .ribbon{
-      background-image: linear-gradient(to right, #f7bb2f , orange,#f7bb2f,orange, #f7bb2f);
-      width:100%;
-      height: 0.3rem;
-      margin-bottom:1rem;
-
-    }
+   padding-top:0.1rem;
     
   
 
     .gridlogoandsearch{
       display:grid;
-      grid-template-columns:3fr 13fr 3.5fr 2.5fr;
+      grid-template-columns:  5fr 30fr 7fr ;
+      place-content:center;
       
       #nothover{
         position:relative;
@@ -33,9 +28,9 @@ const NavWrapper = styled.nav`
       .cartimage{
       
         padding: 5px;
-      width:2.3rem;
-      height:2.3rem;
-      border-radius: 50%;
+        width:2.3rem;
+        height:2.3rem;
+        color : white;
     
     }
     .count{
@@ -47,17 +42,26 @@ const NavWrapper = styled.nav`
     }
     
     .image {
-      margin-left:1rem;
+      margin-left:2rem;
       height: 50px;
       width: 200px;
     }
     .contact {
       margin-left:1rem;
       margin-top:1rem;
-      display: inline-block;
+      
+      display: grid;
+      grid-template-columns:4fr 1fr 1fr;
       margin-bottom: 1rem;
       font-size:1rem;
-     
+      color:white;
+      
+     .phone{
+       
+     }
+     .email{
+       margin-right:1rem;
+     }
      
     }
     @media only screen and (max-width: 768px) {
@@ -174,7 +178,7 @@ const NavWrapper = styled.nav`
       margin: 10px 10px;
     }
     a {
-      color: black;
+      color: white;
       text-decoration: none;
       font-size: 14px;
       height: 20px;
@@ -183,6 +187,7 @@ const NavWrapper = styled.nav`
     padding: 0;
     border: 0;
     font-size: 14px;
+    color: white;
     font-family: inherit;
     
     background:none ;
