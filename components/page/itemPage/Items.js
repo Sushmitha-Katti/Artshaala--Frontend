@@ -45,6 +45,7 @@ const ALL_ITEMS_QUERY = gql`
       category
       type
       brand
+      AvgRating
     }
   }
 `;
@@ -59,54 +60,129 @@ const TYPE_ITEMS_QUERY = gql`
       category
       type
       brand
+      AvgRating
     }
   }
 `;
 
-const ITEMS_QUERY = gql`
-  query ITEMS_QUERY($category: String!, $type: String!) {
-    items(where: { category: $category, type: $type }) {
-      id
-      title
-      price
-      images
-      category
-      type
-      brand
-    }
-  }
-`;
+// const ITEMS_QUERY = gql`
+//   query ITEMS_QUERY($category: String!, $type: String!) {
+//     items(where: { category: $category, type: $type }) {
+//       id
+//       title
+//       price
+//       images
+//       category
+//       type
+//       brand
+//       AvgRating
+//     }
+//   }
+// `;
 
 class Items extends Component {
   static getInitialProps({ query }) {
     return { query };
   }
 
-  filters = (x, a) => {
+
+
+  brandFunc = (brand, brandProps) => {  // brand from db, brandProps from brandFunc props
+    //console.log("brand only")
     let i;
-    for (i = 0; i < a.length; i++) {
-      if (x == a[i]) {
-        return x;
+    for (i = 0; i < brandProps.length; i++) {
+      if (brand == brandProps[i]) {
+        return brand;
       }
     }
   };
-  prices = (x, a) => {
+  priceFunc = (price, priceProps) => {
+    //console.log("price only")
     let i;
-    for (i = 0; i < a.length; i++) {
-      if (x <= a[i] && x >= a[i] - 4000) {
-        return x;
+    for (i = 0; i < priceProps.length; i++) {
+      if (price >= priceProps[i] && price <= priceProps[i] + 4000) {
+        return price;
       }
     }
   };
-  brandPrice = (x, y, a, b) => {
+
+  ratingsFunc = (rating,ratingProps)=>{
     let i;
-    let len = a.length + b.length;
-    for (i = 0; i < len; i++) {
-      if (x == a[i] && y <= b[i] && y>= b[i]- 4000) {
-        return x, y;
+    for (i = 0; i < ratingProps.length; i++) {
+      if (rating >= ratingProps[i]) {
+        return rating;
       }
     }
   };
+
+  // func to sort by brand, within that to sort by price
+  brandpriceFunc = (brand, price, brandProps, priceProps) => {
+    //console.log("brandpriceFunc")
+    let i;
+    let len = brandProps.length + priceProps.length;
+    for (i = 0; i < len; i++) 
+    {
+      if (brand == brandProps[i])
+        {
+          if( price >= priceProps[i] && price <= priceProps[i]+ 4000) {
+          return brand, price;
+        }
+      }
+    }
+  };
+  
+  brandratingFunc = (brand, rating, brandProps, ratingProps) => {
+    //console.log("brandratingFunc")
+    let i;
+    let len = brandProps.length + ratingProps.length;
+    for (i = 0; i < len; i++) 
+    {
+      if (brand == brandProps[i])
+        {
+          if( rating >= ratingProps[i]) {
+          return brand, rating;
+        }
+      }
+    }
+  };
+  
+  priceratingFunc = ( price, rating, priceProps, ratingProps) => {
+    //console.log("brandpriceFunc")
+    let i;
+    let len = ratingProps.length + priceProps.length;
+    for (i = 0; i < len; i++) 
+    {
+     
+      if( price >= priceProps[i] && price <= priceProps[i]+ 4000)
+        {
+          if (rating >= ratingProps[i]){
+          return rating, price;
+        }
+      }
+    }
+  };
+
+  brandpriceratingFunc = ( brand,price, rating,brandProps, priceProps, ratingProps) => {
+    console.log("brandpriceratingFunc")
+    let i;
+    let len = ratingProps.length + priceProps.length + brandProps.length;
+    for (i = 0; i < len; i++) 
+    {
+      if (brand == brandProps[i])
+      {
+        console.log("brandpriceratingFunc1")
+        if( price >= priceProps[i] && price <= priceProps[i]+ 4000)
+        {console.log("brandpriceratingFunc2")
+          if (rating >= ratingProps[i])
+          {console.log("brandpriceratingFunc3")
+             return brand,rating, price;
+          }
+        }
+      }
+    }
+  };
+
+
 
   render() {
     let optionslist = this.props.brand;
@@ -154,16 +230,22 @@ class Items extends Component {
 
             let res=data.items;
             //  console.log("this.props.brand",this.props.brand)
-            //  console.log("this.props.price",this.props.price)
-            this.props.price && this.props.brand==0 ?(res =(data.items).filter(f=>this.prices(f.price,this.props.price))):res;
-            this.props.brand && this.props.price==0 ? (res =(data.items).filter(f=>this.filters(f.brand,this.props.brand))):res;
-            this.props.brand!=0 && this.props.price!=0 ? (res =(data.items).filter(f=>this.brandPrice(f.brand,f.price,this.props.brand,this.props.price))):res;
-
+             // console.log("this.props.price",this.props.price)
+            ((this.props.brand).length)==0 && ((this.props.price).length)==0 && this.props.rating!=0?( res =(data.items).filter(f=>this.ratingsFunc(f.AvgRating,this.props.rating))):res;
+            ((this.props.brand).length)==0 && this.props.price!=0 && ((this.props.rating).length)==0  ?(res =(data.items).filter(f=>this.priceFunc(f.price,this.props.price))):res;
+            ((this.props.brand).length)==0 && this.props.price!=0 && this.props.rating!=0 ? (res =(data.items).filter(f=>this.priceratingFunc(f.price,f.AvgRating,this.props.price,this.props.rating))):res;
+            this.props.brand!=0 && ((this.props.price).length)==0 && ((this.props.rating).length)==0 ? (res =(data.items).filter(f=>this.brandFunc(f.brand,this.props.brand))):res;
+            this.props.brand!=0 && ((this.props.price).length)==0 && this.props.rating!=0 ? (res =(data.items).filter(f=>this.brandratingFunc(f.brand,f.AvgRating,this.props.brand,this.props.rating))):res;
+            this.props.brand!=0 && this.props.price!=0 && ((this.props.rating).length)==0 ? (res =(data.items).filter(f=>this.brandpriceFunc(f.brand,f.price,this.props.brand,this.props.price))):res;
+            this.props.brand!=0 && this.props.price!=0 && this.props.rating!=0 ? (res =(data.items).filter(f=>this.brandpriceratingFunc(f.brand,f.price,f.Avgrating,this.props.brand,this.props.price,this.props.rating))):res;
+            
+          
 
             if(loading) return  <Loader></Loader>
             if(error) return <p>Error: {error.message}</p>
-            if (!data.items) return <p>No data</p>; 
-
+            console.log("res ",res);
+            if (!data.items) return <p>No products available</p>; 
+            
             else {
               let cards = (res != 0 ? res : data.items).map(card => {
                 card.key = `{card.id}`;

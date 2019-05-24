@@ -19,6 +19,7 @@ const ITEMS = gql`
       brand
       price
       category
+      AvgRating
     }
   }
 `;
@@ -32,6 +33,7 @@ query TYPE_BASED_ITEMS($type: String!) {
       brand
       price
       category
+      AvgRating
   }
 }
 `;
@@ -171,7 +173,7 @@ class Sort extends Component {
               array[index+1]!=null?
               <ul className="ul-tag">
                 <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="rs1" value={array[index+1]}  onChange={e => this.props.CheckedPrice(array[index+1])} />
+                  <input type="checkbox" id="checkboxes" name="rs1" value={array[index+1]}  onChange={e => this.props.CheckedPrice(array[index])} />
                 </li>
                 <span>Rs. {array[index].toLocaleString()} to Rs. {array[index+1].toLocaleString()}</span></ul>:""
               )}
@@ -184,12 +186,12 @@ class Sort extends Component {
                 <i className="fa fa-chevron-down" />
               </label>
               <hr />
-              { [5,4,3.5,3].map((f,index,array)=>
+              { [4,3,2,1].map((f,index,array)=>
               <ul className="ul-tag">
                 <li className="li-tag">
                   <input type="checkbox" id="checkboxes" name="rs1" value={array[index]}  onChange={e => this.props.CheckedRating(array[index])} />
                 </li>
-                <span>{array[index]} Stars</span></ul>
+                <span>{array[index]} <i class="fa fa-star" aria-hidden="true"></i> & above</span></ul>
               )}
              
             </div>

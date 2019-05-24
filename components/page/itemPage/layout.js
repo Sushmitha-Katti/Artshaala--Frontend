@@ -114,8 +114,8 @@ CheckedRating = e => {
           brand={(this.props.brand).length!=0?this.props.brand:this.state.brand}
           page={this.props.page}
           // type={this.props.type}
-          price = {this.props.price!=null?this.props.price:this.state.price}
-          rating = {this.state.rating}
+          price = {(this.props.price).length!=0?this.props.price:this.state.price}
+          rating = {(this.props.rating).length!=0?this.props.rating:this.state.rating}
 
         /> </div>
       </Wrapper>

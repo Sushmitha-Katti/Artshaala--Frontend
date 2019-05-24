@@ -114,14 +114,17 @@ class Cards extends Component {
                 value={avgrating}/> 
               )
             }
-            else return(<StarRating   
-              editing={false}
-              renderStarIcon={()=> <i class="fa fa-star fa-1x" aria-hidden="true"></i>}
-              starCount={5}
-              value={5}/> )
+            else return(<span><i class="fa fa-star" aria-hidden="true"></i> Not Rated</span> )
               
             }}</Query>}
-              
+
+            {/* <StarRating   
+                editing={false}
+                renderStarIcon={()=> <i class="fa fa-star fa-1x" aria-hidden="true"></i>}
+                starCount={5}
+                value={this.props.Cardcontent.AvgRating}/> 
+               */}
+               
           </div>
         </div>
       </Cardstyle>
