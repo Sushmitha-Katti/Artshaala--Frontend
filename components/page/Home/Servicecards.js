@@ -29,7 +29,7 @@ class ServiceCards extends Component {
     let Cards = [
       { title: "Music Store", img: { musicstore },link:"/itemPage?type=all&page=1" },
       { title: "Service & Repairs", img: { service }, link: "/services" },
-      { title: "Rentals", img: { rental } ,link:"/rental"},
+     // { title: "Rentals", img: { rental } ,link:"/rental"},
       { title: "Mega Sale", img: { sale }, link: "/" }
     ].map(card => {
       card.key = `{card.title}`;

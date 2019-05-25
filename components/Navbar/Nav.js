@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import Navbar from "./index.js";
 import NavWrapper from "./styles.js";
 import Link from "next/link";
@@ -17,23 +18,37 @@ class Nav extends Component {
     this.setState(({ selected }) => ({ selected: !selected }))
   }
   render() {
+    
+   
     const { selected } = this.state
     return (
+      
+      
       
       <NavWrapper>
         
         <div className="Header">
+      
         
-          <div className = "ribbon "></div>
+        <div className="contact">
+          <span></span>
+          <span className = "phone">
+            <i className="fa fa-phone fa-lg" aria-hidden="true" />
+            (+91) 73380 40655</span>
+            <span className = "email">artshaalamusicstore@gmail.com</span>
+
+        </div>
+
+
           <div className = "gridlogoandsearch">
           <div>
             <img className="image" alt="Logo" src={logo} /> </div>
             <AutoComplete/>
-            <div className="contact">
+            {/* <div className="contact">
             <i className="fa fa-phone fa-lg" aria-hidden="true" />
             (+91) 73380 40655
-          </div>
-    <div id = "nothover"> <Link href=  "/mycart"><a><img className="cartimage" alt="Logo" src={cart} /> </a></Link>{this.props.cartcount>0?<CartCount className = "count"  count = {this.props.cartcount}/>:null}</div>
+          </div> */}
+    <div id = "nothover"> <Link href=  "/mycart"><a><i className="fa fa-shopping-cart cartimage fa-2x"></i> </a></Link>{this.props.cartcount>0?<CartCount className = "count"  count = {this.props.cartcount}/>:null}</div>
           </div>
         </div>
         <div className="Navbar">
@@ -51,7 +66,9 @@ class Nav extends Component {
             {this.props.links.map(({ key, href, label }) => (
               <li  id="alink" key={key} onClick={this.toggle} >
                 <Link href={href}>
-                  <a className = {label}>{label==="Sign In"? <strong>{label}</strong>: label}</a>
+                  <a className = "MainNavEle">{label=== "Store"? <div className = "dropdown">{label}<div className = "dropdown-content">
+                 {Object.keys(this.props.catandtype).map(category => <div className = "dropdown-contentofcontent"><span className = "category">{category}</span>{this.props.catandtype[category].map(type => <a className = "type">{type}</a>)}</div>)}
+                  </div></div>: label}</a>
                 </Link>
               </li>
               
@@ -72,6 +89,7 @@ class Nav extends Component {
         </div>
       </NavWrapper>
     );
+   
   }
 }
 

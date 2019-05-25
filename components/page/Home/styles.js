@@ -153,17 +153,13 @@ const CouroselWrapper = styled.div`
   }
 
   .rating {
-    display: flex;
-    justify-content: space-between;
-    z-index: 5;
-    .fa {
-      font-size: 17px;
-      color: #404040;
-      margin: 0.1rem;
-    }
-    .amount {
-      color: #f7bb2f;
-    }
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    width:100%;
+    
+   
+   
+    
   }
   @media only screen and (max-width: 768px) {
     .card {
