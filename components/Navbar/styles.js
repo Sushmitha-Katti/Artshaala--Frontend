@@ -33,6 +33,7 @@ const NavWrapper = styled.nav`
         color : white;
     
     }
+    
     .count{
       position:absolute;
       top:0;
@@ -177,12 +178,40 @@ const NavWrapper = styled.nav`
       z-index: 10;
       margin: 10px 10px;
     }
-    a {
+    .MainNavEle {
       color: white;
       text-decoration: none;
       font-size: 14px;
       height: 20px;
     }
+    .dropdown-content {
+  display: none;
+  padding:10px 20px;
+  position: absolute;
+  background-color:#282828;
+  min-width: 160px;
+  
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  
+  
+}
+.category{
+    color: orange;
+  }
+  .type{
+    
+    color: white;
+    text-decoration:none;
+    
+  }
+.dropdown:hover .dropdown-content {
+  display: grid;
+
+  .dropdown-contentofcontent{
+    display: grid;
+  }
+}
     button {
     padding: 0;
     border: 0;
@@ -193,7 +222,7 @@ const NavWrapper = styled.nav`
     background:none ;
   }
     #alink:hover {
-     a{ color: #f7bb2f;}
+      .MainNavEle{ color: #f7bb2f;}
     }
 
     #nav-check {
