@@ -94,7 +94,7 @@ class Sort extends Component {
                     let categorylist = [];
                     // console.log("Data",data);
                     data.items.map(category =>
-                      categorylist.push(category.type)
+                      categorylist.push(category.category)
                     );
                     let unique_category = Array.from(new Set(categorylist));
 

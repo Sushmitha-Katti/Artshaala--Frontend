@@ -52,7 +52,7 @@ const ALL_ITEMS_QUERY = gql`
 
 const TYPE_ITEMS_QUERY = gql`
   query TYPE_ITEMS_QUERY($category: String!) {
-    items(where: { type: $category }) {
+    items(where: { category: $category }) {
       id
       title
       price
