@@ -4,11 +4,11 @@ import Notification  from "../components/Admin/notification";
 import {CURRENT_USER_QUERY} from "../components/test/signuppage";
 import Navtest from "../components/test/navtest";
 
-const Admin = () => (
+const Admin = (props) => (
     <div>
       <Head title="Admin" />
       <Navtest/>
-      <Notification/>
+      <Notification {...props}/>
     
     </div>
   );
