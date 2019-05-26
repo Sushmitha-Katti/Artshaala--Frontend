@@ -6,7 +6,8 @@ import Footer from '../../Footer';
 import ImgGal from'../../ImageGallery/exportGal';
 import Head from '../../head';
 import StarRating from 'react-star-rating-component';
-import Cards from '../../page/Home/couroselCards';
+//import Cards from '../../page/Home/couroselCards';
+import Cards from './couroselCards';
 import ReviewPage from "./reviewpage"
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
@@ -19,6 +20,9 @@ const SINGLE_ITEM_QUERY = gql`
       title
       specification
       price
+      category
+      brand
+      type
       images
       description
       stock      
@@ -286,7 +290,11 @@ class Products extends React.Component{
         {/*----------------------------------Related Products Section------------------------------------ */}    
            <div>
                 <h1 className="rp" style = {{textAlign:"center"}}>RELATED PRODUCTS</h1>
-                <Cards/>
+                <Cards id={this.props.query.id}
+                       category={item.category}
+                       type={item.type}
+                       brand={item.brand}
+                        />
             </div>
        </Body>
 

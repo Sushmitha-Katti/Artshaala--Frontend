@@ -50,8 +50,8 @@ const ALL_ITEMS_QUERY = gql`
   }
 `;
 
-const TYPE_ITEMS_QUERY = gql`
-  query TYPE_ITEMS_QUERY($category: String!) {
+const CATEGORY_ITEMS_QUERY = gql`
+  query CATEGORY_ITEMS_QUERY($category: String!) {
     items(where: { category: $category }) {
       id
       title
@@ -64,21 +64,35 @@ const TYPE_ITEMS_QUERY = gql`
     }
   }
 `;
+const TYPE_ITEMS_QUERY = gql`
+  query TYPE_ITEMS_QUERY($type: String!) {
+    items(where: { type: $type }) {
+      id
+      title
+      price
+      images
+      category
+      type
+      brand
+      AvgRating
+    }
+  }
+`;
 
-// const ITEMS_QUERY = gql`
-//   query ITEMS_QUERY($category: String!, $type: String!) {
-//     items(where: { category: $category, type: $type }) {
-//       id
-//       title
-//       price
-//       images
-//       category
-//       type
-//       brand
-//       AvgRating
-//     }
-//   }
-// `;
+const ITEMS_QUERY = gql`
+  query ITEMS_QUERY($category: String!, $type: String!) {
+    items(where: { category: $category, type: $type }) {
+      id
+      title
+      price
+      images
+      category
+      type
+      brand
+      AvgRating
+    }
+  }
+`;
 
 class Items extends Component {
   static getInitialProps({ query }) {
@@ -215,11 +229,22 @@ class Items extends Component {
           //       : TYPE_ITEMS_QUERY
           //     : ALL_ITEMS_QUERY
           // }
-          query={this.props.category? TYPE_ITEMS_QUERY : ALL_ITEMS_QUERY}
+
+//query={this.props.type?(this.props.category?(this.props.type? TYPE_ITEMS_QUERY: CATEGORY_ITEMS_QUERY) : TYPE_ITEMS_QUERY):(this.props.category? CATEGORY_ITEMS_QUERY : ALL_ITEMS_QUERY)}
+ //query = {this.props.type&&this.props.category? ITEMS_QUERY:(this.props.category && !this.props.type?CATEGORY_ITEMS_QUERY:ALL_ITEMS_QUERY)}      
+ query = {this.props.category? (this.props.type?ITEMS_QUERY:CATEGORY_ITEMS_QUERY):ALL_ITEMS_QUERY }     
+// query = {this.props.type?(this.props.category? ITEMS_QUERY:ALL_ITEMS_QUERY):(this.props.category?CATEGORY_ITEMS_QUERY:ALL_ITEMS_QUERY)}
+ 
+
+// refetchQueries: [{this.props.category? (this.props.type?ITEMS_QUERY:CATEGORY_ITEMS_QUERY):ALL_ITEMS_QUERY }
+ // query={this.props.category? CATEGORY_ITEMS_QUERY : ALL_ITEMS_QUERY |
+          //         this.props.type? TYPE_ITEMS_QUERY:ALL_ITEMS_QUERY|
+          //         this.props.category && this.props.type? ITEMS_QUERY:ALL_ITEMS_QUERY
+          // }
           // fetchPolicy="network-only"
           variables={{
             category: this.props.category,
-            // type: this.props.type,
+             type: this.props.type,
             skip: this.props.page * perPage - perPage,
             first: perPage
           }} // skip the first n item and display the the next m items. m specified in first:m

@@ -91,9 +91,9 @@ class Main extends Component {
               rating={this.state.rating}
               filterpage={this.filterpage}
               page={this.props.prop.query.page}
-              //type={this.props.prop.query.type}
+              type={this.props.prop.query.type}
             />
-            {/* { console.log("type of main",this.props.prop.query.category)} */}
+            { console.log("type of main",this.props.prop.query.type)}
           </div>
         );
       case 2:
