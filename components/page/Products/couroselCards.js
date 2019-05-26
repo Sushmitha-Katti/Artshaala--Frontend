@@ -180,27 +180,42 @@ class CouroselCards extends Component {
           }
         }
       ]
-    };
-    let Courosels = properties.map(property => (
-      <div>
-        <Flexcards>
-          <CouroselCard property={property} />
-        </Flexcards>
-      </div>
-    ));
-    return (
-      <Cards>
-        <div className="title">
-          <span className="line"> </span>
-          <span>
-            <h3>Best Sellers</h3>
-          </span>
-          <span className="line"> </span>
-        </div>
-        <Slider {...settings}>{Courosels}</Slider>
-      </Cards>
-    );
-  }
+    }; 
+return(
+    <Query 
+query={RELATED_PRODUCTS_QUERY}
+  variables={{id:this.props.id,category:this.props.category ,type:this.props.type, brand:this.props.brand}}
+>
+ 
+  {({ data, error, loading }) => {
+    if(loading) return <p>Loading ...</p>
+    if(error) <p>Error..{error.message}</p>
+  
+ 
+let Courosels = data.items.map(property => (
+  <div>
+    <Flexcards>
+      <CouroselCard property={property} />
+    </Flexcards>
+  </div>
+));
+return (
+  <Cards>
+    <div className="title">
+      <span className="line"> </span>
+      <span>
+        <h3>Best Sellers</h3>
+        
+      </span>
+      <span className="line"> </span>
+    </div>
+    <Slider {...settings}>{Courosels}</Slider>
+  </Cards>
+ 
+);
+}}
+</Query>
+)}
 }
 
 export default CouroselCards;
@@ -240,3 +255,64 @@ return (
 );
 }}}
 </Query> */}
+
+
+// class CouroselCards extends Component {
+//   render() {
+//     const settings = {
+//       infinite: true,
+//       speed: 500,
+//       slidesToShow: 4,
+//       slidesToScroll: 1,
+//       nextArrow: <SampleNextArrow />,
+//       prevArrow: <SamplePrevArrow />,
+//       responsive: [
+//         {
+//           breakpoint: 800,
+//           settings: {
+//             slidesToShow: 2,
+//             slidesToScroll: 1,
+//             infinite: true
+//           }
+//         },
+//         {
+//           breakpoint: 769,
+//           settings: {
+//             slidesToShow: 2,
+//             infinite: true,
+//             slidesToScroll: 1
+//           }
+//         },
+//         {
+//           breakpoint: 480,
+//           settings: {
+//             slidesToShow: 1,
+//             infinite: true,
+//             slidesToScroll: 1
+//           }
+//         }
+//       ]
+//     };
+//     let Courosels = properties.map(property => (
+//       <div>
+//         <Flexcards>
+//           <CouroselCard property={property} />
+//         </Flexcards>
+//       </div>
+//     ));
+//     return (
+//       <Cards>
+//         <div className="title">
+//           <span className="line"> </span>
+//           <span>
+//             <h3>Best Sellers</h3>
+//           </span>
+//           <span className="line"> </span>
+//         </div>
+//         <Slider {...settings}>{Courosels}</Slider>
+//       </Cards>
+//     );
+//   }
+// }
+
+// export default CouroselCards;

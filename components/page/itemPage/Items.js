@@ -249,10 +249,10 @@ class Items extends Component {
             first: perPage
           }} // skip the first n item and display the the next m items. m specified in first:m
         >
-          {({ data, error, loading }) => {
+          {({ data, error, loading,refetch }) => {
             // console.log("*******************************",this.props.brand?this.props.brand:"");
             // console.log("data",data.items)
-
+             
             let res=data.items;
             //  console.log("this.props.brand",this.props.brand)
              // console.log("this.props.price",this.props.price)
