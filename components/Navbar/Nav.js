@@ -65,11 +65,11 @@ class Nav extends Component {
           <ul className="nav-links">
             {this.props.links.map(({ key, href, label }) => (
               <li  id="alink" key={key} onClick={this.toggle} >
-                <Link href={href}>
-                  <a className = "MainNavEle">{label=== "Store"? <div className = "dropdown">{label}<div className = "dropdown-content">
-                 {Object.keys(this.props.catandtype).map(category => <div className = "dropdown-contentofcontent"><span className = "category">{category}</span>{this.props.catandtype[category].map(type => <a className = "type">{type}</a>)}</div>)}
-                  </div></div>: label}</a>
-                </Link>
+                <div>
+                  {label=== "Store"? <div className = "dropdown"><Link href = {href}><a className = "MainNavEle">{label}</a></Link><div className = "dropdown-content">
+                 {Object.keys(this.props.catandtype).map(category => <div className = "dropdown-contentofcontent"><span className = "category">{category}</span>{this.props.catandtype[category].map(type => <Link href={{pathname:'/itemPage', query:{category: category, type: type}}}><a className = "type">{type}</a></Link>)}</div>)}
+                  </div></div>: <Link href = {label}><a className= "MainNavEle">{label}</a></Link>}
+                </div>
               </li>
               
             ))}

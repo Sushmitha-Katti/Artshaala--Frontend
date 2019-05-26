@@ -97,7 +97,7 @@ const Notification = (props) => (
           <Link href={{pathname:'/notification'}}><a>ALL</a></Link>
           </div>
             <div style={{ textAlign: "center" }}>
-              <h1>Notification of {props.query.status} Contacts ({contacts.length})</h1>
+              <h1>{props.query.status} Contacts ({contacts.length})</h1>
             </div>
             {contacts.map(contact => (
               <div className="eachcontact">
