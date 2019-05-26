@@ -143,7 +143,7 @@ const AdminOrder = props => (
                 {data.order.user.address.city}<br/>
                 {data.order.user.address.state}</p>
 
-                {data.order.status === "PENDING" && <UpdateOrder id = { props.query.id} />}
+                {(data.order.status === "PENDING" || data.order.status === "PROCESSING") && <UpdateOrder id = { props.query.id}  status = {data.order.status}/>}
                 
               </div>
               

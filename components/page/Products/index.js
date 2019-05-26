@@ -290,11 +290,13 @@ class Products extends React.Component{
         {/*----------------------------------Related Products Section------------------------------------ */}    
            <div>
                 <h1 className="rp" style = {{textAlign:"center"}}>RELATED PRODUCTS</h1>
+
                 <Cards id={this.props.query.id}
                        category={item.category}
                        type={item.type}
                        brand={item.brand}
                         />
+
             </div>
        </Body>
 
