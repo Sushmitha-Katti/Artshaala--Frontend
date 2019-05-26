@@ -3,10 +3,11 @@ import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import RemoveContact from "./deletecontact";
+import Link from "next/link";
 
 const ALL_CONTACTS_QUERY = gql`
-  query {
-    contacts {
+  query ALL_CONTACTS_QUERY($status: ContactStatus) {
+    contacts(status: $status) {
         id
         email
         phone
@@ -25,6 +26,18 @@ const ItemsList = styled.div`
   margin: 1rem 4rem;
   justify-content: center;
   align-items: center;
+  .queries{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    place-items:center;
+    border-bottom:1px solid black;
+     
+    a{
+      text-decoration:none;
+      padding: 5px;
+      
+    }
+  }
 
   .eachcontact {
     border: 1px solid orange;
@@ -62,8 +75,12 @@ const ItemsStyle = styled.div`
   }
 `;
 
-const Notification = () => (
-  <Query query={ALL_CONTACTS_QUERY}>
+const Notification = (props) => (
+  <Query query={ALL_CONTACTS_QUERY}
+  variables={{
+    status: props.query.status
+  }}
+  >
     {({ data,error, loading }) => {
       if(loading) return<p> loading</p>
       if(error) return<p>{error.message.split(':')[1]}</p>
@@ -74,8 +91,13 @@ const Notification = () => (
       return (
         <div>
           <ItemsList>
+          <div className = "queries">
+          <Link href={{pathname:'/notification', query:{status: 'PENDING'}}}><a>PENDING</a></Link>
+          <Link href={{pathname:'/notification', query:{status: 'DONE'}}}><a>CONTACTED</a></Link>
+          <Link href={{pathname:'/notification'}}><a>ALL</a></Link>
+          </div>
             <div style={{ textAlign: "center" }}>
-              <h1>Notification of Contacts</h1>
+              <h1>Notification of {props.query.status} Contacts ({contacts.length})</h1>
             </div>
             {contacts.map(contact => (
               <div className="eachcontact">

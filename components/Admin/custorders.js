@@ -7,8 +7,8 @@ import Link from "next/link";
 
 
 const PENDING_ORDERS_QUERY = gql`
-  query PENDING_ORDERS_QUERY {
-adminorders{
+  query PENDING_ORDERS_QUERY($status: Status ) {
+adminorders(status: $status){
     id
     total
     charge
@@ -21,31 +21,45 @@ adminorders{
   }
   
 `;
-const STATUS_ORDERS_QUERY = gql`
-  query STATUS_ORDERS_QUERY($status: STATUS) {
-adminorders(where:{status: $status}){
-    id
-    total
-    charge
-    createdAt
-    paymentmode
-    status
+// const STATUS_ORDERS_QUERY = gql`
+//   query STATUS_ORDERS_QUERY($status: STATUS) {
+// adminorders(where:{status: $status}){
+//     id
+//     total
+//     charge
+//     createdAt
+//     paymentmode
+//     status
    
 
-}
-  }
+// }
+//   }
   
-`;
+// `;
 
 
 
 
 const ItemsList = styled.div`
+
   display: grid;
   flex-wrap: wrap;
   margin: 1rem 4rem;
   justify-content: center;
   align-items: center;
+
+  .queries{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items:center;
+    border-bottom:1px solid black;
+     
+    a{
+      text-decoration:none;
+      padding: 5px;
+      
+    }
+  }
   .deliverystatus{
    
     display:flex;
@@ -86,6 +100,7 @@ const ItemsList = styled.div`
 
 `;
 const ItemsStyle = styled.div`
+
 display: grid;
   grid-template-columns: 0.5fr 7fr; 
   
@@ -105,12 +120,18 @@ display: grid;
   }
   
   
+  
 `;
 
-const AdminOrders = () => (
+const AdminOrders = (props) => (
+ 
   
 
-  <Query query={PENDING_ORDERS_QUERY}>
+  <Query query={PENDING_ORDERS_QUERY} 
+  variables={{
+    status: props.query.status
+  }}
+  >
     {({ data, loading, error }) => {
       let { adminorders } = data;
       console.log("admin",data);
@@ -119,7 +140,14 @@ const AdminOrders = () => (
         <div  >
           
           <ItemsList>
-          <div style = {{textAlign:"center"}}><h1>Orders</h1></div>
+          <div className = "queries">
+          <Link href={{pathname:'/customerorders', query:{status: 'PENDING'}}}><a>PENDING</a></Link>
+          <Link href={{pathname:'/customerorders', query:{status: 'PROCESSING'}}}><a>PROCESS</a></Link>
+          <Link href={{pathname:'/customerorders', query:{status: 'DELIVERED'}}}><a>DELIVERED</a></Link>
+          <Link href={{pathname:'/customerorders'}}><a>ALL</a></Link>
+          </div>
+          
+          <div style = {{textAlign:"center"}}><h1>{props.query.status} Orders ({adminorders.length})</h1></div>
           
             {adminorders.map(order => (
                 <div className = "eachcontact">
@@ -133,7 +161,7 @@ const AdminOrders = () => (
                 
 
                 <b>Ordered: </b><p>{order.createdAt}</p>
-                <b>Status: </b>{order.status === "DELIVERED" &&  <b style = {{color:"green"}}>DELIVERED</b>}{order.status === "PENDING" &&  <b style = {{color:"red"}}>PENDING</b>}
+                <b>Status: </b>{order.status === "DELIVERED" &&  <b style = {{color:"green"}}>DELIVERED</b>}{order.status === "PROCESSING" &&  <b style = {{color:"orange"}}>PROCESSING</b>}{order.status === "PENDING" &&  <b style = {{color:"red"}}>PENDING</b>}
 
             
                 

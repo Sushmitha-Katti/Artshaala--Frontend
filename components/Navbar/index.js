@@ -25,7 +25,7 @@ const CATEGORY_AND_BRAND_QUERY = gql`
 
 let commonlinks = [
    { href: "/", label: "Home" },
-  { href: "/itemPage?type=all&page=1", label: "Store" },
+  { href: "/storePage", label: "Store" },
    { href: "/services", label: "Services & Repairs" },
    { href: "/rental", label: "Rental" },
    { href: "/about", label: "About" },

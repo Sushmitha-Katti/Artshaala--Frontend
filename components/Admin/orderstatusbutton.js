@@ -7,8 +7,8 @@ import gql from "graphql-tag";
 
 
 const UPDATE_ORDER_MUTATION = gql`
-  mutation UPDATE_ORDER_MUTATION($id: ID!) {
-    updateorder(id: $id) {
+  mutation UPDATE_ORDER_MUTATION($id: ID! $status: Status) {
+    updateorder(id: $id status: $status) {
       id
     }
   }
@@ -49,7 +49,7 @@ class UpdateOrder extends React.Component {
       return (
         <Mutation
           mutation={UPDATE_ORDER_MUTATION}
-          variables={{ id: this.props.id }}
+          variables={{ id: this.props.id,status: this.props.status }}
           update={this.update}
           optimisticResponse={{
             __typename: 'Mutation',
@@ -68,7 +68,7 @@ class UpdateOrder extends React.Component {
               }}
               
             >
-              Delivered
+              {this.props.status === "PENDING"? "PROCESSED": "DELIVERED"}
             </BigButton>
           )}
         </Mutation>

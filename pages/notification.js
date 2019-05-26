@@ -4,11 +4,11 @@ import Head from "../components/head";
 import Navtest from "../components/test/navtest";
 import Notification  from "../components/Admin/notification";
 
-export default (params) => 
+export default (props) => 
 <div>
-<Head title="Product" />
+<Head title="Notification" />
 <Navtest />
-<Notification {...params} />
+<Notification {...props} />
 </div>
 
 
