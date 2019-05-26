@@ -8,7 +8,9 @@ const Admin = (props) => (
     <div>
       <Head title="Admin" />
       <Navtest/>
+
       <Notification {...props}/>
+
     
     </div>
   );

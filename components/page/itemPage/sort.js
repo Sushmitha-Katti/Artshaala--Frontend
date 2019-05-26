@@ -10,8 +10,8 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 // should include rating
-const ITEMS = gql`
-  query ITEMS {
+const SORT_QUERY = gql`
+  query SORT_QUERY {
     items {
       id
       title
@@ -24,9 +24,9 @@ const ITEMS = gql`
   }
 `;
 
-const TYPE_BASED_ITEMS = gql`
-query TYPE_BASED_ITEMS($type: String!) {
-  items(where: { type: $type }) {
+const CATEGORY_BASED_SORT = gql`
+query CATEGORY_BASED_SORT($categoryState: String!) {
+  items(where: { category: $categoryState }) {
       id
       title
       type
@@ -84,7 +84,7 @@ class Sort extends Component {
               <hr />
               <ul className="ul-tag">
                 <Query 
-                query={ITEMS}
+                query={SORT_QUERY}
                 //  variables={{type:this.props.type}}
                 >
                  
@@ -104,13 +104,13 @@ class Sort extends Component {
                         {unique_category.map(category => (
                           
                           <li className="li-tag">
-                            <a
-                             href = "#"
+                            
+                            <Link href={{pathname:"/itemPage" ,query:{page:1, category:category}}}><a
                               // href={"/itemPage?category="+category}
                               onClick={() => this.props.category(category)}
                             >
                               <span className="categories">{category}</span>
-                            </a>
+                            </a></Link>
                           </li>
                         ))}
                       </li>
@@ -128,7 +128,7 @@ class Sort extends Component {
               </label>
               <hr />
               <ul className="ul-tag">
-              <Query query={this.props.type ? TYPE_BASED_ITEMS:ITEMS} variables={{type:this.props.type}}>
+              <Query query={this.props.categoryState ? CATEGORY_BASED_SORT:SORT_QUERY} variables={{categoryState:this.props.categoryState}}>
                   {({ data, error, loading }) => {
                     if(loading) return  <Loader></Loader>
                     if(error) return <p>Error..{error.message}</p>
