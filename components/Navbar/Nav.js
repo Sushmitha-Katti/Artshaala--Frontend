@@ -28,7 +28,7 @@ class Nav extends Component {
       <NavWrapper>
         
         <div className="Header">
-      
+        {this.state.selected? <div className = "overlay"></div>:null}
         
         <div className="contact">
           <span></span>
@@ -54,9 +54,10 @@ class Nav extends Component {
         <div className="Navbar">
           <div className="nav-btn">
             <label htmlFor="nav-check"  onClick={this.toggle}>
+            {!this.state.selected? <><span />
               <span />
-              <span />
-              <span />
+              <span /></>:<>&#10060;</>}
+              
             </label>
           </div>
 

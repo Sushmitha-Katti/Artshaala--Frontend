@@ -11,6 +11,22 @@ const NavWrapper = styled.nav`
   }
   .Header {
    padding-top:0.1rem;
+   .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; 
+    width: 100%;
+    background-color:#000000;
+    z-index:100;
+    overflow: hidden;
+    opacity:0.5;
+    background-position: center;
+    background-repeat: repeat-y;
+  background-size: cover;
+
+}
+
     
   
 
@@ -348,7 +364,7 @@ const NavWrapper = styled.nav`
         position: absolute;
         border-top: 0.3rem solid orange;
         height: auto;
-        width:100%;
+        width:70%;
         z-index: 100;
         padding: 3rem 3rem;
         top: 0.3rem;
