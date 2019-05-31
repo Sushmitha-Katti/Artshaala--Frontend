@@ -1,5 +1,4 @@
-import sc from 'styled-components';
-
+import sc from "styled-components";
 
 const Body = sc.body`
 //Main css start
@@ -471,14 +470,13 @@ const Body = sc.body`
       font-size: 1em;
     }
     }
-  
   }
 
   .comment{
-    padding-top:10px;
-    padding-bottom:10px;
-    padding-left:30px;
-    padding-right:50px;
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-left:0px;
+    padding-right:0px;
     .head{
       font: 15px "Fira Sans", sans-serif;
      }
@@ -494,6 +492,7 @@ const Body = sc.body`
     font: 20px "Fira Sans", sans-serif;
     padding-left:90px;
   }
+
 
 `;
 
@@ -652,4 +651,4 @@ const UserReviews = sc.div`
       color:white;
     }
     `;
-export  {Body,BlueText,Button,Collapsial,UserReviews };
+export { Body, BlueText, Button, Collapsial, UserReviews };
