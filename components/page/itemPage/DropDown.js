@@ -93,6 +93,14 @@ const SearchStyles = styled.div`
 
     
   }
+  @media(max-width:780px){
+    .searchbar{
+      margin-left:1rem;
+      margin-right:1rem;
+      width: 90%;
+
+    }
+  }
 `;
 
 export { DropDown, DropDownItem, SearchStyles };

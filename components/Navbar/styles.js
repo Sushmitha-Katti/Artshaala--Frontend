@@ -93,19 +93,23 @@ const NavWrapper = styled.nav`
       }
       .gridlogoandsearch{
         padding-top: 1rem;
+        
       }
       .gridlogoandsearch div:nth-child(2){
         grid-column:1/7;
         grid-row: 2/ 2;
+       
+        margin-left:2rem;
         
 
       }
       .gridlogoandsearch div:nth-child(1){
-        grid-column:2/12;
+        grid-column-start:2;
+        justify-self:center;
         grid-row: 1/ 2;
         img{
-          width:220px;
-          height:50px;
+          width:250px;
+          height:70px;
         }
 
       }
@@ -137,21 +141,23 @@ const NavWrapper = styled.nav`
       }
       .gridlogoandsearch div:nth-child(2){
         grid-column:1fr;
-        grid-row: 2/ 3;
+        margin-left:0rem;
         
 
       }
       .gridlogoandsearch div:nth-child(1){
-        grid-column:2/3;
+        grid-column:1/3;
         grid-row: 1/ 2;
+        justify-self:center;
         img{
-          width:150px;
-          height:50px;
+          width:200px;
+          height:60px;
+          margin-right:-2rem;
         }
 
       }
       .gridlogoandsearch div:nth-child(3){
-        grid-column:3/10;
+        grid-column:-1/3;
         grid-row: 1/ 2;
         margin-right:1rem;
         
@@ -168,6 +174,7 @@ const NavWrapper = styled.nav`
   
     
   }
+  
   .Navbar {
     
    
@@ -207,23 +214,57 @@ const NavWrapper = styled.nav`
     }
     .dropdown-content {
   display: none;
-  padding:10px 20px;
+  padding:20px 50px 20px 20px;
   position: absolute;
   background-color:#282828;
   min-width: 160px;
-  
+  text-align:start;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  max-height: 300px;
+  overflow-y:auto;
+  margin-top: 2px;
   
   
 }
+.dropdown-content::-webkit-scrollbar {
+  width: 10px;
+ 
+  margin: 2px;
+  z-index:10;
+}
+
+/* Track */
+.dropdown-content::-webkit-scrollbar-track {
+  background: white; 
+  
+  
+
+}
+ 
+/* Handle */
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: #282828; 
+  border: 2px solid white;
+  border-radius:25px;
+  
+ 
+}
+
+/* Handle on hover */
+
 .category{
     color: orange;
+    text-align:start;
+    padding: 5px 2px;
+    text-transform:uppercase;
   }
   .type{
     
-    color: white;
+    color: #787878;
+    
     text-decoration:none;
+    text-align:start;
     
   }
 .dropdown:hover .dropdown-content {
@@ -324,6 +365,7 @@ const NavWrapper = styled.nav`
       .nav-links {
         display: none;
       }
+      
       .nav-links {
         display: block;
         
