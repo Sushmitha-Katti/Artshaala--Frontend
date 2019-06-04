@@ -415,9 +415,9 @@ const NavWrapper = styled.nav`
       }
       .nav-links li:last-child {
         position: absolute;
-        top: 2%;
-        left: 10%;
-        border-bottom: none;
+        top: 3%;
+        left: 15%;
+        border: none;
         padding: 0rem;
         width:max-content;
         a{
