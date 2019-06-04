@@ -222,7 +222,7 @@ class Orderpage extends Component {
                <hr/>
                 
                 <br></br>
-                <b>Ordered at {order. createdAt}</b>
+                <b>Ordered at {order. createdAt.split('T')[0]}</b>
                 
                 {order.items.map(item => (
                      <div className = "gridrow">
