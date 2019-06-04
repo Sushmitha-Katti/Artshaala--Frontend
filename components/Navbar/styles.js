@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 const NavWrapper = styled.nav`
+
   font-family: "Montserrat", sans-serif;
   /* box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10); */
   background: #282828;
- 
- 
+
   top:0;
+  z-index:10;
 
   width:100%;
   :global(body) {
@@ -415,9 +416,9 @@ const NavWrapper = styled.nav`
       }
       .nav-links li:last-child {
         position: absolute;
-        top: 2%;
-        left: 10%;
-        border-bottom: none;
+        top: 3%;
+        left: 15%;
+        border: none;
         padding: 0rem;
         width:max-content;
         a{

@@ -7,6 +7,9 @@ const BUTTON = styled.button`
   :focus{
     outline:none;
   }
+  .signout{
+    color: #f7bb2f;
+  }
   cursor:pointer;
   .signout{
     

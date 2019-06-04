@@ -11,9 +11,11 @@ const Form = styled.form`
   display: flex;
   justify-content: center;
   font-family: "Montserrat", sans-serif;
+  
 
-
+  margin: 1rem;
   fieldset {
+    
     
     background-color:white;
    border: 1px solid #f7bb2f;
@@ -82,6 +84,7 @@ const Form = styled.form`
       text-decoration:none;
     }
   }
+ 
 `;
 
 //CURRENT_USER_QUERY
