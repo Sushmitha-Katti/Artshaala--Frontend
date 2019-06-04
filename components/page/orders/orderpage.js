@@ -98,7 +98,7 @@ flex-direction:column;
 .gridrow{
 
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 300px 300px 200px;
    
 
     
@@ -128,6 +128,8 @@ flex-direction:column;
         background:#E0E0E0;
         border: 0.5px solid grey;
         padding:5px 7px;
+        width:150px;
+        text-align:center;
         cursor:pointer;
     }
     .review:hover{
@@ -142,12 +144,13 @@ flex-direction:column;
        background:white;
         border:2px solid grey;
         position:fixed;
-        top:30%;
+        top:5%;
+        left:30%;
         align-items:center;
         z-index:200;
         padding:2rem;
-        border-radius:2%;
-        transition-delay: 2s;
+        border-radius:5px;
+        transition-delay: 3s;
     }
 
 .crossmark{
@@ -197,17 +200,20 @@ class Orderpage extends Component {
               if (error) return <p> error... </p>;
               if (loading) return <p>Loading...</p>;
               const orders= data.orders;
+              if(!data.orders) return <p>No Ordes</p>;
              
               return(
         
         <OrdersWrapper>  
             <h2>Your Orders</h2>
             <div className = "EntireOrders">{/* grid element only for orders */}
+            {this.state.open? <div className = "overlay"></div>:null}
            
            
            <div className = "orders">
           
-           {!orders.items? <p style = {{ marginBottom : 14+"rem"}}>No orders</p> : null}
+              
+
            {orders.map(order => (
 
             <div className = "SingleOrder" key = {order.id}> {/* Each individual orders  */}
@@ -216,7 +222,7 @@ class Orderpage extends Component {
                <hr/>
                 
                 <br></br>
-                <b>Ordered at {order. createdAt}</b>
+                <b>Ordered at {order. createdAt.split('T')[0]}</b>
                 
                 {order.items.map(item => (
                      <div className = "gridrow">

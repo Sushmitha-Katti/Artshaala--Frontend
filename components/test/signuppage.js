@@ -22,7 +22,7 @@ const Form = styled.form`
     display: grid;
     min-width: 350px;
     height: auto;
-    z-index:5;
+  
     .centered {
       color: orange;
       text-align:center;

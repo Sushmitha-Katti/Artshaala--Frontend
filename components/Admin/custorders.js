@@ -160,7 +160,7 @@ const AdminOrders = (props) => (
                 <b>charge: </b><p>{order.charge}</p>
                 
 
-                <b>Ordered: </b><p>{order.createdAt}</p>
+                <b>Ordered: </b><p>{order.createdAt.split('T')[0]}</p>
                 <b>Status: </b>{order.status === "DELIVERED" &&  <b style = {{color:"green"}}>DELIVERED</b>}{order.status === "PROCESSING" &&  <b style = {{color:"orange"}}>PROCESSING</b>}{order.status === "PENDING" &&  <b style = {{color:"red"}}>PENDING</b>}
 
             
