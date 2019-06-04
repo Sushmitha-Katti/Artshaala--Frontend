@@ -4,6 +4,10 @@ const NavWrapper = styled.nav`
   font-family: "Montserrat", sans-serif;
   /* box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10); */
   background: #282828;
+ 
+ 
+  top:0;
+
   width:100%;
   :global(body) {
     margin: 0;
@@ -24,6 +28,7 @@ const NavWrapper = styled.nav`
     background-position: center;
     background-repeat: repeat-y;
   background-size: cover;
+  display:none;
 
 }
 
@@ -82,12 +87,10 @@ const NavWrapper = styled.nav`
      
     }
     @media only screen and (max-width: 768px) {
-      .ribbon{
-      background-image: linear-gradient(to right, #f7bb2f , orange,#f7bb2f,orange, #f7bb2f);
-      width:100%;
-      height: 0.3rem;
-      margin-bottom:1rem;
+      .overlay{
+        display:block;
       }
+     
       .contact{
         display:none;
       }
@@ -130,6 +133,9 @@ const NavWrapper = styled.nav`
 
 
     @media only screen and (max-width: 420px) {
+      .overlay{
+        display:block;
+      }
       .ribbon{
       background-image: linear-gradient(to right, #f7bb2f , orange,#f7bb2f,orange, #f7bb2f);
       width:100%;
@@ -177,7 +183,12 @@ const NavWrapper = styled.nav`
   
   .Navbar {
     
-   
+    .backbutton{
+      display:none;
+      top: 2%;
+      right: 10%;
+      cursor: pointer
+    }
     margin-top: 0px;
     * {
       box-sizing: border-box;
@@ -251,7 +262,17 @@ const NavWrapper = styled.nav`
  
 }
 
-/* Handle on hover */
+.nav-links li:last-child {
+       
+        a{
+        color: #f7bb27;
+       
+        }
+        border: 1px solid orange;
+        padding: 0.2rem 0.5rem;
+        border-radius: 2px;
+        
+    }
 
 .category{
     color: orange;
@@ -338,7 +359,13 @@ const NavWrapper = styled.nav`
       
         padding-bottom:0.8rem;
       
-      
+      .backbutton{
+        display:block;
+        position:absolute;
+        top:2%;
+        right:10%;
+        cursor: pointer;
+      }
       .nav-btn {
         display: inline-block;
         position: absolute;
@@ -346,6 +373,7 @@ const NavWrapper = styled.nav`
         top: 30px;
         z-index: 300;
         margin-bottom: 4rem;
+        
         
       }
       .nav-btn > label {
@@ -385,6 +413,18 @@ const NavWrapper = styled.nav`
         margin-top: 0rem;
         background: white;
       }
+      .nav-links li:last-child {
+        position: absolute;
+        top: 2%;
+        left: 10%;
+        border-bottom: none;
+        padding: 0rem;
+        width:max-content;
+        a{
+          color: grey;
+        }
+
+    }
       .nav-links li {
         padding: 2rem 1rem;
         top: 10rem;
