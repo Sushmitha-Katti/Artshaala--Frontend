@@ -2,9 +2,8 @@ import styled, { keyframes } from "styled-components";
 
 const Card = styled.div`
   font-family: "Montserrat", sans-serif;
-  margin-top: 5px;  /* gap between cards */
-  margin-right: 0rem;
-  margin-left:20px;
+  margin-top: 2rem;
+  margin-right: 1rem;
   .cardhover {
     width: 17rem;
     height: 17rem;
@@ -100,7 +99,7 @@ const Card = styled.div`
 const Cards = styled.div`
  
     font-family: "Montserrat", sans-serif;
-    margin: 0rem; /* gap between cards */
+    margin: 3rem 5rem;
   .title {
     display: grid;
     justify-content: space-around;
@@ -140,7 +139,7 @@ const Cards = styled.div`
  */
 const CouroselWrapper = styled.div`
   .card {
-    height: 350px;
+    height: 350;
     width: 250px;
     margin: 0rem;
   }

@@ -58,24 +58,34 @@ const Body = sc.body`
 }
 .specs{
     display:grid;
-    grid-template-rows:1fr;
+    grid-template-columns:1fr 2fr;
     grid-auto-flow:row;
     grid-template-areas:'specs';
     justify-items:left;
     padding-left:40px;
 }
-  h2{
-    padding-top:100px;
+ .headspecs{
+    padding-top:0.5rem;
     padding-bottom:0px;
     padding-left:38px;
     color:#f39c12;
+    margin-bottom:0px;
+    margin-top:0.5rem;
     font: 24px "Fira Sans", sans-serif;
+  }
+  .eachspecs{
+    padding-top:0px;
+    margin-top:0px;
+    
+    
   }
   li{
     font: 20px"Fira Sans", sans-serif;
     list-style-type: none;
   }
   //Main css start
+
+
   //rating box start 
   .rating{
     display:grid;
@@ -84,10 +94,13 @@ const Body = sc.body`
     grid-auto-flow: columns;
     }
     .rating-box{
+  
     display:grid;
-    padding:10px 30px 30px 30px;
-    grid-template-columns:1fr 1fr;
-    grid-gap:50px;
+    padding:10px 10px 10px 20px;
+    grid-template-columns:0.7fr 0.7fr ;
+    grid-gap:5px;
+    border: 1px solid orange;
+    border-radius: 2%;
     }
   
   }
@@ -173,7 +186,7 @@ const Body = sc.body`
   }
   .specs{
       display:grid;
-      grid-template-rows:1fr;
+      grid-template-rows:1fr 2fr;
       grid-auto-flow:row;
       grid-template-areas:'specs';
       justify-items:left;
@@ -206,13 +219,7 @@ const Body = sc.body`
         grid-area:desc;
       }
       .rating-box{
-      display:grid;
-      grid-area:stats;
-      padding:20px;
       
-      grid-template-columns:100px 100px;
-      grid-gap:50px;
-
       .star{
         font-size: 1em;
       }
@@ -298,11 +305,16 @@ const Body = sc.body`
 }
 .specs{
     display:grid;
-    grid-template-rows:1fr;
+    grid-template-columns:1fr;
     grid-auto-flow:row;
     grid-template-areas:'specs';
     justify-items:left;
     padding-left:0px;
+    
+      .specsdesc{
+        padding-left: 40px;
+      }
+    
 }
   h2{
     padding-top:100px;
@@ -330,13 +342,7 @@ const Body = sc.body`
     .rr{
       grid-area:desc;
     }
-    .rating-box{
-    display:grid;
-    grid-area:stats;
-    padding:20px;
-    
-    grid-template-columns:100px 100px;
-    grid-gap:50px;
+   
 
     .star{
       font-size: 1em;
@@ -426,7 +432,7 @@ const Body = sc.body`
 }
 .specs{
     display:grid;
-    grid-template-rows:1fr;
+    grid-template-columns:1fr;
     grid-auto-flow:row;
     grid-template-areas:'specs';
     justify-items:left;
@@ -458,13 +464,7 @@ const Body = sc.body`
     .rr{
       grid-area:desc;
     }
-    .rating-box{
-    display:grid;
-    grid-area:stats;
-    padding:20px;
     
-    grid-template-columns:100px 100px;
-    grid-gap:50px;
 
     .star{
       font-size: 1em;

@@ -2,8 +2,11 @@ import styled, { keyframes } from 'styled-components';
 
 const DropDown = styled.div`
  
-  width:90%;
+ 
   margin:5px 0 0 25px;
+  /* margin-left:6rem; */
+  position:absolute;
+  left:0%;
   
   
   /* margin-left:16.5vw; */
@@ -38,6 +41,7 @@ const DropDownItem = styled.div`
   color: ${props => (props.highlighted ? 'white' : 'black')};
   display: flex;
   align-items: center;
+  
   /* border-left: 10px solid ${props => (props.highlighted ? props.theme.lightgrey : 'white')}; */
 
 `;
@@ -58,34 +62,36 @@ const SearchStyles = styled.div`
     padding: 15px ;
     margin:5px 0 0 25px;
     border:white;
-    border-radius:2%;
+    border-radius:20px;
    
     /* font-size: 1.5rem; */
-    &.loading {
-      animation: ${glow} 0.5s ease-in-out infinite alternate;
-    }
+    
   }
   input:focus{
     outline:none;
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10);
-  
   }
   .searchbar{
-    width: 90%;
+    width: 80%;
     display:flex;
     background-color:white;
-    border:white;
-    border-radius:3%;
-    margin:5px 0 0 25px;
+    margin-left: 6rem;
+    margin-right:2rem;
+    border-radius:50px;
+    height:50px;
+    
     justify-content:center;
       align-items:center;
       box-sizing: border-box;
-    .search{
+      .searchicon{
+        color:white;
+        background: #f7bb2f;
+        padding:15px;
+        border-radius:50%;
+
+        
+      }
+
     
-      font-size: 1rem;
-      padding:10px;
-      
-    }
   }
 `;
 

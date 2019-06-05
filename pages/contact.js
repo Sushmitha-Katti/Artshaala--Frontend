@@ -3,11 +3,11 @@ import Contact from "../components/page/Contact/index";
 import Head from "../components/head";
 import Nav from "../components/Navbar";
 
-const Page = () => (
+const Page = (props) => (
   <div>
     <Head title="Contact" />
     
-    <Contact />
+    <Contact  {...props}/>
   </div>
 );
 

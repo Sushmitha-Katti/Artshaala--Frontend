@@ -31,8 +31,15 @@ class Layout extends Component {
     category: "",
     brand: [],
     price:[],
-    rating:[]
+    rating:[],
+    type:""
   };
+
+// TypeFunc = ()=>{
+//   this.setState({
+//     type:
+//   })
+// }
 
   Category = a => {
     let category_var = a;
@@ -103,6 +110,7 @@ CheckedRating = e => {
           filterpage={this.props.filterpage}
           category={this.Category}
           CheckedBrand={this.CheckedBrand}
+          categoryState = {this.props.category!=''?this.props.category:this.state.category}
           // type={this.props.type}
           CheckedPrice = {this.CheckedPrice}
          CheckedRating = {this.CheckedRating}
@@ -113,9 +121,9 @@ CheckedRating = e => {
           category={this.props.category!=''?this.props.category:this.state.category}
           brand={(this.props.brand).length!=0?this.props.brand:this.state.brand}
           page={this.props.page}
-          // type={this.props.type}
-          price = {this.props.price!=null?this.props.price:this.state.price}
-          rating = {this.state.rating}
+          type={this.props.type}
+          price = {(this.props.price).length!=0?this.props.price:this.state.price}
+          rating = {(this.props.rating).length!=0?this.props.rating:this.state.rating}
 
         /> </div>
       </Wrapper>

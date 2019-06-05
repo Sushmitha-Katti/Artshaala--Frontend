@@ -36,7 +36,10 @@ const Slider = styled.div`
   height: 150px;
   color: ${props => props.color};
   text-align: center;
-  padding: 8rem 0rem;
+  margin-left:50px;
+  padding: 7rem 0rem;
+  border:solid #333333 20px; /*border*/
+  border-radius: 50px;
   background: ${props => props.background};
   position: relative;
   @media only screen and (max-width: 768px) {
@@ -92,7 +95,11 @@ const Newsletter = styled.div.attrs({})`
   height: 150px;
   color: ${props => props.color};
   text-align: center;
-  padding: 8rem 0rem;
+  padding: 7rem 0rem;
+  margin-right:50px;
+  border:solid #F7BB2F 20px;
+  border-radius: 50px;
+  
   background: ${props => props.background};
 
  

@@ -5,6 +5,12 @@ background: #333;
 color: #fff;
 text-align: center;
 padding: 1rem;
+.social{
+    margin-left:0.5rem;
+    text-decoration:none;
+    color:white;
+    
+}
 
 `;
 

@@ -10,8 +10,8 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 // should include rating
-const ITEMS = gql`
-  query ITEMS {
+const SORT_QUERY = gql`
+  query SORT_QUERY {
     items {
       id
       title
@@ -19,19 +19,21 @@ const ITEMS = gql`
       brand
       price
       category
+      AvgRating
     }
   }
 `;
 
-const TYPE_BASED_ITEMS = gql`
-query TYPE_BASED_ITEMS($type: String!) {
-  items(where: { type: $type }) {
+const CATEGORY_BASED_SORT = gql`
+query CATEGORY_BASED_SORT($categoryState: String!) {
+  items(where: { category: $categoryState }) {
       id
       title
       type
       brand
       price
       category
+      AvgRating
   }
 }
 `;
@@ -82,7 +84,7 @@ class Sort extends Component {
               <hr />
               <ul className="ul-tag">
                 <Query 
-                query={ITEMS}
+                query={SORT_QUERY}
                 //  variables={{type:this.props.type}}
                 >
                  
@@ -92,7 +94,7 @@ class Sort extends Component {
                     let categorylist = [];
                     // console.log("Data",data);
                     data.items.map(category =>
-                      categorylist.push(category.type)
+                      categorylist.push(category.category)
                     );
                     let unique_category = Array.from(new Set(categorylist));
 
@@ -102,13 +104,13 @@ class Sort extends Component {
                         {unique_category.map(category => (
                           
                           <li className="li-tag">
-                            <a
-                             href = "#"
+                            
+                            <Link href={{pathname:"/itemPage" ,query:{page:1, category:category}}}><a
                               // href={"/itemPage?category="+category}
                               onClick={() => this.props.category(category)}
                             >
                               <span className="categories">{category}</span>
-                            </a>
+                            </a></Link>
                           </li>
                         ))}
                       </li>
@@ -126,7 +128,7 @@ class Sort extends Component {
               </label>
               <hr />
               <ul className="ul-tag">
-              <Query query={this.props.type ? TYPE_BASED_ITEMS:ITEMS} variables={{type:this.props.type}}>
+              <Query query={this.props.categoryState ? CATEGORY_BASED_SORT:SORT_QUERY} variables={{categoryState:this.props.categoryState}}>
                   {({ data, error, loading }) => {
                     if(loading) return  <Loader></Loader>
                     if(error) return <p>Error..{error.message}</p>
@@ -171,7 +173,7 @@ class Sort extends Component {
               array[index+1]!=null?
               <ul className="ul-tag">
                 <li className="li-tag">
-                  <input type="checkbox" id="checkboxes" name="rs1" value={array[index+1]}  onChange={e => this.props.CheckedPrice(array[index+1])} />
+                  <input type="checkbox" id="checkboxes" name="rs1" value={array[index+1]}  onChange={e => this.props.CheckedPrice(array[index])} />
                 </li>
                 <span>Rs. {array[index].toLocaleString()} to Rs. {array[index+1].toLocaleString()}</span></ul>:""
               )}
@@ -184,12 +186,12 @@ class Sort extends Component {
                 <i className="fa fa-chevron-down" />
               </label>
               <hr />
-              { [5,4,3.5,3].map((f,index,array)=>
+              { [4,3,2,1].map((f,index,array)=>
               <ul className="ul-tag">
                 <li className="li-tag">
                   <input type="checkbox" id="checkboxes" name="rs1" value={array[index]}  onChange={e => this.props.CheckedRating(array[index])} />
                 </li>
-                <span>{array[index]} Stars</span></ul>
+                <span>{array[index]} <i class="fa fa-star" aria-hidden="true"></i> & above</span></ul>
               )}
              
             </div>

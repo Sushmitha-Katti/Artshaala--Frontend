@@ -61,6 +61,7 @@ const Cardstyle = styled.nav`
         margin-left: auto;
         margin-right: auto;
         margin-bottom:15px;
+        margin-top:5px;
  
         
     }

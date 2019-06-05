@@ -7,7 +7,7 @@ let ratings = rating => {
   let toatal_ratings = [];
 
   for (let j = 0; j < rating; j++) {
-    toatal_ratings.push(<i class="fa fa-star" aria-hidden="true" />);
+    toatal_ratings.push(<i class="fa fa-star individualstar" aria-hidden="true" />);
   }
   return toatal_ratings;
 };
@@ -29,10 +29,10 @@ class CouroselCard extends Component {
                 {this.props.property.id}
               </div>
               <div className="rating">
-                <span>{ratings(this.props.property.rating)}</span>
-                <span className="amount">
+                {/* <div>{ratings(this.props.property.rating)}</div> */}
+                <div className="amount">
                   INR {this.props.property.amount}/-
-                </span>
+                </div>
               </div>
             </div>
           </Link>
