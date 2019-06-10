@@ -244,28 +244,78 @@ import styled from "styled-components";
 const Style = styled.div`
  display:grid;
  grid-template-columns:1fr 1fr 1fr 1fr; 
+ grid-template-areas:"1st 2nd 3rd 4th";
  grid-gap:40px;
  margin-left:0px;
- margin-right:20px;
+ margin-right:0px;
 
-.img{
+.img1{
+    grid-area:1st;
     padding-top:5px;
     height: 100%;
     width: 110%;
     padding-left:20px;
 
 }
+.img2{
+    grid-area:2nd;
+    padding-top:5px;
+    height: 100%;
+    width: 110%;
+    padding-left:20px;
+
+}
+.img3{
+    grid-area:3rd;
+    padding-top:5px;
+    height: 100%;
+    width: 110%;
+    padding-left:20px;
+
+}
+ 
+img4{
+    grid-area:4th;
+    
+}
+
 @media (max-width:320px)  {
   display:grid;
-  grid-template-columns:1fr 1fr 1fr 1fr; 
+  grid-template-columns:1fr; 
+  grid-template-areas:"1st"
+                      "2nd"
+                      "3rd"
+                      "4th";
   grid-gap:40px;
   margin-left:0px;
   margin-right:20px;
-  .img{
+  .img1{
+    grid-area:1st;
     padding-top:5px;
-    height: 50%;
-    width: 55%;
+    height: 80%;
+    width: 90%;
     padding-left:20px;
+    
+}
+.img2{
+    grid-area:2nd;
+    padding-top:5px;
+    height: 80%;
+    width: 90%;
+    padding-left:20px;
+    
+}
+.img3{
+  grid-area:3rd;
+    padding-top:5px;
+    height: 80%;
+    width: 90%;
+    padding-left:20px;
+    
+}
+.img4{
+    grid-area:4th;
+    
 }
 }
 `;
@@ -281,6 +331,19 @@ img{
     width:93%;
     padding-left:30px;
 }
+@media (max-width:320px)  {
+  display:grid;
+grid-template-columns:1fr;
+margin-left:0px;
+margin-top:2em;
+img{
+    grid-column:1/-1;
+    width:93%;
+    padding-left:20px;
+    padding-right:20px;
+
+}
+  }
 `;
 
 
@@ -303,6 +366,28 @@ const Header = styled.div`
     text-align:center;
     margin:40px;
 
+  }
+
+  @media (max-width:320px)  {
+    display:grid;
+   grid-template-columns:1fr;
+
+  .header{
+    grid-column: 1/-1;
+    background-color:#F7BB2F;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:30px;
+    border:solid #F7BB2F 10px;
+    border-radius: 10px;
+   }
+   .header-text{
+    color:black;
+    font-size:30px;
+    text-align:center;
+    margin:10px;
+
+  }
   }
 `;
 
