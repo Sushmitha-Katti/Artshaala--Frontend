@@ -6,6 +6,13 @@ import img2 from './images/2.png';
 import img3 from './images/3.png';
 import img4 from './images/4.png';
 import ServiceCards from '../Home/Servicecards';
+import  vault from "./images/vault.jpg";
+import zoom from "./images/zoom.jpg";
+import kala from "./images/kala.jpg";
+import ibanez from "./images/ibanez.jpg";
+import harman from "./images/harman.jpg";
+import fender from "./images/fender.jpg";
+import CouroselCards from "../Home/couroselCards";
 
 
 class Comman extends Component {
@@ -36,18 +43,31 @@ class Comman extends Component {
             </Link>
           </div> 
         </div> */}
-        <div ><img className="img"src={img1}/></div>
-        <div ><img className="img"src={img2}/></div>
-        <div ><img className="img"src={img3}/></div>
+        <div ><img className="advimg"src={img1}/></div>
+        <div ><img className="advimg"src={img2}/></div>
+        <div ><img className="advimg"src={img3}/></div>
+        <div className = "cardsgrid">
         <ServiceCards/>
+        </div>
+        <img className = "middleimg" src={img4}/>
+       
+       
       </Style>
-        <Img2>
-        <div> 
-        <img src={img4}/></div>
-      </Img2>
+       
       <Header>
-      <div className="header">
+      {/* <div className="header">
         <h1 className="header-text">Top Categories</h1>
+      </div> */}
+      {/* <CouroselCards/> */}
+      <h1 className = "brand">Top Brands</h1>
+
+      <div className = "brandgrid">
+      <img src  = {vault}/>
+      <img src  = {kala}/>
+      <img src  = {zoom}/>
+      <img src  = {ibanez}/>
+      <img src  = {harman}/>
+      <img src  = {fender}/>
       </div>
       </Header>
       </div>
