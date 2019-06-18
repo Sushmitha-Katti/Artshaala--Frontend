@@ -11,6 +11,7 @@ const CardWrapper = styled.div`
   margin-top: 0rem ;
   justify-items: left;
   grid-template-rows: 1fr 1fr 1fr ;
+  grid-row-gap:15px;
 
   @media only screen and (max-width: 768px) {
     margin: 0.5rem;

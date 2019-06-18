@@ -2,11 +2,11 @@ import styled, { keyframes } from "styled-components";
 
 const Card = styled.div`
   font-family: "Montserrat", sans-serif;
-  margin-top: 5px;  /* gap between cards */
+   /* gap between cards */
   margin-right: 0rem;
-  margin-left:20px;
+  /* margin-left:20px; */
   .cardhover {
-    width: 17rem;
+    width: 18rem;
     height: 17rem;
     background: #ccc;
     position: relative;
@@ -38,7 +38,8 @@ const Card = styled.div`
     margin: 0px;
     transform: translateX(-50%);
     font-size: 1.5rem;
-    color: white;
+    color: black;
+    font-style:bold;
   }
   .image {
     height: 100%;
@@ -48,6 +49,9 @@ const Card = styled.div`
   .cardhover:hover .button {
     visibility: visible;
     transition: 0.1s ease-out;
+  }
+  .cardhover:hover  .imageoverlay{
+    background-color:#f7bb2f;
   }
   .hoveroverlay {
     position: absolute;
@@ -71,7 +75,7 @@ const Card = styled.div`
     width: 100%;
     opacity: 0.7;
     transition: 0.3s ease;
-    background-color: #484848;
+    background-color: #00ffff;
   }
   @media only screen and (min-width: 768px) {
     .cardhover:hover .hoveroverlay {

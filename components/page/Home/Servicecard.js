@@ -7,15 +7,15 @@ class ServiceCard extends Component {
     return (
       <Card>
         <div className="cardhover">
-          <img
+          {/* <img
             className="image"
             alt="IMAGE"
             src={Object.values(this.props.Cardcontent.img).toString()}
-          />
+          /> */}
           <div className="imageoverlay" />
           <div className="hoveroverlay" />
           <div className="title">
-            <h4>{this.props.Cardcontent.title}</h4>
+            <h3>{this.props.Cardcontent.title}</h3>
           </div>
           <Link href={this.props.Cardcontent.link}>
             <a className="button">

@@ -152,13 +152,7 @@ class CouroselCards extends Component {
     ));
     return (
       <Cards>
-        <div className="title">
-          <span className="line"> </span>
-          <span>
-            <h3>Best Sellers</h3>
-          </span>
-          <span className="line"> </span>
-        </div>
+        
         <Slider {...settings}>{Courosels}</Slider>
       </Cards>
     );
