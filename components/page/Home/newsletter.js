@@ -20,12 +20,13 @@ const D = styled.div`
   display: grid;
   grid-template-columns:1fr 1fr;
  
-  margin:3rem 4rem;
+  margin:3rem 3rem;
   place-items:center center;
 
   @media only screen and (max-width: 768px) {
     grid-template-columns:1fr;
     grid-row-gap:20px;
+    padding-left:0px;
  
   }  
  
@@ -57,15 +58,14 @@ const Slider = styled.div`
 
   
   }
-  @media only screen and (max-width: 350px) {
+  @media only screen and (max-width: 320px) {
+    
     height:50px;
     font-size:0.5rem;
     padding:  1rem 2rem  12rem 2rem;
 
   
   }
-
-
   .back {
     width: 100%;
     height: 100%;
@@ -106,8 +106,6 @@ const Newsletter = styled.div.attrs({})`
   @media only screen and (max-width: 400px) {
     height:50px;
     font-size:0.5rem;
-    
-    
   }
 
   form {
