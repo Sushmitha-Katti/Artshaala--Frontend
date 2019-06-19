@@ -7,7 +7,7 @@ const NavWrapper = styled.nav`
   background: #282828;
 
   top:0;
-  z-index:10;
+  z-index:100;
 
   width:100%;
   :global(body) {
@@ -16,6 +16,7 @@ const NavWrapper = styled.nav`
   }
   .Header {
    padding-top:0.1rem;
+   
    .overlay{
     position: fixed;
     top: 0;
