@@ -18,9 +18,9 @@ const NEWSLETTER_MUTATION = gql`
 /****************************************   Styled Components   **************************************** */
 const D = styled.div`
   display: grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr ;
  
-  margin:3rem 3rem;
+  background: #f7bb27;
   place-items:center center;
 
   @media only screen and (max-width: 768px) {
@@ -91,16 +91,26 @@ const Slider = styled.div`
 
 const Newsletter = styled.div.attrs({})`
   font-family: "Montserrat", sans-serif;
-  width: 100%;
-  height: 150px;
+  display:grid;
+  grid-template-columns:  30px 1fr 1fr;
+  grid-column-gap:20px
+  margin:1rem 3rem;
+  align-items:center;
   color: ${props => props.color};
-  text-align: center;
-  padding: 7rem 0rem;
-  margin-right:50px;
-  border:solid #F7BB2F 20px;
-  border-radius: 50px;
+  
+  
+  
+  
   
   background: ${props => props.background};
+  .newsletterTitle{
+    h2{
+      margin-bottom: 0rem ;
+      margin-top:0rem;
+      
+    }
+  }
+  
 
  
   @media only screen and (max-width: 400px) {
@@ -141,6 +151,8 @@ const Newsletter = styled.div.attrs({})`
   outline-color:#ffff;
   
 }
+
+
 @media only screen and (max-width: 768px) {
   width: 70%;
    padding: 1rem 1.5rem 5rem 1.5rem;
@@ -167,6 +179,9 @@ const Newsletter = styled.div.attrs({})`
   }
 
   }
+
+
+
   @media only screen and (max-width: 400px) {
     padding: 1rem 1.5rem 10rem 1.5rem;
    font-size:0.7rem;
@@ -191,6 +206,8 @@ const Newsletter = styled.div.attrs({})`
  
   }
   }
+
+
   @media only screen and (max-width: 350px) {
     
     padding: 1rem 1.5rem 12rem 1.5rem;
@@ -243,11 +260,11 @@ class NewsLetter extends Component {
         {(createNewsletter , { error, loading }) => (
       <D>
         <Newsletter background="#f7bb2f" color="black">
-          <h1>Subscribe To Our Newsletter</h1>
-          <p>
-            loreum loreum loreum loreum loreum loreum loreum loreum loreum
-            loreum loreum loreum
-          </p>
+        <i class="fa fa-envelope fa-2x" aria-hidden="true "></i>
+          <div className = "newsletterTitle">  <h2>Subscribe To Our Newsletter</h2>Get Regural Updates</div>
+        
+
+          
           
           <form
             method="post"
@@ -276,11 +293,11 @@ class NewsLetter extends Component {
             
           </form>
         </Newsletter>
-        <Slider color="white">
+        {/* <Slider color="white">
           <img className="back" src={autoguitar} alt="guitar" />
           <div className="imageoverlay" />
           <AutoCards />
-        </Slider>
+        </Slider> */}
       </D>
        )}
        </Mutation>
