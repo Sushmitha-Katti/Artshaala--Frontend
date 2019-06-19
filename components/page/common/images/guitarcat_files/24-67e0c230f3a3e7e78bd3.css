@@ -1,0 +1,31 @@
+.ExpandingTextArea__textArea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  box-sizing: border-box;
+  caret-color: #e60023;
+  overflow: auto;
+  resize: none;
+  width: 100%; }
+  .ExpandingTextArea__textArea:-ms-input-placeholder {
+    color: #8e8e8e; }
+  .ExpandingTextArea__textArea::placeholder {
+    color: #8e8e8e; }
+  .ExpandingTextArea__textArea:focus {
+    outline: none; }
+  .ExpandingTextArea__bold {
+  font-weight: bold; }
+  .ExpandingTextArea__large {
+  font-size: 36px; }
+  .ExpandingTextArea__medium {
+  font-size: 18px; }
+  .ExpandingTextArea__grow {
+  -ms-flex: auto;
+      flex: auto; }
+  .ExpandingTextArea__enabled {
+  color: #333;
+  cursor: text; }
+  .ExpandingTextArea__disabled {
+  color: #8e8e8e; }
+

@@ -1,0 +1,191 @@
+.BackButtonShowShadow {
+  animation: showShadow 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+
+.BackButtonHideShadow {
+  animation: hideShadow 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+
+@keyframes showShadow {
+  0% {
+    box-shadow: none; }
+  100% {
+    background-color: rgba(255, 255, 255, .97);
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, .1); } }
+
+@keyframes hideShadow {
+  0% {
+    background-color: rgba(255, 255, 255, .97);
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, .1); }
+  100% {
+    box-shadow: none; } }
+
+.story-pin-cinematic-image__background-container {
+  background: #333;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+  .story-pin-cinematic-image__background-container::after {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .06) 45%, rgba(0, 0, 0, .24) 75%, rgba(0, 0, 0, .56) 100%);
+    content: "";
+    display: block;
+    padding-top: 150%;
+    position: relative; }
+  .story-pin-cinematic-image__background {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity .15s linear;
+  width: 100%; }
+
+.story-pin-image__overlay {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .06) 45%, rgba(0, 0, 0, .24) 75%, rgba(0, 0, 0, .56) 100%);
+  padding-top: 177.77778%;
+  position: relative; }
+
+/* stylelint-disable no-duplicate-selectors */
+/* common.scss */
+.Pin {
+  /* Gestalt doesnt currently support color + transparent icons
+    ** so for the expriment we're overriding via css, if this variant wins
+    ** we should look into including rgbalpha + hover into gestalt icons
+    */ }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton {
+    border: none;
+    box-sizing: border-box;
+    outline: none; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton:hover {
+      cursor: pointer; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton:focus {
+      box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.transparent-dark-gray {
+      background-color: rgba(51, 51, 51, .8); }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.transparent-dark-gray:hover {
+        background-color: #333; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon {
+      background-color: #fff; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon:hover {
+        background-color: #efefef; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon:active {
+        background-color: #dadada; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  outline: none; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton:hover {
+    cursor: pointer; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton:focus {
+    box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton.enabled_android_icon:hover {
+    background-color: #efefef; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton.enabled_android_icon:active {
+    background-color: #dadada; }
+.fixedHeader .pincodeButton .tempIconButton {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  outline: none; }
+.fixedHeader .pincodeButton .tempIconButton:hover {
+    cursor: pointer; }
+.fixedHeader .pincodeButton .tempIconButton:focus {
+    box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.fixedHeader .pincodeButton .tempIconButton.pincodeIcon:hover {
+    background-color: #efefef; }
+.fixedHeader .pincodeButton .tempIconButton.pincodeIcon:active {
+    background-color: #dadada; }
+
+.ExperimentalTabs {
+  position: relative; }
+  .ExperimentalTabs::after {
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: 0 60px 0 0 #333;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    top: -32px;
+    width: 100%; }
+  .ExperimentalTabs.slideRight::after {
+    animation: experimentalTabsSlideRight 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+  .ExperimentalTabs.slideLeft::after {
+    animation: experimentalTabsSlideLeft 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+  @keyframes experimentalTabsSlideRight {
+  from {
+    left: -50%; }
+  to {
+    left: 0%; } }
+  @keyframes experimentalTabsSlideLeft {
+  from {
+    left: 100%; }
+  to {
+    left: 0%; } }
+
+.relatedupsell {
+  bottom: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  transform: translateY(200px);
+  z-index: 1; }
+
+.relatedupsell--animation {
+  opacity: 1;
+  transform: translateY(-30%);
+  transition: all 0.7s cubic-bezier(0.19, 1.15, 0.48, 1); }
+
+.story-pin-cover-layout {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  margin-bottom: 140px;
+  padding-top: 60px;
+  position: relative; }
+  .story-pin-cover-layout__background-overlay {
+    background-position: center;
+    background-size: cover;
+    bottom: -10px;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="10" /></filter></svg>#filter');
+    filter: blur(10px);
+    left: -10px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 110%; }
+  .story-pin-cover-layout__color-overlay {
+    height: 100%;
+    left: 0;
+    opacity: .75;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+
+.CheckListIcon {
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 16px; }
+
+.CheckListIcon__completed {
+  animation-duration: .6s;
+  animation-name: ChecklistPulseAnimation;
+  background-color: #4a90e2;
+  border-radius: 50%;
+  padding: 16px; }
+
+@keyframes ChecklistPulseAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5); }
+  50% {
+    opacity: 1;
+    transform: scale(1.2); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+

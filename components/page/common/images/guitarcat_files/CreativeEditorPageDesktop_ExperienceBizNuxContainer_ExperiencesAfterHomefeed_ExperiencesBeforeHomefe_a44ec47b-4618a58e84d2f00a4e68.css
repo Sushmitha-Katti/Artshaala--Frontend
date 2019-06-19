@@ -1,0 +1,210 @@
+.NuxExtensionUpsell__optionalSkip {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 19px;
+  outline: none;
+  outline-offset: 0;
+  padding: 0;
+  text-decoration: underline; }
+  .NuxExtensionUpsell__optionalSkip::-moz-focus-inner {
+    border: none;
+    padding: 0; }
+
+.NuxContainer {
+  background: #fff;
+  height: 640px;
+  max-height: calc(100vh - 40px);
+  width: 800px; }
+  .NuxContainer:focus {
+    outline: none; }
+  .NuxContainer.slimWidth {
+    width: 544px; }
+  .NuxContainer.changeWidth {
+    animation: widthShift .5s; }
+  @keyframes widthShift {
+  from {
+    width: 544px; }
+  to {
+    width: 800px; } }
+  .NuxContainer.fullScreen {
+    background: rgba(255, 255, 255, 0);
+    bottom: 0;
+    height: 100%;
+    max-height: calc(100vh - 65px);
+    position: absolute;
+    transition: background .3s;
+    width: 100%;
+    will-change: background; }
+  .NuxContainer.fullScreen.fullScreenFadeIn {
+      background: white; }
+  .NuxContainer .NuxContainer__NuxStepContainer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    height: 100%; }
+  .NuxContainer .NuxContainer__NuxStepContainer.fullScreen {
+      transform: translateY(100%);
+      transition: transform 1s;
+      will-change: transform; }
+  .NuxContainer .NuxContainer__NuxStepContainer.fullScreen.fullScreenMoveIn {
+        transform: translateY(0); }
+
+.NuxPicker__contentWrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%; }
+  .NuxPicker__contentWrapper .NuxPickerFooter {
+    background: #fff;
+    border-radius: 8px;
+    display: block;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 104; }
+  .NuxPicker__contentWrapper .NuxPickerFooter .NuxPickerFooter__buttonWrapper {
+      -webkit-font-smoothing: antialiased; }
+  .NuxPicker__contentWrapper .NuxPickerFooter .NuxPickerFooter__footerWash {
+      background: linear-gradient(rgba(255, 255, 255, 0), white);
+      border-radius: 6px;
+      bottom: 0;
+      height: 40px;
+      pointer-events: none;
+      position: absolute;
+      width: 100%; }
+  .NuxPicker__contentWrapper .NuxPickerFooter .NuxPickerFooter__footerWash.bottomSpace {
+      top: -40px; }
+  .NuxPicker__contentWrapper .NuxPickerInterestsGrid {
+    -ms-flex: 1;
+        flex: 1;
+    height: 368px;
+    overflow-y: scroll;
+    padding-bottom: 40px;
+    width: 800px; }
+  .NuxPicker__contentWrapper .NuxPickerInterestsGrid.fullHeight {
+      height: 100%; }
+  .NuxPicker__contentWrapper .NuxPickerInterestsGrid.TableOfContents {
+      height: 280px; }
+  .NuxPicker__contentWrapper .spinner {
+    position: absolute;
+    right: 5px;
+    top: 5px; }
+  .NuxPicker__contentWrapper .NuxPicker__Pin--checkmark {
+    position: relative;
+    top: 48px; }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedWrapper {
+    height: 100%;
+    position: absolute;
+    transition: transform .1s ease-in-out;
+    width: 100%;
+    z-index: 1; }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedWrapper:active {
+      transform: scale(0.95); }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedOverlay {
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 6px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1; }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedOverlay.smallCheckmark {
+      background-color: rgba(0, 0, 0, .6); }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedOverlayText {
+    bottom: 0;
+    padding: 8px;
+    position: absolute; }
+
+.NuxInterest {
+  background-color: transparent;
+  border: none;
+  height: 136px;
+  padding: 0;
+  position: relative;
+  width: 136px; }
+  .NuxInterest.small {
+    height: 100px;
+    width: 100px; }
+  .NuxInterest.notSelectable {
+    cursor: default; }
+  .NuxInterest .interestCardWrapper {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1; }
+  .NuxInterest .interestCardWrapper .selectedOverlay {
+      background-color: #000;
+      border-radius: 6px;
+      height: 100%;
+      opacity: .7;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1; }
+  .NuxInterest .darkBottomHalf {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1), rgba(0, 0, 0, .5)); }
+  .NuxInterest .darkBottomHalf:hover {
+      background: transparent; }
+  .NuxInterest .overflowMask {
+    background-color: #e60023;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    height: 100%;
+    line-height: 128px;
+    text-align: center;
+    width: 100%; }
+  .NuxInterest .overflowMask.gray {
+      background-color: #efefef;
+      color: #333; }
+  .NuxInterest .defaultImageWash {
+    background-color: #000;
+    border-radius: 6px;
+    height: 100%;
+    opacity: .1;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  .NuxInterest .checkmarkCircle {
+    -ms-flex-align: center;
+        align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    display: -ms-flexbox;
+    display: flex;
+    height: 24px;
+    -ms-flex-pack: center;
+        justify-content: center;
+    width: 24px; }
+  .NuxInterest .interestCardWrapper:hover .hoverMask {
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 8px;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  .NuxInterest .interestCardWrapper:hover .hoverMaskDarker {
+    background-color: rgba(0, 0, 0, .7); }
+  .NuxInterest .hoverText {
+    display: none; }
+  .NuxInterest .interestCardWrapper:hover .hoverText {
+    bottom: 0;
+    display: block;
+    padding: 8px;
+    position: absolute;
+    transition: transform .1s ease-in-out;
+    z-index: 1; }
+  .NuxInterest .selectedWrapper {
+    height: 100%;
+    position: absolute;
+    width: 100%; }
+

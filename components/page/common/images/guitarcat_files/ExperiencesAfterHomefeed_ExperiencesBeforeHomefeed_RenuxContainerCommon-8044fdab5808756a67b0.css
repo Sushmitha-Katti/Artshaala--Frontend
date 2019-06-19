@@ -1,0 +1,221 @@
+.NuxModalStepBase {
+  border-radius: 6px;
+  height: 640px;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  width: 800px; }
+  .NuxModalStepBase.denseGridModal {
+    height: 670px; }
+  .NuxModalStepBase .stepInfoContent {
+    color: #d3d3d3;
+    font-size: 16px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 19px;
+    position: absolute;
+    right: 16px;
+    text-align: right;
+    top: 16px; }
+  .NuxModalStepBase .stepInfoContent .stepInfo {
+      display: inline-block; }
+
+.NuxEducationLoader {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%;
+  overflow-y: hidden;
+  position: relative;
+  width: 800px; }
+  .NuxEducationLoader .NuxEducationLoader__loadingCopyContainer {
+    animation-delay: 2.68s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: fadeOut;
+    color: #555;
+    font-size: 32px;
+    line-height: 36px; }
+  .NuxEducationLoader .NuxEducationLoader__pinEducationCopyContainer {
+    animation-delay: 3.18s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    color: #555;
+    font-size: 32px;
+    left: 0;
+    line-height: 36px;
+    opacity: 0;
+    position: absolute;
+    top: 0; }
+  @keyframes scrollGrid {
+  from {
+    transform: translateY(20%); }
+  to {
+    transform: translateY(-20%); } }
+  .NuxEducationLoader .NuxEducationLoaderGrid {
+    animation-delay: 0s, 2.68s;
+    animation-duration: 8s, 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: scrollGrid, fadeOut;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    width: 100%; }
+  .NuxEducationLoader .NuxEducationLoaderGrid .NuxEducationLoaderGrid__column0 {
+      margin: 30px 8px 0; }
+  .NuxEducationLoader .NuxEducationLoaderGrid .NuxEducationLoaderGrid__column1 {
+      margin: 0 8px; }
+  .NuxEducationLoader .NuxEducationLoaderGrid .NuxEducationLoaderGrid__column2 {
+      margin: 15px 8px 0; }
+  @keyframes pinImageScaleAndTranslate {
+  0% {
+    opacity: 1;
+    transform: scale(0.5, 0.5) translateY(448px); }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1) translateY(0); } }
+  .NuxEducationLoader .NuxEducationLoaderPin {
+    bottom: 28px;
+    height: 310px;
+    margin: auto 0;
+    position: absolute;
+    right: 77px;
+    top: 0;
+    width: 210px; }
+  .NuxEducationLoader .NuxEducationLoaderPin .NuxEducationLoaderPin__pinImage {
+      animation-delay: 2.64s;
+      animation-duration: 0.8s;
+      animation-fill-mode: forwards;
+      animation-name: pinImageScaleAndTranslate;
+      opacity: 0; }
+  .NuxEducationLoader .NuxEducationLoaderPin .NuxEducationLoaderPin__pinSaveButton {
+      animation-delay: 3.34s;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-name: fadeIn;
+      opacity: 0; }
+  .NuxEducationLoader .NuxEducationLoaderPin .NuxEducationLoaderPin__pinLinkButton {
+      animation-delay: 3.14s;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-name: fadeIn;
+      opacity: 0; }
+
+.NuxGenderSelector:hover {
+  background-color: #efefef; }
+
+.NuxGenderSelector:hover input {
+  background-color: #efefef; }
+
+.NuxGenderStep {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%; }
+
+.NuxGenderStep .NuxGenderStep__genderOption,
+  .NuxGenderStep .NuxGenderStep__genderOptionLast,
+  .NuxGenderStep .NuxGenderStep__genderOptionNoHover,
+  .NuxGenderStep .NuxGenderStep__genderOptionSelected {
+    border-top: 1px solid #efefef;
+    cursor: pointer;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 36px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: bold;
+    height: 40px;
+    padding: 24px 32px;
+    position: relative;
+    vertical-align: middle; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionLast {
+    border-bottom: 1px solid #efefef;
+    height: auto; }
+
+.NuxGenderStep .NuxGenderStep__genderOption:hover,
+  .NuxGenderStep .NuxGenderStep__genderOptionSelected,
+  .NuxGenderStep .NuxGenderStep__genderOptionLast:hover {
+    background-color: #efefef; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionText,
+  .NuxGenderStep .NuxGenderStep__genderOptionTextNoHover {
+    color: #333;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    padding-left: 40px; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionText {
+    top: 20px; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionTextNoHover {
+    top: 23px; }
+
+.NuxGenderStep .NuxGenderStep__headerContent {
+    -ms-flex-align: center;
+        align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    margin: 60px 32px;
+    text-align: center;
+    width: 480px; }
+
+.NuxGenderStep .NuxGenderStep__nameHeaderContent {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    margin: 115px 32px 0;
+    text-align: center;
+    width: 480px; }
+
+.NuxGenderStep .NuxGenderStep__nameHeaderContent.TableOfContents {
+      margin-top: 16px; }
+
+.NuxGenderStep .NuxGenderStep__genderSelector input[type=text] {
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px; }
+
+.NuxGenderStep input[type=text].slimInput {
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
+
+.NuxGenderStep .NuxGenderStep__radioButtonWrapper {
+    padding-top: 10px;
+    position: absolute; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionContent {
+    margin: 0 auto;
+    max-width: 1276px;
+    position: relative; }
+
+@media (max-width: 1299px) {
+      .NuxGenderStep .NuxGenderStep__genderOptionContent {
+        max-width: 1016px; } }
+
+@media (max-width: 1039px) {
+      .NuxGenderStep .NuxGenderStep__genderOptionContent {
+        max-width: 756px; } }
+
+.NuxGenderStep .NuxGenderStep__nextButton {
+    margin: 80px 32px 0; }
+
+.NuxGenderStep .NuxGenderStep__nameInputWrapper {
+    margin: 0 4px; }
+
+.NuxGenderStep .NuxGenderStep__slimHeaderContent {
+    margin: 32px 32px 16px;
+    width: 480px; }
+

@@ -1,0 +1,532 @@
+.story-pin-cinematic-image__background-container {
+  background: #333;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+  .story-pin-cinematic-image__background-container::after {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .06) 45%, rgba(0, 0, 0, .24) 75%, rgba(0, 0, 0, .56) 100%);
+    content: "";
+    display: block;
+    padding-top: 150%;
+    position: relative; }
+  .story-pin-cinematic-image__background {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity .15s linear;
+  width: 100%; }
+
+.story-pin-image__overlay {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .06) 45%, rgba(0, 0, 0, .24) 75%, rgba(0, 0, 0, .56) 100%);
+  padding-top: 177.77778%;
+  position: relative; }
+
+/* stylelint-disable no-duplicate-selectors */
+/* common.scss */
+.Pin {
+  /* Gestalt doesnt currently support color + transparent icons
+    ** so for the expriment we're overriding via css, if this variant wins
+    ** we should look into including rgbalpha + hover into gestalt icons
+    */ }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton {
+    border: none;
+    box-sizing: border-box;
+    outline: none; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton:hover {
+      cursor: pointer; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton:focus {
+      box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.transparent-dark-gray {
+      background-color: rgba(51, 51, 51, .8); }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.transparent-dark-gray:hover {
+        background-color: #333; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon {
+      background-color: #fff; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon:hover {
+        background-color: #efefef; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon:active {
+        background-color: #dadada; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  outline: none; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton:hover {
+    cursor: pointer; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton:focus {
+    box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton.enabled_android_icon:hover {
+    background-color: #efefef; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton.enabled_android_icon:active {
+    background-color: #dadada; }
+.fixedHeader .pincodeButton .tempIconButton {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  outline: none; }
+.fixedHeader .pincodeButton .tempIconButton:hover {
+    cursor: pointer; }
+.fixedHeader .pincodeButton .tempIconButton:focus {
+    box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.fixedHeader .pincodeButton .tempIconButton.pincodeIcon:hover {
+    background-color: #efefef; }
+.fixedHeader .pincodeButton .tempIconButton.pincodeIcon:active {
+    background-color: #dadada; }
+
+.CheckListIcon {
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 16px; }
+
+.CheckListIcon__completed {
+  animation-duration: .6s;
+  animation-name: ChecklistPulseAnimation;
+  background-color: #4a90e2;
+  border-radius: 50%;
+  padding: 16px; }
+
+@keyframes ChecklistPulseAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5); }
+  50% {
+    opacity: 1;
+    transform: scale(1.2); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+.NuxInterest {
+  background-color: transparent;
+  border: none;
+  height: 136px;
+  padding: 0;
+  position: relative;
+  width: 136px; }
+  .NuxInterest.small {
+    height: 100px;
+    width: 100px; }
+  .NuxInterest.notSelectable {
+    cursor: default; }
+  .NuxInterest .interestCardWrapper {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1; }
+  .NuxInterest .interestCardWrapper .selectedOverlay {
+      background-color: #000;
+      border-radius: 6px;
+      height: 100%;
+      opacity: .7;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1; }
+  .NuxInterest .darkBottomHalf {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1), rgba(0, 0, 0, .5)); }
+  .NuxInterest .darkBottomHalf:hover {
+      background: transparent; }
+  .NuxInterest .overflowMask {
+    background-color: #e60023;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    height: 100%;
+    line-height: 128px;
+    text-align: center;
+    width: 100%; }
+  .NuxInterest .overflowMask.gray {
+      background-color: #efefef;
+      color: #333; }
+  .NuxInterest .defaultImageWash {
+    background-color: #000;
+    border-radius: 6px;
+    height: 100%;
+    opacity: .1;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  .NuxInterest .checkmarkCircle {
+    -ms-flex-align: center;
+        align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    display: -ms-flexbox;
+    display: flex;
+    height: 24px;
+    -ms-flex-pack: center;
+        justify-content: center;
+    width: 24px; }
+  .NuxInterest .interestCardWrapper:hover .hoverMask {
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 8px;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  .NuxInterest .interestCardWrapper:hover .hoverMaskDarker {
+    background-color: rgba(0, 0, 0, .7); }
+  .NuxInterest .hoverText {
+    display: none; }
+  .NuxInterest .interestCardWrapper:hover .hoverText {
+    bottom: 0;
+    display: block;
+    padding: 8px;
+    position: absolute;
+    transition: transform .1s ease-in-out;
+    z-index: 1; }
+  .NuxInterest .selectedWrapper {
+    height: 100%;
+    position: absolute;
+    width: 100%; }
+
+.NuxModalStepBase {
+  border-radius: 6px;
+  height: 640px;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  width: 800px; }
+  .NuxModalStepBase.denseGridModal {
+    height: 670px; }
+  .NuxModalStepBase .stepInfoContent {
+    color: #d3d3d3;
+    font-size: 16px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 19px;
+    position: absolute;
+    right: 16px;
+    text-align: right;
+    top: 16px; }
+  .NuxModalStepBase .stepInfoContent .stepInfo {
+      display: inline-block; }
+
+.NuxEducationLoader {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%;
+  overflow-y: hidden;
+  position: relative;
+  width: 800px; }
+  .NuxEducationLoader .NuxEducationLoader__loadingCopyContainer {
+    animation-delay: 2.68s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: fadeOut;
+    color: #555;
+    font-size: 32px;
+    line-height: 36px; }
+  .NuxEducationLoader .NuxEducationLoader__pinEducationCopyContainer {
+    animation-delay: 3.18s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    color: #555;
+    font-size: 32px;
+    left: 0;
+    line-height: 36px;
+    opacity: 0;
+    position: absolute;
+    top: 0; }
+  @keyframes scrollGrid {
+  from {
+    transform: translateY(20%); }
+  to {
+    transform: translateY(-20%); } }
+  .NuxEducationLoader .NuxEducationLoaderGrid {
+    animation-delay: 0s, 2.68s;
+    animation-duration: 8s, 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: scrollGrid, fadeOut;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    width: 100%; }
+  .NuxEducationLoader .NuxEducationLoaderGrid .NuxEducationLoaderGrid__column0 {
+      margin: 30px 8px 0; }
+  .NuxEducationLoader .NuxEducationLoaderGrid .NuxEducationLoaderGrid__column1 {
+      margin: 0 8px; }
+  .NuxEducationLoader .NuxEducationLoaderGrid .NuxEducationLoaderGrid__column2 {
+      margin: 15px 8px 0; }
+  @keyframes pinImageScaleAndTranslate {
+  0% {
+    opacity: 1;
+    transform: scale(0.5, 0.5) translateY(448px); }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1) translateY(0); } }
+  .NuxEducationLoader .NuxEducationLoaderPin {
+    bottom: 28px;
+    height: 310px;
+    margin: auto 0;
+    position: absolute;
+    right: 77px;
+    top: 0;
+    width: 210px; }
+  .NuxEducationLoader .NuxEducationLoaderPin .NuxEducationLoaderPin__pinImage {
+      animation-delay: 2.64s;
+      animation-duration: 0.8s;
+      animation-fill-mode: forwards;
+      animation-name: pinImageScaleAndTranslate;
+      opacity: 0; }
+  .NuxEducationLoader .NuxEducationLoaderPin .NuxEducationLoaderPin__pinSaveButton {
+      animation-delay: 3.34s;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-name: fadeIn;
+      opacity: 0; }
+  .NuxEducationLoader .NuxEducationLoaderPin .NuxEducationLoaderPin__pinLinkButton {
+      animation-delay: 3.14s;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-name: fadeIn;
+      opacity: 0; }
+
+.NuxExtensionUpsell__optionalSkip {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 19px;
+  outline: none;
+  outline-offset: 0;
+  padding: 0;
+  text-decoration: underline; }
+  .NuxExtensionUpsell__optionalSkip::-moz-focus-inner {
+    border: none;
+    padding: 0; }
+
+.NuxGenderSelector:hover {
+  background-color: #efefef; }
+
+.NuxGenderSelector:hover input {
+  background-color: #efefef; }
+
+.NuxGenderStep {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%; }
+
+.NuxGenderStep .NuxGenderStep__genderOption,
+  .NuxGenderStep .NuxGenderStep__genderOptionLast,
+  .NuxGenderStep .NuxGenderStep__genderOptionNoHover,
+  .NuxGenderStep .NuxGenderStep__genderOptionSelected {
+    border-top: 1px solid #efefef;
+    cursor: pointer;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 36px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: bold;
+    height: 40px;
+    padding: 24px 32px;
+    position: relative;
+    vertical-align: middle; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionLast {
+    border-bottom: 1px solid #efefef;
+    height: auto; }
+
+.NuxGenderStep .NuxGenderStep__genderOption:hover,
+  .NuxGenderStep .NuxGenderStep__genderOptionSelected,
+  .NuxGenderStep .NuxGenderStep__genderOptionLast:hover {
+    background-color: #efefef; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionText,
+  .NuxGenderStep .NuxGenderStep__genderOptionTextNoHover {
+    color: #333;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    padding-left: 40px; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionText {
+    top: 20px; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionTextNoHover {
+    top: 23px; }
+
+.NuxGenderStep .NuxGenderStep__headerContent {
+    -ms-flex-align: center;
+        align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    margin: 60px 32px;
+    text-align: center;
+    width: 480px; }
+
+.NuxGenderStep .NuxGenderStep__nameHeaderContent {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    margin: 115px 32px 0;
+    text-align: center;
+    width: 480px; }
+
+.NuxGenderStep .NuxGenderStep__nameHeaderContent.TableOfContents {
+      margin-top: 16px; }
+
+.NuxGenderStep .NuxGenderStep__genderSelector input[type=text] {
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px; }
+
+.NuxGenderStep input[type=text].slimInput {
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
+
+.NuxGenderStep .NuxGenderStep__radioButtonWrapper {
+    padding-top: 10px;
+    position: absolute; }
+
+.NuxGenderStep .NuxGenderStep__genderOptionContent {
+    margin: 0 auto;
+    max-width: 1276px;
+    position: relative; }
+
+@media (max-width: 1299px) {
+      .NuxGenderStep .NuxGenderStep__genderOptionContent {
+        max-width: 1016px; } }
+
+@media (max-width: 1039px) {
+      .NuxGenderStep .NuxGenderStep__genderOptionContent {
+        max-width: 756px; } }
+
+.NuxGenderStep .NuxGenderStep__nextButton {
+    margin: 80px 32px 0; }
+
+.NuxGenderStep .NuxGenderStep__nameInputWrapper {
+    margin: 0 4px; }
+
+.NuxGenderStep .NuxGenderStep__slimHeaderContent {
+    margin: 32px 32px 16px;
+    width: 480px; }
+
+.NuxContainer {
+  background: #fff;
+  height: 640px;
+  max-height: calc(100vh - 40px);
+  width: 800px; }
+  .NuxContainer:focus {
+    outline: none; }
+  .NuxContainer.slimWidth {
+    width: 544px; }
+  .NuxContainer.changeWidth {
+    animation: widthShift .5s; }
+  @keyframes widthShift {
+  from {
+    width: 544px; }
+  to {
+    width: 800px; } }
+  .NuxContainer.fullScreen {
+    background: rgba(255, 255, 255, 0);
+    bottom: 0;
+    height: 100%;
+    max-height: calc(100vh - 65px);
+    position: absolute;
+    transition: background .3s;
+    width: 100%;
+    will-change: background; }
+  .NuxContainer.fullScreen.fullScreenFadeIn {
+      background: white; }
+  .NuxContainer .NuxContainer__NuxStepContainer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    height: 100%; }
+  .NuxContainer .NuxContainer__NuxStepContainer.fullScreen {
+      transform: translateY(100%);
+      transition: transform 1s;
+      will-change: transform; }
+  .NuxContainer .NuxContainer__NuxStepContainer.fullScreen.fullScreenMoveIn {
+        transform: translateY(0); }
+
+.NuxPicker__contentWrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%; }
+  .NuxPicker__contentWrapper .NuxPickerFooter {
+    background: #fff;
+    border-radius: 8px;
+    display: block;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 104; }
+  .NuxPicker__contentWrapper .NuxPickerFooter .NuxPickerFooter__buttonWrapper {
+      -webkit-font-smoothing: antialiased; }
+  .NuxPicker__contentWrapper .NuxPickerFooter .NuxPickerFooter__footerWash {
+      background: linear-gradient(rgba(255, 255, 255, 0), white);
+      border-radius: 6px;
+      bottom: 0;
+      height: 40px;
+      pointer-events: none;
+      position: absolute;
+      width: 100%; }
+  .NuxPicker__contentWrapper .NuxPickerFooter .NuxPickerFooter__footerWash.bottomSpace {
+      top: -40px; }
+  .NuxPicker__contentWrapper .NuxPickerInterestsGrid {
+    -ms-flex: 1;
+        flex: 1;
+    height: 368px;
+    overflow-y: scroll;
+    padding-bottom: 40px;
+    width: 800px; }
+  .NuxPicker__contentWrapper .NuxPickerInterestsGrid.fullHeight {
+      height: 100%; }
+  .NuxPicker__contentWrapper .NuxPickerInterestsGrid.TableOfContents {
+      height: 280px; }
+  .NuxPicker__contentWrapper .spinner {
+    position: absolute;
+    right: 5px;
+    top: 5px; }
+  .NuxPicker__contentWrapper .NuxPicker__Pin--checkmark {
+    position: relative;
+    top: 48px; }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedWrapper {
+    height: 100%;
+    position: absolute;
+    transition: transform .1s ease-in-out;
+    width: 100%;
+    z-index: 1; }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedWrapper:active {
+      transform: scale(0.95); }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedOverlay {
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 6px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1; }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedOverlay.smallCheckmark {
+      background-color: rgba(0, 0, 0, .6); }
+  .NuxPicker__contentWrapper .InterestCardWrapper__selectedOverlayText {
+    bottom: 0;
+    padding: 8px;
+    position: absolute; }
+

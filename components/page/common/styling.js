@@ -244,15 +244,15 @@ import styled from "styled-components";
 const Style = styled.div`
  display:grid;
  margin:1rem 2rem;
- grid-template-columns:1fr 1fr 1fr 0.8fr; 
+ grid-template-columns:1fr  0.8fr; 
  /* grid-template-areas:"1st 2nd 3rd 4th"; */
  grid-gap:10px;
 
  .advimg{
    
     
-     height: 420px;
-    width: 310px; 
+     height: 415px;
+    width: 950px; 
      
 
 }
@@ -262,7 +262,7 @@ const Style = styled.div`
    grid-column-end:3;
   
    
-     width: 965px;
+     width: 950px;
      height:415px;
    
  }
@@ -353,8 +353,20 @@ const Header = styled.div`
      grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
      align-items:center;
      justify-self:center;
+    
      img{
        max-height:160px;
+     }
+   }
+   .categorygrid{
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
+     justify-items:center ;
+     margin : 1rem 2rem;
+     text-align:center;
+     img{
+       height: 300px;
+       width:300px;
      }
    }
 

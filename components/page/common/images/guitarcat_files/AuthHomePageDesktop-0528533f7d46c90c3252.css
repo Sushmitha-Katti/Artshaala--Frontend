@@ -1,0 +1,78 @@
+.story-pin-cinematic-image__background-container {
+  background: #333;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+  .story-pin-cinematic-image__background-container::after {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .06) 45%, rgba(0, 0, 0, .24) 75%, rgba(0, 0, 0, .56) 100%);
+    content: "";
+    display: block;
+    padding-top: 150%;
+    position: relative; }
+  .story-pin-cinematic-image__background {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity .15s linear;
+  width: 100%; }
+
+.story-pin-image__overlay {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .06) 45%, rgba(0, 0, 0, .24) 75%, rgba(0, 0, 0, .56) 100%);
+  padding-top: 177.77778%;
+  position: relative; }
+
+/* stylelint-disable no-duplicate-selectors */
+/* common.scss */
+.Pin {
+  /* Gestalt doesnt currently support color + transparent icons
+    ** so for the expriment we're overriding via css, if this variant wins
+    ** we should look into including rgbalpha + hover into gestalt icons
+    */ }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton {
+    border: none;
+    box-sizing: border-box;
+    outline: none; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton:hover {
+      cursor: pointer; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton:focus {
+      box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.transparent-dark-gray {
+      background-color: rgba(51, 51, 51, .8); }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.transparent-dark-gray:hover {
+        background-color: #333; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon {
+      background-color: #fff; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon:hover {
+        background-color: #efefef; }
+.Pin .pinRepSendShareFlyoutButton .tempIconButton.enabled_android_icon:active {
+        background-color: #dadada; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  outline: none; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton:hover {
+    cursor: pointer; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton:focus {
+    box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton.enabled_android_icon:hover {
+    background-color: #efefef; }
+.fixedHeader .sendShareFlyoutButtonTest .tempIconButton.enabled_android_icon:active {
+    background-color: #dadada; }
+.fixedHeader .pincodeButton .tempIconButton {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  outline: none; }
+.fixedHeader .pincodeButton .tempIconButton:hover {
+    cursor: pointer; }
+.fixedHeader .pincodeButton .tempIconButton:focus {
+    box-shadow: 0 0 0 4px rgba(0, 132, 255, .5); }
+.fixedHeader .pincodeButton .tempIconButton.pincodeIcon:hover {
+    background-color: #efefef; }
+.fixedHeader .pincodeButton .tempIconButton.pincodeIcon:active {
+    background-color: #dadada; }
+
