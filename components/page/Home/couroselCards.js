@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import CouroselCard from "./couroselCard";
 import guitar from "./guitar.jpg";
+import guitar2 from "./guitar2.jpg";
+import drums from "./drums.jpg";
+import piano from "./piano.jpg";
+import flute from "./flute.jpg";
 import styled, { keyframes } from "styled-components";
 import { Cards } from "./styles";
 import Slider from "react-slick";
@@ -9,6 +13,7 @@ const Flexcards = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `;
 
 let properties = [
@@ -18,31 +23,36 @@ let properties = [
     stars: 4,
     amount: 2000,
     img: { guitar },
-    rating: 3
+    rating: 3,
+    discount: 10,
+    
   },
   {
     name: "GuitarNameGuitarName",
     id: 2,
     stars: 4,
     amount: 2000,
-    img: { guitar },
-    rating: 4
+    img: { guitar2 },
+    rating: 4,
+    
   },
   {
-    name: "GuitarNameGuitarName",
+    name: "GuitarNameGuitarNamesfdjfffffffffdlkg",
     id: 3,
     stars: 4,
     amount: 2000,
-    img: { guitar },
-    rating: 4
+    img: { drums },
+    rating: 4,
+    discount:20,
   },
   {
     name: "GuitarNameGuitarName",
     id: 4,
     stars: 4,
     amount: 2000,
-    img: { guitar },
-    rating: 4
+    img: { piano },
+    rating: 4,
+    
   },
   {
     name: "GuitarNameGuitarName",
@@ -50,15 +60,17 @@ let properties = [
     stars: 4,
     amount: 2000,
     img: { guitar },
-    rating: 4
+    rating: 4,
+    discount:30,
   },
   {
     name: "GuitarNameGuitarName",
     id: 6,
     stars: 4,
     amount: 2000,
-    img: { guitar },
-    rating: 4
+    img: { flute },
+    rating: 4,
+    disocunt: 25,
   },
   {
     name: "GuitarNameGuitarName",
@@ -66,7 +78,8 @@ let properties = [
     stars: 4,
     amount: 2000,
     img: { guitar },
-    rating: 4
+    rating: 4,
+    discount:17,
   }
 ];
 
@@ -152,6 +165,13 @@ class CouroselCards extends Component {
     ));
     return (
       <Cards>
+         <div className="title">
+          <span className="line"> </span>
+          <span>
+            <h3>Best Sellers</h3>
+          </span>
+          <span className="line"> </span>
+        </div>
         
         <Slider {...settings}>{Courosels}</Slider>
       </Cards>
