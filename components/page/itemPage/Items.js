@@ -46,6 +46,8 @@ const ALL_ITEMS_QUERY = gql`
       type
       brand
       AvgRating
+      discount
+      discountPrice
     }
   }
 `;
@@ -61,6 +63,8 @@ const CATEGORY_ITEMS_QUERY = gql`
       type
       brand
       AvgRating
+      discount
+      discountPrice
     }
   }
 `;

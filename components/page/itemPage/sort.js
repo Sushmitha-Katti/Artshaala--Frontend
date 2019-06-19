@@ -20,6 +20,8 @@ const SORT_QUERY = gql`
       price
       category
       AvgRating
+      discount
+      discountPrice
     }
   }
 `;
@@ -34,6 +36,8 @@ query CATEGORY_BASED_SORT($categoryState: String!) {
       price
       category
       AvgRating
+      discount
+      discountPrice
   }
 }
 `;

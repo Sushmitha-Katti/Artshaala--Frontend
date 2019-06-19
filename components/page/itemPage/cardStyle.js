@@ -24,6 +24,7 @@ const Cardstyle = styled.nav`
         text-align:center;
         border-radius: 5px;
         /* box-shadow: 0 0 10px 3px rgba(0,0,0,0.5); */
+        position: relative;
         
     }
  
@@ -31,17 +32,48 @@ const Cardstyle = styled.nav`
 
 
     .sub{
-        text-align:left;
+        text-align:center;
         margin-left:auto;
         margin-right:auto;
         margin-bottom:15px;
         font-size:15px;
         width: 185px;
          /* height: 400px; */
-       p{
-           margin:2px 0;
-       }
+       
     }
+    .both{
+    
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0.5rem 1rem;
+    .actual{
+      color: grey;
+      text-decoration:line-through;
+    }
+    .discounted{
+      color:red;
+      font-weight:bold;
+    }
+  }
+  .discountpercentage{
+    float:right;
+    margin: 1rem 1rem 0rem 0rem;
+    background: #f7bb2f;
+    height:15px;
+    width:80px;
+    margin-right:0.5rem;
+    margin-top: 1rem;
+    position:absolute;
+    z-index:20;
+    right:0;
+    border-radius:10px;
+    padding:5px 0px;
+    font-size:0.8rem;
+    font-weight:bold;
+    position:absolute;
+
+  }
+
     .off{
         margin:15px 130px 0;
         position:absolute;
@@ -64,6 +96,14 @@ const Cardstyle = styled.nav`
         margin-top:5px;
  
         
+    }
+    .title{
+        max-width: 20ch;
+    text-overflow: ellipsis;
+     white-space: nowrap; 
+    overflow: hidden;
+    text-align:center;
+    padding: 0rem 1.1rem;
     }
     .cost{
         padding:0;

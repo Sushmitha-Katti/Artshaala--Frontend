@@ -64,60 +64,33 @@ class Cards extends Component {
       <Cardstyle>
         <div className="main">
           <div className="sub">
-            <img src={this.props.Cardcontent.images[0]} className="pic" />        
-              <p className="cost">Name:{this.props.Cardcontent.title}</p>                        
-                <p className="cost">Price:{this.props.Cardcontent.price}</p>               
-                <p className="cost">Category:{this.props.Cardcontent.category}</p>               
-                <p className="cost">Type:{this.props.Cardcontent.type}</p>
-                <p className="cost">Brand:{this.props.Cardcontent.brand}</p> 
-                
-                
-                { <Query
-            query={RATING_QUERY}
-            variables={{
-
-             id: this.props.Cardcontent.id,
-
- 
-            }}
-            >
-            {({ error, loading, data }) => {
-            if (error) return <Error error={error} />;
-            if (loading) return <Loader></Loader>;
-        
-            if (!data.commentsConnection) return <p>NO rating</p>;
-            const review = data.commentsConnection.aggregate.count;   //returns totoal no of reviews
-            if(review!=0){
-            let ratinglist = []
-            data.commentsConnection.edges.map(edge => ratinglist.push(edge['node']['rating']))  //returns list of ratings
-
-            const count = ratinglist.reduce( (tally, rating) => {      //returns the dictionary where key is rating and value is count of rating
-                tally[rating] = (tally[rating] || 0) + 1 ;
-               
-                return tally;
-              } , {})
-              
-              
-              
-              let average_rating = 0;
-              
-                for(var key in count) {
-                average_rating = average_rating + count[key] * key;    //Returns weighted sum of ratings
-              }
-              const avgrating = Math.round((average_rating/review)*10)/10    //Average rating with rounding of to 1 decimal place
-              
-              return (
-                <StarRating   
+          {this.props.Cardcontent.discount > 0? <div className = "discountpercentage">{this.props.Cardcontent.discount}% OFF</div>: null}
+            <img src={this.props.Cardcontent.images[0]} className="pic" /> 
+            
+            {this.props.Cardcontent.AvgRating > 0 ? <StarRating   
                 editing={false}
                 renderStarIcon={()=> <i class="fa fa-star fa-1x" aria-hidden="true"></i>}
                 starCount={5}
-                value={avgrating}/> 
-              )
-            }
-            else return(<span><i class="fa fa-star" aria-hidden="true"></i> Not Rated</span> )
+                value={this.props.Cardcontent.AvgRating}/> : <i class="fa fa-star fa-1x" aria-hidden="true">Not Rated</i>
+             }       
+              <p className="title">{this.props.Cardcontent.title}</p>    
+              {this.props.Cardcontent.discount?<div className = "both"><div className = "actual">Rs. {this.props.Cardcontent.price}</div><div className = "discounted">Rs. {this.props.Cardcontent.discountPrice}</div></div>: <div className = "onlyprice">Rs. {this.props.Cardcontent.price}</div>}                    
+                {/* <p className="cost">Price:{this.props.Cardcontent.price}</p>               
+                <p className="cost">Category:{this.props.Cardcontent.category}</p>               
+                <p className="cost">Type:{this.props.Cardcontent.type}</p>
+                <p className="cost">Brand:{this.props.Cardcontent.brand}</p>  */}
+               
+                
+                
               
-            }}</Query>}
-
+           
+            
+              
+              
+               
+           
+              
+          
             {/* <StarRating   
                 editing={false}
                 renderStarIcon={()=> <i class="fa fa-star fa-1x" aria-hidden="true"></i>}
