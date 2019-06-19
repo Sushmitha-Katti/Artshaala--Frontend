@@ -142,20 +142,78 @@ const CouroselWrapper = styled.div`
     height: 350;
     width: 250px;
     margin: 0rem;
+    border: 1px ridge #8888;
+    text-align:center;
+    cursor: pointer;
+   
+    
+  }
+  .cardimg{
+    position:relative;
   }
 
   img {
-    height: 350px;
-    width: 250px;
-    margin-bottom: 10px;
-    border: 1px ridge #8888;
+    height: 250px;
+    width: 200px;
+   
+    margin : 0px 25px;
     z-index: 10;
   }
+  .amount{
+    text-align:center;
+    
+  }
+  .both{
+    
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0.5rem 3rem;
+    .actual{
+      color: grey;
+      text-decoration:line-through;
+    }
+    .discounted{
+      color:red;
+    }
+  }
+  .discountpercentage{
+    float:right;
+    margin: 1rem 1rem 0rem 0rem;
+    background: #f7bb2f;
+    height:15px;
+    width:80px;
+    margin-right:0.5rem;
+    margin-top: 1rem;
+    position:absolute;
+    z-index:20;
+    right:0;
+    border-radius:10px;
+    padding:5px 0px;
+    font-size:0.8rem;
+    font-weight:bold;
 
-  .rating {
-    display: grid;
-    grid-template-columns:1fr 1fr;
+  }
+
+  .name{
+    max-width: 20ch;
+    text-overflow: ellipsis;
+     white-space: nowrap; 
+    overflow: hidden;
+    text-align:center;
+    padding: 0rem 1.1rem;
+   
+  }
+  .onlyprice{
+    margin: 0.5rem 3rem;
+  }
+
+  .ratingcards {
+ 
+    
+   
     width:100%;
+    margin:0rem 1rem;
+  
     
    
    

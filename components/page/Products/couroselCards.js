@@ -11,6 +11,7 @@ const Flexcards = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 `;
 
 
@@ -21,9 +22,9 @@ const RELATED_PRODUCTS_QUERY= gql `
       title
       images
       type
-      brand
+      discount
       price
-      category
+      discountPrice
       AvgRating
   }
   }
@@ -50,64 +51,6 @@ const RELATED_PRODUCTS_QUERY= gql `
 
 
 
-let properties = [
-  {
-    id: 1,
-    name: "GuitarNameGuitarName",
-    stars: 4,
-    amount: 2000,
-    img: { guitar },
-    rating: 3
-  },
-  {
-    name: "GuitarNameGuitarName",
-    id: 2,
-    stars: 4,
-    amount: 2000,
-    img: { guitar },
-    rating: 4
-  },
-  {
-    name: "GuitarNameGuitarName",
-    id: 3,
-    stars: 4,
-    amount: 2000,
-    img: { guitar },
-    rating: 4
-  },
-  {
-    name: "GuitarNameGuitarName",
-    id: 4,
-    stars: 4,
-    amount: 2000,
-    img: { guitar },
-    rating: 4
-  },
-  {
-    name: "GuitarNameGuitarName",
-    id: 5,
-    stars: 4,
-    amount: 2000,
-    img: { guitar },
-    rating: 4
-  },
-  {
-    name: "GuitarNameGuitarName",
-    id: 6,
-    stars: 4,
-    amount: 2000,
-    img: { guitar },
-    rating: 4
-  },
-  {
-    name: "GuitarNameGuitarName",
-    id: 7,
-    stars: 4,
-    amount: 2000,
-    img: { guitar },
-    rating: 4
-  }
-];
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -150,7 +93,7 @@ class CouroselCards extends Component {
     const settings = {
       infinite: true,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: 2,
       slidesToScroll: 1,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
@@ -158,7 +101,7 @@ class CouroselCards extends Component {
         {
           breakpoint: 800,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 4,
             slidesToScroll: 1,
             infinite: true
           }
@@ -201,14 +144,7 @@ let Courosels = data.items.map(property => (
 ));
 return (
   <Cards>
-    <div className="title">
-      <span className="line"> </span>
-      <span>
-        <h3>Best Sellers</h3>
-        
-      </span>
-      <span className="line"> </span>
-    </div>
+   
     <Slider {...settings}>{Courosels}</Slider>
   </Cards>
  
