@@ -50,22 +50,16 @@ class ReviewPage extends Component {
                 this.setState({ comment: "", rating: 0});
                 alert("Successfully reviewd a product")
                 }
-                
               }}
             >
-              <UserReviews>
-                
-                <div className='content'>
-                
+              <UserReviews>                
+                <div className='content'>                
                 <label htmlFor="description">
-                <div className = "flexbox">
-                    
+                <div className = "flexbox">                    
                     <div className = "comments">
                         <p>How did you feel about this item?</p>
                         <textarea onChange={this.saveToState} id="description" name="comment" placeholder="Help other to know about this item.."  ></textarea>
                     </div>
-
-
                     <div className= "ratings"><p>Rate this item</p>
                     <fieldset class="userrating" >
                         <input type="radio" id="star5" name="rating" value="5" onChange={this.saveToState} /><label className = "full" for="star5" ></label>
@@ -78,18 +72,15 @@ class ReviewPage extends Component {
                         {/* <input type="radio" id="star1half" name="rating" value="1.5" onChange={this.saveToState} /><label className="half" for="star1half" ></label> */}
                         <input type="radio" id="star1" name="rating" value="1" onChange={this.saveToState} /><label className = "full" for="star1" ></label>
                         {/* <input type="radio" id="starhalf" name="rating" value="0.5" onChange={this.saveToState} /><label className="half" for="starhalf" ></label> */}
-
-                        
                     </fieldset><br></br><br></br>
                     {!this.state.rating && <div><p style={{ color: "red", fontSize:"0.6rem" }}>!  Please select a star rating</p></div>}
-                       
-
-
-                        <div >
+                    <div >
                             <input className="submitbutton" type="submit" value = "Submit"/>
-                        </div>
-                      </label>
                     </div>
+                    </div>
+                  
+                </div>
+                </label></div>
                   </UserReviews>
                 </form>
               )}

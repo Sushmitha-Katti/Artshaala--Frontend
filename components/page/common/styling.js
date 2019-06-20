@@ -245,7 +245,7 @@ const Style = styled.div`
  display:grid;
  grid-template-columns:1fr 1fr 1fr 1fr; 
  grid-template-areas:"1st 2nd 3rd 4th";
- grid-gap:40px;
+ grid-gap:0px;
  margin-left:0px;
  margin-right:0px;
 
@@ -279,7 +279,7 @@ img4{
     
 }
 
-@media (max-width:320px)  {
+@media (max-width:380px)  {
   display:grid;
   grid-template-columns:1fr; 
   grid-template-areas:"1st"
