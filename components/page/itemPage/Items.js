@@ -230,6 +230,11 @@ class Items extends Component {
           //     : ALL_ITEMS_QUERY
           // }
 
+
+
+
+
+          
 //query={this.props.type?(this.props.category?(this.props.type? TYPE_ITEMS_QUERY: CATEGORY_ITEMS_QUERY) : TYPE_ITEMS_QUERY):(this.props.category? CATEGORY_ITEMS_QUERY : ALL_ITEMS_QUERY)}
  //query = {this.props.type&&this.props.category? ITEMS_QUERY:(this.props.category && !this.props.type?CATEGORY_ITEMS_QUERY:ALL_ITEMS_QUERY)}      
  query = {this.props.category? (this.props.type?ITEMS_QUERY:CATEGORY_ITEMS_QUERY):ALL_ITEMS_QUERY }     
@@ -248,8 +253,10 @@ class Items extends Component {
             skip: this.props.page * perPage - perPage,
             first: perPage
           }} // skip the first n item and display the the next m items. m specified in first:m
+
+          
         >
-          {({ data, error, loading,refetch }) => {
+          {({ data, error, loading }) => {
             // console.log("*******************************",this.props.brand?this.props.brand:"");
             // console.log("data",data.items)
              
