@@ -9,3 +9,23 @@ module.exports = withImages({
     return config;
   }
 });
+
+// const withCSS = require('@zeit/next-css');
+// module.exports = withCSS({
+
+//   webpack: config => {
+//     config.node = {
+
+//      cssModule
+//     :true
+
+    
+
+
+//     }
+    
+
+// return config;
+// }
+// });
+

@@ -6,8 +6,8 @@ import RemoveContact from "./deletecontact";
 import Link from "next/link";
 
 const ALL_CONTACTS_QUERY = gql`
-  query ALL_CONTACTS_QUERY($status: ContactStatus) {
-    contacts(status: $status) {
+  query ALL_CONTACTS_QUERY($orderBy: ContactOrderByInput) {
+    contacts(orderBy: $orderBy) {
         id
         email
         phone
@@ -78,22 +78,22 @@ const ItemsStyle = styled.div`
 const Notification = (props) => (
   <Query query={ALL_CONTACTS_QUERY}
   variables={{
-    status: props.query.status
+    orderBy : props.query.orderBy
   }}
   >
     {({ data,error, loading }) => {
       if(loading) return<p> loading</p>
-      if(error) return<p>{error.message.split(':')[1]}</p>
+      if(error) return<p>{error.message}</p>
 
-      let { contacts } = data;
+      let {contacts} = data;
       console.log(contacts);
 
       return (
         <div>
           <ItemsList>
           <div className = "queries">
-          <Link href={{pathname:'/notification', query:{status: 'PENDING'}}}><a>PENDING</a></Link>
-          <Link href={{pathname:'/notification', query:{status: 'DONE'}}}><a>CONTACTED</a></Link>
+          <Link href={{pathname:'/notification', query:{orderBy: 'status_DESC'}}}><a>PENDING</a></Link>
+          <Link href={{pathname:'/notification', query:{orderBy: 'status_ASC'}}}><a>CONTACTED</a></Link>
           <Link href={{pathname:'/notification'}}><a>ALL</a></Link>
           </div>
             <div style={{ textAlign: "center" }}>

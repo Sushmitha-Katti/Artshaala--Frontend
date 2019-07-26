@@ -88,7 +88,7 @@ class CreateItemPage extends Component {
   // Function is called by all input fields in form except image field
   saveToState = e => {
     const { name, type, value } = e.target;
-    const val = type === "number" ? parseFloat(value) : value;
+    const val = type === "float " ? parseFloat(value) : value;
     this.setState({ [name]: val });
   };
 

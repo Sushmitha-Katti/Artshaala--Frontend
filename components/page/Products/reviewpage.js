@@ -4,63 +4,36 @@ import gql from "graphql-tag";
 import styled from "styled-components";
 import Router from "next/router";
 //import {Form} from "../../test/signuppage.js";
-import {Body,BlueText,Button,Collapsial,UserReviews}  from './style';
+import { Body, BlueText, Button, Collapsial, UserReviews } from "./style";
 import User from "../../test/User";
-
-
 
 const CREATE_REVIEW_MUTATION = gql`
   mutation CREATE_REVIEW_MUTATION(
     $comment: String!
     $rating: Float!
-    $itemid:ID!
-    
-    
-    
-
+    $itemid: ID!
   ) {
-    createComment(
-      comment: $comment
-      rating: $rating
-      itemid: $itemid
-      
-     
-    ) {
+    createComment(comment: $comment, rating: $rating, itemid: $itemid) {
       id
     }
   }
 `;
 
-
-
 class ReviewPage extends Component {
   state = {
     comment: "",
     rating: 0,
-
-    itemid: this.props.id,
-
-
-   
+    itemid: this.props.id
   };
   saveToState = e => {
     const { name, type, value } = e.target;
     const val = type === "radio" ? parseFloat(value) : value;
     this.setState({ [name]: val });
   };
-  
-    
-    render() {
-     
-      return (
-        <User>
-        {( {data: me},error, loading) => {
-           
-         
-          console.log("calling Me ")
-          console.log(me);
-
-
+  render() {
+    return (
+      <User>
+        {({ data: me }, error, loading) => {
           return (
         <Mutation mutation={CREATE_REVIEW_MUTATION} variables={this.state}>
           {(creatComment, { error, loading }) => (
@@ -70,35 +43,23 @@ class ReviewPage extends Component {
                 //stop submitting form
                 e.preventDefault();
                 //call the mutation
-        
-
-                 if(this.state.rating){
-                   
-                 
-                
-
+                if(this.state.rating){
                 const res = await creatComment().catch((error) => alert(error))
                 //change the mutation to the single item page
                 console.log(res);
                 this.setState({ comment: "", rating: 0});
                 alert("Successfully reviewd a product")
                 }
-                
               }}
             >
-              <UserReviews>
-                
-                <div className='content'>
-                
+              <UserReviews>                
+                <div className='content'>                
                 <label htmlFor="description">
-                <div className = "flexbox">
-                    
+                <div className = "flexbox">                    
                     <div className = "comments">
                         <p>How did you feel about this item?</p>
                         <textarea onChange={this.saveToState} id="description" name="comment" placeholder="Help other to know about this item.."  ></textarea>
                     </div>
-
-
                     <div className= "ratings"><p>Rate this item</p>
                     <fieldset class="userrating" >
                         <input type="radio" id="star5" name="rating" value="5" onChange={this.saveToState} /><label className = "full" for="star5" ></label>
@@ -111,33 +72,24 @@ class ReviewPage extends Component {
                         {/* <input type="radio" id="star1half" name="rating" value="1.5" onChange={this.saveToState} /><label className="half" for="star1half" ></label> */}
                         <input type="radio" id="star1" name="rating" value="1" onChange={this.saveToState} /><label className = "full" for="star1" ></label>
                         {/* <input type="radio" id="starhalf" name="rating" value="0.5" onChange={this.saveToState} /><label className="half" for="starhalf" ></label> */}
-
-                        
                     </fieldset><br></br><br></br>
                     {!this.state.rating && <div><p style={{ color: "red", fontSize:"0.6rem" }}>!  Please select a star rating</p></div>}
-                       
-
-
-                        <div >
+                    <div >
                             <input className="submitbutton" type="submit" value = "Submit"/>
-                        </div>
                     </div>
-                    <div></div>
+                    </div>
+                  
                 </div>
-              
-              </label>
-                
-                </div>
-            </UserReviews>
-            </form>
-          )}
-        </Mutation>
-             );
-            }}
-          </User>
-      );
-    }
+                </label></div>
+                  </UserReviews>
+                </form>
+              )}
+            </Mutation>
+          );
+        }}
+      </User>
+    );
   }
-  
-  export default ReviewPage;
-  
+}
+
+export default ReviewPage;

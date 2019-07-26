@@ -7,9 +7,9 @@ import Navtest from "../components/test/navtest";
 const Admin = (props) => (
     <div>
       <Head title="Admin" />
-      <Navtest/>
+    
 
-      <Notification {...props}/>
+      
 
     
     </div>

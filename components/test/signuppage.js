@@ -134,6 +134,7 @@ class Signup extends Component {
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signup, { error, loading }) => (
+          <fieldset disabled={loading} aria-busy={loading}>
           <Form
             method="post"
             onSubmit={async e => {
@@ -145,7 +146,7 @@ class Signup extends Component {
               });
             }}
           >
-            <fieldset disabled={loading} aria-busy={loading}>
+            
             <div className = "centered">
               <h2>Create Account</h2>
             </div>
@@ -195,8 +196,9 @@ class Signup extends Component {
               </div>
               <br></br>
              
-            </fieldset>
+            
           </Form>
+          </fieldset>
         )}
       </Mutation>
     );
